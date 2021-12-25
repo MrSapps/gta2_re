@@ -9,8 +9,11 @@ add_library (Source
     Source/winmain.cpp
     Source/error.hpp
     Source/error.cpp
+    Source/chunk.hpp
     Source/debug.hpp
     Source/debug.cpp
+    Source/text_0x14.hpp
+    Source/text_0x14.cpp
     Source/root_sound.hpp
     Source/root_sound.cpp
     Source/angry_lewin_0x85C.hpp

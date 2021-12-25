@@ -6,6 +6,7 @@
 #include "Source/sharp_bose_0x54.hpp"
 #include "source/lucid_hamilton.hpp"
 #include "Source/winmain.hpp"
+#include "Source/text_0x14.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -102,11 +103,18 @@ void test_winmain()
     ErrorMsgBox_5E4EC0("meh");
 }
 
+void test_text_0x14()
+{
+    text_0x14 t;
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
                      int       nCmdShow)
  {
+    test_text_0x14();
+
     /*
     test_registry();
     test_file();

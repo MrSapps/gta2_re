@@ -1,6 +1,7 @@
 #include "gtx_0x106C.hpp"
 #include "error.hpp"
 #include "file.hpp"
+#include "chunk.hpp"
 #include <string.h>
 #include <stdio.h>
 #include <windows.h>
@@ -9,12 +10,6 @@ struct sty_header
 {
     char field_0_type[4];
     short field_4_version;
-};
-
-struct chunk_header
-{
-    char field_0_type[4];
-    int field_4_size;
 };
 
 // match
