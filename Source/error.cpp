@@ -2273,15 +2273,16 @@ void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
         int va_1 = va_arg(va, int );
         int va_2 = va_arg(va, int );
 
-        int coords[6];
-
+        int coords[3];
+        int coords1[3];
         coords[0] = *va_arg(va, int *);
         coords[1] = *va_arg(va, int *);
         coords[2] = *va_arg(va, int *);
 
-        coords[3] = *va_arg(va, int *);
-        coords[4] = *va_arg(va, int *);
-        coords[5] = *va_arg(va, int *);
+       
+        coords1[0] = *va_arg(va, int *);
+        coords1[1] = *(int *)va_arg(va, int *);
+        coords1[2] = *va_arg(va, int *);
 
         sprintf(
             gTmpBuffer_67C598,
@@ -2289,9 +2290,9 @@ void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
             coords[0] / 16384.0f,
             coords[1] / 16384.0f,
             coords[2] / 16384.0f,
-            coords[3] / 16384.0f,
-            coords[4] / 16384.0f,
-            coords[5] / 16384.0f,
+            coords1[0] / 16384.0f,
+            coords1[1] / 16384.0f,
+            coords1[2] / 16384.0f,
             va_1,
             va_2);
     }
