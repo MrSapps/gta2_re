@@ -286,16 +286,18 @@ int ReadScreenSettings_5D8F70()
     startMode = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
     gStartMode_626A0C = startMode;
 
-    if (gBufferMode_706B34)
+    if (gBufferMode_706B34 == 0)
+    {
+        trippleBuffer = 1;
+        bTrippleBuffer_706C54 = 1;
+    }
+    else
     {
         trippleBuffer = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
         startMode = gStartMode_626A0C;
         bTrippleBuffer_706C54 = trippleBuffer;
-    }
-    else
-    {
-        trippleBuffer = 1;
-        bTrippleBuffer_706C54 = 1;
+
+       
     }
 
     if (startMode == startMode_old && trippleBuffer == trippleBuffer_old)
