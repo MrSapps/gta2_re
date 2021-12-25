@@ -91,3 +91,8 @@ infallible_turing* root_sound::sub_40EF40(infallible_turing *a2, int a3)
 
     return pTuring;
 }
+
+char root_sound::GetAudioDriveLetter_40F150()
+{
+    return gSampManager_6FFF00.field_4_gtaAudioDriveLetter;
+}
