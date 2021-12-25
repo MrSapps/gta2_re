@@ -974,23 +974,21 @@ void laughing_blackwell_0x1EB54::sub_4B4440()
 
 void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
 {
-    admiring_euler_4* pIter = this->field_EDE8_plySlots;
-    for (BYTE i = 0; i < 8; i++)
+    char FileName[256];
+    for (unsigned int i = 0; i < 8; i++)
     {
         if (PlySlotSvgExists_4B5370(i))
         {
-            char FileName[256];
             GetPlySlotSvgName_4B51D0(i, FileName);
-            pIter->LoadPlySlotSvg_4B6480(FileName);
+            field_EDE8_plySlots[i].LoadPlySlotSvg_4B6480(FileName);
         }
         else
         {
-            pIter->field_0 = 0;
-            pIter->field_1 = 3;
-            pIter->field_2 = 4;
-            pIter->field_3 = 0;
+            field_EDE8_plySlots[i].field_0 = 0;
+            field_EDE8_plySlots[i].field_1 = 3;
+            field_EDE8_plySlots[i].field_2 = 4;
+            field_EDE8_plySlots[i].field_3 = 0;
         }
-        ++pIter;
     }
 }
 
