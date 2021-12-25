@@ -974,19 +974,13 @@ void laughing_blackwell_0x1EB54::sub_4B4440()
 
 void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
 {
-    unsigned __int8 k8Counter; // bl
-    admiring_euler_4 *pIter; // esi
-    BYTE idx; // [esp+10h] [ebp-104h]
-    char FileName[256]; // [esp+14h] [ebp-100h] BYREF
-
-    k8Counter = 0;
-    idx = 0;
-    pIter = this->field_EDE8_plySlots;
-    do
+    admiring_euler_4* pIter = this->field_EDE8_plySlots;
+    for (BYTE i = 0; i < 8; i++)
     {
-        if (PlySlotSvgExists_4B5370(idx))
+        if (PlySlotSvgExists_4B5370(i))
         {
-            GetPlySlotSvgName_4B51D0(idx, FileName);
+            char FileName[256];
+            GetPlySlotSvgName_4B51D0(i, FileName);
             pIter->LoadPlySlotSvg_4B6480(FileName);
         }
         else
@@ -994,12 +988,10 @@ void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
             pIter->field_0 = 0;
             pIter->field_1 = 3;
             pIter->field_2 = 4;
-            //pIter->field_3 = 0;
+            pIter->field_3 = 0;
         }
-        ++k8Counter;
         ++pIter;
-        idx = k8Counter;
-    } while (k8Counter < 8u);
+    }
 }
 
 // match
