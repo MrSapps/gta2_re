@@ -976,173 +976,173 @@ void sound_obj::sub_418CA0()
         {
         case 9:
             voc_idx = 0;
-            goto play_it;
+            break;
         case 10:
             voc_idx = 1;
-            goto play_it;
+            break;
         case 17:
             voc_idx = 2;
-            goto play_it;
+            break;
         case 7:
             voc_idx = 3;
-            goto play_it;
+            break;
         case 6:
             voc_idx = 4;
-            goto play_it;
+            break;
 
         case 8:
             voc_idx = 5;
-            goto play_it;
+            break;
         case 4:
             voc_idx = 6;
-            goto play_it;
+            break;
         case 18:
             voc_idx = 8;
-            goto play_it;
+            break;
         case 19:
             voc_idx = 9;
-            goto play_it;
+            break;
         case 20:
             voc_idx = 10;
-            goto play_it;
+            break;
         case 5:
             voc_idx = 12;
-            goto play_it;
+            break;
         case 2:
             voc_idx = 13;
-            goto play_it;
+            break;
         case 1:
             voc_idx = 14;
-            goto play_it;
+            break;
 
         case 22:
             voc_idx = 15;
-            goto play_it;
+            break;
         case 23:
             voc_idx = 16;
-            goto play_it;
+            break;
         case 12:
             voc_idx = 17;
-            goto play_it;
+            break;
         case 11:
             voc_idx = 18;
-            goto play_it;
+            break;
         case 24:
             voc_idx = 19;
-            goto play_it;
+            break;
         case 25:
             voc_idx = 20;
-            goto play_it;
+            break;
         case 26:
             voc_idx = 21;
-            goto play_it;
+            break;
         case 27:
             voc_idx = 22;
-            goto play_it;
+            break;
         case 28:
             voc_idx = 23;
-            goto play_it;
+            break;
         case 29:
             voc_idx = 24;
-            goto play_it;
+            break;
         case 3:
             voc_idx = 25;
-            goto play_it;
+            break;
 
         case 30:
             voc_idx = 26;
-            goto play_it;
+            break;
 
         case 33:
             voc_idx = 55;
-            goto play_it;
+            break;
         case 34:
             voc_idx = 56;
-            goto play_it;
+            break;
         case 35:
             voc_idx = 57;
-            goto play_it;
+            break;
         case 36:
             voc_idx = 58;
-            goto play_it;
+            break;
         case 37:
             voc_idx = 59;
-            goto play_it;
+            break;
         case 38:
             voc_idx = 60;
-            goto play_it;
+            break;
         case 39:
             voc_idx = 61;
-            goto play_it;
+            break;
         case 40:
             voc_idx = 62;
-            goto play_it;
+            break;
         case 41:
             voc_idx = 63;
-            goto play_it;
+            break;
         case 42:
             voc_idx = 64;
-            goto play_it;
+            break;
         case 43:
             voc_idx = 65;
-            goto play_it;
+            break;
         case 44:
             voc_idx = 66;
-            goto play_it;
+            break;
         case 45:
             voc_idx = 67;
-            goto play_it;
+            break;
         case 46:
             voc_idx = 68;
-            goto play_it;
+            break;
         case 47:
             voc_idx = 69;
-            goto play_it;
+            break;
         case 48:
             voc_idx = 70;
-            goto play_it;
+            break;
         case 49:
             voc_idx = 71;
-            goto play_it;
+            break;
         case 50:
             voc_idx = 72;
-            goto play_it;
+            break;
         case 51:
             voc_idx = 73;
-            goto play_it;
+            break;
         case 52:
             voc_idx = 74;
-            goto play_it;
+            break;
         case 53:
             voc_idx = 75;
-            goto play_it;
+            break;
         case 54:
             voc_idx = 76;
-            goto play_it;
+            break;
         case 55:
             voc_idx = 77;
-            goto play_it;
+            break;
         case 56:
             voc_idx = 78;
-            goto play_it;
+            break;
         case 57:
             voc_idx = 79;
-            goto play_it;
+            break;
         case 58:
             voc_idx = 80;
-            goto play_it;
+            break;
         case 59:
             voc_idx = 81;
-            goto play_it;
+            break;
         case 60:
             voc_idx = 82;
-            goto play_it;
+            break;
         case 61:
             voc_idx = 83;
-            goto play_it;
+            break;
         case 62:
             voc_idx = 84;
-            goto play_it;
+            break;
 
         case 31:
         case 32:
