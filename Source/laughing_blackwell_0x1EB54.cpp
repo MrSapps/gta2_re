@@ -1422,6 +1422,28 @@ loving_borg_0xBCA::~loving_borg_0xBCA()
     field_BC8 = 0;
 }
 
+bool loving_borg_0xBCA::sub_4B61B0()
+{
+    unsigned __int16 field_BC6_nifty_idx; // dx
+    unsigned __int16 v2; // si
+
+    field_BC6_nifty_idx = this->field_BC6_nifty_idx;
+    v2 = field_BC6_nifty_idx;
+    do
+    {
+        if (field_BC6_nifty_idx)
+        {
+            this->field_BC6_nifty_idx = field_BC6_nifty_idx - 1;
+        }
+        else
+        {
+            this->field_BC6_nifty_idx = this->field_0 - 1;
+        }
+        field_BC6_nifty_idx = this->field_BC6_nifty_idx;
+    } while (!this->field_B8A[field_BC6_nifty_idx].field_4);
+    return v2 != field_BC6_nifty_idx;
+}
+
 competent_noyce_0x6E::competent_noyce_0x6E()
 {
     field_0 = 0;
