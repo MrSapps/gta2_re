@@ -763,7 +763,7 @@ int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
     
 }
 
-void sound_obj::FreeSoundEntry_41A090(int idx)
+void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 {
     vigilant_maxwell *pMaxwell; // ebx
     infallible_turing *pTuring; // eax

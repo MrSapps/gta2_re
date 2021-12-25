@@ -295,7 +295,7 @@ public:
 
     int AddSoundObject_419FA0(infallible_turing* a2);
 
-    void FreeSoundEntry_41A090(int a2);
+    void FreeSoundEntry_41A090(unsigned int a2);
 
     void Release_41A290();
 
