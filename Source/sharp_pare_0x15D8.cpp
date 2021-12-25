@@ -248,34 +248,31 @@ void festive_hopper::sub_5B8F70()
     if (this->field_10_bDoFree)
     {
         pal_idx = 0;
-        v8 = this->field_4_item_alloc_count / this->field_6_count;
+        v8 = field_4_item_alloc_count / field_6_count;
         if (v8 > 0)
         {
             do
             {
-                converted_pal_sprite_pal = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(
-                    this->field_8_pal_type,
-                    pal_idx);
+                converted_pal_sprite_pal = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(field_8_pal_type, pal_idx);
                 pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(converted_pal_sprite_pal);
-                ++dword_704ED0;
-                for (texture_idx=0; texture_idx < field_6_count;  texture_idx++)
-                //if (this->field_6_count)
+                
+                dword_704ED0++;
+
+                for (texture_idx = 0; texture_idx < field_6_count; texture_idx++)
                 {
-                    //do
-                    //{
-                        converted_pal_idx = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(
-                            this->field_C_pal_type,
-                            texture_idx);
-                        phys_pal_5AA6F0 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(converted_pal_idx);
-                        *((DWORD *)&this->field_0_pAlloc[texture_idx] + pal_idx * this->field_6_count) = (DWORD)gbh_RegisterTexture(
-                            pSpriteIndex->field_4_width,
-                            pSpriteIndex->field_5_height,
-                            pSpriteIndex->field_0_pData,
-                            phys_pal_5AA6F0,
-                            1);
-                        ++dword_704F28;
-                    //} while (texture_idx < this->field_6_count);
+                    converted_pal_idx = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(field_C_pal_type, texture_idx);
+
+                    phys_pal_5AA6F0 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(converted_pal_idx);
+                    field_0_pAlloc[texture_idx + (pal_idx * field_6_count)] = gbh_RegisterTexture(
+                        pSpriteIndex->field_4_width,
+                        pSpriteIndex->field_5_height,
+                        pSpriteIndex->field_0_pData,
+                        phys_pal_5AA6F0,
+                        1);
+
+                    dword_704F28++;
                 }
+
                 ++pal_idx;
             } while (pal_idx < v8);
         }
