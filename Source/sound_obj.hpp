@@ -97,7 +97,7 @@ struct sound_0x68
     char field_42;
     char field_43;
     int field_44;
-    int field_48;
+    unsigned int field_48;
     int field_4C;
     char field_50;
     char field_51;
