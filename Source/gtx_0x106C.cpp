@@ -16,13 +16,13 @@ struct sty_header
 };
 
 // match
-car_info* gtx_0x106C::sub_5AA3B0(unsigned __int8 idx)
+car_info* gtx_0x106C::get_car_info_5AA3B0(unsigned __int8 idx)
 {
     return field_5C_cari->field_0[idx];
 }
 
 // match
-BYTE* gtx_0x106C::sub_5AA3D0(unsigned __int8 idx)
+BYTE* gtx_0x106C::get_car_remap_5AA3D0(unsigned __int8 idx)
 {
     car_info* pCarInfo = field_5C_cari->field_0[idx];
     return &pCarInfo->remap[pCarInfo->num_remaps];

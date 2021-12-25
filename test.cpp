@@ -37,8 +37,8 @@ void test_file()
 void test_gtx_0x106C()
 {
     gtx_0x106C c;
-    c.sub_5AA3B0(0);
-    c.sub_5AA3D0(0);
+    c.get_car_info_5AA3B0(0);
+    c.get_car_remap_5AA3D0(0);
     c.get_sprite_index_5AA440(0);
     c.convert_sprite_pal_5AA460(0, 0);
     c.sub_5AA4F0(0);

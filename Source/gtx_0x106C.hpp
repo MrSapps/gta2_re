@@ -113,9 +113,9 @@ struct delta_store_entry
 class gtx_0x106C
 {
 public:
-    car_info* sub_5AA3B0(unsigned __int8 idx);
+    car_info* get_car_info_5AA3B0(unsigned __int8 idx);
 
-    BYTE* sub_5AA3D0(unsigned __int8 idx);
+    BYTE* get_car_remap_5AA3D0(unsigned __int8 idx);
 
     sprite_index* get_sprite_index_5AA440(unsigned __int16 idx);
 
