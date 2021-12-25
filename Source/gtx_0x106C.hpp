@@ -189,7 +189,7 @@ public:
 
     void load_font_base_5AB0F0(int fonb_chunk_size);
 
-    WORD ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, int offsetsCount);
+    WORD ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
 
     void ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len);
 

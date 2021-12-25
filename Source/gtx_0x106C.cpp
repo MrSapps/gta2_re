@@ -550,10 +550,11 @@ void gtx_0x106C::load_font_base_5AB0F0(int fonb_chunk_size)
     UNIQUE_FUNC;
 }
 
-WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, int offsetsCount)
+// match
+WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount)
 {
     WORD total = 0;
-    while(offsetsCount )
+    while(offsetsCount >0 ) // jbe vs jz due to missing > 0 and signed vs unsigned
     {
         // note: mov si, [ecx] also did xor esi, esi because
         // total was 32bits not 16bits, then an additional bitmask of 0xFFFF was done
