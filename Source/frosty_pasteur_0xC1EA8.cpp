@@ -33,7 +33,7 @@ void frosty_pasteur_0xC1EA8::LoadStringTbl_5121E0(unsigned __int16 tableSize)
 
 }
 
-// stub
+// match
 void frosty_pasteur_0xC1EA8::GetScrFileName_5122D0()
 {
     const char * pSlashPos = strrchr(field_35C_full_scr_file_name, '\\');
@@ -46,18 +46,20 @@ void frosty_pasteur_0xC1EA8::GetScrFileName_5122D0()
         unsigned int lenAfterSlash = strlen(pSlashPos);
         if (lenAfterSlash)
         {
-            while (pSlashPos[lenAfterSlash] != '.')
+            for (;;)
             {
-                lenAfterSlash--;
                 if (lenAfterSlash == 0)
                 {
                     return;
                 }
-            }
 
-            if (lenAfterSlash)
-            {
-                strncpy(field_45C_scr_file_name, pSlashPos, lenAfterSlash);
+                if (pSlashPos[lenAfterSlash] == '.')
+                {
+                    strncpy(field_45C_scr_file_name, pSlashPos, lenAfterSlash);
+                    return;
+                }
+
+                lenAfterSlash--;
             }
         }
     }
