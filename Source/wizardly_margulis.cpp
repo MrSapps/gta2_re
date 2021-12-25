@@ -156,7 +156,7 @@ wizardly_margulis::wizardly_margulis()
 
     field_4_gtaAudioDriveLetter = 0;
 
-    field_5_str[80] = 0;
+    field_55_bMusicLoaded = false;
 
     unsigned int driveLetter = 'C';
     while (driveLetter <= 'Z')
@@ -175,7 +175,7 @@ wizardly_margulis::wizardly_margulis()
         if (hFile)
         {
             fclose(hFile);
-            field_5_str[80] = 1;
+            field_55_bMusicLoaded = true;
             field_4_gtaAudioDriveLetter = driveLetter;
             break;
         }
@@ -321,7 +321,7 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 // match
 bool wizardly_margulis::StreamStatus_58E2C0()
 {
-    if (field_5_str[80])
+    if (field_55_bMusicLoaded)
     {
         if (field_9C_hStreams[0])
         {
@@ -382,7 +382,7 @@ void wizardly_margulis::Shutdown_58DB30()
     {
         if (i == 0)
         {
-            if (field_5_str[80])
+            if (field_55_bMusicLoaded)
             {
                 if (field_9C_hStreams[0])
                 {
@@ -774,7 +774,7 @@ void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
 // match
 void wizardly_margulis::StreamSetVolume_58E2F0(unsigned __int8 vol)
 {
-    if (field_5_str[80])
+    if (field_55_bMusicLoaded)
     {
         if (field_9C_hStreams[0])
         {
@@ -789,7 +789,7 @@ const char dma_wav_5FF5D8[3][6] = { "d.wav", "m.wav", "a.wav" };
 void wizardly_margulis::OpenStream_58E320(unsigned int a2)
 {
     char wavPath[80];
-    if (this->field_5_str[80])
+    if (field_55_bMusicLoaded)
     {
         if (!this->field_9C_hStreams[0] && a2 < 3)
         {
@@ -822,7 +822,7 @@ void wizardly_margulis::OpenStream_58E320(unsigned int a2)
 // match
 void wizardly_margulis::CloseStream_58E460()
 {
-    if (field_5_str[80])
+    if (field_55_bMusicLoaded)
     {
         if (field_9C_hStreams[0])
         {
@@ -835,7 +835,7 @@ void wizardly_margulis::CloseStream_58E460()
 // match
 void wizardly_margulis::FadeOut_58E490()
 {
-    if (field_5_str[80] && field_9C_hStreams[0])
+    if (field_55_bMusicLoaded && field_9C_hStreams[0])
     {
         unsigned __int8 cur_vol = AIL_stream_volume(field_9C_hStreams[0]);
         if (cur_vol > 0)
@@ -858,13 +858,13 @@ void wizardly_margulis::FadeOut_58E490()
 // match
 char wizardly_margulis::GetAudioFileName_58E500()
 {
-    return field_5_str[80]; // todo: actually a flag
+    return field_55_bMusicLoaded;
 }
 
 // match
 void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
 {
-    if (stream_idx || field_5_str[80])
+    if (stream_idx || field_55_bMusicLoaded)
     {
         if (field_9C_hStreams[stream_idx])
         {

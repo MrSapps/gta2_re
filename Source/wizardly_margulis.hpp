@@ -143,7 +143,9 @@ public:
 
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;
-    char field_5_str[83]; // todo 80 is a flag/end of str ??
+    char field_5_str[80];
+    bool field_55_bMusicLoaded;
+    short field_56_pad;
     HSAMPLE field_58_hSamples[16];
     HSAMPLE field_98_hSample;
     HSTREAM field_9C_hStreams[2];
