@@ -3760,7 +3760,7 @@ void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
 }
 
 // stub
-const wchar_t *__stdcall sub_5D8A10(
+const wchar_t *__stdcall DrawText_5D8A10(
     const wchar_t *pBuffer,
     int xpos_fp,
     int ypos_fp,
@@ -3775,10 +3775,10 @@ const wchar_t *__stdcall sub_5D8A10(
 }
 
 // match
-const wchar_t *__stdcall sub_4B87A0(const wchar_t *pBuffer, int xpos_fp, int ypos_fp, void *fp3, int fp4)
+const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, int xpos_fp, int ypos_fp, void *fp3, int fp4)
 {
     int local; // [esp+0h] [ebp-4h] BYREF
 
     local = 2;
-    return sub_5D8A10(pBuffer, xpos_fp, ypos_fp, fp3, fp4, &local, 0, 0, 0);
+    return DrawText_5D8A10(pBuffer, xpos_fp, ypos_fp, fp3, fp4, &local, 0, 0, 0);
 }
