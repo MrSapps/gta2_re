@@ -187,22 +187,14 @@ void sharp_pare_0x15D8::FreePals_5B9140()
     field_15D6_pal_count = 0;
 }
 
+// match
 void sharp_pare_0x15D8::LoadPals_5B90F0()
 {
-    __int16 palCount; // ax
-    unsigned __int16 palId; // si
-    BYTE *pPalData; // eax
+    field_15D6_pal_count = gGtx_0x106C_703DD4->get_physical_palettes_len_5AA900();
 
-    palCount = gGtx_0x106C_703DD4->get_physical_palettes_len_5AA900();
-    palId = 0;
-    this->field_15D6_pal_count = palCount;
-    if (palCount)
+    for (unsigned __int16 palId = 0; palId < field_15D6_pal_count; palId++)
     {
-        do
-        {
-            pPalData = gGtx_0x106C_703DD4->GetPalData_5AA6A0(palId);
-            gbh_RegisterPalette(palId++, pPalData);
-        } while (palId < field_15D6_pal_count);
+        gbh_RegisterPalette(palId, gGtx_0x106C_703DD4->GetPalData_5AA6A0(palId));
     }
 }
 
