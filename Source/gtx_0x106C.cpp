@@ -550,12 +550,15 @@ void gtx_0x106C::load_font_base_5AB0F0(int fonb_chunk_size)
     UNIQUE_FUNC;
 }
 
-unsigned int gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount)
+WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, int offsetsCount)
 {
-    unsigned int total = 0;
-    while(offsetsCount)
+    WORD total = 0;
+    while(offsetsCount )
     {
-        total += *pOffsets;
+        // note: mov si, [ecx] also did xor esi, esi because
+        // total was 32bits not 16bits, then an additional bitmask of 0xFFFF was done
+        // because the return value was 32bits rather than 16bits.
+        total += *pOffsets; 
         pOffsets++;
         offsetsCount--;
     }
