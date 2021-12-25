@@ -885,3 +885,104 @@ void sound_obj::Service_419EF0()
         ServiceSoundEffects_41A3A0();
     }
 }
+
+// match
+void sound_obj::ProcessEntity_4123A0(int id)
+{
+    infallible_turing **pAny = &field_147C[id].field_4_pObj;
+    if (!(*pAny)->field_4)
+    {
+        if (!gGame_0x40_67E008 || !field_1478_type5Idx)
+        {
+            goto LABEL_15;
+        }
+
+        if ((*pAny)->field_0_object_type == 3)
+        {
+            sub_57DD50();
+        }
+
+        if (!this->field_1)
+        {
+            switch ((*pAny)->field_0_object_type)
+            {
+            case 1:
+                sub_412740(id);
+                goto LABEL_15;
+            case 6:
+                sub_413760(id);
+                goto LABEL_15;
+            case 7:
+                sub_42A500(id);
+                goto LABEL_15;
+            case 8:
+                sub_412820(id);
+                goto LABEL_15;
+            case 9:
+                sub_412A60(id);
+                goto LABEL_15;
+            case 10:
+                sub_418CA0();
+                goto LABEL_15;
+            case 11:
+                sub_418B60(id);
+                goto LABEL_15;
+            default:
+                return;
+            }
+        }
+        else
+        {
+        LABEL_15:
+            if ((*pAny)->field_0_object_type == 2)
+            {
+                sub_412490(id);
+            }
+        }
+    }
+}
+
+void sound_obj::sub_57DD50()
+{
+    // todo
+}
+
+void sound_obj::sub_412740(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_413760(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_42A500(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_412820(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_412A60(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_418CA0()
+{
+    // todo !
+}
+
+void sound_obj::sub_418B60(int a2)
+{
+    // todo
+}
+
+void sound_obj::sub_412490(int idx)
+{
+    // todo
+}

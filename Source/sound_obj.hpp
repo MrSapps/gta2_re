@@ -303,6 +303,26 @@ public:
 
     void sub_57EA10();
     void Service_419EF0();
+
+    void ProcessEntity_4123A0(int id);
+
+    void sub_57DD50();
+
+    void sub_412740(int a2);
+
+    void sub_413760(int a2);
+
+    void sub_42A500(int a2);
+
+    void sub_412820(int a2);
+
+    void sub_412A60(int a2);
+
+    void sub_418CA0();
+
+    void sub_418B60(int a2);
+
+    void sub_412490(int idx);
 };
 
 extern sound_obj gSound_obj_66F680;
