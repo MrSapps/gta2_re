@@ -238,5 +238,24 @@ void festive_hopper::sub_5B8F70()
 
 void festive_hopper::LoadTextures_5B8F00()
 {
-    // todo
+    if (this->field_10_bDoFree)
+    {
+        unsigned int i = 0;
+        sprite_index *pSpriteIndex;
+        unsigned short tmp;
+        unsigned short t2;
+        while (i < this->field_4_item_alloc_count)
+        {
+            pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(i);
+            tmp = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(2, i);
+            t2 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(tmp);
+
+            this->field_0_pAlloc[i++] = gbh_RegisterTexture(
+                pSpriteIndex->field_4_width,
+                pSpriteIndex->field_5_height,
+                pSpriteIndex->field_0_pData,
+                t2, // pal idx
+                0);
+        }
+    }
 }
