@@ -841,7 +841,7 @@ not_type1_or_2_and_after_fade:
     }
 
     field_543C_444C_max_idx = this->field_543C_444C_max_idx;
-    if (field_543C_444C_max_idx)
+   // if (field_543C_444C_max_idx)
     {
         while (idx_iter < field_543C_444C_max_idx)
         {
