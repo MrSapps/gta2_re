@@ -237,29 +237,20 @@ void festive_hopper::Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5)
 // match
 void festive_hopper::sub_5B8F70()
 {
-    unsigned int pal_idx; // ebp
-    unsigned __int16 converted_pal_sprite_pal; // ax
-    unsigned int texture_idx; // edi
-    sprite_index *pSpriteIndex; // ebx
-    __int16 converted_pal_idx; // ax
-    unsigned __int16 phys_pal_5AA6F0; // ax
-    unsigned int v8; // [esp+0h] [ebp-18h]
-
     if (field_10_bDoFree)
     {
-        v8 = field_4_item_alloc_count / field_6_count;
-        for (pal_idx = 0; pal_idx < v8; pal_idx++)
+        const unsigned int palTotal = field_4_item_alloc_count / field_6_count;
+        for (unsigned int pal_idx = 0; pal_idx < palTotal; pal_idx++)
         {
-            converted_pal_sprite_pal = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(field_8_pal_type, pal_idx);
-            pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(converted_pal_sprite_pal);
+            const unsigned __int16 converted_pal_sprite_pal = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(field_8_pal_type, pal_idx);
+            sprite_index * pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(converted_pal_sprite_pal);
 
             dword_704ED0++;
 
-            for (texture_idx = 0; texture_idx < field_6_count; texture_idx++)
+            for (unsigned int texture_idx = 0; texture_idx < field_6_count; texture_idx++)
             {
-                converted_pal_idx = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(field_C_pal_type, texture_idx);
-
-                phys_pal_5AA6F0 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(converted_pal_idx);
+                const __int16 converted_pal_idx = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(field_C_pal_type, texture_idx);
+                const unsigned __int16 phys_pal_5AA6F0 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(converted_pal_idx);
                 field_0_pAlloc[texture_idx + (pal_idx * field_6_count)] = gbh_RegisterTexture(
                     pSpriteIndex->field_4_width,
                     pSpriteIndex->field_5_height,
