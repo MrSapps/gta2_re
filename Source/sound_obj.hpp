@@ -113,6 +113,7 @@ struct sound_0x68
     int field_64;
 };
 
+struct infallible_turing;
 
 struct sound_obj
 {
@@ -306,6 +307,10 @@ struct sound_obj
     char LoadStyle_41A1B0(const char *pStyleName);
 
     const char* GetFileName_41A1E0(const char *pStr);
+
+
+    int sub_419FA0(infallible_turing* a2);
+
 };
 
 extern sound_obj gSound_obj_66F680;

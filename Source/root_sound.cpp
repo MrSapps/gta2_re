@@ -45,12 +45,12 @@ void root_sound::SetSfxVol_40F0B0(unsigned __int8 cdVol)
 void root_sound::Service_40EFA0()
 {
     // todo
+    //gSound_obj_66F680.Service_419EF0();
 }
 
 int root_sound::sub_40EFB0(infallible_turing* a2)
 {
-    // todo
-    return 0;
+    return gSound_obj_66F680.sub_419FA0(a2);
 }
 
 char root_sound::LoadStyle_40EFF0(const char *pStyleName)

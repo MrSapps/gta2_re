@@ -584,3 +584,9 @@ const char* sound_obj::GetFileName_41A1E0(const char *pStr)
     byte_674E28[total_idx] = 0;
     return result;
 }
+
+int sound_obj::sub_419FA0(infallible_turing* a2)
+{
+    // todo
+    return 0;
+}
