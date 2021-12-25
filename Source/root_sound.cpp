@@ -1,4 +1,6 @@
 #include "root_sound.hpp"
+#include "sound_obj.hpp"
+#include "wizardly_margulis.hpp"
 
 root_sound gRoot_sound_66B038;
 
@@ -70,6 +72,14 @@ void root_sound::Release_40F130()
 
 bool root_sound::sub_40F140()
 {
-    // todo
-    return false;
+    gSound_obj_66F680.field_98 = 1;
+    gSound_obj_66F680.sub_41B700();
+    gSound_obj_66F680.field_98 = 0;
+
+    gSound_obj_66F680.sub_41B700();
+    gSound_obj_66F680.sub_41B7A0();
+
+    gSound_obj_66F680.field_1450 = 0;
+
+    return gWizardly_margulis_6FFF00.sub_58E2A0();
 }

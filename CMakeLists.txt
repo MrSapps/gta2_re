@@ -6,12 +6,17 @@ ENABLE_LANGUAGE(ASM_MASM)
 SET(CMAKE_WARN_VS6 CACHE BOOL OFF)
 
 add_library (Source 
+    Source/3rdParty/mss.h
     Source/winmain.cpp
     Source/error.hpp
     Source/error.cpp
     Source/chunk.hpp
     Source/debug.hpp
     Source/debug.cpp
+    Source/wizardly_margulis.hpp
+    Source/wizardly_margulis.cpp
+    Source/sound_obj.hpp
+    Source/sound_obj.cpp
     Source/dma_video.hpp
     Source/dma_video.cpp
     Source/magical_germain_0x8EC.hpp
