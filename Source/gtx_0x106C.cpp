@@ -203,9 +203,18 @@ unsigned __int16 gtx_0x106C::sub_5AA710(unsigned __int16 a2, __int16 a3)
 
 __int16 gtx_0x106C::sub_5AA760(WORD *a2, WORD *a3)
 {
-    // TODO
-    UNIQUE_FUNC;
-    return 0;
+    unsigned __int16 v3; // ax
+    int v4; // eax
+
+    v3 = *a2;
+    if (*a2 < 0x65u)
+    {
+        return this->field_20_sprite_index[field_14_sprite_base2->field_A_font + sub_5AA710(v3, *a3 - 33)].field_4_width;
+    }
+    v4 = -(v3 < 201u);
+   // LOBYTE(v4) = v4 & 0xF0;
+    v4 = v4 & 0xF0;
+    return v4 + 32;
 }
 
 __int16 gtx_0x106C::sub_5AA7B0(WORD *a2)
@@ -469,8 +478,20 @@ void gtx_0x106C::sub_5AABF0()
 
 void gtx_0x106C::SetSpriteIndexDataPtrs_5AAC40()
 {
-    // TODO
-    UNIQUE_FUNC;
+    unsigned int sprite_idx; // eax
+    sprite_index *field_20_sprite_index; // edx
+    BYTE *field_0_pData; // edi
+    sprite_index *pSpriteIdxIter; // edx
+
+    for (sprite_idx = 0;
+        sprite_idx < (unsigned __int16)this->field_4_sprite_index_count;
+        )
+    {
+        field_20_sprite_index = this->field_20_sprite_index;
+        field_0_pData = field_20_sprite_index[sprite_idx].field_0_pData;
+        pSpriteIdxIter = &field_20_sprite_index[sprite_idx++];
+        pSpriteIdxIter->field_0_pData = &this->field_34_sprite_graphics[(unsigned int)field_0_pData]; // converting offsets to ptrs ??
+    }
 }
 
 void gtx_0x106C::sub_5AAC70()
