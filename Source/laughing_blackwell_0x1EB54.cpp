@@ -1441,14 +1441,10 @@ bool loving_borg_0xBCA::sub_4B61B0()
 
 bool loving_borg_0xBCA::sub_4B6200()
 {
-    unsigned __int16 oldIdx; // di
-    int v3; // esi
-
-    oldIdx = field_BC6_nifty_idx;
-    v3 = field_0 - 1;
+    unsigned __int16 oldIdx = field_BC6_nifty_idx;
     do
     {
-        if (field_BC6_nifty_idx == v3)
+        if (field_BC6_nifty_idx == field_0 - 1)
         {
             field_BC6_nifty_idx = 0;
         }
