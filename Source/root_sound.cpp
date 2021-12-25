@@ -19,20 +19,7 @@ char root_sound::Get3DSound_40F180()
 
 void root_sound::sub_40EF80()
 {
-    // todo
-    /*
-    if (!gSound_obj_66F680.field_0)
-    {
-        gSound_obj_66F680.sub_412240();
-        gSound_obj_66F680.field_0 = gWizardly_margulis_6FFF00.sub_58D6C0(&gSound_obj_66F680.field_5440);
-        if (gSound_obj_66F680.field_0)
-        {
-            gSound_obj_66F680.field_1D_b3d_sound = 0;
-            gSound_obj_66F680.field_10_samp_count2 = 16;
-            gSound_obj_66F680.sub_418C20();
-        }
-    }
-    */
+    gSound_obj_66F680.sub_419E10();
 }
 
 void root_sound::SetCDVol_40F0F0(unsigned int cdVol)

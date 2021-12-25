@@ -506,3 +506,29 @@ void sound_obj::sub_41A6C0(int idx)
     field_147C[idx].field_4_pObj = 0;
     field_147C[idx].field_8 = 0;
 }
+
+void sound_obj::null_412240()
+{
+
+}
+
+void sound_obj::sub_418C20()
+{
+    // todo
+}
+
+// match
+void sound_obj::sub_419E10()
+{
+    if (!field_0)
+    {
+        null_412240();
+        field_0 = gSampManager_6FFF00.SoundInit_58D6C0(&field_5440);
+        if (field_0)
+        {
+            field_1D_b3d_sound = 0;
+            field_10_nActiveSamples = 16;
+            sub_418C20();
+        }
+    }
+}

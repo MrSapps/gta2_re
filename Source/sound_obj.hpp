@@ -296,6 +296,13 @@ struct sound_obj
     char sub_4153F0(sound_0x68 *pObj);
 
     void sub_41A6C0(int idx);
+
+    void null_412240();
+
+    void sub_418C20();
+
+    void sub_419E10();
+
 };
 
 extern sound_obj gSound_obj_66F680;
