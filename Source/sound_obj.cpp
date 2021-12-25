@@ -533,13 +533,14 @@ void sound_obj::sub_419E10()
     }
 }
 
+// match
 char sound_obj::LoadStyle_41A1B0(const char *pStyleName)
 {
-    if (!field_0)
+    if (field_0)
     {
-        return 0;
+        return gSampManager_6FFF00.LoadWavSdtData_58E980(GetFileName_41A1E0(pStyleName));
     }
-    return gSampManager_6FFF00.LoadWavSdtData_58E980(GetFileName_41A1E0(pStyleName));
+    return 0;
 }
 
 char byte_674E28[80];
