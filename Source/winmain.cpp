@@ -296,18 +296,8 @@ BOOL Vid_FindDevice_5D9290()
 
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
-    WPARAM param_; // ebx
-    HWND hwnd_; // ebp
-    UINT msg_; // esi
-    LPARAM lparam_; // edi
-    unsigned __int8 cdVol; // al
-    char sfxVol; // al
-    char reg_bDo3dSound; // al
-    char sound_bDo3dSound; // al
     int v12; // eax
     int v13; // ecx
-    WPARAM sysCommand; // eax
-    WPARAM v15; // eax
     DWORD *pLparamRec; // eax
     LONG top; // ecx
     LONG bottom; // edx
@@ -316,11 +306,6 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     int newX; // [esp+14h] [ebp-18h] BYREF
     int newY; // [esp+18h] [ebp-14h] BYREF
     struct tagRECT winRec; // [esp+1Ch] [ebp-10h] BYREF
-
-    param_ = wParam;
-    hwnd_ = hWnd;
-    msg_ = Msg;
-    lparam_ = lParam;
 
     switch (Msg)
     {
@@ -342,8 +327,8 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         if (!bDestroyed_6F5B70)
         {
             //LOBYTE(Msg) = 1;
-            Msg = 1;
-            laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&Msg);
+            BYTE tmp = 1;
+            laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
             if (!bDoFrontEnd_626B68)
             {
                 Input_Read_498D10();
@@ -417,8 +402,8 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         newY = v12;
         Bink::sub_5136D0(&newX, &newY);
         v13 = newY;
-        *(DWORD *)(lparam_ + 8) = newX;
-        *(DWORD *)(lparam_ + 12) = v13;
+        *(DWORD *)(lParam + 8) = newX;
+        *(DWORD *)(lParam + 12) = v13;
         break;
 
     case WM_SIZE:
@@ -471,7 +456,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             if (sub_5D92C0())
             {
                 UpdateWinXY_5D8E70();
-                if ((lparam_ & 0x20000000) != 0)
+                if ((lParam & 0x20000000) != 0)
                 {
                     sub_5D9250();
                     sub_5D92D0();
@@ -575,10 +560,10 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
 
     if (gVidSys_7071D0)
     {
-        Vid_WindowProc(gVidSys_7071D0, hwnd_, msg_, param_, lparam_);
+        Vid_WindowProc(gVidSys_7071D0, hWnd, Msg, wParam, lParam);
     }
 
-    return DefWindowProcA(hwnd_, msg_, param_, lparam_);
+    return DefWindowProcA(hWnd, Msg, wParam, lParam);
 }
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
