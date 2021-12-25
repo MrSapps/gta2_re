@@ -5,6 +5,7 @@ sound_obj gSound_obj_66F680;
 
 int dword_674CD8;
 
+// match
 void sound_obj::ClearRequestedQueue_41B700()
 {
     for (unsigned int i = 0; i < field_10_nActiveSamples; i++)
@@ -15,6 +16,7 @@ void sound_obj::ClearRequestedQueue_41B700()
     field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue] = 0;
 }
 
+// match
 void sound_obj::ClearActivateSamples_41B7A0()
 {
     for (unsigned __int8 i = 0; i < field_10_nActiveSamples; i++ )
@@ -22,7 +24,7 @@ void sound_obj::ClearActivateSamples_41B7A0()
         field_DC0[i].field_0 = 0;
         field_DC0[i].field_4 = 0;
         field_DC0[i].field_14_samp_idx = 321;
-        field_DC0[i].field_8_obj = dword_674CD8;
+        field_DC0[i].field_8_obj = dword_674CD8; // vec3 type ?
         field_DC0[i].field_C = dword_674CD8;
         field_DC0[i].field_10 = dword_674CD8;
         field_DC0[i].field_18 = 0;
