@@ -759,19 +759,18 @@ int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
     }
 
     return 0;
-
-    
 }
 
+// match
 void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 {
     vigilant_maxwell *pMaxwell; // ebx
     infallible_turing *pTuring; // eax
-    vigilant_maxwell *pUnknown; // edi
+   // vigilant_maxwell *pUnknown; // edi
     brave_archimedes_0x3C *pAny; // eax
     unsigned int idx_iter; // eax
-    unsigned int field_543C_444C_max_idx; // ecx
-    int *pEntityIter; // edx
+  //  unsigned int field_543C_444C_max_idx; // ecx
+  //  int *pEntityIter; // edx
     int new_max; // eax
 
     if (!this->field_0)
@@ -792,7 +791,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
     }
 
     pTuring = this->field_147C[idx].field_4_pObj;
-    pUnknown = (vigilant_maxwell *)((char *)this + 0xC * idx);
+//    pUnknown = (vigilant_maxwell *)((char *)this + 0xC * idx);
 
     // 1-1 = 0 looking for 1
     switch(pTuring->field_0_object_type)
@@ -805,9 +804,9 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
             switch (pAny->field_30)
             {
             case 2:
-                if (pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
+                if (field_147C[idx].field_8_pAlloc)// type is 1 or 2
                 {
-                    delete (pUnknown[0x1B5].field_8_pAlloc);
+                    delete (field_147C[idx].field_8_pAlloc);
                 }
                 break;
             }
@@ -833,9 +832,9 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 not_type1_or_2_and_after_fade:
     pMaxwell->field_0_bUsed = 0;
     idx_iter = 0;
-    pUnknown[437].field_4_pObj->field_C_pObject = 0;
-    pUnknown[437].field_1 = 0;
-    if (pUnknown[437].field_4_pObj->field_0_object_type == 5)
+    field_147C[idx].field_4_pObj->field_C_pObject = 0;
+    field_147C[idx].field_1 = 0;
+    if (field_147C[idx].field_4_pObj->field_0_object_type == 5)
     {
         this->field_1478_type5Idx = 0;
     }
