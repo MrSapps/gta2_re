@@ -1375,11 +1375,7 @@ void laughing_blackwell_0x1EB54::sub_4AF0E0()
 
 void laughing_blackwell_0x1EB54::sub_4B0220()
 {
-    int v7; // eax
-    int v8; // ecx
     __int16 v30; // ax
-    int v32; // eax
-    int v33; // ecx
 
     // local_4 = (-(ushort)(cVar1 != 'j') & 0xfffc) + 0x10;
 
@@ -1669,12 +1665,11 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[5].field_4[0].field_70 = 0;
     this->field_136[5].field_4[0].field_7E = 11;
 
-    v32 = 0;
+    unsigned short v323 = 0;
     do
     {
-        v33 = (unsigned __int16)v32++;
-        this->field_136[5].field_4[0].field_72[v33] = 1;
-    } while ((unsigned __int16)v32 <= (unsigned int)this->field_136[5].field_4[0].field_7E);
+        this->field_136[5].field_4[0].field_72[v323++] = 1;
+    } while (v323 <= field_136[5].field_4[0].field_7E);
 
     this->field_136[5].field_B8A[0].field_0 = 280;
     this->field_136[5].field_B8A[0].field_2 = 163;
