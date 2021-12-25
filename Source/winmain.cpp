@@ -38,6 +38,8 @@ BYTE byte_70827C;
 BYTE byte_706C5D;
 BYTE byte_6F5B71;
 
+BYTE byte_6F4BF4;
+
 extern char gTmpBuffer_67C598[256];
 
 // todo move to another file for ordering
@@ -228,9 +230,20 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     return DefWindowProc(hWnd, Msg, wParam, lParam);
 }
 
+// match
 void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1)
 {
-    // todo
+    if (bDoFrontEnd_626B68)
+    {
+        if (gLaughing_blackwell_0x1EB54_67DC84)
+        {
+            gLaughing_blackwell_0x1EB54_67DC84->field_10D = *a1;
+        }
+    }
+    else
+    {
+        byte_6F4BF4 = *a1;
+    }
 }
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)

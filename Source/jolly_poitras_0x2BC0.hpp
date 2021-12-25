@@ -22,6 +22,7 @@ struct dreamy_clarke_0xA4
     wchar_t field_90_str[9];
     __int16 field_A2;
 
+    dreamy_clarke_0xA4();
     ~dreamy_clarke_0xA4();
 
     void sub_56B630();

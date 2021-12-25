@@ -393,6 +393,11 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
     return 0;
 }
 
+dreamy_clarke_0xA4::dreamy_clarke_0xA4()
+{
+    sub_56B630();
+}
+
 dreamy_clarke_0xA4::~dreamy_clarke_0xA4()
 {
 
