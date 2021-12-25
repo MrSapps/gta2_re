@@ -1109,7 +1109,10 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
     }
     if (*pMaxSamples < 8u)
     {
-        goto LABEL_16;
+        //goto LABEL_16;
+        *pMaxSamples = 0;
+        Close3DProvider_58E1C0();
+        return 0;
     }
     sampIdx = 0;
     if (*pMaxSamples)
@@ -1127,17 +1130,19 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
             ++field_26C4_3d_sample;
             if (sampIdx >= (unsigned __int8)*pMaxSamples)
             {
-                goto LABEL_21;
+                //goto LABEL_21;
+                this->field_1EB2_3d_samp_count = *pMaxSamples;
+                return 1;
             }
         }
 
-    LABEL_16:
+    //LABEL_16:
         *pMaxSamples = 0;
         Close3DProvider_58E1C0();
         return 0;
     }
 
-LABEL_21:
+//LABEL_21:
     this->field_1EB2_3d_samp_count = *pMaxSamples;
     return 1;
 }
