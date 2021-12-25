@@ -33,6 +33,8 @@ unsigned short gTableSize_61FF20 = 25;
 
 extern wchar_t word_67DC8C[50];
 
+DWORD dword_67D9FC;
+
 DIOBJECTDATAFORMAT stru_5E9110[256] =
 {
   { &GUID_Key, 0u, 2147483660u, 0u },
@@ -567,9 +569,59 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
     // todo
 }
 
+
 void laughing_blackwell_0x1EB54::sub_4B7A10()
 {
-    // todo
+    char v2; // cl
+    char *field_8_keys; // eax
+    int v4; // edx
+    int v5; // eax
+    int v6; // eax
+
+    timeGetTime();
+    sub_4AFEB0();
+    v2 = 0;
+    field_8_keys = this->field_8_keys;
+    v4 = 256;
+    do
+    {
+        if (*field_8_keys < 0)
+            v2 = 1;
+        ++field_8_keys;
+        --v4;
+    } while (v4);
+    if (v2)
+    {
+        if (!this->field_C9B3)
+        {
+        LABEL_7:
+            this->field_108 = 1;
+            return;
+        }
+    }
+    else
+    {
+        this->field_C9B3 = 0;
+    }
+    if (++this->field_1EB30)
+    {
+        v5 = this->field_1EB34;
+        this->field_1EB30 = 0;
+        if (v5 <= -327680)
+        {
+            while (++this->field_1EB38 != 600)
+            {
+                v6 = ((unsigned __int16)this->field_EE0E_unk.field_2[(unsigned __int16)this->field_1EB38].field_4 << 14)
+                    + this->field_1EB34;
+                this->field_1EB34 = v6;
+                if (v6 > -327680)
+                    goto LABEL_13;
+            }
+            goto LABEL_7;
+        }
+    LABEL_13:
+        this->field_1EB34 -= dword_67D9FC;
+    }
 }
 
 void laughing_blackwell_0x1EB54::sub_4AE2D0()
