@@ -706,6 +706,7 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
                 v7 = field_147C[idx].field_4_pObj->field_C;
                 if (v7)
                 {
+                    // todo: wrong insts
                     if (v7[3].field_0 == 2)
                     {
                         pNewObj = new sound_unknown_0xC(); // (sound_unknown_0xC *)operator new(0xCu);
