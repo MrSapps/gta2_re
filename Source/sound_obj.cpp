@@ -852,9 +852,8 @@ void sound_obj::Service_419EF0()
     static char byte_674E24;
     if (gGame_0x40_67E008)
     {
-        const bool v1 = gGame_0x40_67E008->field_0 == 2;
-        field_1 = v1;
-        if (!v1)
+        field_1 = gGame_0x40_67E008->field_0 == 2;
+        if (!field_1)
         {
             GenerateIntegerRandomNumberTable_41BA90();
         }
