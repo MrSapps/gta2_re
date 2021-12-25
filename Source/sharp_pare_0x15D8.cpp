@@ -241,6 +241,41 @@ void sharp_pare_0x15D8::LoadTextures2_5B9180()
 }
 
 // match
+STexture* sharp_pare_0x15D8::sub_5B94F0(int type, int pal, int kind, int a5)
+{
+    STexture *result;
+
+    switch (kind)
+    {
+    case 2:
+        result = field_1548_unk.get_texture_5B90A0(type, pal);
+        break;
+    case 3:
+        result = field_155C_unk.sub_5B90D0(pal, a5);
+        break;
+    case 4:
+        result = field_1570_unk.sub_5B90D0(pal, a5);
+        break;
+    case 5:
+        result = field_1584_unk.sub_5B90D0(pal, a5);
+        break;
+    case 6:
+        result = field_1598_unk.sub_5B90D0(pal, a5);
+        break;
+    case 8:
+        result = field_15AC_unk.sub_5B90D0(pal, a5);
+        break;
+    case 7:
+        result = field_15C0_unk.sub_5B90D0(pal, a5);
+        break;
+    default:
+        result = 0;
+        break;
+    }
+    return result;
+}
+
+// match
 void festive_hopper::Free_5B9050()
 {
     if (field_10_bDoFree && field_0_pAlloc)

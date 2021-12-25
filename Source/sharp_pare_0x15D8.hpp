@@ -70,6 +70,8 @@ struct sharp_pare_0x15D8
     void ReadTextures_5B92E0();
 
     void LoadTextures2_5B9180();
+
+    STexture* sub_5B94F0(int type, int pal, int kind, int a5);
 };
 
 extern sharp_pare_0x15D8 *gSharp_pare_0x15D8_705064;
