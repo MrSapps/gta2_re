@@ -2572,8 +2572,6 @@ struct laughing_blackwell_0x1EB54
 
     void sub_4B3170(unsigned __int16 arg0);
 
-    int sub_4AEDB0();
-
     const char* intro_bik_4B5E50();
 
     static bool intro_bik_exists_4B5FF0();
@@ -2620,9 +2618,9 @@ struct laughing_blackwell_0x1EB54
         unsigned __int8 mainBlockIdx,
         unsigned __int8 bonusBlockIdx);
 
-    void sub_4ADF50(int bQuit );
+    void sub_4ADF50();
 
-    void sub_4ADFB0(int a2);
+    void sub_4ADFB0();
 
     void DrawBackground_4B6E10();
 
@@ -2694,6 +2692,8 @@ struct laughing_blackwell_0x1EB54
     bool sub_4B7200();
 
     void sub_4B4EC0();
+
+    int sub_4AEDB0();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

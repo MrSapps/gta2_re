@@ -13,6 +13,7 @@
 #include "magical_germain_0x8EC.hpp"
 #include "file.hpp"
 #include "dma_video.hpp"
+#include "wizardly_margulis.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -482,10 +483,121 @@ void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 
 }
 
+void __stdcall sub_4B8680()
+{
+    if (!bSkip_audio_67D6BE)
+    {
+        // todo
+    }
+}
+
+
 int laughing_blackwell_0x1EB54::sub_4AEDB0()
 {
-    // todo
-    return 0;
+    unsigned int Time; // eax
+    unsigned __int16 field_132_f136_idx; // cx
+    const char *v5; // eax
+    char *field_8_keys; // edi
+    int v7; // ebx
+    int result; // eax
+    char *v9; // ecx
+    int v10; // edx
+    char v11; // al
+    char v12; // al
+    HDIGDRIVER  field_0_hDriver; // [esp-4h] [ebp-10h]
+
+    Time = timeGetTime();
+    field_132_f136_idx = this->field_132_f136_idx;
+    if (field_132_f136_idx == 8)
+    {
+        if (Bink::sub_513240())
+        {
+            if (Bink::sub_513790() == 1)
+            {
+                Bink::sub_5137A0(2);
+                field_0_hDriver = gWizardly_margulis_6FFF00.field_0_hDriver;
+                v5 = gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50();
+                Bink::sub_5133E0(v5, field_0_hDriver);
+                Bink::Close1_513340();
+                Bink::sub_5137A0(2);
+                Bink::sub_5137B0(2);
+            }
+            else
+            {
+                Bink::Close1_513340();
+                Bink::Close2_513390();
+                if (bIsFrench_67D53C)
+                {
+                    sub_4B8680();
+                }
+
+                sub_4B3170(0);
+            }
+        }
+
+        sub_4AFEB0();
+
+        field_8_keys = this->field_8_keys;
+        v7 = 256;
+        do
+        {
+            if (*field_8_keys < 0)
+            {
+                Bink::Close1_513340();
+                Bink::Close2_513390();
+                if (bIsFrench_67D53C)
+                {
+                    sub_4B8680();
+                }
+                sub_4B3170(0);
+            }
+            ++field_8_keys;
+            --v7;
+        } while (v7);
+
+        return this->field_108;
+    }
+    else
+    {
+        if (field_132_f136_idx)
+        {
+            this->field_C9E4 = Time;
+        }
+        else
+        {
+            v9 = this->field_8_keys;
+            v10 = 256;
+            do
+            {
+                if (*v9 < 0)
+                {
+                    this->field_C9E4 = Time;
+                }
+                ++v9;
+                --v10;
+            } while (v10);
+            if (Time - this->field_C9E4 > 60000)
+            {
+                return 4;
+            }
+        }
+
+        if (Time >= this->field_C9DC || (v11 = this->field_C9E0, v11 == 3))
+        {
+            sub_4AEC00();
+            v12 = this->field_C9E0 + 1;
+            this->field_C9DC += 33;
+            this->field_C9E0 = v12;
+        }
+        else if (v11)
+        {
+            sub_4ADFB0(); // bQuit ??
+            result = this->field_108;
+            this->field_C9E0 = 0;
+            return result;
+        }
+        return this->field_108;
+    }
 }
 
 const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
@@ -1278,7 +1390,7 @@ void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsign
     // todo
 }
 
-void laughing_blackwell_0x1EB54::sub_4ADF50(int bQuit)
+void laughing_blackwell_0x1EB54::sub_4ADF50() // int bQuit ??
 {
     // todo
 }
@@ -1310,13 +1422,13 @@ void __cdecl FreeSurface_5D7DC0()
     Vid_FreeSurface(gVidSys_7071D0);
 }
 
-void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
+void laughing_blackwell_0x1EB54::sub_4ADFB0()
 {
     sub_5D7D30();
 
     gbh_BeginScene();
     DrawBackground_4B6E10();
-    sub_4ADF50(a2);
+    sub_4ADF50(); // a2 ??
     gbh_EndScene();
 
     FreeSurface_5D7DC0();
