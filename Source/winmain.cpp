@@ -137,8 +137,6 @@ void __stdcall CleanUpInputAndOthers_4DA700()
     // todo
 }
 
-char bPlay_replay_67D4F4 = 0;
-char bConstant_replay_save_67D5C4 = 0;
 int bStartNetworkGame_7081F0 = 0;
 
 // todo move to another file for ordering
