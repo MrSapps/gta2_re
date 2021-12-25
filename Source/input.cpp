@@ -20,6 +20,7 @@ void __stdcall Input::DirectInputCreate_4986D0(HINSTANCE hInstance)
     */
 }
 
+// match
 void __stdcall Input::DInputRelease_498710()
 {
     if (gpDInput_67B804)

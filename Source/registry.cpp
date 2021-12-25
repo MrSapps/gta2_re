@@ -304,35 +304,35 @@ int Registry::Set_Option_586F70(const char *lpValueName, int a3)
     return Data;
 }
 
+// match
 int Registry::Set_Control_Setting_587010(int a1, int a2)
 {
-    HKEY hKey; // [esp+0h] [ebp-10h] BYREF
-    BYTE Data[4]; // [esp+4h] [ebp-Ch] BYREF
-    char ValueName[4]; // [esp+8h] [ebp-8h] BYREF
-    DWORD cbData; // [esp+Ch] [ebp-4h] BYREF
-
+    HKEY hKey;
+    DWORD Data;
     Open_Control_Root_586D40(&hKey);
 
-    cbData = 4;
-    sprintf(ValueName, "%d", (unsigned __int8)a1);
+    DWORD cbData = sizeof(DWORD);
+    char ValueName[4]; // [esp+8h] [ebp-8h] BYREF
+    sprintf(ValueName, "%d", static_cast<BYTE>(a1));
 
-    if (RegQueryValueExA(hKey, ValueName, 0, 0, Data, &cbData))
+    if (RegQueryValueExA(hKey, ValueName, 0, 0, reinterpret_cast<BYTE*>(&Data), &cbData) != ERROR_SUCCESS)
     {
-        if (RegSetValueExA(hKey, ValueName, 0, 4u, (const BYTE *)&a2, 4u))
+        if (RegSetValueExA(hKey, ValueName, 0, REG_DWORD, reinterpret_cast<const BYTE *>(&a2), sizeof(DWORD)) != ERROR_SUCCESS)
         {
             FatalError_4A38C0(46, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 667);
         }
-        *(DWORD *)Data = a2;
+        Data = a2;
     }
 
-    if (RegCloseKey(hKey))
+    if (RegCloseKey(hKey) != ERROR_SUCCESS)
     {
         FatalError_4A38C0(42, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 674);
     }
 
-    return *(DWORD *)Data;
+    return Data;
 }
 
+// match
 int Registry::Get_Screen_Setting_5870D0(const char *lpValueName, int a2)
 {
     HKEY hKey; // [esp+4h] [ebp-Ch] BYREF
@@ -362,48 +362,44 @@ Registry::Registry()
 
 }
 
+// match
 char Registry::sub_5872A0(HKEY hKey, const char *a2, BYTE *lpData, DWORD Data)
 {
-    bool v4; // zf
-    char result; // al
-    char Buffer[260]; // [esp+10h] [ebp-104h] BYREF
+    char Buffer[260];
+    char ret = 0;
 
     sprintf(Buffer, "%ss", a2);
-    if (RegSetValueExA(hKey, Buffer, 0, 4u, (const BYTE *)&Data, 4u))
+    if (RegSetValueExA(hKey, Buffer, 0, REG_DWORD, reinterpret_cast<const BYTE *>(&Data), sizeof(DWORD)) == ERROR_SUCCESS)
     {
-        return 0;
+        sprintf(Buffer, "%sd", a2);
+        if (RegSetValueExA(hKey, Buffer, 0, REG_BINARY, lpData, Data) == ERROR_SUCCESS)
+        {
+            ret = 1;
+        }
     }
-
-    sprintf(Buffer, "%sd", a2);
-    v4 = RegSetValueExA(hKey, Buffer, 0, 3u, lpData, Data) == 0;
-    result = 1;
-    if (!v4)
-    {
-        return 0;
-    }
-    return result;
+    return ret;
 }
 
+// match
 bool Registry::sub_587340(HKEY hKey, const char *keyPath, int value, LPBYTE lpData)
 {
-    DWORD readValue; // [esp+10h] [ebp-108h] BYREF
-    CHAR ValueName[260]; // [esp+14h] [ebp-104h] BYREF
+    char ValueName[260]; // [esp+14h] [ebp-104h] BYREF
+    bool ret = false;
 
     sprintf(ValueName, "%ss", keyPath);
-    readValue = Registry::Get_Int_Setting_5874E0(hKey, ValueName);
-    if (readValue != value)
+    DWORD v = Get_Int_Setting_5874E0(hKey, ValueName);
+    if (v == value)
     {
-        return 0;
+        sprintf(ValueName, "%sd", keyPath);
+        ret = RegQueryValueExA(hKey, ValueName, 0, 0, lpData, &v) == ERROR_SUCCESS;
     }
-
-    sprintf(ValueName, "%sd", keyPath);
-    return RegQueryValueExA(hKey, ValueName, 0, 0, lpData, &readValue) == 0;
+    return ret;
 }
 
+// match
 int Registry::Get_Int_5873E0(HKEY hKey, const char *subKey)
 {
-    char keyPath[260]; // [esp+4h] [ebp-104h] BYREF
-
+    char keyPath[260];
     sprintf(keyPath, "%ss", subKey);
     return Get_Int_Setting_5874E0(hKey, keyPath);
 }
