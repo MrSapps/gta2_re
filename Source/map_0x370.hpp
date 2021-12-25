@@ -303,6 +303,8 @@ public:
 
     gmp_zone_unknown* cur_zone_4DF840();
 
+    gmp_zone_unknown* get_nav_zone_unknown_4DF890(int zone_x, int zone_y);
+
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
     // todo: other funcs between

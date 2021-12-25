@@ -156,6 +156,19 @@ gmp_zone_unknown* Map_0x370::cur_zone_4DF840()
 
 }
 
+// match
+gmp_zone_unknown* Map_0x370::get_nav_zone_unknown_4DF890(int zone_x, int zone_y)
+{
+    if (nav_zone_by_pos_4DF5C0(zone_x, zone_y))
+    {
+        return cur_zone_4DF840();
+    }
+    else
+    {
+        return field_334_pUnknownZoneData;
+    }
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
