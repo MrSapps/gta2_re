@@ -223,12 +223,24 @@ unsigned __int16 gtx_0x106C::sub_5AA760(WORD *a2, wchar_t *a3)
     return v4 + 32;
 }
 
-// stub
+// nomatch
 unsigned __int16 gtx_0x106C::sub_5AA7B0(WORD *a2)
 {
-    // TODO
-    UNIQUE_FUNC;
-    return 0;
+    if (*a2 >= 101u)
+    {
+        int v2;
+        v2 = -(*a2 < 0xC9u);
+
+        v2 = v2 & 0xF0; // LOBYTE(v2) =
+
+        return v2 + 32;
+    }
+
+    return field_20_sprite_index[field_14_sprite_base2->field_A_font
+        + 77
+        + (unsigned __int16)field_1C_font_base->field_2_base[(unsigned __int16)*a2]].field_4_width;
+
+
 }
 
 // stub
