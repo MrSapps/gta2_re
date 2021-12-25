@@ -385,7 +385,7 @@ void wizardly_margulis::Shutdown_58DB30()
                 if (this->field_9C_hStreams[0])
                 {
                     unsigned __int8 v6 = AIL_stream_volume(this->field_9C_hStreams[0]);
-                    if (v6)
+                    if (v6 > 0)
                     {
                         int v3 = v6;
                         int v4 = v6;
