@@ -229,9 +229,29 @@ void jolly_poitras_0x2BC0::sub_56BF20()
     // todo
 }
 
+// match
 void jolly_poitras_0x2BC0::sub_56BD20()
 {
-    // todo
+    wcsncpy(this->field_24C0.field_0[0].field_0_str, L"ALAN", 9u);
+    this->field_24C0.field_0[0].field_14_score = 1000000;
+    wcsncpy(this->field_24C0.field_0[1].field_0_str, L"BRIAN", 9u);
+    this->field_24C0.field_0[1].field_14_score = 500000;
+    wcsncpy(this->field_24C0.field_0[2].field_0_str, L"COLIN", 9u);
+    this->field_24C0.field_0[2].field_14_score = 400000;
+    wcsncpy(this->field_24C0.field_0[3].field_0_str, L"DAVE", 9u);
+    this->field_24C0.field_0[3].field_14_score = 300000;
+    wcsncpy(this->field_24C0.field_0[4].field_0_str, L"ERIC", 9u);
+    this->field_24C0.field_0[4].field_14_score = 250000;
+    wcsncpy(this->field_24C0.field_0[5].field_0_str, L"FRANK", 9u);
+    this->field_24C0.field_0[5].field_14_score = 200000;
+    wcsncpy(this->field_24C0.field_0[6].field_0_str, L"GRAEME", 9u);
+    this->field_24C0.field_0[6].field_14_score = 100000;
+    wcsncpy(this->field_24C0.field_0[7].field_0_str, L"HECTOR", 9u);
+    this->field_24C0.field_0[7].field_14_score = 50000;
+    wcsncpy(this->field_24C0.field_0[8].field_0_str, L"IMOGEN", 9u);
+    this->field_24C0.field_0[8].field_14_score = 25000;
+    wcsncpy(this->field_24C0.field_0[9].field_0_str, L"JACKSON", 9u);
+    this->field_24C0.field_0[9].field_14_score = 10000;
 }
 
 agitated_keldysh_0xF0::agitated_keldysh_0xF0()
