@@ -258,22 +258,23 @@ void festive_hopper::sub_5B8F70()
                 texture_idx = 0;
                 pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(converted_pal_sprite_pal);
                 ++dword_704ED0;
-                if (this->field_6_count)
+                for (texture_idx=0; texture_idx < field_6_count;  texture_idx++)
+                //if (this->field_6_count)
                 {
-                    do
-                    {
+                    //do
+                    //{
                         converted_pal_idx = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(
                             this->field_C_pal_type,
                             texture_idx);
                         phys_pal_5AA6F0 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(converted_pal_idx);
-                        *((DWORD *)&this->field_0_pAlloc[texture_idx++] + pal_idx * this->field_6_count) = (DWORD)gbh_RegisterTexture(
+                        *((DWORD *)&this->field_0_pAlloc[texture_idx] + pal_idx * this->field_6_count) = (DWORD)gbh_RegisterTexture(
                             pSpriteIndex->field_4_width,
                             pSpriteIndex->field_5_height,
                             pSpriteIndex->field_0_pData,
                             phys_pal_5AA6F0,
                             1);
                         ++dword_704F28;
-                    } while (texture_idx < this->field_6_count);
+                    //} while (texture_idx < this->field_6_count);
                 }
                 ++pal_idx;
             } while (pal_idx < v8);
