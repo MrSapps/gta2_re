@@ -642,10 +642,15 @@ void wizardly_margulis::SetChannel3DLoopCount_58DF50(int channel, int a3)
     }
 }
 
-// todo
+// match
 bool wizardly_margulis::GetChannel3DUsedFlag_58DF70(int a2)
 {
-    return field_26C4_3d_sample[a2] && AIL_3D_sample_status(field_26C4_3d_sample[a2]) == SMP_PLAYING;
+    if (field_26C4_3d_sample[a2])
+    {
+        // note: combining statements with && changes codegen here
+        return AIL_3D_sample_status(field_26C4_3d_sample[a2]) == SMP_PLAYING;
+    }
+    return false;
 }
 
 // match
