@@ -18,13 +18,16 @@ struct infallible_turing
 struct root_sound
 {
     infallible_turing *field_0;
-    infallible_turing field_4[999];
+    infallible_turing field_4[999+1];
+    /*
     int field_3E74;
     int field_3E78;
     int field_3E7C;
     int field_3E80_count;
-
+    */
     // todo: ordering
+
+    root_sound();
 
     char Set3DSound_40F160(char b3dSound);
 
@@ -53,6 +56,8 @@ struct root_sound
     char GetAudioDriveLetter_40F150();
 
     unsigned __int8 GetCDVol_40F120();
+
+    int sub_40F090(int state);
 };
 
 

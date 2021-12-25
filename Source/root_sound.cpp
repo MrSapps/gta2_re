@@ -5,6 +5,20 @@
 
 root_sound gRoot_sound_66B038;
 
+// 0x411E30
+root_sound::root_sound() // match
+{
+    infallible_turing* pIter = field_4;
+    for (int i = 0; i < 999; i++)
+    {
+        pIter->field_C = pIter+1;
+        pIter++;
+    }
+
+    field_0 = field_4;
+    field_4[999].field_C = 0;
+}
+
 // match
 char root_sound::Set3DSound_40F160(char b3dSound)
 {
@@ -107,4 +121,11 @@ char root_sound::GetAudioDriveLetter_40F150()
 unsigned __int8 root_sound::GetCDVol_40F120()
 {
     return gSound_obj_66F680.field_25_cdVol;
+}
+
+int root_sound::sub_40F090(int state)
+{
+    // todo
+    //return gSound_obj_66F680.sub_418C80(state);
+    return 0;
 }
