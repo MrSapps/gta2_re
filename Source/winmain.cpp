@@ -122,11 +122,19 @@ void sub_5D96C0()
 
     gVidSys_7071D0->field_4_flags |= v1;
 
-    BOOL Device_5D9290;
-    if (GetHwndDCDeviceCaps_5D9800() != 16 || (Device_5D9290 = Vid_FindDevice_5D9290(), byte_706C5C = 1, !Device_5D9290))
+
+    int iVar2 = GetHwndDCDeviceCaps_5D9800();
+    if (iVar2 == 0x10)
     {
-        byte_706C5C = 0;
+        BOOL cVar1 = Vid_FindDevice_5D9290();
+        byte_706C5C = 1;
+        if (cVar1 != 0)
+        {
+            goto LAB_005d9763;
+        }
     }
+    byte_706C5C = 0;
+LAB_005d9763:
 
     sub_5D92D0();
     
