@@ -317,13 +317,25 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
     field_2710_3d_provider_count = prov_counter;
 }
 
+// match
 bool wizardly_margulis::StreamStatus_58E2C0()
 {
-    if (!this->field_5_str[80])
-        return 0;
-    if (this->field_9C_hStreams[0])
-        return AIL_stream_status(this->field_9C_hStreams[0]) == 2;
-    return 1;
+    if (field_5_str[80])
+    {
+        if (field_9C_hStreams[0])
+        {
+            if (AIL_stream_status(field_9C_hStreams[0]) == SMP_DONE)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        return 1;
+    }
+    return 0;
 }
 
 // match
