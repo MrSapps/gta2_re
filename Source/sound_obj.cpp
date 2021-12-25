@@ -876,10 +876,11 @@ void sound_obj::Service_419EF0()
             if (!(field_5448_m_FrameCounter++ % 5))
             {
                 field_544C[0].field_0 = 1;
-                ServiceSoundEffects_41A3A0();
-                return;
             }
-            field_544C[0].field_0 = 0;
+            else
+            {
+                field_544C[0].field_0 = 0;
+            }
         }
         ServiceSoundEffects_41A3A0();
     }
