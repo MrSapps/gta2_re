@@ -793,27 +793,35 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 
     pTuring = this->field_147C[idx].field_4_pObj;
     pUnknown = (vigilant_maxwell *)((char *)this + 0xC * idx);
-    if (pTuring->field_0_object_type != 1)
+
+    // 1-1 = 0 looking for 1
+    switch(pTuring->field_0_object_type)
     {
-        if (pTuring->field_0_object_type != 2)
+    case 1:
+    {
+        pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
+        if (pAny)
         {
-            goto not_type1_or_2_and_after_fade;
+            if (pAny->field_30 == 2 && pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
+            {
+                delete (pUnknown[0x1B5].field_8_pAlloc);
+            }
         }
+        else
+        {
+            goto do_fade;
+        }
+    }
+    break;
+
+    case 2:
+    {
     do_fade:
         this->field_3 = 0;
         gSampManager_6FFF00.FadeOut_58E490();
         goto not_type1_or_2_and_after_fade;
     }
-    
-    pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
-    if (!pAny)
-    {
-        goto do_fade;
-    }
 
-    if (pAny->field_30 == 2 && pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
-    {
-        delete (pUnknown[0x1B5].field_8_pAlloc);
     }
 
 not_type1_or_2_and_after_fade:
