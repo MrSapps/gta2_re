@@ -118,29 +118,67 @@ gmp_map_zone* Map_0x370::first_zone_by_type_4DF1D0(char zone_type)
 // nomatch
 gmp_map_zone* Map_0x370::zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, char zone_type)
 {
-    if (!field_328_pZoneData)
+    if (field_328_pZoneData)
+    {
+        field_368_zone_type = zone_type;
+        field_36A_zone_x = zone_x;
+        field_36B_zone_y = zone_y;
+        field_36C_bUnknown = 1;
+
+        for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
+        {
+            gmp_map_zone *pZone = get_zone_4DFB30(field_364_cur_zone_idx);
+            if (field_368_zone_type == pZone->field_0_zone_type &&
+                field_36A_zone_x >= pZone->field_1_x &&
+                field_36B_zone_y >= pZone->field_2_y &&
+                field_36A_zone_x < pZone->field_1_x + pZone->field_3_w &&
+                field_36B_zone_y < pZone->field_2_y + pZone->field_4_h)
+            {
+                return pZone;
+            }
+        }
+    }
+    return 0;
+}
+
+// nomatch
+gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
+{
+    gmp_map_zone **field_32C_pZones; // edx
+    gmp_map_zone *pZone; // eax
+    char field_0_zone_type; // cl
+
+    if (!this->field_328_pZoneData)
     {
         return 0;
     }
 
-    field_368_zone_type = zone_type;
-    field_36A_zone_x = zone_x;
-    field_36B_zone_y = zone_y;
-    field_36C_bUnknown = 1;
-
-    for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
+    field_32C_pZones = this->field_32C_pZones;
+    this->field_36A_zone_x = zone_x;
+    this->field_36B_zone_y = zone_y;
+    this->field_364_cur_zone_idx = 0;
+    if (!*(WORD *)field_32C_pZones)
     {
-        gmp_map_zone *pZone = get_zone_4DFB30(field_364_cur_zone_idx);
-        if (field_368_zone_type == pZone->field_0_zone_type &&
-            field_36A_zone_x >= pZone->field_1_x &&
-            field_36B_zone_y >= pZone->field_2_y &&
-            field_36A_zone_x < pZone->field_1_x + pZone->field_3_w &&
-            field_36B_zone_y < pZone->field_2_y + pZone->field_4_h)
+        return 0;
+    }
+    while (1)
+    {
+        pZone = get_zone_4DFB30(this->field_364_cur_zone_idx);
+        field_0_zone_type = pZone->field_0_zone_type;
+        if ((pZone->field_0_zone_type == 10 || field_0_zone_type == 1 || field_0_zone_type == 15)
+            && this->field_36A_zone_x >= pZone->field_1_x
+            && this->field_36B_zone_y >= pZone->field_2_y
+            && this->field_36A_zone_x < pZone->field_1_x + pZone->field_3_w
+            && this->field_36B_zone_y < pZone->field_2_y + pZone->field_4_h)
         {
-            return pZone;
+            break;
+        }
+        if (++this->field_364_cur_zone_idx >= *(WORD *)this->field_32C_pZones)
+        {
+            return 0;
         }
     }
-    return 0;
+    return pZone;
 }
 
 // match
