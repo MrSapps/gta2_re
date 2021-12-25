@@ -468,28 +468,30 @@ int wizardly_margulis::sub_58DC30(int a2)
     return field_A8_sdt_entries[a2].field_10;
 }
 
+// match
 int wizardly_margulis::sub_58DC50(int a2)
 {
     return field_A8_sdt_entries[a2].field_14;
 }
 
+// match
 int wizardly_margulis::GetSampleLength_maybe_58DC70(int a2)
 {
     return field_A8_sdt_entries[a2].field_4_sample_length;
 }
 
+// match
 void wizardly_margulis::sub_58DC90(int channel, int a3)
 {
-    HSAMPLE  v3; // edx
-
-    v3 = this->field_58_hSamples[channel];
-    if (v3)
+    if (field_58_hSamples[channel])
     {
-        if (this->field_A4_bLoaded)
+        if (field_A4_bLoaded)
+        {
             AIL_set_sample_address(
-                v3,
-                (BYTE*)this->field_1EAC_pAudioBuffer2 + this->field_A8_sdt_entries[a3].field_0_offset,
-                this->field_A8_sdt_entries[a3].field_4_sample_length);
+                field_58_hSamples[channel],
+                (BYTE*)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[a3].field_0_offset,
+                field_A8_sdt_entries[a3].field_4_sample_length);
+        }
     }
 }
 
