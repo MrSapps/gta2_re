@@ -186,3 +186,18 @@ void laughing_blackwell_0x1EB54::sub_4B42E0()
 {
     // todo
 }
+
+// match
+void laughing_blackwell_0x1EB54::sub_4B4230()
+{
+    unsigned __int16 count = field_136[1].field_4[0].field_6E_count;
+    wchar_t* pStr = gJolly_poitras_0x2BC0_6FEAC0->field_26A0[count].field_90_str;
+    wcsncpy(pStr, field_C9A0, 9u);
+    HandleCheatCode_4B3DD0(pStr);
+    gJolly_poitras_0x2BC0_6FEAC0->sub_56BA60(count);
+}
+
+void laughing_blackwell_0x1EB54::HandleCheatCode_4B3DD0(const wchar_t *String)
+{
+    // todo
+}

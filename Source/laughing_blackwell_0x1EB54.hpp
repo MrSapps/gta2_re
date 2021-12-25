@@ -2521,6 +2521,10 @@ struct laughing_blackwell_0x1EB54
     dreamy_clarke_0xA4* sub_4B43E0();
 
     void sub_4B42E0();
+
+    void sub_4B4230();
+
+    void HandleCheatCode_4B3DD0(const wchar_t *String);
 };
 
 int __stdcall SetGamma_5D9910(int gamma);
