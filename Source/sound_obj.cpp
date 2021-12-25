@@ -367,18 +367,18 @@ void sound_obj::ServiceSoundEffects_41A3A0()
     }
 }
 
-// nomatch
+// stub
 void sound_obj::InterrogateAudioEntities_41A730()
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::AddReleasingSounds_41A9D0()
 {
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessActiveQueues_41AB80()
 {
 
@@ -396,7 +396,7 @@ void sound_obj::sub_41A6F0()
     }
 }
 
-// todo
+// stub
 char sound_obj::CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3)
 {
     return 0;
@@ -598,7 +598,7 @@ void sound_obj::null_412240()
 
 }
 
-// nomatch
+// stub
 void sound_obj::sub_418C20()
 {
 
@@ -857,7 +857,7 @@ unsigned __int8 sound_obj::GetCDVol_41A280()
     return field_25_cdVol;
 }
 
-// nomatch
+// stub
 void sound_obj::sub_57EA10()
 {
 
@@ -953,37 +953,37 @@ void sound_obj::ProcessEntity_4123A0(int id)
     }
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType3_57DD50()
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType1_412740(int a2)
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType6_413760(int a2)
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType7_42A500(int a2)
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType8_412820(int a2)
 {
 
 }
 
-// nomatch
+// stub
 void sound_obj::ProcessType9_412A60(int a2)
 {
 
@@ -1412,67 +1412,67 @@ char sound_obj::sub_412260(sound_0x68 *pObj)
     return gLaughing_blackwell_0x1EB54_67DC84 && pObj->field_58_type == 20 ? true : false;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_416260(sound_0x68 *a1)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_4174C0(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_417A00(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_415730(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_418940(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_414EE0(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_414C90(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_415100(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_414320(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_414690(sound_0x68 *a2)
 {
     return 0;
 }
 
-// nomatch
+// stub
 char sound_obj::sub_4149D0(sound_0x68 *a2)
 {
     // todo

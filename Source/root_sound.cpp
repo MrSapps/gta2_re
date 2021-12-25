@@ -186,7 +186,7 @@ root_sound::root_sound()
     field_4[999].field_C_pObject = 0;
 }
 
-// nomatch 411E60
+// nomatch 0x411E60
 root_sound::~root_sound()
 {
     field_0 = 0;
