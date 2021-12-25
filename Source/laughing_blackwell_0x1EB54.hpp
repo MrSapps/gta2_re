@@ -2661,7 +2661,7 @@ struct laughing_blackwell_0x1EB54
     // match
     static void __stdcall sub_5E53C0(BYTE *a1);
 
-    int sub_4B0190(int a2, __int16 a3, int a4);
+    int sub_4B0190(wchar_t* a2, __int16 a3, int a4);
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

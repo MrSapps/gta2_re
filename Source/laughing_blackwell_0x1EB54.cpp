@@ -1375,20 +1375,20 @@ void laughing_blackwell_0x1EB54::sub_4AF0E0()
 
 void laughing_blackwell_0x1EB54::sub_4B0220()
 {
-    unsigned int v2; // ecx
     int v7; // eax
     int v8; // ecx
     __int16 v30; // ax
     int v32; // eax
     int v33; // ecx
-    __int16 v52; // [esp+10h] [ebp-4h]
 
-    v2 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 0xFFFFFFFC : 0;
+    // local_4 = (-(ushort)(cVar1 != 'j') & 0xfffc) + 0x10;
+
+    unsigned int v2 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 12 : 16;
     this->field_134 = 16;
-    this->field_136[0].field_0 = 3;
-    v52 = v2 + 16;
-    this->field_136[0].field_4[0].field_0 = 1;
-    this->field_136[0].field_4[0].field_2 = 300;
+ 
+    this->field_136[0].field_0 = 3; 
+    this->field_136[0].field_4[0].field_0 = 1; // ebx
+    this->field_136[0].field_4[0].field_2 = 300; // edi
     this->field_136[0].field_4[0].field_4 = 250;
     wcsncpy(this->field_136[0].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("play"), 0x32u);
     this->field_136[0].field_4[0].field_80 = 1;
@@ -1513,7 +1513,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[11].field_4[0].field_4 = 392;
     wcsncpy(this->field_136[11].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("savepos"), 0x32u);
     this->field_136[11].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[11].field_4[0].field_6_wstr_buf,
+        this->field_136[11].field_4[0].field_6_wstr_buf,
         this->field_136[11].field_4[0].field_6A,
         320);
     this->field_136[11].field_4[0].field_80 = 260;
@@ -1521,7 +1521,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[11].field_4[1].field_4 = 412;
     wcsncpy(this->field_136[11].field_4[1].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("replay"), 0x32u);
     this->field_136[11].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[11].field_4[1].field_6_wstr_buf,
+        this->field_136[11].field_4[1].field_6_wstr_buf,
         this->field_136[11].field_4[1].field_6A,
         320);
     this->field_136[11].field_4[1].field_80 = 259;
@@ -1529,7 +1529,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[11].field_4[2].field_4 = 432;
     wcsncpy(this->field_136[11].field_4[2].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("mainmen"), 0x32u);
     this->field_136[11].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[11].field_4[2].field_6_wstr_buf,
+        this->field_136[11].field_4[2].field_6_wstr_buf,
         this->field_136[11].field_4[2].field_6A,
         320);
     this->field_136[11].field_4[2].field_80 = 0;
@@ -1553,7 +1553,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[2].field_4[0].field_4 = 392;
     wcsncpy(this->field_136[2].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("savepos"), 0x32u);
     this->field_136[2].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[2].field_4[0].field_6_wstr_buf,
+        this->field_136[2].field_4[0].field_6_wstr_buf,
         this->field_136[2].field_4[0].field_6A,
         320);
     this->field_136[2].field_4[0].field_80 = 260;
@@ -1561,7 +1561,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[2].field_4[1].field_4 = 412;
     wcsncpy(this->field_136[2].field_4[1].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("replay"), 0x32u);
     this->field_136[2].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[2].field_4[1].field_6_wstr_buf,
+        this->field_136[2].field_4[1].field_6_wstr_buf,
         this->field_136[2].field_4[1].field_6A,
         320);
     this->field_136[2].field_4[1].field_80 = 259;
@@ -1569,7 +1569,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[2].field_4[2].field_4 = 432;
     wcsncpy(this->field_136[2].field_4[2].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("mainmen"), 0x32u);
     this->field_136[2].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[2].field_4[2].field_6_wstr_buf,
+        this->field_136[2].field_4[2].field_6_wstr_buf,
         this->field_136[2].field_4[2].field_6A,
         320);
     this->field_136[2].field_4[2].field_80 = 0;
@@ -1592,7 +1592,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[3].field_4[0].field_4 = 365;
     wcsncpy(this->field_136[3].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("nxt_lvl"), 0x32u);
     this->field_136[3].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[3].field_4[0].field_6_wstr_buf,
+        this->field_136[3].field_4[0].field_6_wstr_buf,
         this->field_136[3].field_4[0].field_6A,
         320);
     this->field_136[3].field_4[0].field_80 = 261;
@@ -1600,7 +1600,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[3].field_4[1].field_4 = 385;
     wcsncpy(this->field_136[3].field_4[1].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("savepos"), 0x32u);
     this->field_136[3].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[3].field_4[1].field_6_wstr_buf,
+        this->field_136[3].field_4[1].field_6_wstr_buf,
         this->field_136[3].field_4[1].field_6A,
         320);
     this->field_136[3].field_4[1].field_80 = 260;
@@ -1608,7 +1608,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[3].field_4[2].field_4 = 405;
     wcsncpy(this->field_136[3].field_4[2].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("replay"), 0x32u);
     this->field_136[3].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[3].field_4[2].field_6_wstr_buf,
+        this->field_136[3].field_4[2].field_6_wstr_buf,
         this->field_136[3].field_4[2].field_6A,
         320);
     this->field_136[3].field_4[2].field_80 = 259;
@@ -1616,7 +1616,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[3].field_4[3].field_4 = 425;
     wcsncpy(this->field_136[3].field_4[3].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("contnue"), 0x32u);
     this->field_136[3].field_4[3].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[3].field_4[3].field_6_wstr_buf,
+        this->field_136[3].field_4[3].field_6_wstr_buf,
         this->field_136[3].field_4[3].field_6A,
         320);
     this->field_136[3].field_4[3].field_80 = 266;
@@ -1624,7 +1624,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[3].field_4[4].field_4 = 445;
     wcsncpy(this->field_136[3].field_4[4].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("mainmen"), 0x32u);
     this->field_136[3].field_4[4].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[3].field_4[4].field_6_wstr_buf,
+        this->field_136[3].field_4[4].field_6_wstr_buf,
         this->field_136[3].field_4[4].field_6A,
         320);
     this->field_136[3].field_4[4].field_80 = 0;
@@ -1648,7 +1648,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     v30 = this->field_130;
     this->field_136[4].field_518[0].field_6A = v30;
     this->field_136[4].field_518[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[4].field_518[0].field_6_wstr_buf,
+        this->field_136[4].field_518[0].field_6_wstr_buf,
         v30,
         320);
     this->field_136[4].field_518[0].field_6C = 4;
@@ -1700,7 +1700,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[5].field_518[3].field_6_wstr_buf[0] = 4;
     this->field_136[5].field_518[4].field_0 = 1;
     this->field_136[5].field_518[4].field_2 = 340;
-    this->field_136[5].field_518[4].field_4 = v52;
+    this->field_136[5].field_518[4].field_4 = v2;
     wcsncpy(this->field_136[5].field_518[4].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("hi_scre"), 0x32u);
     this->field_136[5].field_518[4].field_6A = this->field_126;
     this->field_136[6].field_0 = 3;
@@ -1718,21 +1718,21 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[6].field_518[2].field_0 = 1;
     this->field_136[6].field_518[2].field_2 = 400;
     this->field_136[6].field_518[2].field_4 = 250;
-//    v38 = this->field_120;
+    __int16 v38 = this->field_120;
     this->field_136[6].field_4[0].field_0 = 1;
-    this->field_136[6].field_518[2].field_6A = this->field_120; // v38;
+    this->field_136[6].field_518[2].field_6A = v38;
     this->field_136[6].field_4[0].field_4 = 340;
     wcsncpy(this->field_136[6].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("repbons"), 0x32u);
     this->field_136[6].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[6].field_4[0].field_6_wstr_buf,
-        this->field_136[6].field_4[0].field_6A,
+        this->field_136[6].field_4[0].field_6_wstr_buf,
+        v38,
         320);
     this->field_136[6].field_4[0].field_80 = 259;
     this->field_136[6].field_4[1].field_0 = 1;
     this->field_136[6].field_4[1].field_4 = 360;
     wcsncpy(this->field_136[6].field_4[1].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("nxt_lvl"), 0x32u);
     this->field_136[6].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[6].field_4[1].field_6_wstr_buf,
+        this->field_136[6].field_4[1].field_6_wstr_buf,
         this->field_136[6].field_4[1].field_6A,
         320);
     this->field_136[6].field_4[1].field_80 = 261;
@@ -1740,7 +1740,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[6].field_4[2].field_4 = 380;
     wcsncpy(this->field_136[6].field_4[2].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("mainmen"), 0x32u);
     this->field_136[6].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
-        (int)this->field_136[6].field_4[2].field_6_wstr_buf,
+        this->field_136[6].field_4[2].field_6_wstr_buf,
         this->field_136[6].field_4[2].field_6A,
         320);
     this->field_136[6].field_4[2].field_80 = 0;
@@ -1787,7 +1787,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[7].field_518[7].field_4 = 300;
     wcsncpy(this->field_136[7].field_518[7].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("kills_h"), 0x32u);
     this->field_136[7].field_518[7].field_2 = sub_4B0190(
-        (int)this->field_136[7].field_518[7].field_6_wstr_buf,
+        this->field_136[7].field_518[7].field_6_wstr_buf,
         this->field_136[7].field_518[7].field_6A,
         320);
     this->field_136[7].field_518[8].field_0 = 1;
@@ -1812,7 +1812,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[7].field_4[0].field_4 = 430;
     wcsncpy(this->field_136[7].field_4[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("quit"), 0x32u);
     this->field_136[7].field_4[0].field_2 = sub_4B0190(
-        (int)this->field_136[7].field_4[0].field_6_wstr_buf,
+        this->field_136[7].field_4[0].field_6_wstr_buf,
         this->field_136[7].field_4[0].field_6A,
         320);
     this->field_136[7].field_4[0].field_80 = 258;
@@ -1839,7 +1839,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
 //    v46 = this->field_130;
     this->field_136[10].field_518[0].field_6A = this->field_130; // v46;
     this->field_136[10].field_518[0].field_2 = sub_4B0190(
-        (int)this->field_136[10].field_518[0].field_6_wstr_buf,
+        this->field_136[10].field_518[0].field_6_wstr_buf,
         this->field_130, //v46,
         320);
     this->field_136[10].field_518[0].field_6C = 4;
@@ -1967,7 +1967,7 @@ void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
     }
 }
 
-int laughing_blackwell_0x1EB54::sub_4B0190(int a2, __int16 a3, int a4)
+int laughing_blackwell_0x1EB54::sub_4B0190(wchar_t* a2, __int16 a3, int a4)
 {
     // todo
     /*
