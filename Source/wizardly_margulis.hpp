@@ -53,21 +53,21 @@ public:
 
     void sub_58DC90(int channel, int a3);
 
-    void SetChannelVolume_58DCE0(int a2, int a3);
+    void SetChannelVolume_58DCE0(int channel, int volume);
 
-    void SetChannelPan_58DD00(int a2, int a3);
+    void SetChannelPan_58DD00(int channel, int pan);
 
-    void SetChannelFrequency_58DD20(int a2, int a3);
+    void SetChannelFrequency_58DD20(int channel, int frequency);
 
-    void SetChannelLoopPoints_58DD40(int a2, int a3, int a4);
+    void SetChannelLoopPoints_58DD40(int channel, int startOffset, int endOffset);
 
-    void SetChannelLoopCount_58DD60(int a2, int a3);
+    void SetChannelLoopCount_58DD60(int channel, int loopCount);
 
-    bool GetChannelUsedFlag_58DD80(int a2);
+    bool GetChannelUsedFlag_58DD80(int channel);
 
-    void StartChannel_58DDB0(int a2);
+    void StartChannel_58DDB0(int channel);
 
-    void StopChannel_58DDD0(int idx);
+    void StopChannel_58DDD0(int channel);
 
     bool InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate);
 

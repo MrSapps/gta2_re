@@ -495,79 +495,79 @@ void wizardly_margulis::sub_58DC90(int channel, int a3)
     }
 }
 
-void wizardly_margulis::SetChannelVolume_58DCE0(int a2, int a3)
+// match
+void wizardly_margulis::SetChannelVolume_58DCE0(int channel , int volume)
 {
-    HSAMPLE  v3; // eax
-
-    v3 = this->field_58_hSamples[a2];
-    if (v3)
+    if (field_58_hSamples[channel])
     {
-        AIL_set_sample_volume(v3, a3);
+        AIL_set_sample_volume(field_58_hSamples[channel], volume);
     }
 }
 
-void wizardly_margulis::SetChannelPan_58DD00(int a2, int a3)
+// match
+void wizardly_margulis::SetChannelPan_58DD00(int channel, int pan)
 {
-    HSAMPLE  v3; // eax
-
-    v3 = this->field_58_hSamples[a2];
-    if (v3)
+    if (field_58_hSamples[channel])
     {
-        AIL_set_sample_pan(v3, a3);
+        AIL_set_sample_pan(field_58_hSamples[channel], pan);
     }
 }
 
-void wizardly_margulis::SetChannelFrequency_58DD20(int a2, int a3)
+// match
+void wizardly_margulis::SetChannelFrequency_58DD20(int channel, int frequency)
 {
-    HSAMPLE  v3; // eax
-
-    v3 = this->field_58_hSamples[a2];
-    if (v3)
+    if (field_58_hSamples[channel])
     {
-        AIL_set_sample_playback_rate(v3, a3);
+        AIL_set_sample_playback_rate(field_58_hSamples[channel], frequency);
     }
 }
 
-void wizardly_margulis::SetChannelLoopPoints_58DD40(int a2, int a3, int a4)
+// match
+void wizardly_margulis::SetChannelLoopPoints_58DD40(int channel, int startOffset, int endOffset)
 {
-    HSAMPLE  v4; // eax
-
-    v4 = this->field_58_hSamples[a2];
-    if (v4)
+    if (field_58_hSamples[channel])
     {
-        AIL_set_sample_loop_block(v4, a3, a4);
+        AIL_set_sample_loop_block(field_58_hSamples[channel], startOffset, endOffset);
     }
 }
 
-void wizardly_margulis::SetChannelLoopCount_58DD60(int a2, int a3)
+// match
+void wizardly_margulis::SetChannelLoopCount_58DD60(int channel, int loopCount)
 {
-    HSAMPLE  v3; // eax
-
-    v3 = this->field_58_hSamples[a2];
-    if (v3)
+    if (field_58_hSamples[channel])
     {
-        AIL_set_sample_loop_count(v3, a3);
+        AIL_set_sample_loop_count(field_58_hSamples[channel], loopCount);
     }
 }
 
-bool wizardly_margulis::GetChannelUsedFlag_58DD80(int a2)
+// todo
+bool wizardly_margulis::GetChannelUsedFlag_58DD80(int channel)
 {
-    return field_58_hSamples[a2] && AIL_sample_status(field_58_hSamples[a2]) == 4;
+    if (field_58_hSamples[channel])
+    {
+        if (AIL_sample_status(field_58_hSamples[channel]) == SMP_PLAYING)
+        {
+            return true;
+        }
+    }
+    return false;
 }
 
-void wizardly_margulis::StartChannel_58DDB0(int a2)
+// match
+void wizardly_margulis::StartChannel_58DDB0(int channel)
 {
-    if (this->field_58_hSamples[a2])
+    if (field_58_hSamples[channel])
     {
-        AIL_start_sample(this->field_58_hSamples[a2]);
+        AIL_start_sample(field_58_hSamples[channel]);
     }
 }
 
-void wizardly_margulis::StopChannel_58DDD0(int idx)
+// match
+void wizardly_margulis::StopChannel_58DDD0(int channel)
 {
-    if (this->field_58_hSamples[idx])
+    if (field_58_hSamples[channel])
     {
-        AIL_end_sample(this->field_58_hSamples[idx]);
+        AIL_end_sample(field_58_hSamples[channel]);
     }
 }
 
