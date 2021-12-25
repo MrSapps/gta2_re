@@ -888,9 +888,15 @@ void laughing_blackwell_0x1EB54::AcquireKeyBoard_4AFD70()
     }
 }
 
+// matches
 void laughing_blackwell_0x1EB54::FreeKeyBoardDevice_4AFD00()
 {
-    // todo
+    if (field_4_pKeyboardDevice)
+    {
+        field_4_pKeyboardDevice->Unacquire();
+        field_4_pKeyboardDevice->Release();
+        field_4_pKeyboardDevice = 0;
+    }
 }
 
 // match
