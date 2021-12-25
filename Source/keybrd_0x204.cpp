@@ -40,19 +40,11 @@ keybrd_0x204::~keybrd_0x204()
 
 void keybrd_0x204::LoadKbCfg_4D5E00()
 {
-    int Layout_4D6000; // eax
+    field_200_keyBoardLayout = 0;
+    field_200_keyBoardLayout = GetLayout_4D6000();
+
     const char *pKeyboardCfgFile; // edi
-    FILE *hConfigFile; // edi
-    __int16  *pKeyArrayIter; // esi
-    int k256Counter; // ebp
-    wchar_t tmpBuffer[16]; // [esp+10h] [ebp-A0h] BYREF
-    char FileName[128]; // [esp+30h] [ebp-80h] BYREF
-
-    this->field_200_keyBoardLayout = 0;
-    Layout_4D6000 = GetLayout_4D6000();
-    field_200_keyBoardLayout = Layout_4D6000;
-
-    switch (Layout_4D6000)
+    switch (field_200_keyBoardLayout)
     {
     case 1:
         pKeyboardCfgFile = "data\\keyboard\\fre_kb.cfg";
@@ -77,17 +69,19 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
         break;
     }
 
+    char FileName[128]; // [esp+30h] [ebp-80h] BYREF
     strcpy(FileName, pKeyboardCfgFile);
-    hConfigFile = fopen(FileName, "rt");
+    FILE *hConfigFile = fopen(FileName, "rt");
     if (!hConfigFile)
     {
         FatalError_4A38C0(151, "C:\\Splitting\\Gta2\\Source\\keybrd.cpp", 187);
     }
 
-    pKeyArrayIter = this->field_0_keys;
-    k256Counter = 256;
+    __int16* pKeyArrayIter = this->field_0_keys;
+    int k256Counter = 256;
     do
     {
+        wchar_t tmpBuffer[16]; // [esp+10h] [ebp-A0h] BYREF
         ReadCfg_4D5DA0(hConfigFile, tmpBuffer);
         if (tmpBuffer[0] == 126)
         {
