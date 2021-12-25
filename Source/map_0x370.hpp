@@ -299,6 +299,10 @@ public:
 
     gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, char zone_type);
 
+    // todo: other funcs
+
+    gmp_zone_unknown* cur_zone_4DF840();
+
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
     // todo: other funcs between

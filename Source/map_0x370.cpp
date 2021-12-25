@@ -141,6 +141,21 @@ gmp_map_zone* Map_0x370::zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, c
     return 0;
 }
 
+// match
+gmp_zone_unknown* Map_0x370::cur_zone_4DF840()
+{
+    if (field_328_pZoneData)
+    {
+        BYTE zone_idx = field_330_pZoneArray[field_364_cur_zone_idx];
+        if (zone_idx != 0)
+        {
+            return &field_334_pUnknownZoneData[zone_idx];
+        }
+    }
+    return 0;
+
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
