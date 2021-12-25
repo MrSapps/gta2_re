@@ -5,6 +5,12 @@ ENABLE_LANGUAGE(ASM_MASM)
 
 SET(CMAKE_WARN_VS6 CACHE BOOL OFF)
 
+add_library (mss32 SHARED
+    Source/3rdParty/mss.h
+    Source/3rdParty/mss.cpp
+    )
+target_compile_definitions(mss32 PRIVATE BUILD_MSS)
+
 add_library (Source 
     Source/3rdParty/mss.h
     Source/types.hpp
@@ -60,7 +66,8 @@ add_library (Source
     Source/distracted_einstein_0xC.cpp
     Source/gtx_0x106C.hpp
     Source/gtx_0x106C.cpp)
-    
+target_compile_definitions(Source PRIVATE _CRT_SECURE_NO_WARNINGS _CRT_NON_CONFORMING_SWPRINTFS)
+
 include_directories(Source)
 include_directories(${decomp_SOURCE_DIR})
 
@@ -68,6 +75,7 @@ add_executable (decomp_main WIN32 Source
     test.cpp
     StdAfx.cpp
     resources.rc)
+target_link_libraries(decomp_main mss32)
 
 #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
 

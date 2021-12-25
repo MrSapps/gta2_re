@@ -3,7 +3,7 @@
 
 wizardly_margulis gWizardly_margulis_6FFF00;
 
-#pragma comment(lib, "C:\\Program Files (x86)\\freeloader.com\\GTA2\\mss32.lib")
+//#pragma comment(lib, "C:\\Program Files (x86)\\freeloader.com\\GTA2\\mss32.lib")
 
 struct voc_name
 {
