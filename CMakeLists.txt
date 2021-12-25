@@ -6,8 +6,10 @@ ENABLE_LANGUAGE(ASM_MASM)
 SET(CMAKE_WARN_VS6 CACHE BOOL OFF)
 
 add_library (Source 
-  Source/registry.hpp
-  Source/registry.cpp)
+    Source/error.hpp
+    Source/error.cpp
+    Source/registry.hpp
+    Source/registry.cpp)
 
 include_directories(Source)
 include_directories(${decomp_SOURCE_DIR})
