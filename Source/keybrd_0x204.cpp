@@ -160,6 +160,7 @@ void keybrd_0x204::ReadCfg_4D5DA0(FILE *Stream, wchar_t *pOut)
     pOut[i] = 0;
 }
 
+// match
 void keybrd_0x204::RecreateIfLayoutChanged_4D5FD0()
 {
     if (gKeybrd_0x204_6F52F4)
@@ -170,6 +171,10 @@ void keybrd_0x204::RecreateIfLayoutChanged_4D5FD0()
             return;
         }
         keybrd_0x204::destroy_4D5FA0();
+        keybrd_0x204::create_4D5F50();
     }
-    keybrd_0x204::create_4D5F50();
+    else
+    {
+        keybrd_0x204::create_4D5F50();
+    }
 }
