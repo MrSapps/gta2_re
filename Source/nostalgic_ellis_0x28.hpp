@@ -1,15 +1,17 @@
 #pragma once
 
+#include "types.hpp"
+
 class nostalgic_ellis_0x28
 {
 public:
-    nostalgic_ellis_0x28();
+    EXPORT nostalgic_ellis_0x28();
 
-    ~nostalgic_ellis_0x28();
+    EXPORT ~nostalgic_ellis_0x28();
 
-    void sub_4D6D70();
+    EXPORT  void sub_4D6D70();
 
-    nostalgic_ellis_0x28* sub_4D6DC0();
+    EXPORT nostalgic_ellis_0x28* sub_4D6DC0();
 
     nostalgic_ellis_0x28 *field_0;
     int field_4_light_x;
@@ -31,9 +33,9 @@ public:
 class Light
 {
 public:
-    static void __stdcall sub_4D6E00();
+    EXPORT static void __stdcall sub_4D6E00();
 
-    static void sub_4D6E30();
+    EXPORT static void sub_4D6E30();
 
-    static int __stdcall sub_4D6E50(int a1, int a2, int a3, int a4);
+    EXPORT static int __stdcall sub_4D6E50(int a1, int a2, int a3, int a4);
 };

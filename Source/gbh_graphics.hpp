@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include "types.hpp"
 
 struct SDisplayMode
 {
@@ -37,7 +38,7 @@ struct SDevice
 
 struct SVideo;
 
-int __stdcall GBH_GraphicsLoadDll_5EA680(const char* lpLibFileName);
+EXPORT int __stdcall GBH_GraphicsLoadDll_5EA680(const char* lpLibFileName);
 
 struct STexture;
 struct Vert;
@@ -126,6 +127,6 @@ extern T_gbh_BlitBuffer gbh_BlitBuffer;
 
 extern int gGBH_GraphicsLoaded_7085E0;
 
-int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys);
-void __stdcall GBH_Graphics_Unload_5EA500();
-int GBH_Graphics_Free_5EA640();
+EXPORT int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys);
+EXPORT void __stdcall GBH_Graphics_Unload_5EA500();
+EXPORT int GBH_Graphics_Free_5EA640();

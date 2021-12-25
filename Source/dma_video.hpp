@@ -141,5 +141,5 @@ extern T_Vid_WindowProc Vid_WindowProc;
 extern T_Vid_InitDLL Vid_InitDLL;
 extern T_Vid_SetGamma Vid_SetGamma;
 
-void __stdcall DMA_Video_Unload_5EB8C0(SVideo *pVidSys);
-int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName);
+EXPORT void __stdcall DMA_Video_Unload_5EB8C0(SVideo *pVidSys);
+EXPORT int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName);

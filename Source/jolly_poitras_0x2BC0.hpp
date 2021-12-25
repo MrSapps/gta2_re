@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include "types.hpp"
 
 struct angry_lewin_0x85C;
 
@@ -22,10 +23,10 @@ struct dreamy_clarke_0xA4
     wchar_t field_90_str[9];
     __int16 field_A2;
 
-    dreamy_clarke_0xA4();
-    ~dreamy_clarke_0xA4();
+    EXPORT dreamy_clarke_0xA4();
+    EXPORT ~dreamy_clarke_0xA4();
 
-    void sub_56B630();
+    EXPORT void sub_56B630();
 };
 
 // todo: move
@@ -38,12 +39,12 @@ struct small_string
 // todo: move
 struct agitated_keldysh_0xF0
 {
-    agitated_keldysh_0xF0();
-    ~agitated_keldysh_0xF0();
+    EXPORT agitated_keldysh_0xF0();
+    EXPORT ~agitated_keldysh_0xF0();
 
-    void Init_56B520();
+    EXPORT void Init_56B520();
 
-    char sub_56B550(const wchar_t *Source, int a3);
+    EXPORT char sub_56B550(const wchar_t *Source, int a3);
 
     small_string field_0[10];
 };
@@ -1602,39 +1603,39 @@ struct jolly_poitras_0x2BC0
     agitated_keldysh_0xF0 field_25B0;
     dreamy_clarke_0xA4 field_26A0[8];
 
-    jolly_poitras_0x2BC0();
-    ~jolly_poitras_0x2BC0();
+    EXPORT jolly_poitras_0x2BC0();
+    EXPORT ~jolly_poitras_0x2BC0();
 
-    static void create_56C2C0();
+    EXPORT static void create_56C2C0();
 
-    static void destroy_56C340();
+    EXPORT static void destroy_56C340();
 
     // todo: ordering
-    void sub_56BB10(angry_lewin_0x85C *a2);
+    EXPORT void sub_56BB10(angry_lewin_0x85C *a2);
 
-    void sub_56C010();
+    EXPORT void sub_56C010();
 
-    void GetPlySlotDatName_56B8A0(unsigned __int16 a1, char *a2);
+    EXPORT void GetPlySlotDatName_56B8A0(unsigned __int16 a1, char *a2);
 
-    char PlySlotDatExists_56B940(int a1);
+    EXPORT char PlySlotDatExists_56B940(int a1);
 
-    void GetHiScoreHscFileName_56BCF0(char *pName);
+    EXPORT void GetHiScoreHscFileName_56BCF0(char *pName);
 
-    char HiScoreHscExists_56BCA0();
+    EXPORT char HiScoreHscExists_56BCA0();
 
-    void sub_56B990(int a2);
+    EXPORT void sub_56B990(int a2);
 
-    void sub_56BA60(__int16 a2);
+    EXPORT void sub_56BA60(__int16 a2);
 
-    void sub_56BE50();
+    EXPORT void sub_56BE50();
 
-    void sub_56C1D0();
+    EXPORT void sub_56C1D0();
 
-    void sub_56BF20();
+    EXPORT void sub_56BF20();
 
-    void sub_56BD20();
+    EXPORT void sub_56BD20();
 
-    void sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3);
+    EXPORT void sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3);
 };
 
 extern jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;

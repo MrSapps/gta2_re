@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 #include <windows.h>
 
 #ifndef DIRECTINPUT_VERSION
@@ -25,10 +26,10 @@ struct sleepy_stonebraker_0x6C
 {
 public:
 
-    sleepy_stonebraker_0x6C();
+    EXPORT sleepy_stonebraker_0x6C();
 
 
-    ~sleepy_stonebraker_0x6C();
+    EXPORT ~sleepy_stonebraker_0x6C();
 
     char field_0;
     char field_1;
@@ -44,9 +45,9 @@ public:
 #pragma pack(1)
 struct xenodochial_morse
 {
-    xenodochial_morse();
+    EXPORT xenodochial_morse();
 
-    void sub_483F20();
+    EXPORT void sub_483F20();
 
     __int16 field_0;
     sleepy_stonebraker_0x6C field_2[600];
@@ -94,19 +95,19 @@ struct admiring_euler_4
     char field_2;
     char field_3;
 
-    admiring_euler_4();
+    EXPORT admiring_euler_4();
 
-    ~admiring_euler_4();
+    EXPORT ~admiring_euler_4();
 
-    void LoadPlySlotSvg_4B6480(const char *FileName);
+    EXPORT void LoadPlySlotSvg_4B6480(const char *FileName);
 };
 
 // todo: move
 struct competent_noyce_0x6E
 {
-    competent_noyce_0x6E();
+    EXPORT competent_noyce_0x6E();
 
-    ~competent_noyce_0x6E();
+    EXPORT ~competent_noyce_0x6E();
 
     char field_0;
     char field_1;
@@ -123,13 +124,13 @@ struct competent_noyce_0x6E
 struct nifty_maxwell_0x82
 {
 public:
-    nifty_maxwell_0x82();
+    EXPORT nifty_maxwell_0x82();
 
-    ~nifty_maxwell_0x82();
+    EXPORT ~nifty_maxwell_0x82();
 
-    bool sub_4B6330();
+    EXPORT bool sub_4B6330();
 
-    bool sub_4B6390();
+    EXPORT bool sub_4B6390();
 
     char field_0;
     char field_1;
@@ -153,9 +154,9 @@ struct kind_beaver_6
 {
 public:
 
-    kind_beaver_6();
+    EXPORT kind_beaver_6();
 
-    ~kind_beaver_6();
+    EXPORT ~kind_beaver_6();
 
     __int16 field_0;
     __int16 field_2;
@@ -166,13 +167,13 @@ public:
 // todo: move
 struct loving_borg_0xBCA
 {
-    loving_borg_0xBCA();
+    EXPORT loving_borg_0xBCA();
 
-    ~loving_borg_0xBCA();
+    EXPORT ~loving_borg_0xBCA();
 
-    bool sub_4B61B0();
+    EXPORT bool sub_4B61B0();
 
-    bool sub_4B6200();
+    EXPORT bool sub_4B6200();
 
     unsigned __int16 field_0;
     __int16 field_2;
@@ -2600,150 +2601,149 @@ struct laughing_blackwell_0x1EB54
     // todo: ordering
 
     // todo move to another file for ordering
-    static void __stdcall create_4ACFA0();
+    EXPORT static void __stdcall create_4ACFA0();
 
-    static void __stdcall destroy_4AD070();
+    EXPORT static void __stdcall destroy_4AD070();
 
-    void sub_4B3170(unsigned __int16 arg0);
-    
-    void sub_4B8680();
+    EXPORT void sub_4B3170(unsigned __int16 arg0);
 
-    const char* intro_bik_4B5E50();
+    EXPORT void sub_4B8680();
 
-    static bool intro_bik_exists_4B5FF0();
+    EXPORT const char* intro_bik_4B5E50();
 
-    void sub_4AEC00();
+    EXPORT static bool intro_bik_exists_4B5FF0();
 
-    void sub_4AFEB0();
+    EXPORT void sub_4AEC00();
 
-    void sub_4B6780();
+    EXPORT void sub_4AFEB0();
 
-    void sub_4B7A10();
+    EXPORT void sub_4B6780();
 
-    void sub_4AE2D0();
+    EXPORT void sub_4B7A10();
 
-    void sub_4AE990();
+    EXPORT void sub_4AE2D0();
 
-    void sub_4B2F60();
+    EXPORT void sub_4AE990();
 
-    void sub_4AE9A0();
+    EXPORT void sub_4B2F60();
 
-    void sub_4B8280();
+    EXPORT void sub_4AE9A0();
 
-    void sub_4B4410();
+    EXPORT void sub_4B8280();
 
-    dreamy_clarke_0xA4* sub_4B43E0();
+    EXPORT void sub_4B4410();
 
-    void sub_4B42E0();
+    EXPORT dreamy_clarke_0xA4* sub_4B43E0();
 
-    void sub_4B4230();
+    EXPORT void sub_4B42E0();
 
-    void HandleCheatCode_4B3DD0(const wchar_t *String);
+    EXPORT void sub_4B4230();
 
-    void sub_4B4280();
+    EXPORT void HandleCheatCode_4B3DD0(const wchar_t *String);
 
-    void sub_4B8530();
+    EXPORT void sub_4B4280();
 
-    void sub_4B8560();
+    EXPORT void sub_4B8530();
 
-    void sub_4B8020();
+    EXPORT void sub_4B8560();
 
-    char sub_4B7FB0();
+    EXPORT void sub_4B8020();
 
-    void sub_4B4D00(
+    EXPORT char sub_4B7FB0();
+
+    EXPORT void sub_4B4D00(
         unsigned __int8 mainBlockIdx,
         unsigned __int8 bonusBlockIdx);
 
-    void sub_4ADF50();
+    EXPORT void sub_4ADF50();
 
-    void sub_4ADFB0();
+    EXPORT void sub_4ADFB0();
 
-    void DrawBackground_4B6E10();
+    EXPORT void DrawBackground_4B6E10();
 
-    void sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3);
+    EXPORT void sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3);
 
-    void Load_tga_4B6520(unsigned __int16 idx);
+    EXPORT void Load_tga_4B6520(unsigned __int16 idx);
 
-    laughing_blackwell_0x1EB54();
+    EXPORT laughing_blackwell_0x1EB54();
 
-    ~laughing_blackwell_0x1EB54();
+    EXPORT ~laughing_blackwell_0x1EB54();
 
-    void AcquireKeyBoard_4AFD70();
+    EXPORT void AcquireKeyBoard_4AFD70();
 
-    void FreeKeyBoardDevice_4AFD00();
+    EXPORT void FreeKeyBoardDevice_4AFD00();
 
-    void FreeImageTable_4B6750();
+    EXPORT void FreeImageTable_4B6750();
 
-    char KeyBoard_GetKeyStates_4AFDD0();
+    EXPORT char KeyBoard_GetKeyStates_4AFDD0();
 
-    void InitKeyBoardDevice_4AFBE0();
+    EXPORT void InitKeyBoardDevice_4AFBE0();
 
-    void sub_4AF0E0();
+    EXPORT void sub_4AF0E0();
 
-    void sub_4B0220();
+    EXPORT void sub_4B0220();
 
-    void sub_4B4440();
+    EXPORT void sub_4B4440();
 
-    void LoadPlySlotSvgs_4B53C0();
+    EXPORT void LoadPlySlotSvgs_4B53C0();
 
-    void Load_tgas_4B66B0();
+    EXPORT void Load_tgas_4B66B0();
 
-    void GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr);
+    EXPORT void GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr);
 
-    char PlySlotSvgExists_4B5370(int idx);
+    EXPORT char PlySlotSvgExists_4B5370(int idx);
 
-    // match
-    static void __stdcall sub_5E53C0(BYTE *a1);
+    EXPORT static void __stdcall sub_5E53C0(BYTE *a1);
 
-    int sub_5D8990(wchar_t *pStr, WORD a2);
+    EXPORT int sub_5D8990(wchar_t *pStr, WORD a2);
 
-    int sub_4B0190(wchar_t* a2, __int16 a3, int a4);
+    EXPORT int sub_4B0190(wchar_t* a2, __int16 a3, int a4);
 
-    unsigned __int8 sub_4B7060(unsigned __int8 a2);
+    EXPORT unsigned __int8 sub_4B7060(unsigned __int8 a2);
 
-    unsigned __int8 sub_4B7270(char a2);
+    EXPORT unsigned __int8 sub_4B7270(char a2);
 
-    bool sub_4B7490();
+    EXPORT bool sub_4B7490();
 
-    bool sub_4B74C0();
+    EXPORT bool sub_4B74C0();
 
-    void sub_4B7550();
+    EXPORT void sub_4B7550();
 
-    bool sub_4B6FF0();
+    EXPORT bool sub_4B6FF0();
 
-    void sub_4B42B0();
+    EXPORT void sub_4B42B0();
 
-    char sub_4B7120(char a2);
+    EXPORT char sub_4B7120(char a2);
 
-    void sub_4B7610();
+    EXPORT void sub_4B7610();
 
-    bool sub_4B70B0();
+    EXPORT bool sub_4B70B0();
 
-    bool sub_4B74F0();
+    EXPORT bool sub_4B74F0();
 
-    char sub_4B7360(char a2);
+    EXPORT char sub_4B7360(char a2);
 
-    bool sub_4B7520();
+    EXPORT bool sub_4B7520();
 
-    bool sub_4B72F0();
+    EXPORT bool sub_4B72F0();
 
-    bool sub_4B7200();
+    EXPORT bool sub_4B7200();
 
-    void sub_4B4EC0();
+    EXPORT void sub_4B4EC0();
 
-    int sub_4AEDB0();
+    EXPORT int sub_4AEDB0();
 
-    void sub_4AD140();
+    EXPORT void sub_4AD140();
 
-    void sub_4B7AE0();
+    EXPORT void sub_4B7AE0();
 
-    void sub_4B8650();
+    EXPORT void sub_4B8650();
 
-    char pre_intro_bik_exists_4B6030();
+    EXPORT char pre_intro_bik_exists_4B6030();
 
-    char * pre_intro_bik_4B5F20();
+    EXPORT char * pre_intro_bik_4B5F20();
 };
 
-int __stdcall SetGamma_5D9910(int gamma);
+EXPORT int __stdcall SetGamma_5D9910(int gamma);
 
 extern laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;

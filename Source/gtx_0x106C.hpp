@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include "types.hpp"
 
 struct palette_base
 {
@@ -113,109 +114,109 @@ struct delta_store_entry
 class gtx_0x106C
 {
 public:
-    car_info* get_car_info_5AA3B0(unsigned __int8 idx);
+    EXPORT car_info* get_car_info_5AA3B0(unsigned __int8 idx);
 
-    BYTE* get_car_remap_5AA3D0(unsigned __int8 idx);
+    EXPORT BYTE* get_car_remap_5AA3D0(unsigned __int8 idx);
 
-    sprite_index* get_sprite_index_5AA440(unsigned __int16 idx);
+    EXPORT sprite_index* get_sprite_index_5AA440(unsigned __int16 idx);
 
-    unsigned __int16 convert_sprite_pal_5AA460(int type, __int16 sprite_pal);
+    EXPORT unsigned __int16 convert_sprite_pal_5AA460(int type, __int16 sprite_pal);
 
-    __int16 sub_5AA4F0(int a2);
+    EXPORT __int16 sub_5AA4F0(int a2);
 
-    __int16 sub_5AA560(int a2);
+    EXPORT __int16 sub_5AA560(int a2);
 
-    __int16 convert_pal_type_5AA5F0(int type, __int16 pal);
+    EXPORT __int16 convert_pal_type_5AA5F0(int type, __int16 pal);
 
-    BYTE* GetPalData_5AA6A0(__int16 a2);
+    EXPORT BYTE* GetPalData_5AA6A0(__int16 a2);
 
-    unsigned __int16 get_phys_pal_5AA6F0(unsigned __int16 palId);
+    EXPORT unsigned __int16 get_phys_pal_5AA6F0(unsigned __int16 palId);
 
-    unsigned __int16 sub_5AA710(unsigned __int16 a2, __int16 a3);
+    EXPORT unsigned __int16 sub_5AA710(unsigned __int16 a2, __int16 a3);
 
-    unsigned __int16 sub_5AA760(WORD *a2, wchar_t *a3);
+    EXPORT unsigned __int16 sub_5AA760(WORD *a2, wchar_t *a3);
 
-    unsigned __int16 space_width_5AA7B0(WORD *a2);
+    EXPORT unsigned __int16 space_width_5AA7B0(WORD *a2);
 
-    __int16 sub_5AA800(WORD *a2);
+    EXPORT __int16 sub_5AA800(WORD *a2);
 
-    bool sub_5AA850(unsigned __int16 tile_idx);
+    EXPORT bool sub_5AA850(unsigned __int16 tile_idx);
 
-    __int16 sub_5AA870(unsigned __int16 tile_idx);
+    EXPORT __int16 sub_5AA870(unsigned __int16 tile_idx);
 
-    __int16 sub_5AA890();
+    EXPORT __int16 sub_5AA890();
 
-    __int16 get_physical_palettes_len_5AA900();
+    EXPORT __int16 get_physical_palettes_len_5AA900();
 
-    object_info* get_map_object_info_5AA910(unsigned __int16 idx);
+    EXPORT object_info* get_map_object_info_5AA910(unsigned __int16 idx);
 
-    int sub_5AA930(unsigned __int16 tile_idx, __int16 tile_val);
+    EXPORT int sub_5AA930(unsigned __int16 tile_idx, __int16 tile_val);
 
-    void create_tile_num_array_5AA950();
+    EXPORT void create_tile_num_array_5AA950();
 
-    void sub_5AA9A0(int a2);
+    EXPORT void sub_5AA9A0(int a2);
 
-    void sub_5AAB30(unsigned int delx_chunk_size);
+    EXPORT void sub_5AAB30(unsigned int delx_chunk_size);
 
-    void sub_5AABF0();
+    EXPORT void sub_5AABF0();
 
-    void SetSpriteIndexDataPtrs_5AAC40();
+    EXPORT void SetSpriteIndexDataPtrs_5AAC40();
 
-    void sub_5AAC70();
+    EXPORT void sub_5AAC70();
 
-    void load_car_info_5AAD50(unsigned int cari_chunk_size);
+    EXPORT void load_car_info_5AAD50(unsigned int cari_chunk_size);
 
-    void load_delta_index_5AAD80(unsigned int delx_chunk_size);
+    EXPORT void load_delta_index_5AAD80(unsigned int delx_chunk_size);
 
-    void load_delta_store_5AADD0(unsigned int dels_chunk_size);
+    EXPORT void load_delta_store_5AADD0(unsigned int dels_chunk_size);
 
-    void load_tiles_5AADF0(unsigned int tile_chunk_len);
+    EXPORT void load_tiles_5AADF0(unsigned int tile_chunk_len);
 
-    void skip_ovly_5AAE20(unsigned int a1);
+    EXPORT void skip_ovly_5AAE20(unsigned int a1);
 
-    void skip_psxt_5AAE30(unsigned int a1);
+    EXPORT void skip_psxt_5AAE30(unsigned int a1);
 
-    void load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len);
+    EXPORT void load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len);
 
-    void load_physical_palettes_5AAE70(unsigned int ppal_chunk_size);
+    EXPORT void load_physical_palettes_5AAE70(unsigned int ppal_chunk_size);
 
-    void load_palette_index_5AAEA0(unsigned int palx_chunk_len);
+    EXPORT void load_palette_index_5AAEA0(unsigned int palx_chunk_len);
 
-    void load_map_object_info_5AAF00(unsigned int obji_chunk_len);
+    EXPORT void load_map_object_info_5AAF00(unsigned int obji_chunk_len);
 
-    void load_sprite_index_5AAF80(unsigned int sprx_chunk_size);
+    EXPORT void load_sprite_index_5AAF80(unsigned int sprx_chunk_size);
 
-    void sub_5AAFE0(unsigned __int16 a1);
+    EXPORT void sub_5AAFE0(unsigned __int16 a1);
 
-    void load_font_base_5AB0F0(unsigned int fonb_chunk_size);
+    EXPORT void load_font_base_5AB0F0(unsigned int fonb_chunk_size);
 
-    static WORD __stdcall ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
+    EXPORT static WORD __stdcall ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
 
-    static void __stdcall ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len);
+    EXPORT static void __stdcall ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len);
 
-    void load_sprite_base_5AB210(unsigned int sprite_base_chunk_size);
+    EXPORT void load_sprite_base_5AB210(unsigned int sprite_base_chunk_size);
 
-    void load_palete_base_5AB2C0(unsigned int palette_base_chunk_len);
+    EXPORT void load_palete_base_5AB2C0(unsigned int palette_base_chunk_len);
 
-    bool sub_5AB380(unsigned __int8 car_id);
+    EXPORT bool sub_5AB380(unsigned __int8 car_id);
 
-    void load_car_recycling_info_5AB3C0(unsigned int recy_chunk_size);
+    EXPORT void load_car_recycling_info_5AB3C0(unsigned int recy_chunk_size);
 
-    void read_spec_5AB3F0(unsigned int read_size2);
+    EXPORT void read_spec_5AB3F0(unsigned int read_size2);
 
-    void load_spec_5AB450();
+    EXPORT void load_spec_5AB450();
 
-    void LoadChunk_5AB4B0(const char *Str1, unsigned int chunk_len);
+    EXPORT void LoadChunk_5AB4B0(const char *Str1, unsigned int chunk_len);
 
-    void sub_5AB720();
+    EXPORT void sub_5AB720();
 
-    void LoadSty_5AB750(const char *pStyFileName);
+    EXPORT void LoadSty_5AB750(const char *pStyFileName);
 
     // 0x5AB820
-    gtx_0x106C();
+    EXPORT gtx_0x106C();
 
     // 0x5AB8A0
-    ~gtx_0x106C();
+    EXPORT ~gtx_0x106C();
 
     __int16 field_0_totalPalBase;
     __int16 field_2_font_base_total;

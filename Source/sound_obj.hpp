@@ -1,13 +1,13 @@
 #pragma once
 
+#include "types.hpp"
 #include <windows.h>
 #include "root_sound.hpp" // for infallible_turing
 
 class serene_brattain 
 {
 public:
-    //serene_brattain();
-    void sub_419DF0();
+    EXPORT void sub_419DF0();
     int field_0;
     int field_4;
     int field_8;
@@ -218,151 +218,150 @@ public:
     __int16 field_5572;
     int field_5574;
 
-    sound_obj();
+    EXPORT sound_obj();
 
-    void ClearRequestedQueue_41B700();
+    EXPORT void ClearRequestedQueue_41B700();
 
-    void ClearActivateSamples_41B7A0();
+    EXPORT void ClearActivateSamples_41B7A0();
 
-    void sub_41A2A0();
+    EXPORT void sub_41A2A0();
 
-    void SetSfxVol_41A250(char sfxVol);
+    EXPORT void SetSfxVol_41A250(char sfxVol);
 
-    void SetCDVol_41A270(unsigned char cdVol);
+    EXPORT void SetCDVol_41A270(unsigned char cdVol);
 
-    char Set3DSound_41A2F0(char b3dSound);
+    EXPORT char Set3DSound_41A2F0(char b3dSound);
 
-    char Get3dSound_41A390();
+    EXPORT char Get3dSound_41A390();
 
+    EXPORT void Init_15_Array_427180();
 
-    void Init_15_Array_427180();
+    EXPORT void Set15Val_4271B0(unsigned int val);
 
-    void Set15Val_4271B0(unsigned int val);
+    EXPORT void sub_427220();
 
-    void sub_427220();
+    EXPORT void GenerateIntegerRandomNumberTable_41BA90();
 
-    void GenerateIntegerRandomNumberTable_41BA90();
+    EXPORT void sub_41B540();
 
-    void sub_41B540();
+    EXPORT void sub_41B520(int a1, float *a2);
 
-    void sub_41B520(int a1, float *a2);
+    EXPORT char sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3);
 
-    char sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3);
+    EXPORT void AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2);
 
-    void AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2);
+    EXPORT void AddSampleToRequestedQueue_41A850();
 
-    void AddSampleToRequestedQueue_41A850();
+    EXPORT int RandomDisplacement_41A650(unsigned int seed);
 
-    int RandomDisplacement_41A650(unsigned int seed);
+    EXPORT void ServiceSoundEffects_41A3A0();
 
-    void ServiceSoundEffects_41A3A0();
+    EXPORT void InterrogateAudioEntities_41A730();
 
-    void InterrogateAudioEntities_41A730();
+    EXPORT void AddReleasingSounds_41A9D0();
 
-    void AddReleasingSounds_41A9D0();
+    EXPORT void ProcessActiveQueues_41AB80();
 
-    void ProcessActiveQueues_41AB80();
+    EXPORT void sub_41A6F0();
 
-    void sub_41A6F0();
+    EXPORT char CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3);
 
-    char CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3);
+    EXPORT  bool VolCalc_419070(int a2, int a3, char a4);
 
-    bool VolCalc_419070(int a2, int a3, char a4);
+    EXPORT char sub_419020(int a2);
 
-    char sub_419020(int a2);
+    EXPORT char sub_4186D0(sound_0x68 *pObj);
 
-    char sub_4186D0(sound_0x68 *pObj);
+    EXPORT char sub_4182A0(sound_0x68 *pObj);
 
-    char sub_4182A0(sound_0x68 *pObj);
+    EXPORT char sub_418130(sound_0x68 *pObj);
 
-    char sub_418130(sound_0x68 *pObj);
+    EXPORT char sub_417F40(int a1);
 
-    char sub_417F40(int a1);
+    EXPORT int sub_417EF0(sound_0x68 *pObj);
 
-    int sub_417EF0(sound_0x68 *pObj);
+    EXPORT int ConvertToPlayBackRate_417C60(int a1);
 
-    int ConvertToPlayBackRate_417C60(int a1);
+    EXPORT char sub_4153F0(sound_0x68 *pObj);
 
-    char sub_4153F0(sound_0x68 *pObj);
+    EXPORT void ResetEntry_41A6C0(int idx);
 
-    void ResetEntry_41A6C0(int idx);
+    EXPORT void null_412240();
 
-    void null_412240();
+    EXPORT void sub_418C20();
 
-    void sub_418C20();
+    EXPORT void sub_419E10();
 
-    void sub_419E10();
+    EXPORT char LoadStyle_41A1B0(const char *pStyleName);
 
-    char LoadStyle_41A1B0(const char *pStyleName);
+    EXPORT const char* GetFileName_41A1E0(const char *pStr);
 
-    const char* GetFileName_41A1E0(const char *pStr);
+    EXPORT int AddSoundObject_419FA0(infallible_turing* a2);
 
-    int AddSoundObject_419FA0(infallible_turing* a2);
+    EXPORT void FreeSoundEntry_41A090(unsigned int a2);
 
-    void FreeSoundEntry_41A090(unsigned int a2);
+    EXPORT void Release_41A290();
 
-    void Release_41A290();
+    EXPORT unsigned __int8 GetCDVol_41A280();
 
-    unsigned __int8 GetCDVol_41A280();
+    EXPORT void sub_57EA10();
+    EXPORT void Service_419EF0();
 
-    void sub_57EA10();
-    void Service_419EF0();
+    EXPORT void ProcessEntity_4123A0(int id);
 
-    void ProcessEntity_4123A0(int id);
+    EXPORT void ProcessType3_57DD50();
 
-    void ProcessType3_57DD50();
+    EXPORT void ProcessType1_412740(int a2);
 
-    void ProcessType1_412740(int a2);
+    EXPORT void ProcessType6_413760(int a2);
 
-    void ProcessType6_413760(int a2);
+    EXPORT void ProcessType7_42A500(int a2);
 
-    void ProcessType7_42A500(int a2);
+    EXPORT void ProcessType8_412820(int a2);
 
-    void ProcessType8_412820(int a2);
+    EXPORT void ProcessType9_412A60(int a2);
 
-    void ProcessType9_412A60(int a2);
+    EXPORT void ProcessType10_418CA0();
 
-    void ProcessType10_418CA0();
+    EXPORT void ProcessType11_418B60(int a2);
 
-    void ProcessType11_418B60(int a2);
+    EXPORT void ProcessType2_412490(int idx);
 
-    void ProcessType2_412490(int idx);
+    EXPORT char sub_412260(sound_0x68 *pObj);
 
-    char sub_412260(sound_0x68 *pObj);
+    EXPORT char sub_416260(sound_0x68 *a1);
 
-    char sub_416260(sound_0x68 *a1);
+    EXPORT char sub_4174C0(sound_0x68 *a2);
 
-    char sub_4174C0(sound_0x68 *a2);
+    EXPORT char sub_417A00(sound_0x68 *a2);
 
-    char sub_417A00(sound_0x68 *a2);
+    EXPORT char sub_415730(sound_0x68 *a2);
 
-    char sub_415730(sound_0x68 *a2);
+    EXPORT char sub_418940(sound_0x68 *a2);
 
-    char sub_418940(sound_0x68 *a2);
-
-    char sub_414EE0(sound_0x68 *a2);
+    EXPORT char sub_414EE0(sound_0x68 *a2);
  
-    char sub_414C90(sound_0x68 *a2);
+    EXPORT char sub_414C90(sound_0x68 *a2);
 
-    char sub_415100(sound_0x68 *a2);
+    EXPORT char sub_415100(sound_0x68 *a2);
 
-    char sub_414320(sound_0x68 *a2);
+    EXPORT char sub_414320(sound_0x68 *a2);
 
-    char sub_414690(sound_0x68 *a2);
+    EXPORT char sub_414690(sound_0x68 *a2);
 
-    char sub_4149D0(sound_0x68 *a2);
+    EXPORT char sub_4149D0(sound_0x68 *a2);
 
-    void VecDiff_41B4E0(serene_brattain *pVec, serene_brattain *pRet);
+    EXPORT void VecDiff_41B4E0(serene_brattain *pVec, serene_brattain *pRet);
 
-    void sub_41B490(sound_0x68 *pObj);
+    EXPORT void sub_41B490(sound_0x68 *pObj);
 
-    DWORD* sub_4190B0(DWORD *a2);
+    EXPORT DWORD* sub_4190B0(DWORD *a2);
 
-    BYTE sub_427310();
+    EXPORT BYTE sub_427310();
 
-    void sub_427340(int a4, int a5, int a6);
+    EXPORT void sub_427340(int a4, int a5, int a6);
 
-    void sub_426E10(int arg0, unsigned int a2);
+    EXPORT void sub_426E10(int arg0, unsigned int a2);
 };
 
 extern sound_obj gSound_obj_66F680;

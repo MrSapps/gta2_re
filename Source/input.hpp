@@ -1,11 +1,12 @@
 #pragma once
 
 #include <windows.h>
+#include "types.hpp"
 
 class Input
 {
 public:
-    static void __stdcall DirectInputCreate_4986D0(HINSTANCE hInstance);
+    EXPORT static void __stdcall DirectInputCreate_4986D0(HINSTANCE hInstance);
 
-    static void __stdcall DInputRelease_498710();
+    EXPORT static void __stdcall DInputRelease_498710();
 };

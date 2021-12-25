@@ -13,3 +13,5 @@ typedef signed int s32;
 
 typedef float f32;
 typedef double f64;
+
+#define EXPORT __declspec(dllexport)

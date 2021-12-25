@@ -1,5 +1,7 @@
 #pragma once
 
+#include "types.hpp"
+
 struct angry_lewin_0x85C;
 
 struct Game_0x40
@@ -30,7 +32,7 @@ struct Game_0x40
 
     // todo: ordering
 
-    void sub_4B9720();
+    EXPORT void sub_4B9720();
 };
 
 extern Game_0x40* gGame_0x40_67E008;

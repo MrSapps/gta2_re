@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 
 struct Fix16
 {
@@ -28,7 +29,7 @@ struct Fix16
         return mValue >> 14;
     }
 
-    Fix16& FromInt_4369F0(int a2);
+    EXPORT Fix16& FromInt_4369F0(int a2);
 
 public:
     int mValue;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 #include <windows.h>
 
 struct STexture;
@@ -24,17 +25,17 @@ struct festive_hopper
     char field_12;
     char field_13;
 
-    void Free_5B9050();
+    EXPORT void Free_5B9050();
 
-    void Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5);
+    EXPORT void Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5);
 
-    void sub_5B8F70();
+    EXPORT void sub_5B8F70();
 
-    void LoadTextures_5B8F00();
+    EXPORT void LoadTextures_5B8F00();
 
-    STexture* get_texture_5B90A0(int type, __int16 sprite_pal);
+    EXPORT STexture* get_texture_5B90A0(int type, __int16 sprite_pal);
 
-    STexture* sub_5B90D0(__int16 a2, __int16 a3);
+    EXPORT STexture* sub_5B90D0(__int16 a2, __int16 a3);
 };
 
 struct sharp_pare_0x15D8
@@ -57,21 +58,21 @@ struct sharp_pare_0x15D8
     __int16 field_15D4_idx;
     unsigned __int16 field_15D6_pal_count;
 
-    sharp_pare_0x15D8();
+    EXPORT sharp_pare_0x15D8();
 
-    ~sharp_pare_0x15D8();
+    EXPORT ~sharp_pare_0x15D8();
 
-    void sub_5B9350();
+    EXPORT void sub_5B9350();
 
-    void FreePals_5B9140();
+    EXPORT void FreePals_5B9140();
 
-    void LoadPals_5B90F0();
+    EXPORT void LoadPals_5B90F0();
 
-    void ReadTextures_5B92E0();
+    EXPORT void ReadTextures_5B92E0();
 
-    void LoadTextures2_5B9180();
+    EXPORT void LoadTextures2_5B9180();
 
-    STexture* sub_5B94F0(int type, int pal, int kind, int a5);
+    EXPORT STexture* sub_5B94F0(int type, int pal, int kind, int a5);
 };
 
 extern sharp_pare_0x15D8 *gSharp_pare_0x15D8_705064;

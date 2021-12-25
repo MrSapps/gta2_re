@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdio.h>
+#include "types.hpp"
 
 class keybrd_0x204
 {
@@ -10,19 +11,19 @@ public:
 
     // todo: func order
 
-    static void __stdcall create_4D5F50();
+    EXPORT static void __stdcall create_4D5F50();
 
-    static void destroy_4D5FA0();
+    EXPORT static void destroy_4D5FA0();
 
-    keybrd_0x204();
+    EXPORT keybrd_0x204();
 
-    ~keybrd_0x204();
+    EXPORT ~keybrd_0x204();
 
-    void LoadKbCfg_4D5E00();
+    EXPORT void LoadKbCfg_4D5E00();
 
-    static int GetLayout_4D6000();
+    EXPORT static int GetLayout_4D6000();
 
-    void ReadCfg_4D5DA0(FILE *Stream, wchar_t *pOut);
+    EXPORT void ReadCfg_4D5DA0(FILE *Stream, wchar_t *pOut);
 
-    static void RecreateIfLayoutChanged_4D5FD0();
+    EXPORT static void RecreateIfLayoutChanged_4D5FD0();
 };

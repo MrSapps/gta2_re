@@ -1,10 +1,12 @@
 #pragma once
 
+#include "types.hpp"
+
 struct Debug
 {
-    void Init_4ABBD0();
+    EXPORT void Init_4ABBD0();
 
-    bool HaveOnlyFrenchGtx_4AC200();
+    EXPORT bool HaveOnlyFrenchGtx_4AC200();
 };
 
 extern Debug gDebug_67D52C;

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 #include <windows.h>
 
 // todo: move
@@ -32,49 +33,49 @@ public:
     */
     // todo: ordering
 
-    infallible_turing* CreateSoundObject_40EF40(infallible_turing *pObject, int objectType);
+    EXPORT infallible_turing* CreateSoundObject_40EF40(infallible_turing *pObject, int objectType);
 
-    void sub_40EF80();
+    EXPORT void sub_40EF80();
 
-    void Service_40EFA0();
+    EXPORT void Service_40EFA0();
 
-    int AddSoundObject_40EFB0(infallible_turing* a2);
+    EXPORT int AddSoundObject_40EFB0(infallible_turing* a2);
 
-    void FreeSoundEntry_40EFD0(int a2);
+    EXPORT void FreeSoundEntry_40EFD0(int a2);
 
-    char LoadStyle_40EFF0(const char *pStyleName);
+    EXPORT char LoadStyle_40EFF0(const char *pStyleName);
 
-    void sub_40F010();
+    EXPORT void sub_40F010();
 
-    void sub_40F020();
+    EXPORT void sub_40F020();
 
-    char* sub_40F030(int a1, int a2, int a3);
+    EXPORT char* sub_40F030(int a1, int a2, int a3);
 
-    char sub_40F050(int a1, int a2);
+    EXPORT char sub_40F050(int a1, int a2);
 
-    void sub_40F070(char a1);
+    EXPORT void sub_40F070(char a1);
 
-    int sub_40F090(int state);
+    EXPORT int sub_40F090(int state);
 
-    void SetSfxVol_40F0B0(unsigned __int8 cdVol);
+    EXPORT void SetSfxVol_40F0B0(unsigned __int8 cdVol);
 
-    void SetCDVol_40F0F0(unsigned int cdVol);
+    EXPORT void SetCDVol_40F0F0(unsigned int cdVol);
 
-    unsigned __int8 GetCDVol_40F120();
+    EXPORT unsigned __int8 GetCDVol_40F120();
 
-    void Release_40F130();
+    EXPORT void Release_40F130();
 
-    void sub_40F140();
+    EXPORT void sub_40F140();
 
-    char GetAudioDriveLetter_40F150();
+    EXPORT char GetAudioDriveLetter_40F150();
 
-    char Set3DSound_40F160(char b3dSound);
+    EXPORT char Set3DSound_40F160(char b3dSound);
 
-    char Get3DSound_40F180();
+    EXPORT char Get3DSound_40F180();
 
-    root_sound();
+    EXPORT root_sound();
 
-    ~root_sound();
+    EXPORT ~root_sound();
 };
 
 

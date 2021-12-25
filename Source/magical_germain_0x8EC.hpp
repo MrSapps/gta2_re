@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 #include <windows.h>
 
 struct STexture;
@@ -53,26 +54,25 @@ public:
     char field_8E9_v2;
     __int16 field_8EA_pad;
 
-    void LoadChunks_4D1FC0(const char *pChunkId, unsigned int chunk_len);
+    EXPORT void LoadChunks_4D1FC0(const char *pChunkId, unsigned int chunk_len);
 
-    void Load_kanji_dat_4D2090();
+    EXPORT void Load_kanji_dat_4D2090();
 
-    magical_germain_0x8EC();
+    EXPORT magical_germain_0x8EC();
 
-    ~magical_germain_0x8EC();
+    EXPORT ~magical_germain_0x8EC();
 
-    void sub_4D2B40();
+    EXPORT void sub_4D2B40();
 
-    int sub_4D29D0(unsigned __int16 a2);
+    EXPORT int sub_4D29D0(unsigned __int16 a2);
 
-    int sub_4D28A0(unsigned __int16 a2);
+    EXPORT int sub_4D28A0(unsigned __int16 a2);
 
+    EXPORT STexture * sub_4D27D0(unsigned int *a2);
 
-    STexture * sub_4D27D0(unsigned int *a2);
+    EXPORT STexture * sub_4D2710(wchar_t text_char);
 
-    STexture * sub_4D2710(wchar_t text_char);
-
-    void sub_4D2610(wchar_t text_char);
+    EXPORT void sub_4D2610(wchar_t text_char);
 };
 
 extern magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;

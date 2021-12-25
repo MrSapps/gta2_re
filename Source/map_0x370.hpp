@@ -1,5 +1,6 @@
 #pragma once
 
+#include "types.hpp"
 #include "fix16.hpp"
 #include <windows.h>
 
@@ -292,27 +293,27 @@ struct gmp_map_light
 class Map_0x370
 {
 public:
-    gmp_block_info* get_block_452980(unsigned __int8 x_coord, unsigned __int8 y_coord, unsigned __int8 z_coord);
+    EXPORT gmp_block_info* get_block_452980(unsigned __int8 x_coord, unsigned __int8 y_coord, unsigned __int8 z_coord);
 
-    gmp_map_zone* zone_by_name_4DEFD0(const char *pZoneName);
+    EXPORT gmp_map_zone* zone_by_name_4DEFD0(const char *pZoneName);
 
-    int zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len);
+    EXPORT int zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len);
 
-    gmp_map_zone* zone_by_type_bounded_4DF0F0(unsigned char zone_type);
+    EXPORT gmp_map_zone* zone_by_type_bounded_4DF0F0(unsigned char zone_type);
 
-    gmp_map_zone* first_zone_by_type_4DF1D0(unsigned char zone_type);
+    EXPORT gmp_map_zone* first_zone_by_type_4DF1D0(unsigned char zone_type);
 
     // todo: missing func
 
-    gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, unsigned char zone_type);
+    EXPORT gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, unsigned char zone_type);
 
     // todo: other funcs
 
-    gmp_zone_unknown* cur_zone_4DF840();
+    EXPORT gmp_zone_unknown* cur_zone_4DF840();
 
-    gmp_zone_unknown* get_nav_zone_unknown_4DF890(int zone_x, int zone_y);
+    EXPORT gmp_zone_unknown* get_nav_zone_unknown_4DF890(int zone_x, int zone_y);
 
-    void set_nav_unknown_data_4DF8C0(
+    EXPORT void set_nav_unknown_data_4DF8C0(
         int zone_idx,
         __int16 a3,
         __int16 a4,
@@ -326,53 +327,53 @@ public:
         __int16 a12,
         __int16 a13);
 
-    gmp_zone_unknown* get_zone_unknown_4DF9A0(unsigned __int16 zone_idx);
+    EXPORT gmp_zone_unknown* get_zone_unknown_4DF9A0(unsigned __int16 zone_idx);
 
-    void set_nav_unknown_f0_4DF9D0(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f0_4DF9D0(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f2_4DF9F0(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f2_4DF9F0(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f4_4DFA10(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f4_4DFA10(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f6_4DFA30(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f6_4DFA30(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f8_4DFA50(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f8_4DFA50(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_fA_4DFA70(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_fA_4DFA70(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_fC_4DFA90(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_fC_4DFA90(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_fE_4DFAB0(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_fE_4DFAB0(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f10_4DFAD0(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f10_4DFAD0(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f12_4DFAF0(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f12_4DFAF0(unsigned __int16 a2, __int16 a3);
 
-    void set_nav_unknown_f14_4DFB10(unsigned __int16 a2, __int16 a3);
+    EXPORT void set_nav_unknown_f14_4DFB10(unsigned __int16 a2, __int16 a3);
 
-    gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
+    EXPORT gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
 
     // todo: other funcs between
 
-    gmp_block_info* get_block_4DFE10(int x_coord, int y_coord, int z_coord);
+    EXPORT gmp_block_info* get_block_4DFE10(int x_coord, int y_coord, int z_coord);
 
     // todo
 
-    DWORD sub_4DFF60(Fix16 x_coord, Fix16 y_coord, Fix16 z_coord);
+    EXPORT DWORD sub_4DFF60(Fix16 x_coord, Fix16 y_coord, Fix16 z_coord);
 
     // todo
 
-    gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
+    EXPORT gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
-    void load_chunk_4E94B0(const char *pChunkType, int chunkLen);
+    EXPORT void load_chunk_4E94B0(const char *pChunkType, int chunkLen);
 
-    void process_loaded_zone_data_4E95A0();
+    EXPORT void process_loaded_zone_data_4E95A0();
 
-    void LoadMap_4E95B0(const char *pGmpFileName);
+    EXPORT void LoadMap_4E95B0(const char *pGmpFileName);
 
-    Map_0x370();
+    EXPORT Map_0x370();
 
-    ~Map_0x370();
+    EXPORT ~Map_0x370();
 public:
     gmp_compressed_map_32 *field_0_pDmap;
     Map_sub field_4_obj;
