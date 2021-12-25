@@ -968,7 +968,203 @@ void sound_obj::sub_412A60(int a2)
 
 void sound_obj::sub_418CA0()
 {
-    // todo !
+    int voc_idx; // edx
+
+    if (this->field_544C[0].field_4_fp)
+    {
+        switch (this->field_544C[0].field_18)
+        {
+        case 9:
+            voc_idx = 0;
+            goto play_it;
+        case 10:
+            voc_idx = 1;
+            goto play_it;
+        case 17:
+            voc_idx = 2;
+            goto play_it;
+        case 7:
+            voc_idx = 3;
+            goto play_it;
+        case 6:
+            voc_idx = 4;
+            goto play_it;
+
+        case 8:
+            voc_idx = 5;
+            goto play_it;
+        case 4:
+            voc_idx = 6;
+            goto play_it;
+        case 18:
+            voc_idx = 8;
+            goto play_it;
+        case 19:
+            voc_idx = 9;
+            goto play_it;
+        case 20:
+            voc_idx = 10;
+            goto play_it;
+        case 5:
+            voc_idx = 12;
+            goto play_it;
+        case 2:
+            voc_idx = 13;
+            goto play_it;
+        case 1:
+            voc_idx = 14;
+            goto play_it;
+
+        case 22:
+            voc_idx = 15;
+            goto play_it;
+        case 23:
+            voc_idx = 16;
+            goto play_it;
+        case 12:
+            voc_idx = 17;
+            goto play_it;
+        case 11:
+            voc_idx = 18;
+            goto play_it;
+        case 24:
+            voc_idx = 19;
+            goto play_it;
+        case 25:
+            voc_idx = 20;
+            goto play_it;
+        case 26:
+            voc_idx = 21;
+            goto play_it;
+        case 27:
+            voc_idx = 22;
+            goto play_it;
+        case 28:
+            voc_idx = 23;
+            goto play_it;
+        case 29:
+            voc_idx = 24;
+            goto play_it;
+        case 3:
+            voc_idx = 25;
+            goto play_it;
+
+        case 30:
+            voc_idx = 26;
+            goto play_it;
+
+        case 33:
+            voc_idx = 55;
+            goto play_it;
+        case 34:
+            voc_idx = 56;
+            goto play_it;
+        case 35:
+            voc_idx = 57;
+            goto play_it;
+        case 36:
+            voc_idx = 58;
+            goto play_it;
+        case 37:
+            voc_idx = 59;
+            goto play_it;
+        case 38:
+            voc_idx = 60;
+            goto play_it;
+        case 39:
+            voc_idx = 61;
+            goto play_it;
+        case 40:
+            voc_idx = 62;
+            goto play_it;
+        case 41:
+            voc_idx = 63;
+            goto play_it;
+        case 42:
+            voc_idx = 64;
+            goto play_it;
+        case 43:
+            voc_idx = 65;
+            goto play_it;
+        case 44:
+            voc_idx = 66;
+            goto play_it;
+        case 45:
+            voc_idx = 67;
+            goto play_it;
+        case 46:
+            voc_idx = 68;
+            goto play_it;
+        case 47:
+            voc_idx = 69;
+            goto play_it;
+        case 48:
+            voc_idx = 70;
+            goto play_it;
+        case 49:
+            voc_idx = 71;
+            goto play_it;
+        case 50:
+            voc_idx = 72;
+            goto play_it;
+        case 51:
+            voc_idx = 73;
+            goto play_it;
+        case 52:
+            voc_idx = 74;
+            goto play_it;
+        case 53:
+            voc_idx = 75;
+            goto play_it;
+        case 54:
+            voc_idx = 76;
+            goto play_it;
+        case 55:
+            voc_idx = 77;
+            goto play_it;
+        case 56:
+            voc_idx = 78;
+            goto play_it;
+        case 57:
+            voc_idx = 79;
+            goto play_it;
+        case 58:
+            voc_idx = 80;
+            goto play_it;
+        case 59:
+            voc_idx = 81;
+            goto play_it;
+        case 60:
+            voc_idx = 82;
+            goto play_it;
+        case 61:
+            voc_idx = 83;
+            goto play_it;
+        case 62:
+            voc_idx = 84;
+            goto play_it;
+
+        case 31:
+        case 32:
+            voc_idx = this->field_1454_anRandomTable[0] % 13u + 85;
+            if (this->field_1454_anRandomTable[0] % 13u != 14)
+            {
+                goto play_it;
+            }
+            this->field_544C[0].field_18 = 0;
+            return;
+
+        default:
+            this->field_544C[0].field_18 = 0;
+            return;
+        }
+
+    play_it:
+        gSampManager_6FFF00.PlayVocal_58E510(1, voc_idx, 1);
+        gSampManager_6FFF00.SetVocalVolume_58E6D0(1, 127 * this->field_24_sfx_vol / 127);
+
+        this->field_544C[0].field_18 = 0;
+    }
 }
 
 void sound_obj::sub_418B60(int a2)
