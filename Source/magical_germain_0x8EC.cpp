@@ -5,12 +5,12 @@ magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;
 // nomatch 0x4D2C80
 magical_germain_0x8EC::magical_germain_0x8EC()
 {
-    field_8E8 = -2;
-    field_8E9 = -9;
+    field_8E8_v1 = -2;
+    field_8E9_v2 = -9;
     field_8C8_pKBIT = 0;
     field_8C4_pKidX = 0;
-    field_8CC = 0;
-    field_8C0 = 0;
+    field_8CC_kidx_size_words = 0;
+    field_8C0_count = 0;
     sub_4D2090();
 }
 
@@ -27,7 +27,7 @@ magical_germain_0x8EC::~magical_germain_0x8EC()
         delete field_8C4_pKidX;
     }
 
-    field_8CC = 0;
+    field_8CC_kidx_size_words = 0;
 }
 
 // stub

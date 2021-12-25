@@ -4503,55 +4503,26 @@ const wchar_t *__stdcall DrawText_5D8A10(
     const wchar_t *pText,
     Fix16 xpos_fp,
     Fix16 ypos_fp,
-    __int16 spaceWidth,
+    WORD spaceWidth,
     Fix16 fp4,
     int *pUnknown,
     int a7,
     int mode,
     int a9)
 {
-    /*
-    int new_Flags; // esi
-    unsigned __int16 calcSpaceWidth; // ax
-    Fix16 v11; // ebx
-    Fix16 space_amount; // ebp
-    Fix16 lineHeight; // edi
-    const wchar_t *pTmpIter; // eax
-    __int16 v15; // cx
-    unsigned int text_char; // eax
-    int v17; // eax
-    int v18; // eax
-    sprite_index *sprite_index_5AA440; // esi
-    STexture *pTextureToUse; // eax
-    int sprite_pal; // eax
-    int sprite_pal_; // edi
-    unsigned __int16 sprt_idx; // ax
-    STexture *pTexture; // ebp
-    int v25; // edi
-    int v26; // ebx
-    __int64 v27; // rax
-    int v28; // edi
-    int v29; // [esp+Ch] [ebp-18h]
-    int kind; // [esp+10h] [ebp-14h]
-    const wchar_t *pTextIter; // [esp+14h] [ebp-10h]
-    int drawFlags; // [esp+18h] [ebp-Ch]
-    void *retaddr; // [esp+24h] [ebp+0h]
-    wchar_t *pTexta; // [esp+28h] [ebp+4h]
-    */
-
     int new_Flags = CalcQuadFlags_5D83E0(mode, a9) | 0x20000;
     int drawFlags = new_Flags;
     const wchar_t *pTextIter = pText;
 
     Fix16 cur_xpos = xpos_fp; // note: new var
-    unsigned __int16 calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0((WORD*)&spaceWidth);
+    unsigned __int16 calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0(&spaceWidth);
     Fix16 v11 = fp4;
 
     Fix16 space_amount;
     space_amount.mValue = fp4.mValue * calcSpaceWidth;
 
     Fix16 lineHeight;
-    lineHeight.mValue = v11.mValue * (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA800((WORD*)&spaceWidth);
+    lineHeight.mValue = v11.mValue * (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA800(&spaceWidth);
   //  pTmpIter = (WORD *)*pUnknown;
     mode = a7;
 
@@ -4629,7 +4600,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
         }
         else
         {
-            sprite_index* sprite_index_5AA440;
+            sprite_index* pSprIdx;
             STexture* pTextureToUse;
             if ((unsigned __int16)v15 < 0x65u || (unsigned __int16)v15 > 107u)
             {
@@ -4638,18 +4609,18 @@ const wchar_t *__stdcall DrawText_5D8A10(
                     // LOWORD(sprite_pal) =
                     unsigned __int16 sprite_pal = gGtx_0x106C_703DD4->sub_5AA710(v15, (WORD)text_char - 33);
                     unsigned __int16 sprt_idx = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(7, sprite_pal);
-                    sprite_index_5AA440 = gGtx_0x106C_703DD4->get_sprite_index_5AA440(sprt_idx);
+                    pSprIdx = gGtx_0x106C_703DD4->get_sprite_index_5AA440(sprt_idx);
                     pTextureToUse = gSharp_pare_0x15D8_705064->sub_5B94F0(7, sprite_pal, kind, mode);
                 }
                 else
                 {
-                    sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8E0;
+                    pSprIdx = gMagical_germain_0x8EC_6F5168->field_8E0_sprite_index;
                     pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)pTextIter);
                 }
             }
             else
             {
-                sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8D4;
+                pSprIdx = gMagical_germain_0x8EC_6F5168->field_8D4_sprite_index;
                 pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710((unsigned int *)pTextIter);
             }
             STexture* pTexture = pTextureToUse;
@@ -4658,8 +4629,8 @@ const wchar_t *__stdcall DrawText_5D8A10(
             //v26 = v11.mValue >> 31;
 
             Fix16 sprite_xoff;
-            sprite_xoff.mValue = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
-            int v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
+            sprite_xoff.mValue = (pSprIdx->field_4_width << 14) * (v11.mValue >> 14);
+            int v27 = (pSprIdx->field_5_height << 14) * (v11.mValue >> 14);
             gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
             gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
             int v28 = sprite_xoff.mValue + cur_xpos.mValue;
@@ -4676,8 +4647,8 @@ const wchar_t *__stdcall DrawText_5D8A10(
             gQuadVerts_706B88.field_0_verts[2].field_4_y = v2_3_y;
             gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
             gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
-            float v1_u = (((double)sprite_index_5AA440->field_4_width - 0.000099999997) * 16384.0);
-            float v2_v = (((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
+            float v1_u = (((double)pSprIdx->field_4_width - 0.000099999997) * 16384.0);
+            float v2_v = (((double)pSprIdx->field_5_height - 0.000099999997) * 16384.0);
             gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
             gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
             gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
