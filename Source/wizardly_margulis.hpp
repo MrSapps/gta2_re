@@ -91,7 +91,7 @@ public:
 
     void sub_58E010(int a2);
 
-    char sub_58E140(int a2);
+    char sub_58E140(HPROVIDER a2);
 
     // todo order
     void Close3DProvider_58E1C0();
@@ -160,7 +160,7 @@ public:
     char field_1EB3_pad;
     HPROVIDER field_1EB4_h3dProvider[256];
     char *field_22B4_str[256];
-    int field_26B4_env_idx;
+    HPROVIDER field_26B4_env_idx;
     int field_26B8_bHave_env;
     int field_26BC_k17;
     int field_26C0_3d_provider;

@@ -679,13 +679,13 @@ void wizardly_margulis::sub_58E010(int a2)
     }
 }
 
-char wizardly_margulis::sub_58E140(int envIdx)
+char wizardly_margulis::sub_58E140(HPROVIDER envIdx)
 {
-    int ogEnvIdx = envIdx;
+    M3DRESULT ogEnvIdx = envIdx;
     field_26B4_env_idx = envIdx;
     if (field_26B4_env_idx != -1)
     {
-        envIdx = AIL_open_3D_provider(field_26B4_env_idx);
+        M3DRESULT envIdx = AIL_open_3D_provider(field_26B4_env_idx);
         if (envIdx)
         {
             field_26B4_env_idx = -1;
