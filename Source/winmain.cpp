@@ -250,22 +250,14 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 // todo move to another file for ordering
 int ReadScreenSettings_5D8F70()
 {
-    DWORD full_width_old; // ebx
-    DWORD full_height_old; // ebp
-    int startMode_old; // esi
-    int trippleBuffer_old; // edi
-    int full_height; // eax
-    int startMode; // eax
-    DWORD window_width_old; // [esp+10h] [ebp-8h]
-    DWORD window_height_old; // [esp+14h] [ebp-4h]
+    DWORD full_width_old = full_width_706B5C;
+    DWORD window_width_old = window_width_706630;
+    DWORD full_height_old = full_height_706798;
+    int startMode_old = gStartMode_626A0C;
+    int trippleBuffer_old = bTrippleBuffer_706C54;
+    DWORD window_height_old = window_height_706B50;
 
-    full_width_old = full_width_706B5C;
-    window_width_old = window_width_706630;
-    full_height_old = full_height_706798;
-    startMode_old = gStartMode_626A0C;
-    trippleBuffer_old = bTrippleBuffer_706C54;
-    window_height_old = window_height_706B50;
-
+    int full_height;
     if (bDoFrontEnd_626B68)
     {
         window_width_706630 = 640;
@@ -282,7 +274,7 @@ int ReadScreenSettings_5D8F70()
     }
 
     full_height_706798 = full_height;
-    startMode = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
+    int startMode = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
     gStartMode_626A0C = startMode;
 
     if (gBufferMode_706B34 == 0)
