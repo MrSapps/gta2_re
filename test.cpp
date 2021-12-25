@@ -11,6 +11,7 @@
 #include "Source/distracted_einstein_0xC.hpp"
 #include "Source/sharp_bose_0x54.hpp"
 #include "Source/cSampleManager.hpp"
+#include "Source/map_0x370.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -135,6 +136,12 @@ void test_wizardly_margulis()
     gSampManager_6FFF00.AllocSamples_58D9F0(0);
 }
 
+void test_Map_0x370()
+{
+    Map_0x370 t;
+    t.get_block_452980(0, 0, 0);
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
@@ -152,6 +159,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
         test_lucid_hamilton();
         test_winmain();
         test_wizardly_margulis();
+        test_Map_0x370();
     }
 
     WinMain_5E53F0(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
