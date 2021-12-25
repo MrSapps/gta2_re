@@ -225,34 +225,20 @@ unsigned __int16 gtx_0x106C::sub_5AA760(WORD *a2, wchar_t *a3)
 
 
 
-// nomatch
+// match
 unsigned __int16 gtx_0x106C::space_width_5AA7B0(WORD *a2)
 {
-   // if (*a2 < 100)
+    if (*a2 >= 101)
     {
-        // 0x101= 0x110
-        /*
-        int v2;
-        v2 = -(*a2 < 0xC9u);
-
-        v2 = v2 & 0xF0; // LOBYTE(v2) =
-
-        return v2 + 32;
-        */
-        // 0xE9, 0x20
-        BYTE uVar1 = *a2;
-        if (*a2 >= 101) 
-        {
-            // 0xF0 = 0xD0
-            // 0xD0 = 0xC0
-            return uVar1 < 0xc9 ? 0x110 : 0x20;
-        }
-
+        return (*a2 < 0xc9) ? 0x10 : 0x20;
     }
 
-    return field_20_sprite_index[field_14_sprite_base2->field_A_font + 77 + field_1C_font_base->field_2_base[*a2]].field_4_width;
-
-
+    return field_20_sprite_index
+        [
+            field_14_sprite_base2->field_A_font +
+            77 + 
+            field_1C_font_base->field_2_base[*a2]
+        ].field_4_width;
 }
 
 // stub
