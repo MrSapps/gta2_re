@@ -171,58 +171,61 @@ void Debug::Init_4ABBD0()
     bShow_player_names_67D54C = gRegistry_6FF968.Set_Network_Setting_587690("show_player_names", 1) != 0;
 }
 
+// match
 bool Debug::HaveOnlyFrenchGtx_4AC200()
 {
-    char bEGtxExists = 0;
-    char bFgxtExists = 0;
-    char bGGtxExists = 0;
-    char bIGtxExists = 0;
-    char bJGtxExists = 0;
-    char bSGtxExists = 0;
+    bool bEGtxExists = false;
+    bool bFgxtExists = false;
+    bool bGGtxExists = false;
+    bool bIGtxExists = false;
+    bool bJGtxExists = false;
+    bool bSGtxExists = false;
 
     FILE* v2 = fopen("data\\e.gxt", "rb");
     if (v2)
     {
         fclose(v2);
-        bEGtxExists = 1;
+        bEGtxExists = true;
     }
 
     FILE* v3 = fopen("data\\f.gxt", "rb");
     if (v3)
     {
         fclose(v3);
-        bFgxtExists = 1;
+        bFgxtExists = true;
     }
 
     FILE* v4 = fopen("data\\g.gxt", "rb");
     if (v4)
     {
         fclose(v4);
-        bGGtxExists = 1;
+        bGGtxExists = true;
     }
 
     FILE*v5 = fopen("data\\i.gxt", "rb");
     if (v5)
     {
         fclose(v5);
-        bIGtxExists = 1;
+        bIGtxExists = true;
     }
 
     FILE* v6 = fopen("data\\j.gxt", "rb");
     if (v6)
     {
         fclose(v6);
-        bJGtxExists = 1;
+        bJGtxExists = true;
     }
 
     FILE* v7 = fopen("data\\s.gxt", "rb");
     if (v7)
     {
         fclose(v7);
-        bSGtxExists = 1;
+        bSGtxExists = true;
     }
 
-    return (!bEGtxExists && bFgxtExists && !bGGtxExists && !bIGtxExists && !bJGtxExists && !bSGtxExists);
+    bool r = (!bEGtxExists && bFgxtExists == true && !bGGtxExists && !bIGtxExists && !bJGtxExists && !bSGtxExists);
+
+    return r;
 }
 
 Debug gDebug_67D52C;
