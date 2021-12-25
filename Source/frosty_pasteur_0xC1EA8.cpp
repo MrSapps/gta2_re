@@ -104,19 +104,18 @@ void frosty_pasteur_0xC1EA8::LoadSubScripts_5125F0()
 
 }
 
-// nomatch
+// match
 str_table_entry* frosty_pasteur_0xC1EA8::FindStringById_503080(__int16 stringId)
 {
-    str_table_entry *result = field_13350_pStringTbl->field_4[0];
-    unsigned int idx = 0;
-
+    unsigned short int idx = 0;
+    str_table_entry *result = field_13350_pStringTbl->field_4[idx];
     while (result)
     {
         if (result->field_0_str_id == stringId)
         {
             return result;
         }
-        result = field_13350_pStringTbl->field_4[(unsigned __int16)++idx];
+        result = field_13350_pStringTbl->field_4[++idx];
     }
     return 0;
 }
