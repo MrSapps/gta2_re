@@ -1,3 +1,6 @@
+
+
+
 #include "file.hpp"
 #include "error.hpp"
 #include <stdlib.h>
@@ -6,13 +9,6 @@
 int gbGlobalFileOpen_67D160;
 FILE* ghFile_67CFEC;
 extern char gTmpBuffer_67C598[256];
-
-// TODO: Move
-void __stdcall Error_SetName_4A0770(const char *a1)
-{
-    // TODO
-    return ;
-}
 
 // match
 int __stdcall File::sub_4A6B10(FILE *Stream)

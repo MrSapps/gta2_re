@@ -73,6 +73,11 @@ int __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
     return MessageBoxA(gHwnd_707F04, lpText, "Error!", 0);
 }
 
+void __stdcall Error_SetName_4A0770(const char *pFileName)
+{
+    strcpy(gGlobalFileName_67C6AC, pFileName);
+}
+
 // MATCH
 const char* __stdcall SourceFileNameFromPath_4A07A0(const char *pPath)
 {
