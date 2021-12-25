@@ -568,7 +568,88 @@ void laughing_blackwell_0x1EB54::sub_4AFEB0()
 
 void laughing_blackwell_0x1EB54::sub_4B6780()
 {
-    // todo
+    unsigned __int16 field_132_f136_idx; // dx
+    loving_borg_0xBCA *v3; // ecx
+    int field_BC6_nifty_idx; // eax
+    int v5; // eax
+
+    field_132_f136_idx = this->field_132_f136_idx;
+    v3 = &this->field_136[field_132_f136_idx];
+    if (this->field_110_state != 2)
+    {
+        if (field_132_f136_idx)
+        {
+            switch (field_132_f136_idx)
+            {
+            case 1u:
+                switch (v3->field_BC6_nifty_idx)
+                {
+                case 0u:
+                    this->field_EE08 = 10;
+                    break;
+                case 1u:
+                    this->field_EE08 = 11;
+                    break;
+                case 2u:
+                    this->field_EE08 = 6;
+                    break;
+                case 3u:
+                    this->field_EE08 = gLucid_hamilton_67E8E0.sub_4C5980() + 7;
+                    break;
+                case 4u:
+                    this->field_EE08 = ((unsigned __int8)gLucid_hamilton_67E8E0.sub_4C5990() >> 4) + 3;
+                    break;
+                default:
+                    return;
+                }
+                break;
+            case 5u:
+                this->field_EE08 = 12;
+                break;
+            case 2u:
+                this->field_EE08 = 13;
+                break;
+            case 3u:
+            case 6u:
+            case 7u:
+            case 0xBu:
+            case 0xEu:
+                this->field_EE08 = 16;
+                break;
+            case 4u:
+            case 0xAu:
+                this->field_EE08 = 15;
+                break;
+            case 9u:
+                this->field_EE08 = 17;
+                break;
+            default:
+                this->field_EE08 = 7;
+                break;
+            }
+        }
+        else
+        {
+            field_BC6_nifty_idx = v3->field_BC6_nifty_idx;
+            if ((WORD)field_BC6_nifty_idx)
+            {
+                v5 = field_BC6_nifty_idx - 1;
+                if (v5)
+                {
+                    if (v5 == 1)
+                        this->field_EE08 = 2;
+                }
+                else
+                {
+                    this->field_EE08 = 0;
+                }
+            }
+            else
+            {
+                this->field_EE08 = 1;
+            }
+        }
+    }
 }
 
 
