@@ -298,34 +298,30 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 
 void wizardly_margulis::Enum3DProviders_58E1F0()
 {
-    int k256Counter; // ebx
-    const char **phProviderIter; // ebp
+    int prov_counter; // ebx
+    const char **_field_22B4_str; // ebp
     char *pAlloc; // eax
     const char *pNameTmp; // edi
     HPROENUM hEnum; // [esp+14h] [ebp-8h] BYREF
     char *pName; // [esp+18h] [ebp-4h] BYREF
 
-    k256Counter = 0;
+    prov_counter = 0;
     hEnum = 0;
-    phProviderIter = this->field_22B4_str;
-    
-    if (AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName))
+    for (_field_22B4_str = this->field_22B4_str;
+        AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName);
+        ++_field_22B4_str)
     {
-        for (;;)
+        pAlloc = (char *)operator new(0x50u);
+        pNameTmp = pName;
+        *_field_22B4_str = pAlloc;
+        strcpy(pAlloc, pNameTmp);
+        if ((unsigned int)++prov_counter >= 256)
         {
-            pAlloc = (char *)operator new(0x50u);
-            pNameTmp = pName;
-            *phProviderIter = pAlloc;
-            strcpy(pAlloc, pNameTmp);
-            if ((unsigned int)++k256Counter >= 256)
-            {
-                this->field_2710_3d_provider_count = k256Counter;
-                return;
-            }
-            ++phProviderIter;
+            this->field_2710_3d_provider_count = prov_counter;
+            return;
         }
     }
-    this->field_2710_3d_provider_count = k256Counter;
+    this->field_2710_3d_provider_count = prov_counter;
 }
 
 bool wizardly_margulis::StreamStatus_58E2C0()
