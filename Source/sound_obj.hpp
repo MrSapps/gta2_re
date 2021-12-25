@@ -199,7 +199,7 @@ public:
     int field_5514;
     int field_5518;
     int field_551C;
-    char field_5520;
+    unsigned char field_5520;
     char field_5521;
     char field_5522;
     char field_5523;
