@@ -1424,24 +1424,19 @@ loving_borg_0xBCA::~loving_borg_0xBCA()
 
 bool loving_borg_0xBCA::sub_4B61B0()
 {
-    unsigned __int16 local_idx; // dx
-    unsigned __int16 v2; // si
-
-    local_idx = this->field_BC6_nifty_idx;
-    v2 = local_idx;
+    unsigned __int16 oldIdx = field_BC6_nifty_idx;
     do
     {
-        if (!local_idx)
+        if (!field_BC6_nifty_idx)
         {
-            this->field_BC6_nifty_idx = this->field_0 - 1;
+            field_BC6_nifty_idx = field_0 - 1;
         }
         else
         {
-            this->field_BC6_nifty_idx = local_idx - 1;
+            field_BC6_nifty_idx--;
         }
-        local_idx = this->field_BC6_nifty_idx;
-    } while (!this->field_B8A[local_idx].field_4);
-    return v2 != local_idx ? true : false;
+    } while (!field_B8A[field_BC6_nifty_idx].field_4);
+    return oldIdx != field_BC6_nifty_idx ? true : false;
 }
 
 competent_noyce_0x6E::competent_noyce_0x6E()
