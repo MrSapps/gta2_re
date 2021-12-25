@@ -22,6 +22,8 @@ add_library (Source
     Source/3rdParty/mss.h
     Source/types.hpp
     Source/winmain.cpp
+    Source/nostalgic_ellis_0x28.hpp
+    Source/nostalgic_ellis_0x28.cpp
     Source/fix16.hpp
     Source/fix16.cpp
     Source/error.hpp
