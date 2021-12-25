@@ -752,14 +752,16 @@ void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
     {
         if (this->field_A4_bLoaded)
         {
+            BYTE* pBuffer = (BYTE*)field_1EAC_pAudioBuffer2;
+            int off = field_A8_sdt_entries[idx].field_0_offset;
+            int off2= field_A8_sdt_entries[a3].field_0_offset;
+            BYTE* start = pBuffer + off;
+            int len = off2 - off;
             AIL_set_sample_address(
                 field_98_hSample,
-                (BYTE*)field_1EAC_pAudioBuffer2 + 
-
-                field_A8_sdt_entries[idx].field_0_offset,
-
-                field_A8_sdt_entries[a3].field_0_offset - 
-                field_A8_sdt_entries[idx].field_0_offset);
+                start,
+                len
+            );
                 
             AIL_set_sample_playback_rate(field_98_hSample, 18050);
             AIL_set_sample_pan(field_98_hSample, 64);
