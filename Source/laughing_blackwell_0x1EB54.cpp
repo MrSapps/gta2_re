@@ -35,6 +35,8 @@ extern wchar_t word_67DC8C[50];
 
 DWORD dword_67D9FC;
 
+__int16 word_703C3C;
+
 DIOBJECTDATAFORMAT stru_5E9110[256] =
 {
   { &GUID_Key, 0u, 2147483660u, 0u },
@@ -1373,7 +1375,595 @@ void laughing_blackwell_0x1EB54::sub_4AF0E0()
 
 void laughing_blackwell_0x1EB54::sub_4B0220()
 {
-    // todo
+    unsigned int v2; // ecx
+    wchar_t *_5B5F90; // eax
+    wchar_t *v4; // eax
+    wchar_t *v5; // eax
+    wchar_t *v6; // eax
+    int v7; // eax
+    int v8; // ecx
+    wchar_t *v9; // eax
+    wchar_t *v10; // eax
+    wchar_t *v11; // eax
+    wchar_t *v12; // eax
+    wchar_t *v13; // eax
+    wchar_t *v14; // eax
+    wchar_t *v15; // eax
+    wchar_t *v16; // eax
+    wchar_t *v17; // eax
+    wchar_t *v18; // eax
+    wchar_t *v19; // eax
+    wchar_t *v20; // eax
+    wchar_t *v21; // eax
+    wchar_t *v22; // eax
+    wchar_t *v23; // eax
+    wchar_t *v24; // eax
+    wchar_t *v25; // eax
+    wchar_t *v26; // eax
+    wchar_t *v27; // eax
+    wchar_t *v28; // eax
+    wchar_t *v29; // eax
+    __int16 v30; // ax
+    wchar_t *v31; // eax
+    int v32; // eax
+    int v33; // ecx
+    __int16 v34; // dx
+    wchar_t *v35; // eax
+    wchar_t *v36; // eax
+    wchar_t *v37; // eax
+    __int16 v38; // ax
+    wchar_t *v39; // eax
+    wchar_t *v40; // eax
+    wchar_t *v41; // eax
+    wchar_t *v42; // eax
+    wchar_t *v43; // eax
+    wchar_t *v44; // eax
+    wchar_t *v45; // eax
+    __int16 v46; // ax
+    wchar_t *v47; // eax
+    wchar_t *v48; // eax
+    wchar_t *v49; // eax
+    wchar_t *v50; // eax
+    wchar_t *v51; // eax
+    __int16 v52; // [esp+10h] [ebp-4h]
+
+    v2 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 0xFFFFFFFC : 0;
+    this->field_134 = 16;
+    this->field_136[0].field_0 = 3;
+    v52 = v2 + 16;
+    this->field_136[0].field_4[0].field_0 = 1;
+    this->field_136[0].field_4[0].field_2 = 300;
+    this->field_136[0].field_4[0].field_4 = 250;
+    _5B5F90 = gText_0x14_704DFC->Find_5B5F90("play");
+    wcsncpy(this->field_136[0].field_4[0].field_6_wstr_buf, _5B5F90, 0x32u);
+    this->field_136[0].field_4[0].field_80 = 1;
+    this->field_136[0].field_4[1].field_0 = 1;
+    this->field_136[0].field_4[1].field_2 = 300;
+    this->field_136[0].field_4[1].field_4 = 270;
+    v4 = gText_0x14_704DFC->Find_5B5F90( "options");
+    wcsncpy(this->field_136[0].field_4[1].field_6_wstr_buf, v4, 0x32u);
+    this->field_136[0].field_4[1].field_80 = 257;
+    this->field_136[0].field_4[2].field_0 = 1;
+    this->field_136[0].field_4[2].field_2 = 300;
+    this->field_136[0].field_4[2].field_4 = 290;
+    v5 = gText_0x14_704DFC->Find_5B5F90( "quit");
+    wcsncpy(this->field_136[0].field_4[2].field_6_wstr_buf, v5, 0x32u);
+    this->field_136[0].field_4[2].field_80 = 9;
+    this->field_136[0].field_B8A[0].field_0 = 280;
+    this->field_136[0].field_B8A[0].field_2 = 258;
+    this->field_136[0].field_B8A[1].field_0 = 280;
+    this->field_136[0].field_B8A[1].field_2 = 278;
+    this->field_136[0].field_B8A[2].field_0 = 280;
+    this->field_136[0].field_B8A[2].field_2 = 298;
+    this->field_136[0].field_BC6_nifty_idx = 0;
+    this->field_136[0].field_BC8 = 0;
+    this->field_136[1].field_0 = 5;
+    this->field_136[1].field_4[0].field_0 = 2;
+    this->field_136[1].field_4[0].field_2 = 300;
+    this->field_136[1].field_4[0].field_4 = 210;
+    v6 = gText_0x14_704DFC->Find_5B5F90( "charctr");
+    wcsncpy(this->field_136[1].field_4[0].field_6_wstr_buf, v6, 0x32u);
+    this->field_136[1].field_4[0].field_6E_count = 0;
+    this->field_136[1].field_4[0].field_70 = 0;
+    this->field_136[1].field_4[0].field_7E = 7;
+    v7 = 0;
+    do
+    {
+        v8 = (unsigned __int16)v7++;
+        this->field_136[1].field_4[0].field_72[v8] = 1;
+    } while ((unsigned __int16)v7 <= (unsigned int)this->field_136[1].field_4[0].field_7E);
+    this->field_136[1].field_4[1].field_0 = 1;
+    this->field_136[1].field_4[1].field_2 = 300;
+    this->field_136[1].field_4[1].field_4 = 230;
+    v9 = gText_0x14_704DFC->Find_5B5F90( "savepos");
+    wcsncpy(this->field_136[1].field_4[1].field_6_wstr_buf, v9, 0x32u);
+    this->field_136[1].field_4[1].field_80 = 260;
+    this->field_136[1].field_4[2].field_0 = 1;
+    this->field_136[1].field_4[2].field_2 = 300;
+    this->field_136[1].field_4[2].field_4 = 250;
+    v10 = gText_0x14_704DFC->Find_5B5F90( "hi_scre");
+    wcsncpy(this->field_136[1].field_4[2].field_6_wstr_buf, v10, 0x32u);
+    this->field_136[1].field_4[2].field_80 = 5;
+    this->field_136[1].field_4[3].field_0 = 1;
+    this->field_136[1].field_4[3].field_2 = 300;
+    this->field_136[1].field_4[3].field_4 = 270;
+    v11 = gText_0x14_704DFC->Find_5B5F90( "strtlev");
+    wcsncpy(this->field_136[1].field_4[3].field_6_wstr_buf, v11, 0x32u);
+    this->field_136[1].field_4[3].field_80 = 264;
+    this->field_136[1].field_4[4].field_0 = 1;
+    this->field_136[1].field_4[4].field_2 = 300;
+    this->field_136[1].field_4[4].field_4 = 350;
+    v12 = gText_0x14_704DFC->Find_5B5F90( "bonslev");
+    wcsncpy(this->field_136[1].field_4[4].field_6_wstr_buf, v12, 0x32u);
+    this->field_136[1].field_4[4].field_80 = 265;
+    this->field_136[1].field_B8A[0].field_0 = 280;
+    this->field_136[1].field_B8A[0].field_2 = 218;
+    this->field_136[1].field_B8A[1].field_0 = 280;
+    this->field_136[1].field_B8A[1].field_2 = 238;
+    this->field_136[1].field_B8A[2].field_0 = 280;
+    this->field_136[1].field_B8A[2].field_2 = 258;
+    this->field_136[1].field_B8A[3].field_0 = 280;
+    this->field_136[1].field_B8A[3].field_2 = 278;
+    this->field_136[1].field_B8A[4].field_0 = 280;
+    this->field_136[1].field_B8A[4].field_2 = 358;
+    this->field_136[1].field_BC6_nifty_idx = 3;
+    this->field_136[1].field_BC8 = 3;
+    this->field_136[1].field_2 = 10;
+    this->field_136[1].field_518[0].field_0 = 3;
+    this->field_136[1].field_518[0].field_2 = 420;
+    this->field_136[1].field_518[0].field_4 = 310;
+    this->field_136[1].field_518[0].field_6_wstr_buf[0] = 0;
+    this->field_136[1].field_518[1].field_0 = 3;
+    this->field_136[1].field_518[1].field_2 = 420;
+    this->field_136[1].field_518[1].field_4 = 390;
+    this->field_136[1].field_518[1].field_6_wstr_buf[0] = 0;
+    this->field_136[1].field_518[2].field_0 = 1;
+    this->field_136[1].field_518[2].field_2 = 410;
+    this->field_136[1].field_518[2].field_4 = 298;
+    v13 = gText_0x14_704DFC->Find_5B5F90( "car_dam");
+    wcsncpy(this->field_136[1].field_518[2].field_6_wstr_buf, v13, 0x32u);
+    this->field_136[1].field_518[2].field_6A = word_703C3C;
+    this->field_136[1].field_518[3].field_0 = 1;
+    this->field_136[1].field_518[3].field_2 = 410;
+    this->field_136[1].field_518[3].field_4 = 378;
+    v14 = gText_0x14_704DFC->Find_5B5F90( "car_dam");
+    wcsncpy(this->field_136[1].field_518[3].field_6_wstr_buf, v14, 0x32u);
+    this->field_136[1].field_518[3].field_6A = word_703C3C;
+    this->field_136[1].field_518[4].field_2 = 380;
+    this->field_136[1].field_518[4].field_4 = 310;
+    this->field_136[1].field_518[5].field_2 = 460;
+    this->field_136[1].field_518[5].field_4 = 310;
+    this->field_136[1].field_518[6].field_2 = 380;
+    this->field_136[1].field_518[7].field_2 = 460;
+    this->field_136[1].field_518[4].field_0 = 3;
+    this->field_136[1].field_518[4].field_6_wstr_buf[0] = 3;
+    this->field_136[1].field_518[5].field_0 = 3;
+    this->field_136[1].field_518[5].field_6_wstr_buf[0] = 4;
+    this->field_136[1].field_518[6].field_0 = 3;
+    this->field_136[1].field_518[6].field_4 = 390;
+    this->field_136[1].field_518[6].field_6_wstr_buf[0] = 3;
+    this->field_136[1].field_518[7].field_0 = 3;
+    this->field_136[1].field_518[7].field_4 = 390;
+    this->field_136[1].field_518[7].field_6_wstr_buf[0] = 4;
+    this->field_136[1].field_518[8].field_0 = 3;
+    this->field_136[1].field_518[8].field_2 = 290;
+    this->field_136[1].field_518[8].field_4 = 222;
+    this->field_136[1].field_518[8].field_6_wstr_buf[0] = 3;
+    this->field_136[1].field_518[9].field_0 = 3;
+    this->field_136[1].field_518[9].field_2 = 580;
+    this->field_136[1].field_518[9].field_4 = 222;
+    this->field_136[1].field_518[9].field_6_wstr_buf[0] = 4;
+    this->field_136[11].field_0 = 3;
+    this->field_136[11].field_2 = 1;
+    this->field_136[11].field_518[0].field_0 = 1;
+    this->field_136[11].field_518[0].field_2 = 35;
+    this->field_136[11].field_518[0].field_4 = 11;
+    v15 = gText_0x14_704DFC->Find_5B5F90( "plr_qut");
+    wcscpy(this->field_136[11].field_518[0].field_6_wstr_buf, v15);
+    this->field_136[11].field_518[0].field_6A = this->field_130;
+    this->field_136[11].field_518[0].field_6C = 5;
+    this->field_136[11].field_4[0].field_0 = 1;
+    this->field_136[11].field_4[0].field_4 = 392;
+    v16 = gText_0x14_704DFC->Find_5B5F90( "savepos");
+    wcsncpy(this->field_136[11].field_4[0].field_6_wstr_buf, v16, 0x32u);
+    this->field_136[11].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[11].field_4[0].field_6_wstr_buf,
+        this->field_136[11].field_4[0].field_6A,
+        320);
+    this->field_136[11].field_4[0].field_80 = 260;
+    this->field_136[11].field_4[1].field_0 = 1;
+    this->field_136[11].field_4[1].field_4 = 412;
+    v17 = gText_0x14_704DFC->Find_5B5F90( "replay");
+    wcsncpy(this->field_136[11].field_4[1].field_6_wstr_buf, v17, 0x32u);
+    this->field_136[11].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[11].field_4[1].field_6_wstr_buf,
+        this->field_136[11].field_4[1].field_6A,
+        320);
+    this->field_136[11].field_4[1].field_80 = 259;
+    this->field_136[11].field_4[2].field_0 = 1;
+    this->field_136[11].field_4[2].field_4 = 432;
+    v18 = gText_0x14_704DFC->Find_5B5F90( "mainmen");
+    wcsncpy(this->field_136[11].field_4[2].field_6_wstr_buf, v18, 0x32u);
+    this->field_136[11].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[11].field_4[2].field_6_wstr_buf,
+        this->field_136[11].field_4[2].field_6A,
+        320);
+    this->field_136[11].field_4[2].field_80 = 0;
+    this->field_136[11].field_B8A[0].field_0 = 150;
+    this->field_136[11].field_B8A[0].field_2 = 400;
+    this->field_136[11].field_B8A[1].field_0 = 150;
+    this->field_136[11].field_B8A[1].field_2 = 420;
+    this->field_136[11].field_B8A[2].field_0 = 150;
+    this->field_136[11].field_B8A[2].field_2 = 440;
+    this->field_136[11].field_BC6_nifty_idx = 0;
+    this->field_136[11].field_BC8 = 0;
+    this->field_136[2].field_0 = 3;
+    this->field_136[2].field_2 = 1;
+    this->field_136[2].field_518[0].field_0 = 1;
+    this->field_136[2].field_518[0].field_2 = 35;
+    this->field_136[2].field_518[0].field_4 = 11;
+    v19 = gText_0x14_704DFC->Find_5B5F90( "plr_ded");
+    wcsncpy(this->field_136[2].field_518[0].field_6_wstr_buf, v19, 0x32u);
+    this->field_136[2].field_518[0].field_6A = this->field_130;
+    this->field_136[2].field_518[0].field_6C = 0;
+    this->field_136[2].field_4[0].field_0 = 1;
+    this->field_136[2].field_4[0].field_4 = 392;
+    v20 = gText_0x14_704DFC->Find_5B5F90( "savepos");
+    wcsncpy(this->field_136[2].field_4[0].field_6_wstr_buf, v20, 0x32u);
+    this->field_136[2].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[2].field_4[0].field_6_wstr_buf,
+        this->field_136[2].field_4[0].field_6A,
+        320);
+    this->field_136[2].field_4[0].field_80 = 260;
+    this->field_136[2].field_4[1].field_0 = 1;
+    this->field_136[2].field_4[1].field_4 = 412;
+    v21 = gText_0x14_704DFC->Find_5B5F90( "replay");
+    wcsncpy(this->field_136[2].field_4[1].field_6_wstr_buf, v21, 0x32u);
+    this->field_136[2].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[2].field_4[1].field_6_wstr_buf,
+        this->field_136[2].field_4[1].field_6A,
+        320);
+    this->field_136[2].field_4[1].field_80 = 259;
+    this->field_136[2].field_4[2].field_0 = 1;
+    this->field_136[2].field_4[2].field_4 = 432;
+    v22 = gText_0x14_704DFC->Find_5B5F90( "mainmen");
+    wcsncpy(this->field_136[2].field_4[2].field_6_wstr_buf, v22, 0x32u);
+    this->field_136[2].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[2].field_4[2].field_6_wstr_buf,
+        this->field_136[2].field_4[2].field_6A,
+        320);
+    this->field_136[2].field_4[2].field_80 = 0;
+    this->field_136[2].field_B8A[0].field_0 = 150;
+    this->field_136[2].field_B8A[0].field_2 = 400;
+    this->field_136[2].field_B8A[1].field_0 = 150;
+    this->field_136[2].field_B8A[1].field_2 = 420;
+    this->field_136[2].field_B8A[2].field_0 = 150;
+    this->field_136[2].field_B8A[2].field_2 = 440;
+    this->field_136[2].field_BC6_nifty_idx = 0;
+    this->field_136[2].field_BC8 = 0;
+    this->field_136[3].field_0 = 5;
+    this->field_136[3].field_2 = 1;
+    this->field_136[3].field_518[0].field_0 = 1;
+    this->field_136[3].field_518[0].field_2 = 35;
+    this->field_136[3].field_518[0].field_4 = 11;
+    v23 = gText_0x14_704DFC->Find_5B5F90( "cmpltd");
+    wcsncpy(this->field_136[3].field_518[0].field_6_wstr_buf, v23, 0x32u);
+    this->field_136[3].field_518[0].field_6A = this->field_12C;
+    this->field_136[3].field_4[0].field_0 = 1;
+    this->field_136[3].field_4[0].field_4 = 365;
+    v24 = gText_0x14_704DFC->Find_5B5F90( "nxt_lvl");
+    wcsncpy(this->field_136[3].field_4[0].field_6_wstr_buf, v24, 0x32u);
+    this->field_136[3].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[3].field_4[0].field_6_wstr_buf,
+        this->field_136[3].field_4[0].field_6A,
+        320);
+    this->field_136[3].field_4[0].field_80 = 261;
+    this->field_136[3].field_4[1].field_0 = 1;
+    this->field_136[3].field_4[1].field_4 = 385;
+    v25 = gText_0x14_704DFC->Find_5B5F90( "savepos");
+    wcsncpy(this->field_136[3].field_4[1].field_6_wstr_buf, v25, 0x32u);
+    this->field_136[3].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[3].field_4[1].field_6_wstr_buf,
+        this->field_136[3].field_4[1].field_6A,
+        320);
+    this->field_136[3].field_4[1].field_80 = 260;
+    this->field_136[3].field_4[2].field_0 = 1;
+    this->field_136[3].field_4[2].field_4 = 405;
+    v26 = gText_0x14_704DFC->Find_5B5F90( "replay");
+    wcsncpy(this->field_136[3].field_4[2].field_6_wstr_buf, v26, 0x32u);
+    this->field_136[3].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[3].field_4[2].field_6_wstr_buf,
+        this->field_136[3].field_4[2].field_6A,
+        320);
+    this->field_136[3].field_4[2].field_80 = 259;
+    this->field_136[3].field_4[3].field_0 = 1;
+    this->field_136[3].field_4[3].field_4 = 425;
+    v27 = gText_0x14_704DFC->Find_5B5F90( "contnue");
+    wcsncpy(this->field_136[3].field_4[3].field_6_wstr_buf, v27, 0x32u);
+    this->field_136[3].field_4[3].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[3].field_4[3].field_6_wstr_buf,
+        this->field_136[3].field_4[3].field_6A,
+        320);
+    this->field_136[3].field_4[3].field_80 = 266;
+    this->field_136[3].field_4[4].field_0 = 1;
+    this->field_136[3].field_4[4].field_4 = 445;
+    v28 = gText_0x14_704DFC->Find_5B5F90( "mainmen");
+    wcsncpy(this->field_136[3].field_4[4].field_6_wstr_buf, v28, 0x32u);
+    this->field_136[3].field_4[4].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[3].field_4[4].field_6_wstr_buf,
+        this->field_136[3].field_4[4].field_6A,
+        320);
+    this->field_136[3].field_4[4].field_80 = 0;
+    this->field_136[3].field_B8A[0].field_0 = 150;
+    this->field_136[3].field_B8A[0].field_2 = 373;
+    this->field_136[3].field_B8A[1].field_0 = 150;
+    this->field_136[3].field_B8A[1].field_2 = 393;
+    this->field_136[3].field_B8A[2].field_0 = 150;
+    this->field_136[3].field_B8A[2].field_2 = 413;
+    this->field_136[3].field_B8A[3].field_0 = 150;
+    this->field_136[3].field_B8A[3].field_2 = 433;
+    this->field_136[3].field_B8A[4].field_0 = 150;
+    this->field_136[3].field_B8A[4].field_2 = 453;
+    this->field_136[3].field_BC6_nifty_idx = 0;
+    this->field_136[3].field_BC8 = 0;
+    this->field_136[4].field_0 = 1;
+    this->field_136[4].field_2 = 1;
+    this->field_136[4].field_518[0].field_0 = 1;
+    this->field_136[4].field_518[0].field_4 = 230;
+    v29 = gText_0x14_704DFC->Find_5B5F90( "gam_cmp");
+    wcsncpy(this->field_136[4].field_518[0].field_6_wstr_buf, v29, 0x32u);
+    v30 = this->field_130;
+    this->field_136[4].field_518[0].field_6A = v30;
+    this->field_136[4].field_518[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[4].field_518[0].field_6_wstr_buf,
+        v30,
+        320);
+    this->field_136[4].field_518[0].field_6C = 4;
+    this->field_136[4].field_4[0].field_0 = 1;
+    this->field_136[4].field_4[0].field_2 = 180;
+    this->field_136[4].field_4[0].field_4 = 410;
+    v31 = gText_0x14_704DFC->Find_5B5F90( "mainmen");
+    wcsncpy(this->field_136[4].field_4[0].field_6_wstr_buf, v31, 0x32u);
+    this->field_136[4].field_4[0].field_80 = 0;
+    this->field_136[4].field_B8A[0].field_0 = 160;
+    this->field_136[4].field_B8A[0].field_2 = 418;
+    this->field_136[4].field_BC6_nifty_idx = 0;
+    this->field_136[4].field_BC8 = 0;
+    this->field_136[5].field_0 = 1;
+    this->field_136[5].field_2 = 5;
+    this->field_136[5].field_4[0].field_0 = 2;
+    this->field_136[5].field_4[0].field_2 = 300;
+    this->field_136[5].field_4[0].field_4 = 155;
+    this->field_136[5].field_4[0].field_6E_count = 0;
+    this->field_136[5].field_4[0].field_70 = 0;
+    this->field_136[5].field_4[0].field_7E = 11;
+    v32 = 0;
+    do
+    {
+        v33 = (unsigned __int16)v32++;
+        this->field_136[5].field_4[0].field_72[v33] = 1;
+    } while ((unsigned __int16)v32 <= (unsigned int)this->field_136[5].field_4[0].field_7E);
+    this->field_136[5].field_B8A[0].field_0 = 280;
+    this->field_136[5].field_B8A[0].field_2 = 163;
+    this->field_136[5].field_BC6_nifty_idx = 0;
+    this->field_136[5].field_BC8 = 0;
+    this->field_136[5].field_518[0].field_0 = 3;
+    this->field_136[5].field_518[0].field_2 = 450;
+    this->field_136[5].field_518[0].field_4 = 197;
+    this->field_136[5].field_518[0].field_6_wstr_buf[0] = 0;
+    this->field_136[5].field_518[1].field_0 = 1;
+    this->field_136[5].field_518[1].field_2 = 440;
+    this->field_136[5].field_518[1].field_4 = 185;
+    v34 = word_703C3C;
+    this->field_136[5].field_518[2].field_4 = 197;
+    this->field_136[5].field_518[3].field_4 = 197;
+    this->field_136[5].field_518[1].field_6A = v34;
+    this->field_136[5].field_518[2].field_0 = 3;
+    this->field_136[5].field_518[2].field_2 = 410;
+    this->field_136[5].field_518[2].field_6_wstr_buf[0] = 3;
+    this->field_136[5].field_518[3].field_0 = 3;
+    this->field_136[5].field_518[3].field_2 = 490;
+    this->field_136[5].field_518[3].field_6_wstr_buf[0] = 4;
+    this->field_136[5].field_518[4].field_0 = 1;
+    this->field_136[5].field_518[4].field_2 = 340;
+    this->field_136[5].field_518[4].field_4 = v52;
+    v35 = gText_0x14_704DFC->Find_5B5F90( "hi_scre");
+    wcsncpy(this->field_136[5].field_518[4].field_6_wstr_buf, v35, 0x32u);
+    this->field_136[5].field_518[4].field_6A = this->field_126;
+    this->field_136[6].field_0 = 3;
+    this->field_136[6].field_2 = 3;
+    this->field_136[6].field_518[0].field_0 = 1;
+    this->field_136[6].field_518[0].field_2 = 35;
+    this->field_136[6].field_518[0].field_4 = 11;
+    v36 = gText_0x14_704DFC->Find_5B5F90( "bonslev");
+    wcsncpy(this->field_136[6].field_518[0].field_6_wstr_buf, v36, 0x32u);
+    this->field_136[6].field_518[0].field_6A = this->field_130;
+    this->field_136[6].field_518[0].field_6C = 5;
+    this->field_136[6].field_518[1].field_0 = 1;
+    this->field_136[6].field_518[1].field_2 = 170;
+    this->field_136[6].field_518[1].field_4 = 250;
+    v37 = gText_0x14_704DFC->Find_5B5F90( "score");
+    wcsncpy(this->field_136[6].field_518[1].field_6_wstr_buf, v37, 0x32u);
+    this->field_136[6].field_518[2].field_0 = 1;
+    this->field_136[6].field_518[2].field_2 = 400;
+    this->field_136[6].field_518[2].field_4 = 250;
+    v38 = this->field_120;
+    this->field_136[6].field_4[0].field_0 = 1;
+    this->field_136[6].field_518[2].field_6A = v38;
+    this->field_136[6].field_4[0].field_4 = 340;
+    v39 = gText_0x14_704DFC->Find_5B5F90( "repbons");
+    wcsncpy(this->field_136[6].field_4[0].field_6_wstr_buf, v39, 0x32u);
+    this->field_136[6].field_4[0].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[6].field_4[0].field_6_wstr_buf,
+        this->field_136[6].field_4[0].field_6A,
+        320);
+    this->field_136[6].field_4[0].field_80 = 259;
+    this->field_136[6].field_4[1].field_0 = 1;
+    this->field_136[6].field_4[1].field_4 = 360;
+    v40 = gText_0x14_704DFC->Find_5B5F90( "nxt_lvl");
+    wcsncpy(this->field_136[6].field_4[1].field_6_wstr_buf, v40, 0x32u);
+    this->field_136[6].field_4[1].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[6].field_4[1].field_6_wstr_buf,
+        this->field_136[6].field_4[1].field_6A,
+        320);
+    this->field_136[6].field_4[1].field_80 = 261;
+    this->field_136[6].field_4[2].field_0 = 1;
+    this->field_136[6].field_4[2].field_4 = 380;
+    v41 = gText_0x14_704DFC->Find_5B5F90( "mainmen");
+    wcsncpy(this->field_136[6].field_4[2].field_6_wstr_buf, v41, 0x32u);
+    this->field_136[6].field_4[2].field_2 = laughing_blackwell_0x1EB54::sub_4B0190(
+        (int)this->field_136[6].field_4[2].field_6_wstr_buf,
+        this->field_136[6].field_4[2].field_6A,
+        320);
+    this->field_136[6].field_4[2].field_80 = 0;
+    this->field_136[6].field_B8A[0].field_0 = 150;
+    this->field_136[6].field_B8A[0].field_2 = 348;
+    this->field_136[6].field_B8A[1].field_0 = 150;
+    this->field_136[6].field_B8A[1].field_2 = 368;
+    this->field_136[6].field_B8A[2].field_0 = 150;
+    this->field_136[6].field_B8A[2].field_2 = 388;
+    this->field_136[6].field_BC6_nifty_idx = 0;
+    this->field_136[6].field_BC8 = 0;
+    this->field_136[7].field_0 = 1;
+    this->field_136[7].field_2 = 14;
+    this->field_136[7].field_518[0].field_0 = 1;
+    this->field_136[7].field_518[0].field_2 = 35;
+    this->field_136[7].field_518[0].field_4 = 11;
+    this->field_136[7].field_518[0].field_6A = this->field_130;
+    this->field_136[7].field_518[0].field_6C = 5;
+    this->field_136[7].field_518[1].field_0 = 1;
+    this->field_136[7].field_518[1].field_2 = 100;
+    this->field_136[7].field_518[1].field_4 = 170;
+    wcsncpy(this->field_136[7].field_518[1].field_6_wstr_buf, word_67DC8C, 50u);
+    this->field_136[7].field_518[2].field_0 = 1;
+    this->field_136[7].field_518[2].field_2 = 100;
+    this->field_136[7].field_518[2].field_4 = 190;
+    wcsncpy(this->field_136[7].field_518[2].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[7].field_518[3].field_0 = 1;
+    this->field_136[7].field_518[3].field_2 = 100;
+    this->field_136[7].field_518[3].field_4 = 210;
+    wcsncpy(this->field_136[7].field_518[3].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[7].field_518[4].field_0 = 1;
+    this->field_136[7].field_518[4].field_2 = 100;
+    this->field_136[7].field_518[4].field_4 = 230;
+    wcsncpy(this->field_136[7].field_518[4].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[7].field_518[5].field_0 = 1;
+    this->field_136[7].field_518[5].field_2 = 100;
+    this->field_136[7].field_518[5].field_4 = 250;
+    wcsncpy(this->field_136[7].field_518[5].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[7].field_518[6].field_0 = 1;
+    this->field_136[7].field_518[6].field_2 = 100;
+    this->field_136[7].field_518[6].field_4 = 270;
+    wcsncpy(this->field_136[7].field_518[6].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[7].field_518[7].field_0 = 1;
+    this->field_136[7].field_518[7].field_4 = 300;
+    v42 = gText_0x14_704DFC->Find_5B5F90("kills_h");
+    wcsncpy(this->field_136[7].field_518[7].field_6_wstr_buf, v42, 0x32u);
+    this->field_136[7].field_518[7].field_2 = sub_4B0190(
+        (int)this->field_136[7].field_518[7].field_6_wstr_buf,
+        this->field_136[7].field_518[7].field_6A,
+        320);
+    this->field_136[7].field_518[8].field_0 = 1;
+    this->field_136[7].field_518[8].field_2 = 100;
+    this->field_136[7].field_518[8].field_4 = 320;
+    this->field_136[7].field_518[9].field_0 = 1;
+    this->field_136[7].field_518[9].field_2 = 100;
+    this->field_136[7].field_518[9].field_4 = 340;
+    this->field_136[7].field_518[10].field_0 = 1;
+    this->field_136[7].field_518[10].field_2 = 100;
+    this->field_136[7].field_518[10].field_4 = 360;
+    this->field_136[7].field_518[11].field_0 = 1;
+    this->field_136[7].field_518[11].field_2 = 100;
+    this->field_136[7].field_518[11].field_4 = 380;
+    this->field_136[7].field_518[12].field_0 = 1;
+    this->field_136[7].field_518[12].field_2 = 100;
+    this->field_136[7].field_518[12].field_4 = 400;
+    this->field_136[7].field_518[13].field_0 = 1;
+    this->field_136[7].field_518[13].field_2 = 30;
+    this->field_136[7].field_518[13].field_4 = 150;
+    this->field_136[7].field_4[0].field_0 = 1;
+    this->field_136[7].field_4[0].field_4 = 430;
+    v43 = gText_0x14_704DFC->Find_5B5F90("quit");
+    wcsncpy(this->field_136[7].field_4[0].field_6_wstr_buf, v43, 0x32u);
+    this->field_136[7].field_4[0].field_2 = sub_4B0190(
+        (int)this->field_136[7].field_4[0].field_6_wstr_buf,
+        this->field_136[7].field_4[0].field_6A,
+        320);
+    this->field_136[7].field_4[0].field_80 = 258;
+    this->field_136[7].field_B8A[0].field_0 = 180;
+    this->field_136[7].field_B8A[0].field_2 = 438;
+    this->field_136[7].field_BC6_nifty_idx = 0;
+    this->field_136[7].field_BC8 = 0;
+    this->field_136[8].field_0 = 1;
+    this->field_136[8].field_2 = 0;
+    this->field_136[8].field_4[0].field_0 = 1;
+    this->field_136[8].field_4[0].field_2 = 200;
+    this->field_136[8].field_4[0].field_4 = 280;
+    v44 = gText_0x14_704DFC->Find_5B5F90("mainmen");
+    wcsncpy(this->field_136[8].field_4[0].field_6_wstr_buf, v44, 0x32u);
+    this->field_136[8].field_4[0].field_80 = 0;
+    this->field_136[8].field_B8A[0].field_0 = 180;
+    this->field_136[8].field_B8A[0].field_2 = 288;
+    this->field_136[8].field_BC6_nifty_idx = 0;
+    this->field_136[8].field_BC8 = 0;
+    this->field_136[10].field_0 = 1;
+    this->field_136[10].field_2 = 1;
+    this->field_136[10].field_518[0].field_0 = 1;
+    this->field_136[10].field_518[0].field_4 = 230;
+    v45 = gText_0x14_704DFC->Find_5B5F90("nicetry");
+    wcsncpy(this->field_136[10].field_518[0].field_6_wstr_buf, v45, 0x32u);
+    v46 = this->field_130;
+    this->field_136[10].field_518[0].field_6A = v46;
+    this->field_136[10].field_518[0].field_2 = sub_4B0190(
+        (int)this->field_136[10].field_518[0].field_6_wstr_buf,
+        v46,
+        320);
+    this->field_136[10].field_518[0].field_6C = 4;
+    this->field_136[10].field_4[0].field_0 = 1;
+    this->field_136[10].field_4[0].field_2 = 180;
+    this->field_136[10].field_4[0].field_4 = 410;
+    v47 = gText_0x14_704DFC->Find_5B5F90("mainmen");
+    wcsncpy(this->field_136[10].field_4[0].field_6_wstr_buf, v47, 0x32u);
+    this->field_136[10].field_4[0].field_80 = 0;
+    this->field_136[10].field_B8A[0].field_0 = 160;
+    this->field_136[10].field_B8A[0].field_2 = 418;
+    this->field_136[10].field_BC6_nifty_idx = 0;
+    this->field_136[10].field_BC8 = 0;
+    this->field_136[14].field_0 = 1;
+    this->field_136[14].field_2 = 5;
+    this->field_136[14].field_4[0].field_0 = 1;
+    this->field_136[14].field_4[0].field_2 = 170;
+    this->field_136[14].field_4[0].field_4 = 340;
+    this->field_136[14].field_4[0].field_80 = 268;
+    this->field_136[14].field_518[0].field_0 = 1;
+    this->field_136[14].field_518[0].field_2 = 20;
+    this->field_136[14].field_518[0].field_4 = 160;
+    v48 = gText_0x14_704DFC->Find_5B5F90("fr_ent1");
+    wcsncpy(this->field_136[14].field_518[0].field_6_wstr_buf, v48, 0x32u);
+    this->field_136[14].field_518[1].field_0 = 1;
+    this->field_136[14].field_518[1].field_2 = 20;
+    this->field_136[14].field_518[1].field_4 = 180;
+    v49 = gText_0x14_704DFC->Find_5B5F90("fr_ent2");
+    wcsncpy(this->field_136[14].field_518[1].field_6_wstr_buf, v49, 0x32u);
+    this->field_136[14].field_518[2].field_0 = 1;
+    this->field_136[14].field_518[2].field_2 = 20;
+    this->field_136[14].field_518[2].field_4 = 200;
+    wcsncpy(this->field_136[14].field_518[2].field_6_wstr_buf, word_67DC8C, 0x32u);
+    this->field_136[14].field_518[3].field_0 = 1;
+    this->field_136[14].field_518[3].field_2 = 20;
+    this->field_136[14].field_518[3].field_4 = 300;
+    v50 = gText_0x14_704DFC->Find_5B5F90("fr_pmpt");
+    wcsncpy(this->field_136[14].field_518[3].field_6_wstr_buf, v50, 0x32u);
+    this->field_136[14].field_518[4].field_0 = 1;
+    this->field_136[14].field_518[4].field_2 = 20;
+    this->field_136[14].field_518[4].field_4 = 320;
+    v51 = gText_0x14_704DFC->Find_5B5F90("score");
+    wcsncpy(this->field_136[14].field_518[4].field_6_wstr_buf, v51, 0x32u);
+    this->field_136[14].field_B8A[0].field_0 = 150;
+    this->field_136[14].field_B8A[0].field_2 = 348;
+    this->field_136[14].field_BC6_nifty_idx = 0;
+    this->field_136[14].field_BC8 = 0;
+    field_EE0E_unk.sub_483F20();
 }
 
 void laughing_blackwell_0x1EB54::sub_4B4440()
@@ -1456,6 +2046,24 @@ void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
     {
         byte_6F4BF4 = *a1;
     }
+}
+
+int laughing_blackwell_0x1EB54::sub_4B0190(int a2, __int16 a3, int a4)
+{
+    // todo
+    /*
+    int v4; // eax
+    int v5; // ecx
+
+    if (a3 == -1)
+        v4 = sub_5D8990((__int16 *)a2, this->field_11C);
+    else
+        v4 = sub_5D8990((__int16 *)a2, a3);
+    HIWORD(v5) = HIWORD(v4);
+    LOWORD(v5) = (unsigned __int16)v4 >> 1;
+    return a4 - v5;
+    */
+    return 0;
 }
 
 loving_borg_0xBCA::loving_borg_0xBCA()
@@ -1647,6 +2255,11 @@ kind_beaver_6::~kind_beaver_6()
 xenodochial_morse::xenodochial_morse()
 {
     field_0 = 0;
+}
+
+void xenodochial_morse::sub_483F20()
+{
+    // todo
 }
 
 sleepy_stonebraker_0x6C::sleepy_stonebraker_0x6C()
