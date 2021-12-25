@@ -7,7 +7,7 @@ struct sdt_entry_0x18
     int field_0_offset;
     int field_4_sample_length;
     int field_8_playBackRate;
-    int field_C; // unknown
+    int field_C; // enable random displacement ?
     int field_10; // loop start?
     int field_14; // loop end? -1 if no loop?
 };
