@@ -1112,28 +1112,22 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
             if (*pMaxSamples)
             {
                 H3DSAMPLE* pSampIter = this->field_26C4_3d_sample;
-                while (1)
+                for(sampIdx =0; sampIdx < (unsigned __int8)*pMaxSamples; sampIdx++)
                 {
                     H3DSAMPLE _3D_sample_handle = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
                     *pSampIter = _3D_sample_handle;
                     if (!_3D_sample_handle)
                     {
-                        break;
+                        *pMaxSamples = 0;
+                        Close3DProvider_58E1C0();
+                        return 0;
                     }
-                    ++sampIdx;
                     ++pSampIter;
-                    if (sampIdx >= (unsigned __int8)*pMaxSamples)
-                    {
-                        //goto LABEL_21;
-                        this->field_1EB2_3d_samp_count = *pMaxSamples;
-                        return 1;
-                    }
+     
                 }
 
                 //LABEL_16:
-                *pMaxSamples = 0;
-                Close3DProvider_58E1C0();
-                return 0;
+               
             }
 
             //LABEL_21:
