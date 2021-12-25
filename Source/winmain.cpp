@@ -402,14 +402,15 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
 
 
     case WM_WINDOWPOSCHANGING:
-        v12 = *(DWORD *)(lParam + 12);
-        newX = *(DWORD *)(lParam + 8);
-        newY = v12;
+    {
+        WINDOWPOS* pPos = reinterpret_cast<WINDOWPOS*>(lParam);
+        newX = pPos->x;
+        newY = pPos->y;
         Bink::sub_5136D0(&newX, &newY);
-        v13 = newY;
-        *(DWORD *)(lParam + 8) = newX;
-        *(DWORD *)(lParam + 12) = v13;
+        pPos->x = newX;
+        pPos->y = newY;
         break;
+    }
 
     case WM_SIZE:
         switch (wParam)
@@ -548,16 +549,15 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         break;
 
     case WM_SIZING:
+    {
+        RECT* pDragRect = reinterpret_cast<RECT*>(lParam);
         GetWindowRect(gHwnd_707F04, &winRec);
-        pLparamRec = (DWORD *)lParam;
-        top = winRec.top;
-        *(DWORD *)lParam = winRec.left;
-        bottom = winRec.bottom;
-        pLparamRec[1] = top;
-        right = winRec.right;
-        pLparamRec[3] = bottom;
-        pLparamRec[2] = right;
+        pDragRect->left = winRec.left;
+        pDragRect->top = winRec.top;
+        pDragRect->bottom = winRec.bottom;
+        pDragRect->right = winRec.right;
         return 0;
+    }
 
     default:
         break;
