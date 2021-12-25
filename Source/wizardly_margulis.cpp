@@ -1094,7 +1094,7 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
             *pMaxSamples = 0;
             this->field_1EB2_3d_samp_count = 0;
             AIL_3D_provider_attribute(field_26C0_3d_provider, "Maximum supported samples", pMaxSamples);
-            
+
             if (*pMaxSamples > 16u)
             {
                 *pMaxSamples = 16;
@@ -1108,29 +1108,19 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
                 return 0;
             }
 
-            unsigned int sampIdx = 0;
-            if (*pMaxSamples)
+            H3DSAMPLE* pSampIter = this->field_26C4_3d_sample;
+            for (unsigned int sampIdx = 0; sampIdx < (unsigned __int8)*pMaxSamples; sampIdx++)
             {
-                H3DSAMPLE* pSampIter = this->field_26C4_3d_sample;
-                for(sampIdx =0; sampIdx < (unsigned __int8)*pMaxSamples; sampIdx++)
+                *pSampIter = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
+                if (!*pSampIter)
                 {
-                    H3DSAMPLE _3D_sample_handle = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
-                    *pSampIter = _3D_sample_handle;
-                    if (!_3D_sample_handle)
-                    {
-                        *pMaxSamples = 0;
-                        Close3DProvider_58E1C0();
-                        return 0;
-                    }
-                    ++pSampIter;
-     
+                    *pMaxSamples = 0;
+                    Close3DProvider_58E1C0();
+                    return 0;
                 }
-
-                //LABEL_16:
-               
+                ++pSampIter;
             }
 
-            //LABEL_21:
             this->field_1EB2_3d_samp_count = *pMaxSamples;
             return 1;
         }
