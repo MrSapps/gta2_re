@@ -41,3 +41,15 @@ void magical_germain_0x8EC::sub_4D2090()
 {
     // todo
 }
+
+// stub
+int magical_germain_0x8EC::sub_4D29D0(unsigned __int16 a2)
+{
+    return 0;
+}
+
+// stub
+int magical_germain_0x8EC::sub_4D28A0(unsigned __int16 a2)
+{
+    return 0;
+}

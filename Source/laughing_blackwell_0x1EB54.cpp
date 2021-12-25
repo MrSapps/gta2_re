@@ -21,7 +21,7 @@
 
 #pragma comment(lib, "dxguid.lib")
 
-const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, short* fp3, Fix16 fp4);
+const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4);
 
 void Start_GTA2Manager_5E4DE0();
 
@@ -1193,7 +1193,7 @@ void laughing_blackwell_0x1EB54::sub_4AD140()
         Fix16 tmp;
         tmp.mValue = 0x4000;
 
-        /*v6 =*/ DrawText_4B87A0(tmpBuff_67BD9C, fp_300, fp_460, &word_703C14, tmp);
+        /*v6 =*/ DrawText_4B87A0(tmpBuff_67BD9C, fp_300, fp_460, word_703C14, tmp);
     }
 
     if (this->field_132_f136_idx == 1)
@@ -4435,26 +4435,261 @@ void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
     field_3 = svg.field_4D;
 }
 
+struct Vert
+{
+    float field_0_x;
+    float field_4_y;
+    float field_8_z;
+    float field_C_w;
+    int field_10_diff;
+    int field_14_spec;
+    float field_18_u;
+    float field_1C_v;
+};
+
+struct QuadVerts
+{
+    Vert field_0_verts[4];
+};
+QuadVerts gQuadVerts_706B88;
+
+extern DWORD gLightingDrawFlag_7068F4;
+
+int __stdcall CalcQuadFlags_5D83E0(int mode, unsigned __int8 a2)
+{
+    int result; // eax
+
+    if (mode)
+    {
+        if (mode == 1)
+        {
+            gQuadVerts_706B88.field_0_verts[0].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[1].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[2].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[3].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            return gLightingDrawFlag_7068F4 | 0x2180;
+        }
+        else if (mode == 2)
+        {
+            gQuadVerts_706B88.field_0_verts[0].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[1].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[2].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            gQuadVerts_706B88.field_0_verts[3].field_10_diff = (a2 << 27) | 0xFFFFFF;
+            return gLightingDrawFlag_7068F4 | 0x2280;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    else
+    {
+        //result = gLightingDrawFlag_7068F4;
+        result = gLightingDrawFlag_7068F4 | 0x80;
+    }
+    return result;
+}
+
+Fix16 dword_706A6C;
+
 // stub
 const wchar_t *__stdcall DrawText_5D8A10(
-    const wchar_t *pBuffer,
+    const wchar_t *pText,
     Fix16 xpos_fp,
     Fix16 ypos_fp,
-    short* fp3,
+    __int16 spaceWidth,
     Fix16 fp4,
     int *pUnknown,
     int a7,
     int mode,
     int a9)
 {
-    return pBuffer;
+    int new_Flags; // esi
+    unsigned __int16 calcSpaceWidth; // ax
+    Fix16 v11; // ebx
+    Fix16 v12; // ebp
+    Fix16 v13; // edi
+    const wchar_t *pTmpIter; // eax
+    __int16 v15; // cx
+    unsigned int v16; // eax
+    int v17; // eax
+    int v18; // eax
+    sprite_index *sprite_index_5AA440; // esi
+    STexture *v20; // eax
+    int v21; // eax
+    int v22; // edi
+    unsigned __int16 v23; // ax
+    STexture *pTexture; // ebp
+    int v25; // edi
+    int v26; // ebx
+    __int64 v27; // rax
+    int v28; // edi
+    int v29; // [esp+Ch] [ebp-18h]
+    int v30; // [esp+10h] [ebp-14h]
+    const wchar_t *pTextIter; // [esp+14h] [ebp-10h]
+    int drawFlags; // [esp+18h] [ebp-Ch]
+    void *retaddr; // [esp+24h] [ebp+0h]
+    wchar_t *pTexta; // [esp+28h] [ebp+4h]
+    float pBufferb; // [esp+28h] [ebp+4h]
+    float pBufferc; // [esp+28h] [ebp+4h]
+    wchar_t *pBufferd; // [esp+28h] [ebp+4h]
+
+    new_Flags = CalcQuadFlags_5D83E0(mode, a9) | 0x20000;
+    drawFlags = new_Flags;
+    pTextIter = pText;
+    
+    Fix16 a99 = xpos_fp; // note: new var
+    calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0((WORD*)&spaceWidth);
+    v11 = fp4;
+    v12.mValue = fp4.mValue * calcSpaceWidth;
+    v13.mValue = v11.mValue * (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA800((WORD*)&spaceWidth);
+  //  pTmpIter = (WORD *)*pUnknown;
+    mode = a7;
+
+    v30 = (int)*pUnknown;
+    if (v11.mValue == dword_706A6C.mValue)
+    {
+        drawFlags = new_Flags | 0x10000;
+    }
+
+    v15 = spaceWidth;
+    if ((unsigned __int16)spaceWidth >= 101u)
+    {
+        if (v30 == 8)
+        {
+            v30 = gMagical_germain_0x8EC_6F5168->sub_4D29D0(a7);
+        }
+        else
+        {
+            v30 = gMagical_germain_0x8EC_6F5168->sub_4D28A0(spaceWidth);
+        }
+        v15 = spaceWidth;
+    }
+
+    if (*pText)
+    {
+        do
+        {
+            // HIWORD(v16) =
+            //HIWORD(v16) = HIWORD(pTextIter);
+
+            // = LOWORD(v16)
+            v16 = *pTextIter;
+            if (*pTextIter == '\n')
+            {
+                a99 = xpos_fp;
+                ypos_fp.mValue += v13.mValue;
+            }
+            else if ((WORD)v16 == ' ')
+            {
+                a99.mValue += v12.mValue;
+            }
+            else if ((WORD)v16 == '#')
+            {
+                if (v30 == *pUnknown && (WORD)mode == (WORD)a7)
+                {
+                    v30 = 8;
+                    v17 = -((unsigned __int16)v15 < 0x65u);
+                    // LOBYTE(v17) =
+                    v17 = v17 & 0xFB;
+                    v18 = v17 + 5;
+                }
+                else
+                {
+                    v30 = *pUnknown;
+                    v18 = a7;
+                }
+                mode = v18;
+                if ((unsigned __int16)v15 >= 101u)
+                {
+                    if (v30 == 8)
+                    {
+                        gMagical_germain_0x8EC_6F5168->sub_4D29D0(mode);
+                    }
+                    else
+                    {
+                        gMagical_germain_0x8EC_6F5168->sub_4D28A0(v15);
+                    }
+                    v15 = spaceWidth;
+                }
+            }
+            else
+            {
+                if ((unsigned __int16)v15 < 0x65u || (unsigned __int16)v15 > 107u)
+                {
+                    if ((unsigned __int16)v15 < 0xC9u || (unsigned __int16)v15 > 203u)
+                    {
+                        // LOWORD(v21) =
+                        v21 = gGtx_0x106C_703DD4->sub_5AA710(v15, (WORD)v16 - 33);
+                        v22 = v21;
+                        v23 = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(7, v21);
+                        sprite_index_5AA440 = gGtx_0x106C_703DD4->get_sprite_index_5AA440(v23);
+                        v20 = gSharp_pare_0x15D8_705064->sub_5B94F0(7, v22, v30, mode);
+                    }
+                    else
+                    {
+                        sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8E0;
+                        //v20 = gMagical_germain_0x8EC_6F5168->sub_4D27D0(v16);
+                    }
+                }
+                else
+                {
+                    sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8D4;
+                    //v20 = gMagical_germain_0x8EC_6F5168->sub_4D2710(v16);
+                }
+                pTexture = v20;
+                /*
+                v25 = v11;
+                v26 = v11 >> 31;
+                pTexta = (wchar_t *)((__int64)((sprite_index_5AA440->field_4_width << 14) * __PAIR64__(v26, v25)) >> 14);
+                v27 = (__int64)((sprite_index_5AA440->field_5_height << 14) * __PAIR64__(v26, v25)) >> 14;
+                gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
+                gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
+                v28 = (int)pTexta + a99;
+                gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
+                gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
+                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)a99 * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp * 0.000061035156;
+                pBufferb = (double)((int)pTexta + a99) * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[1].field_0_x = pBufferb;
+                gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
+                gQuadVerts_706B88.field_0_verts[2].field_0_x = pBufferb;
+                pBufferc = (double)(ypos_fp + (int)v27) * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[2].field_4_y = pBufferc;
+                gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
+                gQuadVerts_706B88.field_0_verts[3].field_4_y = pBufferc;
+                a99 = (__int64)(((double)sprite_index_5AA440->field_4_width - 0.000099999997) * 16384.0);
+                pBufferd = (wchar_t *)(__int64)(((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
+                gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
+                gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
+                gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
+                gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
+                gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)a99 * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
+                gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)(int)pBufferd * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
+
+                gbh_DrawQuad(drawFlags, pTexture, &gQuadVerts_706B88.field_0_verts[0], 255);
+
+                v15 = (__int16)retaddr;
+                v12 = v30;
+                v11 = (int)pBufferd;
+                fp4 = v28;
+                v13 = v29;
+                */
+            }
+            pTmpIter = pTextIter + 1;
+            pTextIter = pTmpIter;
+        } while (*pTmpIter);
+    }
+    return (const wchar_t*)pTmpIter;
 }
 
 // match
-const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, short* fp3, Fix16 fp4)
+const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4)
 {
     int local; // [esp+0h] [ebp-4h] BYREF
 
     local = 2;
-    return DrawText_5D8A10(pBuffer, xpos_fp, ypos_fp, fp3, fp4, &local, 0, 0, 0);
+    return DrawText_5D8A10(pBuffer, xpos_fp, ypos_fp, spaceWidth, fp4, &local, 0, 0, 0);
 }

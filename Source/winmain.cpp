@@ -65,6 +65,9 @@ int gRenderdevice_706998;
 
 WORD gDMusicVer_67BD32;
 
+char gLighting_626A09 = 1;
+DWORD gLightingDrawFlag_7068F4;
+
 // todo move to another file for ordering
 // stub
 void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
@@ -81,6 +84,7 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
         max_frame_rate_626A08 = gRegistry_6FF968.Get_Screen_Setting_5870D0("max_frame_rate", 1) != 0;
         min_frame_rate_706C50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("min_frame_rate", 0) != 0;
     }
+    */
 
     if (gRegistry_6FF968.Get_Screen_Setting_5870D0("lighting", 1))
     {
@@ -93,6 +97,7 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
         gLightingDrawFlag_7068F4 = 0;
     }
 
+    /*
     if (gKind_khorana_0x3CC_67AF1C)
     {
         gKind_khorana_0x3CC_67AF1C->sub_48F710();

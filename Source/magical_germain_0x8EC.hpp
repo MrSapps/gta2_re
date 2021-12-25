@@ -1,6 +1,7 @@
 #pragma once
 
 struct STexture;
+struct sprite_index;
 
 struct magical_germain_0x8EC
 {
@@ -569,10 +570,10 @@ struct magical_germain_0x8EC
     void* field_8C8_pKBIT;
     int field_8CC;
     int field_8D0;
-    int field_8D4;
+    sprite_index* field_8D4;
     STexture *field_8D8_pTexture;
     int field_8DC;
-    int field_8E0;
+    sprite_index* field_8E0;
     STexture *field_8E4_pTexture;
     char field_8E8;
     char field_8E9;
@@ -586,6 +587,10 @@ struct magical_germain_0x8EC
     void sub_4D2B40();
 
     void sub_4D2090();
+
+    int sub_4D29D0(unsigned __int16 a2);
+
+    int sub_4D28A0(unsigned __int16 a2);
 };
 
 extern magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;
