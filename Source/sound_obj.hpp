@@ -351,6 +351,8 @@ public:
     void VecDiff_41B4E0(serene_brattain *pVec, serene_brattain *pRet);
 
     void sub_41B490(sound_0x68 *pObj);
+
+    DWORD* sub_4190B0(DWORD *a2);
 };
 
 extern sound_obj gSound_obj_66F680;
