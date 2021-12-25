@@ -322,194 +322,175 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     msg_ = Msg;
     lparam_ = lParam;
 
-    if (Msg <= WM_WINDOWPOSCHANGING)
+    switch (Msg)
     {
-        if (Msg == WM_WINDOWPOSCHANGING)
+    case WM_SETFOCUS: // order ok
+        gRoot_sound_66B038.sub_40F140();
+        gRoot_sound_66B038.SetCDVol_40F0F0(gRegistry_6FF968.Set_Sound_Setting_586AE0("CDVol", 127));
+        gRoot_sound_66B038.SetSfxVol_40F0B0(gRegistry_6FF968.Set_Sound_Setting_586AE0("SFXVol", 127));
+
+        if (bDoFrontEnd_626B68)
         {
-            if (gLaughing_blackwell_0x1EB54_67DC84 && (*(BYTE *)(lParam + 24) & 2) == 0)
+            gRoot_sound_66B038.Set3DSound_40F160(0);
+        }
+        else
+        {
+            gRoot_sound_66B038.Set3DSound_40F160(gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound"));
+            gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
+        }
+
+        if (!bDestroyed_6F5B70)
+        {
+            //LOBYTE(Msg) = 1;
+            Msg = 1;
+            laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&Msg);
+            if (!bDoFrontEnd_626B68)
             {
-                v12 = *(DWORD *)(lParam + 12);
-                newX = *(DWORD *)(lParam + 8);
-                newY = v12;
-                Bink::sub_5136D0(&newX, &newY);
-                v13 = newY;
-                *(DWORD *)(lparam_ + 8) = newX;
-                *(DWORD *)(lparam_ + 12) = v13;
+                Input_Read_498D10();
+            }
+
+            if (gVidSys_7071D0 && !Bink::sub_513770())
+            {
+                sub_5D92D0();
+                sub_5D9680();
+                byte_706C5D = 0;
+            }
+
+            if (gGame_0x40_67E008)
+            {
+                gGame_0x40_67E008->sub_4B9720();
+            }
+
+            SetSavedGamma_5D98E0();
+        }
+        break;
+
+    case WM_KILLFOCUS: // order ok
+        //LOBYTE(hWnd) = 0;
+        hWnd = 0;
+        laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&hWnd);
+        Input_ReleaseMouse_5D7C70();
+        gRoot_sound_66B038.Set3DSound_40F160(0);
+        gRoot_sound_66B038.Release_40F130();
+
+        if (gLaughing_blackwell_0x1EB54_67DC84 && Bink::sub_513760())
+        {
+            Bink::Close1_513340();
+            Bink::Close2_513390();
+            gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(0);
+        }
+
+        if (gVidSys_7071D0)
+        {
+            if (!Vid_FindDevice_5D9290())
+            {
+                Vid_CloseScreen(gVidSys_7071D0);
+                byte_706C5D = 1;
+                ShowWindow(gHwnd_707F04, 7);
+            }
+        }
+        break;
+
+    case WM_ACTIVATE: // order ok
+        if ((BYTE)wParam)
+        {
+            if ((unsigned __int8)wParam <= 2u)
+            {
+                //LOBYTE(wParam) = 1;
+                wParam = 1;
+                laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&wParam);
+                Input_MouseAcquire_5D7C60();
             }
         }
         else
         {
-            switch (Msg)
-            {
-            case WM_DESTROY:
-                if (bNetworkGame_7081F0)
-                {
-                    gGoofy_thompson_7071E8.sub_520D10();
-                }
-
-                ReleaseMutex(gMutex_707078);
-                CloseHandle(gMutex_707078);
-                gMutex_707078 = 0;
-                sub_4DA740();
-                GBH_Graphis_DMA_Video_Free_5D9830();
-                PostQuitMessage(0);
-                goto ret_func;
-
-            case WM_SIZE:
-                switch (wParam)
-                {
-                case 0u:
-                    goto wm_size_case_2;
-
-                case 1u:
-                    byte_70827C = 2;
-                    gRoot_sound_66B038.Release_40F130();
-                    break;
-
-                case 2u:
-                wm_size_case_2:
-                    byte_70827C = 0;
-                    gRoot_sound_66B038.sub_40F140();
-                    break;
-                }
-                break;
-
-            case WM_ACTIVATE:
-                if ((BYTE)wParam)
-                {
-                    if ((unsigned __int8)wParam <= 2u)
-                    {
-                        //LOBYTE(wParam) = 1;
-                        wParam = 1;
-                        laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&wParam);
-                        Input_MouseAcquire_5D7C60();
-                    }
-                }
-                else
-                {
-                    v21 = 0;
-                    laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&v21);
-                    Input_ReleaseMouse_5D7C70();
-                }
-                goto ret_func;
-
-            case WM_SETFOCUS:
-                gRoot_sound_66B038.sub_40F140();
-                gRoot_sound_66B038.SetCDVol_40F0F0(gRegistry_6FF968.Set_Sound_Setting_586AE0("CDVol", 127));
-                gRoot_sound_66B038.SetSfxVol_40F0B0(gRegistry_6FF968.Set_Sound_Setting_586AE0("SFXVol", 127));
-
-                if (bDoFrontEnd_626B68)
-                {
-                    gRoot_sound_66B038.Set3DSound_40F160(0);
-                }
-                else
-                {
-                    gRoot_sound_66B038.Set3DSound_40F160(gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound"));
-                    gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
-                }
-
-                if (!bDestroyed_6F5B70)
-                {
-                    //LOBYTE(Msg) = 1;
-                    Msg = 1;
-                    laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&Msg);
-                    if (!bDoFrontEnd_626B68)
-                    {
-                        Input_Read_498D10();
-                    }
-
-                    if (gVidSys_7071D0 && !Bink::sub_513770())
-                    {
-                        sub_5D92D0();
-                        sub_5D9680();
-                        byte_706C5D = 0;
-                    }
-
-                    if (gGame_0x40_67E008)
-                    {
-                        gGame_0x40_67E008->sub_4B9720();
-                    }
-
-                    SetSavedGamma_5D98E0();
-                }
-                goto ret_func;
-
-            case WM_KILLFOCUS:
-                //LOBYTE(hWnd) = 0;
-                hWnd = 0;
-                laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&hWnd);
-                Input_ReleaseMouse_5D7C70();
-                gRoot_sound_66B038.Set3DSound_40F160(0);
-                gRoot_sound_66B038.Release_40F130();
-
-                if (gLaughing_blackwell_0x1EB54_67DC84 && Bink::sub_513760())
-                {
-                    Bink::Close1_513340();
-                    Bink::Close2_513390();
-                    gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(0);
-                }
-
-                if (!gVidSys_7071D0)
-                {
-                    return DefWindowProcA(hwnd_, msg_, param_, lparam_);
-                }
-
-                if (!Vid_FindDevice_5D9290())
-                {
-                    Vid_CloseScreen(gVidSys_7071D0);
-                    byte_706C5D = 1;
-                    ShowWindow(gHwnd_707F04, 7);
-                }
-                break;
-
-            default:
-                goto ret_func;
-            }
-
+            v21 = 0;
+            laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&v21);
+            Input_ReleaseMouse_5D7C70();
         }
-        goto ret_func;
-    }
+        break;
 
-    if (Msg <= WM_SYSCOMMAND)
-    {
-        if (Msg != WM_SYSCOMMAND)
+
+    case WM_WINDOWPOSCHANGING:
+        v12 = *(DWORD *)(lParam + 12);
+        newX = *(DWORD *)(lParam + 8);
+        newY = v12;
+        Bink::sub_5136D0(&newX, &newY);
+        v13 = newY;
+        *(DWORD *)(lparam_ + 8) = newX;
+        *(DWORD *)(lparam_ + 12) = v13;
+        break;
+
+    case WM_SIZE:
+        switch (wParam)
         {
-            if (Msg == WM_WINDOWPOSCHANGED)
-            {
-                if (gLaughing_blackwell_0x1EB54_67DC84)
-                {
-                    Bink::sub_513720();
-                }
-            }
-            else if (Msg == WM_SYSKEYDOWN)
-            {
-                switch (wParam)
-                {
-                case VK_RETURN:
-                    if (sub_5D92C0())
-                    {
-                        UpdateWinXY_5D8E70();
-                        if ((lparam_ & 0x20000000) != 0)
-                        {
-                            sub_5D9250();
-                            sub_5D92D0();
-                            sub_5D9680();
-                        }
-                    }
-                    goto ret_func;
+        case 0u:
+           // goto wm_size_case_2;
+            byte_70827C = 0;
+            gRoot_sound_66B038.sub_40F140();
+            break;
 
-                case VK_MENU:
-                case VK_F10:
-                case VK_LMENU:
-                    return 0;
+        case 1u:
+            byte_70827C = 2;
+            gRoot_sound_66B038.Release_40F130();
+            break;
 
-                default:
-                    goto ret_func;
-                }
-            }
-            goto ret_func;
+        case 2u:
+       // wm_size_case_2:
+            byte_70827C = 0;
+            gRoot_sound_66B038.sub_40F140();
+            break;
+        }
+        break;
+
+    case WM_DESTROY: // order ok
+        if (bNetworkGame_7081F0)
+        {
+            gGoofy_thompson_7071E8.sub_520D10();
         }
 
+        ReleaseMutex(gMutex_707078);
+        CloseHandle(gMutex_707078);
+        gMutex_707078 = 0;
+        sub_4DA740();
+        GBH_Graphis_DMA_Video_Free_5D9830();
+        PostQuitMessage(0);
+        break;
+
+    case WM_WINDOWPOSCHANGED:
+        if (gLaughing_blackwell_0x1EB54_67DC84)
+        {
+            Bink::sub_513720();
+        }
+        break;
+
+    case WM_SYSKEYDOWN:
+        switch (wParam)
+        {
+        case VK_RETURN:
+            if (sub_5D92C0())
+            {
+                UpdateWinXY_5D8E70();
+                if ((lparam_ & 0x20000000) != 0)
+                {
+                    sub_5D9250();
+                    sub_5D92D0();
+                    sub_5D9680();
+                }
+            }
+            break;
+
+        case VK_MENU:
+        case VK_F10:
+        case VK_LMENU:
+            return 0;
+
+        default:
+            break;
+        }
+        break;
+
+    case WM_SYSCOMMAND:
         sysCommand = wParam & 0xFFF0;
         if (sysCommand > 0xF140)
         {
@@ -517,10 +498,9 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             {
                 return 0;
             }
-            goto ret_func;
+            //goto ret_func;
         }
-
-        if (sysCommand != 0xF140)
+        else if (sysCommand != 0xF140) // else added
         {
             v15 = sysCommand - 0xF020;
             if (v15)
@@ -540,13 +520,15 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             {
                 UpdateWinXY_5D8E70();
             }
-            goto ret_func;
+            //goto ret_func;
         }
-        return 0;
-    }
+        else // added
+        {
+            return 0;
+        }
+        break;
 
-    if (Msg == WM_SIZING)
-    {
+    case WM_SIZING:
         GetWindowRect(gHwnd_707F04, &winRec);
         pLparamRec = (DWORD *)lParam;
         top = winRec.top;
@@ -557,9 +539,11 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         pLparamRec[3] = bottom;
         pLparamRec[2] = right;
         return 0;
+
+    default:
+        break;
     }
 
-ret_func:
     if (gVidSys_7071D0)
     {
         Vid_WindowProc(gVidSys_7071D0, hwnd_, msg_, param_, lparam_);
