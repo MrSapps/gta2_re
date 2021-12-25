@@ -65,3 +65,8 @@ void __stdcall Bink::sub_5137B0(char a1)
     // todo
     //gBink_state_6F83FE = a1;
 }
+
+void __stdcall Bink::sub_513560(const char *pFileName, HDIGDRIVER  a2)
+{
+    // todo
+}

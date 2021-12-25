@@ -1634,6 +1634,7 @@ struct jolly_poitras_0x2BC0
 
     void sub_56BD20();
 
+    void sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3);
 };
 
 extern jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;

@@ -49,9 +49,9 @@ public:
 
     wchar_t *TKeyFind_5B5A50(const char *pIdStr);
 
-    unsigned __int16 sub_5B5AD0(unsigned __int16 a2);
+    unsigned __int16 sub_5B5AD0(wchar_t a2);
 
-    WORD *sub_5B5B80(WORD *pWideStr);
+    wchar_t *sub_5B5B80(wchar_t *pWideStr);
 
     int __stdcall sub_5B5BC0(WORD *a1, int a2, int a3, int a4);
 

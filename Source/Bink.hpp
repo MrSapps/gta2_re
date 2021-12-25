@@ -29,4 +29,6 @@ public:
     static void __stdcall sub_5133E0(const char *a1, HDIGDRIVER  a2);
 
     static void __stdcall sub_5137B0(char a1);
+
+    static void __stdcall sub_513560(const char *pFileName, HDIGDRIVER  a2);
 };

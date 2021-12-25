@@ -8,6 +8,18 @@
 
 #include <Dinput.h>
 
+struct angry_lewin_0x85C;
+
+struct youthful_einstein
+{
+    angry_lewin_0x85C *field_0;
+    int field_4[6];
+    int field_1C;
+    int field_20;
+    __int16 field_24;
+    __int16 field_26;
+};
+
 // todo: move
 struct sleepy_stonebraker_0x6C
 {
@@ -2702,6 +2714,12 @@ struct laughing_blackwell_0x1EB54
     void sub_4AD140();
 
     void sub_4B7AE0();
+
+    void sub_4B8650();
+
+    char pre_intro_bik_exists_4B6030();
+
+    char * pre_intro_bik_4B5F20();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

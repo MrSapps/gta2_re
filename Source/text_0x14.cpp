@@ -529,7 +529,7 @@ void text_tdat::TDAT_Load_5B5A80(unsigned int size)
 }
 
 // todo
-unsigned __int16 text_0x14::sub_5B5AD0(unsigned __int16 a2)
+unsigned __int16 text_0x14::sub_5B5AD0(wchar_t a2)
 {
     unsigned __int16 result; // ax
 
@@ -583,9 +583,9 @@ unsigned __int16 text_0x14::sub_5B5AD0(unsigned __int16 a2)
 }
 
 // match
-WORD * text_0x14::sub_5B5B80(WORD *pWideStr)
+wchar_t * text_0x14::sub_5B5B80(wchar_t *pWideStr)
 {
-    for (WORD *pStrIter = pWideStr; *pStrIter; ++pStrIter)
+    for (wchar_t *pStrIter = pWideStr; *pStrIter; ++pStrIter)
     {
         *pStrIter = sub_5B5AD0(*pStrIter);
     }

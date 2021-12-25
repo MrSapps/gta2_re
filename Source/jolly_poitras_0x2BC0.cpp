@@ -326,6 +326,11 @@ void jolly_poitras_0x2BC0::sub_56BD20()
     this->field_24C0.field_0[9].field_14_score = 10000;
 }
 
+void jolly_poitras_0x2BC0::sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3)
+{
+    // todo
+}
+
 agitated_keldysh_0xF0::agitated_keldysh_0xF0()
 {
     Init_56B520();

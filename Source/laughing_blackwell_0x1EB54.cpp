@@ -22,6 +22,8 @@
 
 void Start_GTA2Manager_5E4DE0();
 
+youthful_einstein gYouthful_einstein_6F8450;
+
 laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
 
 DWORD dword_67D6F8;
@@ -47,6 +49,8 @@ BYTE byte_67DA80;
 char byte_67DC88[4]; // todo: prob bigger
 
 wchar_t word_67C7D8[640];
+
+wchar_t *dword_67EE54;
 
 class FreeLoader
 {
@@ -479,8 +483,467 @@ void __stdcall laughing_blackwell_0x1EB54::destroy_4AD070()
 
 void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 {
-    // todo
+    unsigned __int16 v3; // bp
+    unsigned __int8 v4; // bl
+    unsigned __int8 v5; // al
+    gifted_joliot *v6; // ecx
+    unsigned __int8 v7; // al
+    int v8; // edi
+    LPDIRECTINPUTA *v9; // eax
+    char v10; // bl
+    unsigned __int8 v11; // al
+    char v12; // al
+    loving_borg_0xBCA *v13; // ecx
+    __int16 Player_Setting_587810; // ax
+    int v15; // edi
+    int v16; // edx
+    int i; // eax
+    wchar_t *v18; // eax
+    __int16 v19; // ax
+    wchar_t *v20; // eax
+    wchar_t *_5B5F90; // eax
+    unsigned __int8 v22; // bl
+    char *v23; // edi
+    unsigned __int8 v24; // al
+    unsigned __int8 v25; // bl
+    int v26; // edi
+    wchar_t *field_6_wstr_buf; // ebp
+    blissful_ganguly_0x20 *v28; // eax
+    blissful_ganguly_0x20 *v29; // eax
+    int v30; // edi
+    int v31; // ebp
+    bool v32; // cf
+    int v33; // eax
+    int v34; // ebp
+    int v35; // ebx
+    int *v36; // ebp
+    int *v37; // edx
+    int v38; // eax
+    int v39; // ecx
+    int v40; // eax
+    wchar_t *v41; // eax
+    wchar_t *v42; // eax
+    wchar_t *v43; // eax
+    char *v44; // eax
+    const char *v45; // eax
+    unsigned __int16 field_132_f136_idx; // cx
+    loving_borg_0xBCA *v47; // edi
+    wchar_t *v48; // [esp-4h] [ebp-11Ch]
+    HDIGDRIVER  field_0_hDriver; // [esp-4h] [ebp-11Ch]
+    HDIGDRIVER  v50; // [esp-4h] [ebp-11Ch]
+    unsigned __int8 v51; // [esp+13h] [ebp-105h]
+    unsigned __int8 v52; // [esp+13h] [ebp-105h]
+    char v53; // [esp+13h] [ebp-105h]
+    unsigned __int8 a2; // [esp+14h] [ebp-104h]
+    unsigned __int8 a2a; // [esp+14h] [ebp-104h]
+    unsigned __int8 a2b; // [esp+14h] [ebp-104h]
+    dreamy_clarke_0xA4 *v57; // [esp+18h] [ebp-100h]
+    int *v58; // [esp+18h] [ebp-100h]
+    int *v59; // [esp+18h] [ebp-100h]
+    int *v60; // [esp+18h] [ebp-100h]
+    char v61; // [esp+1Fh] [ebp-F9h]
+    unsigned __int8 a3; // [esp+20h] [ebp-F8h]
+    unsigned __int8 a3a; // [esp+20h] [ebp-F8h]
+    unsigned __int8 a3b; // [esp+20h] [ebp-F8h]
+    int v65; // [esp+24h] [ebp-F4h]
+    char v66; // [esp+2Ah] [ebp-EEh]
+    char v67; // [esp+2Bh] [ebp-EDh]
+    char v68; // [esp+2Ch] [ebp-ECh]
+    unsigned __int8 v69; // [esp+30h] [ebp-E8h]
+    wchar_t Destination[50]; // [esp+34h] [ebp-E4h] BYREF
+    wchar_t Buffer[64]; // [esp+98h] [ebp-80h] BYREF
 
+    v3 = arg0;
+    v57 = sub_4B43E0();
+    this->field_132_f136_idx = arg0;
+    switch (arg0)
+    {
+    case 0xEu:
+        this->field_110_state = 5;
+        this->field_C9CA = 0;
+        this->field_C9CB = 0;
+        sub_4B8530();
+        this->field_C9B3 = 1;
+        this->field_C9B4 = 28;
+        this->field_C9B6 = 5;
+        goto LABEL_116;
+
+    case 9u:
+        this->field_1EB34 = 0x668000;
+        this->field_1EB30 = 0;
+        this->field_1EB38 = 0;
+        this->field_C9B3 = 1;
+        goto LABEL_116;
+
+    case 3u:
+        a2 = gLucid_hamilton_67E8E0.sub_4C5980();
+        v51 = gLucid_hamilton_67E8E0.sub_4C59C0();
+        if (dword_67EE54 == (wchar_t *)'2')
+        {
+            v51 = 3;
+        }
+
+        v4 = 1;
+        for (a3 = 1; v4 <= v51; a3 = v4)
+        {
+            if (v4 < this->field_1EB51_blocks[a2])
+            {
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56BBD0(a2, a3);
+            }
+            ++v4;
+        }
+        if (a2 == (unsigned __int8)this->field_1EB50_idx - 1)
+        {
+            this->field_136[3].field_4[0].field_1 = 0;
+            this->field_136[3].field_B8A[0].field_4 = 0;
+        }
+        else
+        {
+            gJolly_poitras_0x2BC0_6FEAC0->sub_56BBD0(a2 + 1, 0);
+            this->field_136[3].field_4[0].field_1 = 1;
+            this->field_136[3].field_B8A[0].field_4 = 1;
+        }
+        this->field_136[3].field_4[3].field_1 = 0;
+        this->field_136[3].field_B8A[3].field_4 = 0;
+        v5 = 1;
+        v6 = &v57->field_0[a2][1];
+        do
+        {
+            if (v6->field_0 && v5 < this->field_1EB51_blocks[a2])
+            {
+                this->field_136[3].field_4[3].field_1 = 1;
+                this->field_136[3].field_B8A[3].field_4 = 1;
+            }
+            ++v5;
+            ++v6;
+        } while (v5 < 4u);
+        a2a = 1;
+        goto LABEL_30;
+
+    case 6u:
+        v7 = gLucid_hamilton_67E8E0.sub_4C5990();
+        v8 = v7 >> 4;
+        swprintf(tmpBuff_67BD9C, L"%d", v57->field_0[v8][v7 & 0xF].field_8);
+        wcsncpy(this->field_136[6].field_518[2].field_6_wstr_buf, tmpBuff_67BD9C, 0x32u);
+        if (gLucid_hamilton_67E8E0.sub_4C5AE0()
+            || v8 >= (unsigned __int8)this->field_1EB50_idx - 1
+            || !v57->field_0[v8 + 1][0].field_0)
+        {
+            this->field_136[6].field_4[1].field_1 = 0;
+            this->field_136[6].field_B8A[1].field_4 = 0;
+        }
+        else
+        {
+            this->field_136[6].field_4[1].field_1 = 1;
+            this->field_136[6].field_B8A[1].field_4 = 1;
+        }
+        goto LABEL_116;
+    case 2u:
+    case 0xBu:
+        a2a = 0;
+    LABEL_30:
+        v9 = &(&this->field_0_pDInput)[gLucid_hamilton_67E8E0.sub_4C59B0()];
+        v66 = *((BYTE *)v9 + 60905);
+        v52 = *((BYTE *)v9 + 60906);
+        v67 = *((BYTE *)v9 + 60907);
+        if (gLucid_hamilton_67E8E0.sub_4C59A0())
+        {
+            v11 = gLucid_hamilton_67E8E0.sub_4C5990();
+            v10 = v11 >> 4;
+            v61 = v11 & 0xF;
+        }
+        else
+        {
+            v10 = gLucid_hamilton_67E8E0.sub_4C5980();
+            v61 = 0;
+        }
+        if (v67)
+        {
+            v12 = v52 >> 4;
+            v53 = v52 & 0xF;
+        }
+        else
+        {
+            v12 = v66;
+            v53 = 0;
+        }
+        v13 = &this->field_136[arg0];
+        if (v10 == v12 && v61 == v53)
+        {
+            v13->field_4[a2a].field_1 = 1;
+            v13->field_B8A[a2a].field_4 = 1;
+        }
+        else
+        {
+            v13->field_4[a2a].field_1 = 0;
+            v13->field_B8A[a2a].field_4 = 0;
+        }
+        break;
+    }
+
+    switch (arg0)
+    {
+    case 1u:
+        Player_Setting_587810 = gRegistry_6FF968.Create_Player_Setting_587810("plyrslot");
+        this->field_136[1].field_4[0].field_6E_count = Player_Setting_587810;
+        this->field_136[1].field_4[0].field_70 = Player_Setting_587810;
+        gLucid_hamilton_67E8E0.sub_4C5920(Player_Setting_587810);
+        sub_4B42E0();
+        break;
+
+    case 7u:
+        a2b = gLucid_hamilton_67E8E0.sub_4C5BF0();
+        v15 = -1;
+        if (gLucid_hamilton_67E8E0.sub_4C5BC0() == 3)
+        {
+            v16 = 0;
+            for (i = 4; i < 28; i += 4)
+            {
+                if (*(int *)((char *)&gYouthful_einstein_6F8450.field_0 + i) > v15
+                    && !*((BYTE *)&gYouthful_einstein_6F8450.field_20 + v16))
+                {
+                    v15 = *(int *)((char *)&gYouthful_einstein_6F8450.field_0 + i);
+                }
+                ++v16;
+            }
+        }
+        else
+        {
+            gLucid_hamilton_67E8E0.sub_4C5C20();
+        }
+
+        v65 = (unsigned __int8)gLucid_hamilton_67E8E0.sub_4C5BE0();
+        v68 = gLucid_hamilton_67E8E0.sub_4C5BC0();
+        switch (v68)
+        {
+        case 1:
+            _5B5F90 = gText_0x14_704DFC->Find_5B5F90("frags_h");
+            wcsncpy(this->field_136[7].field_518[13].field_6_wstr_buf, _5B5F90, 0x32u);
+            v19 = sub_4B0190(
+                this->field_136[7].field_518[13].field_6_wstr_buf,
+                this->field_136[7].field_518[13].field_6A,
+                320);
+            break;
+
+        case 2:
+            v20 = gText_0x14_704DFC->Find_5B5F90("pnts_h");
+            wcsncpy(this->field_136[7].field_518[13].field_6_wstr_buf, v20, 50u);
+            v19 = sub_4B0190(
+                this->field_136[7].field_518[13].field_6_wstr_buf,
+                this->field_136[7].field_518[13].field_6A,
+                320);
+            break;
+
+        case 3:
+            v18 = gText_0x14_704DFC->Find_5B5F90("times_h");
+            wcsncpy(this->field_136[7].field_518[13].field_6_wstr_buf, v18, 0x32u);
+            v19 = sub_4B0190(
+                this->field_136[7].field_518[13].field_6_wstr_buf,
+                this->field_136[7].field_518[13].field_6A,
+                320);
+            break;
+        default:
+            FatalError_4A38C0(189, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 4079); // Multiplayer game type should be frag, tag or score (but isn't)
+        }
+
+        this->field_136[7].field_518[13].field_2 = v19;
+        v22 = 0;
+        v23 = &this->field_136[7].field_518[7].field_1;
+        do
+        {
+            if (v22 >= a2b)
+            {
+                *(v23 - 660) = 0;
+                *v23 = 0;
+            }
+            else
+            {
+                *(v23 - 660) = 1;
+                *v23 = gLucid_hamilton_67E8E0.sub_4C5BC0() != 3;
+            }
+            ++v22;
+            v23 += 110;
+        } while (v22 < 6u);
+
+        v24 = a2b;
+        v25 = 0;
+        v69 = 0;
+
+        if (a2b)
+        {
+            v26 = 0;
+            v58 = &gYouthful_einstein_6F8450.field_20;
+            field_6_wstr_buf = this->field_136[7].field_518[1].field_6_wstr_buf;
+            do
+            {
+                if (*(BYTE *)v58)
+                {
+                    v48 = gText_0x14_704DFC->Find_5B5F90("mult_q");
+                    v28 = gLucid_hamilton_67E8E0.sub_4C5C60(v25);
+                    swprintf(Buffer, L"%s (%s)", v28, v48);
+                    wcscpy(Destination, Buffer);
+                }
+                else
+                {
+                    v29 = gLucid_hamilton_67E8E0.sub_4C5C60(v25);
+                    wcsncpy(Destination, v29->field_0_str, 0x32u);
+                }
+                gText_0x14_704DFC->sub_5B5B80(Destination);
+                wcsncpy(field_6_wstr_buf, Destination, 0x32u);
+                if (v26 != v65)
+                {
+                    wcsncpy(this->field_136[7].field_518[v69++ + 8].field_6_wstr_buf, Destination, 0x32u);
+                }
+                ++v25;
+                ++v26;
+                v58 = (int *)((char *)v58 + 1);
+                v24 = a2b;
+                field_6_wstr_buf += 55;
+            } while (v25 < a2b);
+        }
+        
+        v30 = -1;
+
+        if (*((BYTE *)&gYouthful_einstein_6F8450.field_20 + v65))
+        {
+            v3 = arg0;
+            goto LABEL_105;
+        }
+
+        switch (v68)
+        {
+        case 1:
+            a3a = 0;
+            if (v24)
+            {
+                v31 = 0;
+                v59 = &gYouthful_einstein_6F8450.field_20;
+                do
+                {
+                    if (v31 != v65
+                        && !*(BYTE *)v59
+                        && (__int16)gLucid_hamilton_67E8E0.sub_4C5D60(a3a) > v30)
+                    {
+                        v30 = (__int16)gLucid_hamilton_67E8E0.sub_4C5D60(a3a);
+                    }
+                    ++v31;
+                    v32 = ++a3a < a2b;
+                    v59 = (int *)((char *)v59 + 1);
+                } while (v32);
+            }
+            v33 = (__int16)gLucid_hamilton_67E8E0.sub_4C5D60(v65);
+            break;
+        case 2:
+            a3b = 0;
+            if (v24)
+            {
+                v34 = 0;
+                v60 = &gYouthful_einstein_6F8450.field_20;
+                do
+                {
+                    if (v34 != v65 && !*(BYTE *)v60 && gLucid_hamilton_67E8E0.sub_4C5CB0(a3b) > v30)
+                    {
+                        v30 = gLucid_hamilton_67E8E0.sub_4C5CB0(a3b);
+                    }
+                    ++v34;
+                    v32 = ++a3b < a2b;
+                    v60 = (int *)((char *)v60 + 1);
+                } while (v32);
+            }
+            v33 = gLucid_hamilton_67E8E0.sub_4C5CB0(v65);
+            break;
+        case 3:
+            if (v24)
+            {
+                v35 = 0;
+                v36 = &gYouthful_einstein_6F8450.field_20;
+                v37 = gYouthful_einstein_6F8450.field_4;
+                v38 = a2b;
+                do
+                {
+                    if (v35 != v65 && !*(BYTE *)v36)
+                    {
+                        v39 = *v37;
+                        if (*v37 <= v30)
+                            v39 = v30;
+                        v30 = v39;
+                    }
+                    ++v35;
+                    ++v37;
+                    v36 = (int *)((char *)v36 + 1);
+                    --v38;
+                } while (v38);
+            }
+            v33 = gYouthful_einstein_6F8450.field_4[v65];
+            break;
+        default:
+            v3 = arg0;
+            goto LABEL_107;
+        }
+
+        v3 = arg0;
+        v40 = v33 - v30;
+        
+        if (v40 > 0)
+        {
+            v41 = gText_0x14_704DFC->Find_5B5F90("mult_w");
+            wcsncpy(this->field_136[7].field_518[0].field_6_wstr_buf, v41, 0x32u);
+            break;
+        }
+
+        if (v40 < 0)
+        {
+        LABEL_105:
+            v42 = gText_0x14_704DFC->Find_5B5F90("mult_l");
+            wcsncpy(this->field_136[7].field_518[0].field_6_wstr_buf, v42, 0x32u);
+            break;
+        }
+
+    LABEL_107:
+        v43 = gText_0x14_704DFC->Find_5B5F90("mult_d");
+        wcsncpy(this->field_136[7].field_518[0].field_6_wstr_buf, v43, 0x32u);
+        break;
+
+    case 8u:
+        if (bIsFrench_67D53C)
+        {
+            sub_4B8650();
+        }
+
+        if (pre_intro_bik_exists_4B6030())
+        {
+            field_0_hDriver = gWizardly_margulis_6FFF00.field_0_hDriver;
+            v44 = gLaughing_blackwell_0x1EB54_67DC84->pre_intro_bik_4B5F20();
+            Bink::sub_513560(v44, field_0_hDriver);
+        }
+        else
+        {
+            v50 = gWizardly_margulis_6FFF00.field_0_hDriver;
+            v45 = gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50();
+            Bink::sub_5133E0(v45, v50);
+        }
+        break;
+
+    case 0u:
+        this->field_C9E4 = timeGetTime();
+        break;
+    }
+
+LABEL_116:
+    this->field_132_f136_idx = v3;
+    this->field_136[v3].field_BC6_nifty_idx = this->field_136[v3].field_BC8;
+    field_132_f136_idx = this->field_132_f136_idx;
+    v47 = &this->field_136[field_132_f136_idx];
+    if (!v47->field_4[this->field_136[field_132_f136_idx].field_BC6_nifty_idx].field_1)
+    {
+        v47->sub_4B6200();
+        if (!v47->field_4[v47->field_BC6_nifty_idx].field_1)
+        {
+            FatalError_4A38C0(165, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 4269); // the menu contains no valid options
+        }
+    }
+
+    sub_4B6780();
 }
 
 void laughing_blackwell_0x1EB54::sub_4B8680()
@@ -615,6 +1078,38 @@ void laughing_blackwell_0x1EB54::sub_4B7AE0()
         Load_tga_4B6520(23u);
         gbh_BlitImage(tgaArray_61F0C8[23].field_84_img, 0, 0, 451, 144, 85, 0);
     }
+}
+
+void laughing_blackwell_0x1EB54::sub_4B8650()
+{
+    if (!bSkip_audio_67D6BE)
+    {
+        if (gSoundIdx_67D700)
+        {
+            gRoot_sound_66B038.sub_40EFD0(gSoundIdx_67D700);
+            gSoundIdx_67D700 = 0;
+        }
+    }
+}
+
+char laughing_blackwell_0x1EB54::pre_intro_bik_exists_4B6030()
+{
+    char *v0; // eax
+    long v1; // eax
+    _finddata_t v3; // [esp+0h] [ebp-118h] BYREF
+
+    v0 = gLaughing_blackwell_0x1EB54_67DC84->pre_intro_bik_4B5F20();
+    v1 = _findfirst(v0, &v3);
+    if (v1 == -1)
+        return 0;
+    _findclose(v1);
+    return 1;
+}
+
+char * laughing_blackwell_0x1EB54::pre_intro_bik_4B5F20()
+{
+    // todo
+    return "";
 }
 
 const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
