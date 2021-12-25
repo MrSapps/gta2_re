@@ -134,7 +134,7 @@ typedef int(__cdecl *T_SetShadeTableA)(int a1, int a2, int a3, int a4, int a5);
 typedef int(__cdecl *T_gbh_InitImageTable)(int tableSize);
 typedef int(__cdecl *T_gbh_FreeImageTable)();
 typedef int(__stdcall *T_gbh_LoadImage)(SImage* pImage);
-typedef char(__stdcall *T_gbh_BlitImage)(int imageIndex, int srcLeft, int srcTop, int srcRight, int srcBottom, int dstX, int dstY);
+typedef int(__stdcall *T_gbh_BlitImage)(int imageIndex, int srcLeft, int srcTop, int srcRight, int srcBottom, int dstX, int dstY);
 typedef int(__cdecl *T_gbh_BlitBuffer)(int a1, int a2, int a3, int a4, int a5, int a6);
 
 extern T_gbh_InitDLL gbh_InitDLL;

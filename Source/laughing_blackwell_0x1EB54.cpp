@@ -394,7 +394,6 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
     */
 }
 
-// typedef char(__stdcall *T_gbh_BlitImage)(int imageIndex, int srcLeft, int srcTop, int srcRight, int srcBottom, int dstX, int dstY)
 
 void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
 {
@@ -410,28 +409,34 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
         || field_EE08 == 17)
     {
         sub_4B6B00(field_EE08, &tga_idx, &not_used);
-        if (gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0) == -10)
+        int blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 640, 480, 0, 0);
+        if (blitRet == -10)
         {
             // need to reload image
-            Load_tga_4B6520((unsigned __int8)tga_idx);
-            gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0);
+            Load_tga_4B6520(tga_idx);
+            gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 640, 480, 0, 0);
         }
+        
     }
     else
     {
         sub_4B6B00(field_EE08, &tga_idx, &not_used);
 
-        int blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
+        int blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         if (blitRet == -10)
         {
-            Load_tga_4B6520((unsigned __int8)tga_idx);
-            blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
+            Load_tga_4B6520(tga_idx);
+            blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         }
 
-        if (!blitRet && gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0) == -10)
+        if (blitRet == 0)
         {
-            Load_tga_4B6520(not_used);
-            gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0);
+            blitRet = gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0);
+            if (blitRet == -10)
+            {
+                Load_tga_4B6520(not_used);
+                gbh_BlitImage(tgaArray_61F0C8[not_used+1].field_84_img, 0, 0, 362, 480, 278, 0);
+            }
         }
     }
     
