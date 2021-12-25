@@ -178,38 +178,51 @@ char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
 
 void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2)
 {
-    int field_98_nActiveQueue; // ecx
-    unsigned __int8 v4; // di
-    unsigned __int8 v5; // [esp+10h] [ebp-4h]
+    unsigned __int8 idxToSet; // di
+    unsigned __int8 idx; // [esp+10h] [ebp-4h]
 
-    v5 = 0;
+    idx = 0;
+    idxToSet = idx;
 
-    if (a2)
+    //if (a2)
     {
-        field_98_nActiveQueue = this->field_98_nActiveQueue;
-        while (1)
+        while (idx < a2)
         {
-            v4 = v5;
-            if (this->field_9C[field_98_nActiveQueue][this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][v5]].field_48 > (unsigned int)this->field_9C[field_98_nActiveQueue][a2].field_48)
+            idxToSet = idx;
+            if (this->field_9C[field_98_nActiveQueue][this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]].field_48 > (unsigned int)this->field_9C[field_98_nActiveQueue][a2].field_48)
             {
+                memmove(
+                    &this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx + 1],
+                    &this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx],
+                    this->field_10_nActiveSamples - idx - 1);
                 break;
             }
-            if (++v5 >= a2)
+            idx++;
+            /*
+            if (++idx >= a2)
             {
                 goto LABEL_5;
-            }
+            }*/
         }
-
-        memcpy(
-            &this->field_D9C_abSampleQueueIndexTable[0][v5 + 1 + field_98_nActiveQueue * 16],
-            (char *)this->field_D9C_abSampleQueueIndexTable + v5 + field_98_nActiveQueue * 16,
-            this->field_10_nActiveSamples - v5 - 1);
+       
+        if (idx < a2)
+        {
+           
+        }
+        this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][idxToSet] = a2;
     }
+    /*
+    else
+    {
+        this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][idxToSet] = a2;
+    }*/
+
+    /*
     else
     {
     LABEL_5:
-        v4 = v5;
-    }
+        idxToSet = idx;
+    }*/
 
-    this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][v4] = a2;
+   
 }
