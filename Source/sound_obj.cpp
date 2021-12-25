@@ -10,11 +10,13 @@ void sound_obj::ClearRequestedQueue_41B700()
     unsigned int v3; // edx
 
     count = this->field_10_nActiveSamples;
-    for (i = 0; i < count; count = this->field_10_nActiveSamples)
+    i = 0;
+    while ( i < count )
     {
         v3 = i + 0x10 * this->field_98_nActiveQueue;
         ++i;
         this->field_D9C[0][v3] = count;
+        count = this->field_10_nActiveSamples;
     }
     this->field_DBC_nRequestedCount[this->field_98_nActiveQueue] = 0;
 
