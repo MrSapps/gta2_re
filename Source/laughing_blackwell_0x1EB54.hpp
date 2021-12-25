@@ -2547,10 +2547,10 @@ struct laughing_blackwell_0x1EB54
     __int16 field_1EB32;
     int field_1EB34;
     __int16 field_1EB38; // -11 bytes ?
-    __int16 field_1EB3A;
+    char field_1EB3A[2];
     int field_1EB3C;
     __int16 field_1EB40;
-    __int16 field_1EB42; // 2
+    char field_1EB42[2]; // 2
     int field_1EB44; // 4
     char field_1EB48; // 
     char field_1EB49; // 8
@@ -2662,6 +2662,38 @@ struct laughing_blackwell_0x1EB54
     static void __stdcall sub_5E53C0(BYTE *a1);
 
     int sub_4B0190(wchar_t* a2, __int16 a3, int a4);
+
+    unsigned __int8 sub_4B7060(unsigned __int8 a2);
+
+    unsigned __int8 sub_4B7270(char a2);
+
+    bool sub_4B7490();
+
+    bool sub_4B74C0();
+
+    void sub_4B7550();
+
+    bool sub_4B6FF0();
+
+    void sub_4B42B0();
+
+    char sub_4B7120(char a2);
+
+    void sub_4B7610();
+
+    bool sub_4B70B0();
+
+    bool sub_4B74F0();
+
+    char sub_4B7360(char a2);
+
+    bool sub_4B7520();
+
+    bool sub_4B72F0();
+
+    bool sub_4B7200();
+
+    void sub_4B4EC0();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);
