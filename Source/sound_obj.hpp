@@ -308,19 +308,19 @@ public:
 
     void sub_57DD50();
 
-    void sub_412740(int a2);
+    void ProcessType1_412740(int a2);
 
-    void sub_413760(int a2);
+    void ProcessType6_413760(int a2);
 
-    void sub_42A500(int a2);
+    void ProcessType7_42A500(int a2);
 
-    void sub_412820(int a2);
+    void ProcessType8_412820(int a2);
 
-    void sub_412A60(int a2);
+    void ProcessType9_412A60(int a2);
 
-    void sub_418CA0();
+    void ProcessType10_418CA0();
 
-    void sub_418B60(int a2);
+    void ProcessType11_418B60(int a2);
 
     void sub_412490(int idx);
 

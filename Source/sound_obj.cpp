@@ -912,25 +912,25 @@ void sound_obj::ProcessEntity_4123A0(int id)
                 switch (field_147C[id].field_4_pObj->field_0_object_type)
                 {
                 case 1:
-                    sub_412740(id);
+                    ProcessType1_412740(id);
                     break;
                 case 6:
-                    sub_413760(id);
+                    ProcessType6_413760(id);
                     break;
                 case 7:
-                    sub_42A500(id);
+                    ProcessType7_42A500(id);
                     break;
                 case 8:
-                    sub_412820(id);
+                    ProcessType8_412820(id);
                     break;
                 case 9:
-                    sub_412A60(id);
+                    ProcessType9_412A60(id);
                     break;
                 case 10:
-                    sub_418CA0();
+                    ProcessType10_418CA0();
                     break;
                 case 11:
-                    sub_418B60(id);
+                    ProcessType11_418B60(id);
                     break;
                 default:
                     return;
@@ -950,33 +950,33 @@ void sound_obj::sub_57DD50()
     // todo
 }
 
-void sound_obj::sub_412740(int a2)
+void sound_obj::ProcessType1_412740(int a2)
 {
     // todo
 }
 
-void sound_obj::sub_413760(int a2)
+void sound_obj::ProcessType6_413760(int a2)
 {
     // todo
 }
 
-void sound_obj::sub_42A500(int a2)
+void sound_obj::ProcessType7_42A500(int a2)
 {
     // todo
 }
 
-void sound_obj::sub_412820(int a2)
+void sound_obj::ProcessType8_412820(int a2)
 {
     // todo
 }
 
-void sound_obj::sub_412A60(int a2)
+void sound_obj::ProcessType9_412A60(int a2)
 {
     // todo
 }
 
 // match
-void sound_obj::sub_418CA0()
+void sound_obj::ProcessType10_418CA0()
 {
     int voc_idx;
     if (field_544C[0].field_4_fp)
@@ -1170,7 +1170,7 @@ void sound_obj::sub_418CA0()
 }
 
 // match
-void sound_obj::sub_418B60(int a2)
+void sound_obj::ProcessType11_418B60(int a2)
 {
     infallible_turing* field_C_pObject = (infallible_turing*)field_147C[a2].field_4_pObj->field_C_pObject;
     if (field_C_pObject)
