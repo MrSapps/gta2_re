@@ -471,3 +471,16 @@ int sound_obj::ConvertToPlayBackRate_417C60(int a1)
         return 22050;
     }
 }
+
+// match
+char sound_obj::sub_4153F0(sound_0x68 *pObj)
+{
+    pObj->field_14_samp_idx = 36;
+    pObj->field_3C = 400;
+    pObj->field_4C = 3;
+    pObj->field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(36);
+    pObj->field_30 = 0;
+    pObj->field_34 = gSampManager_6FFF00.sub_58DC30(36);
+    pObj->field_38 = gSampManager_6FFF00.sub_58DC50(36);
+    return 1;
+}
