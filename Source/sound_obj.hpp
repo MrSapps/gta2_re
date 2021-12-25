@@ -240,6 +240,8 @@ struct sound_obj
 
     void sub_41A2A0();
 
+    void SetSfxVol_41A250(char sfxVol);
+
     void SetCDVol_41A270(unsigned char cdVol);
 
     char Set3DSound_41A2F0(char b3dSound);

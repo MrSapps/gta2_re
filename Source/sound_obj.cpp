@@ -68,6 +68,12 @@ void sound_obj::sub_41A2A0()
 }
 
 // match
+void sound_obj::SetSfxVol_41A250(char sfxVol)
+{
+    field_24_sfx_vol = sfxVol;
+}
+
+// match
 void sound_obj::SetCDVol_41A270(unsigned char cdVol)
 {
     field_25_cdVol = cdVol;
