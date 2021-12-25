@@ -1057,14 +1057,15 @@ BYTE wizardly_margulis::sub_58E2A0()
     return ret;
 }
 
-// todo
+// match
 char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 {
     Terminate_58DAE0();
     Reset3DSamples_58D960();
-    if (this->field_2714_bUnknown)
+
+    if (field_2714_bUnknown)
     {
-        AIL_waveOutClose(this->field_0_hDriver);
+        AIL_waveOutClose(field_0_hDriver);
         if (!sub_58D720(1, 0, 22050))
         {
             if (sub_58D720(1, 0, 22050))
@@ -1089,10 +1090,11 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 
     if (i < 256)
     {
-        if (this->field_26C0_3d_provider)
+        if (field_26C0_3d_provider)
         {
             *pMaxSamples = 0;
-            this->field_1EB2_3d_samp_count = 0;
+            
+            field_1EB2_3d_samp_count = 0;
             AIL_3D_provider_attribute(field_26C0_3d_provider, "Maximum supported samples", pMaxSamples);
 
             if (*pMaxSamples > 16u)
@@ -1102,26 +1104,23 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 
             if (*pMaxSamples < 8u)
             {
-                //goto LABEL_16;
                 *pMaxSamples = 0;
                 Close3DProvider_58E1C0();
                 return 0;
             }
 
-            H3DSAMPLE* pSampIter = this->field_26C4_3d_sample;
-            for (unsigned int sampIdx = 0; sampIdx < (unsigned __int8)*pMaxSamples; sampIdx++)
+            for (unsigned int sampIdx = 0; sampIdx < *pMaxSamples; sampIdx++)
             {
-                *pSampIter = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
-                if (!*pSampIter)
+                field_26C4_3d_sample[sampIdx] = AIL_allocate_3D_sample_handle(field_26C0_3d_provider);
+                if (!field_26C4_3d_sample[sampIdx])
                 {
                     *pMaxSamples = 0;
                     Close3DProvider_58E1C0();
                     return 0;
                 }
-                ++pSampIter;
             }
 
-            this->field_1EB2_3d_samp_count = *pMaxSamples;
+            field_1EB2_3d_samp_count = *pMaxSamples;
             return 1;
         }
     }
