@@ -1383,7 +1383,7 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
 
     // local_4 = (-(ushort)(cVar1 != 'j') & 0xfffc) + 0x10;
 
-    unsigned int v2 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 12 : 16;
+    int v2 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 12 : 16;
     this->field_134 = 16;
  
     this->field_136[0].field_0 = 3; 
@@ -1419,12 +1419,11 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     this->field_136[1].field_4[0].field_70 = 0;
     this->field_136[1].field_4[0].field_7E = 7;
     
-    v7 = 0;
+    unsigned short v77 = 0;
     do
     {
-        v8 = (unsigned __int16)v7++;
-        this->field_136[1].field_4[0].field_72[v8] = 1;
-    } while ((unsigned __int16)v7 <= (unsigned int)this->field_136[1].field_4[0].field_7E);
+        this->field_136[1].field_4[0].field_72[v77++] = 1;
+    } while (v77 <= this->field_136[1].field_4[0].field_7E);
 
     this->field_136[1].field_4[1].field_0 = 1;
     this->field_136[1].field_4[1].field_2 = 300;
