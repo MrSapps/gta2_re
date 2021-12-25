@@ -11,6 +11,13 @@
 // todo: move
 struct sleepy_stonebraker_0x6C
 {
+public:
+
+    sleepy_stonebraker_0x6C();
+
+
+    ~sleepy_stonebraker_0x6C();
+
     char field_0;
     char field_1;
     __int16 field_2;
@@ -25,6 +32,8 @@ struct sleepy_stonebraker_0x6C
 #pragma pack(1)
 struct xenodochial_morse
 {
+    xenodochial_morse();
+
     __int16 field_0;
     sleepy_stonebraker_0x6C field_2[600];
 };
@@ -42,6 +51,8 @@ struct admiring_euler_4
 // todo: move
 struct competent_noyce_0x6E
 {
+    competent_noyce_0x6E();
+
     ~competent_noyce_0x6E();
 
     char field_0;
@@ -58,6 +69,9 @@ struct competent_noyce_0x6E
 #pragma pack(1)
 struct nifty_maxwell_0x82
 {
+public:
+    nifty_maxwell_0x82();
+
     ~nifty_maxwell_0x82();
 
     char field_0;
@@ -80,6 +94,12 @@ struct nifty_maxwell_0x82
 // todo: move
 struct kind_beaver_6
 {
+public:
+
+    kind_beaver_6();
+
+    ~kind_beaver_6();
+
     __int16 field_0;
     __int16 field_2;
     char field_4;
@@ -89,6 +109,8 @@ struct kind_beaver_6
 // todo: move
 struct loving_borg_0xBCA
 {
+    loving_borg_0xBCA();
+
     ~loving_borg_0xBCA();
 
     unsigned __int16 field_0;
@@ -2557,7 +2579,7 @@ struct laughing_blackwell_0x1EB54
 
     void Load_tga_4B6520(unsigned __int16 idx);
 
-    laughing_blackwell_0x1EB54(); 
+    laughing_blackwell_0x1EB54();
 
     ~laughing_blackwell_0x1EB54();
 

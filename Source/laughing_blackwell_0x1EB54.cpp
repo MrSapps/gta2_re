@@ -25,6 +25,8 @@ int dword_67D818;
 BYTE byte_67D81C;
 unsigned int counter_706C4C;
 
+extern wchar_t word_67DC8C[50];
+
 struct struc_61F0C8
 {
     char field_0_tga_name[128];
@@ -665,12 +667,31 @@ void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
     gbh_FreeImageTable();
 }
 
+loving_borg_0xBCA::loving_borg_0xBCA()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_BC6_nifty_idx = 0;
+    field_BC8 = 0;
+}
+
 loving_borg_0xBCA::~loving_borg_0xBCA()
 {
     field_0 = 0;
     field_2 = 0;
     field_BC6_nifty_idx = 0;
     field_BC8 = 0;
+}
+
+competent_noyce_0x6E::competent_noyce_0x6E()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_4 = 0;
+    field_1 = 1;
+    wcscpy(field_6_wstr_buf, word_67DC8C);
+    field_6A = -1;
+    field_6C = -1;
 }
 
 competent_noyce_0x6E::~competent_noyce_0x6E()
@@ -681,6 +702,24 @@ competent_noyce_0x6E::~competent_noyce_0x6E()
     field_4 = 0;
     field_6A = -1;
     field_6C = -1;
+}
+
+nifty_maxwell_0x82::nifty_maxwell_0x82()
+{
+    field_6A = -1;
+    field_6C = -1;
+    field_0 = 0;
+    field_1 = 1;
+    field_2 = 0;
+    field_4 = 0;
+    field_6E_count = 0;
+    field_70 = 0;
+    memset(&field_72, 0, sizeof(field_72));
+    field_76 = 0;
+    field_7A = 0;
+    wcscpy(field_6_wstr_buf, word_67DC8C);
+    field_7E = 0;
+    field_80 = 0;
 }
 
 nifty_maxwell_0x82::~nifty_maxwell_0x82()
@@ -695,4 +734,37 @@ nifty_maxwell_0x82::~nifty_maxwell_0x82()
     field_70 = 0;
     field_7E = 0;
     field_80 = 0;
+}
+
+kind_beaver_6::kind_beaver_6()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_4 = 1;
+}
+
+kind_beaver_6::~kind_beaver_6()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_4 = 1;
+}
+
+xenodochial_morse::xenodochial_morse()
+{
+    field_0 = 0;
+}
+
+sleepy_stonebraker_0x6C::sleepy_stonebraker_0x6C()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_4 = 0;
+    field_6 = 0;
+    memset(field_8_strBuf, 0u, sizeof(field_8_strBuf));
+}
+
+sleepy_stonebraker_0x6C::~sleepy_stonebraker_0x6C()
+{
+
 }
