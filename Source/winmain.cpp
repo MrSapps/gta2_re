@@ -253,6 +253,7 @@ int ReadScreenSettings_5D8F70()
 const char *off_626A00[2] = { "d3ddll.dll", "dmavideo.dll" };
 
 // todo move to another file for ordering
+// match
 void __stdcall Video_Render_Inits_5D90E0()
 {
     gRenderdevice_706998 = gRegistry_6FF968.Get_Screen_Setting_5870D0("renderdevice", 1);
@@ -262,13 +263,17 @@ void __stdcall Video_Render_Inits_5D90E0()
     gRegistry_6FF968.Set_Screen_Setting_5871E0("rendername", (BYTE *)gRenderDllName_7067F0, 0xFFu);
     gRegistry_6FF968.Set_Screen_Setting_5871E0("videoname", (BYTE *)gVideoDllName_706654, 0xFFu);
 
-    if (!strcmp(gRenderDllName_7067F0, "softdll.dll"))
+    if (strcmp(gRenderDllName_7067F0, "softdll.dll") == 0)
     {
         gBufferMode_706B34 = 0;
     }
+    else if (strcmp(gRenderDllName_7067F0, "3dfx.dll") == 0)
+    {
+        gBufferMode_706B34 = 2;
+    }
     else
     {
-        gBufferMode_706B34 = 2 - (strcmp(gRenderDllName_7067F0, "3dfx.dll") != 0);
+        gBufferMode_706B34 = 1;
     }
 
     Init_FrameRateLightAndUnknown_5D8EB0();
