@@ -115,7 +115,8 @@ str_table_entry* frosty_pasteur_0xC1EA8::FindStringById_503080(__int16 stringId)
         {
             return result;
         }
-        result = field_13350_pStringTbl->field_4[++idx];
+        idx++;
+        result = field_13350_pStringTbl->field_4[idx];
     }
     return 0;
 }
