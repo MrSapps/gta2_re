@@ -1494,6 +1494,7 @@ DWORD* sound_obj::sub_4190B0(DWORD *a2)
 
     int v2 = this->field_30_sQueueSample.field_8_obj.field_0 - this->field_1468_v1;
     int v3 = this->field_30_sQueueSample.field_8_obj.field_4 - this->field_146C_v2;
-    *a2 = (((v3) * (__int64)(v3)) >> 14) + ((v2 * (__int64)v2) >> 14);
+    *a2 = ((v3 * (__int64)v3) >> 14) + 
+          ((v2 * (__int64)v2) >> 14);
     return a2;
 }
