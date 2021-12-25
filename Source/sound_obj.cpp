@@ -296,3 +296,21 @@ void sound_obj::sub_41A6F0()
 {
     // todo
 }
+
+char sound_obj::CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3)
+{
+    // todo
+    return 0;
+}
+
+// match
+bool sound_obj::VolCalc_419070(int a2, int a3, char a4)
+{
+    unsigned __int8 v5 = CalcVolume_41A3F0(a2, a3, field_30_sQueueSample.field_28);
+    this->field_30_sQueueSample.field_24_nVolume = v5;
+    if (a4)
+    {
+        this->field_30_sQueueSample.field_24_nVolume = v5 >> 1;
+    }
+    return this->field_30_sQueueSample.field_24_nVolume != 0 ? true : false;
+}

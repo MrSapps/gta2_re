@@ -271,6 +271,10 @@ struct sound_obj
     void ProcessActiveQueues_41AB80();
 
     void sub_41A6F0();
+
+    char CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3);
+
+    bool VolCalc_419070(int a2, int a3, char a4);
 };
 
 extern sound_obj gSound_obj_66F680;
