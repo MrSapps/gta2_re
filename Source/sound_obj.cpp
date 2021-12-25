@@ -1210,6 +1210,7 @@ void sound_obj::sub_418B60(int a2)
     }
 }
 
+// match
 void sound_obj::sub_412490(int idx)
 {
     static BYTE byte_66F2D4;
@@ -1323,7 +1324,7 @@ LABEL_12:
         this->field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx1);
         
         this->field_30_sQueueSample.field_4 = byte_66F2D4++;
-        if (byte_66F2D4 == 0xFF)
+        if (byte_66F2D4 >= 0xFF)
         {
             byte_66F2D4 = 0;
         }
@@ -1334,7 +1335,7 @@ LABEL_12:
         this->field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx2);
         
         this->field_30_sQueueSample.field_4 = byte_66F2D4++;
-        if (byte_66F2D4 == 0xFF)
+        if (byte_66F2D4 >= 0xFF)
         {
             byte_66F2D4 = 0;
         }
