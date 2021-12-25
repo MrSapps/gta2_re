@@ -913,6 +913,27 @@ void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
 }
 
 // match
+char laughing_blackwell_0x1EB54::KeyBoard_GetKeyStates_4AFDD0()
+{
+    HRESULT hr = this->field_4_pKeyboardDevice->GetDeviceState(256, field_8_keys);
+    if (FAILED(hr))
+    {
+        if (hr == DIERR_INPUTLOST || hr == DIERR_NOTACQUIRED)
+        {
+            if (FAILED(field_4_pKeyboardDevice->Acquire()))
+            {
+                return 0;
+            }
+
+            field_4_pKeyboardDevice->GetDeviceState(256, field_8_keys);
+        }
+        return 0;
+    }
+
+    return 1;
+}
+
+// match
 void laughing_blackwell_0x1EB54::InitKeyBoardDevice_4AFBE0()
 {
     field_0_pDInput = gpDInput_67B804;
