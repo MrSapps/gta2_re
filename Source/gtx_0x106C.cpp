@@ -644,24 +644,12 @@ bool gtx_0x106C::sub_5AB380(unsigned __int8 car_id)
     return false;
 }
 
-class test1
-{
-public:
-    static bool Read(void*, int*);
-};
-bool test1::Read(void*, int*)
-{
-    return false;
-}
-test1 gTest;
-
+// match
 void gtx_0x106C::load_car_recycling_info_5AB3C0(int recy_chunk_size)
 {
+    field_64_car_recycling_info = (unsigned __int8 *)Memory::malloc_4FE4D0(recy_chunk_size);;
     field_68_recy_chunk_size = recy_chunk_size;
-    unsigned __int8* pAlloc = reinterpret_cast<unsigned __int8*>(malloc(recy_chunk_size));
-    field_64_car_recycling_info = pAlloc;
-//    File::Global_Read_4A71C0(pAlloc, &recy_chunk_size);
-    test1::Read(pAlloc, &recy_chunk_size);
+    File::Global_Read_4A71C0(field_64_car_recycling_info, &recy_chunk_size);
 }
 /*
    // unsigned __int16 readBuffer_; // ax
