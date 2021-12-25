@@ -259,3 +259,15 @@ void festive_hopper::LoadTextures_5B8F00()
         }
     }
 }
+
+// match
+STexture* festive_hopper::get_texture_5B90A0(int type, __int16 sprite_pal)
+{
+    return field_0_pAlloc[gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(type, sprite_pal)];
+}
+
+// match
+STexture* festive_hopper::sub_5B90D0(__int16 a2, __int16 a3)
+{
+    return field_0_pAlloc[(unsigned __int16)(a3 + (a2 * field_6_count))];
+}

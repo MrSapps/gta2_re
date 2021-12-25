@@ -31,6 +31,10 @@ struct festive_hopper
     void sub_5B8F70();
 
     void LoadTextures_5B8F00();
+
+    STexture* get_texture_5B90A0(int type, __int16 sprite_pal);
+
+    STexture* sub_5B90D0(__int16 a2, __int16 a3);
 };
 
 struct sharp_pare_0x15D8
