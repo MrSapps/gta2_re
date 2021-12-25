@@ -988,25 +988,21 @@ void wizardly_margulis::SetSampleVol_58E7D0(unsigned __int8 vol)
     }
 }
 
+// match
 void wizardly_margulis::PlayAtIdx_58E7F0(int idx)
 {
-    HSAMPLE hSample; // eax
-    int playbackRate; // eax
-
-    hSample = this->field_98_hSample;
-    if (hSample)
+    if (field_98_hSample)
     {
-        if (this->field_A4_bLoaded)
+        if (field_A4_bLoaded)
         {
             AIL_set_sample_address(
-                hSample,
-                (BYTE*)this->field_1EAC_pAudioBuffer2 + this->field_A8_sdt_entries[idx].field_0_offset,
-                this->field_A8_sdt_entries[idx].field_4_sample_length);
-            playbackRate = GetPlayBackRateIdx_58DBF0(idx);
-            AIL_set_sample_playback_rate(this->field_98_hSample, playbackRate);
-            AIL_set_sample_pan(this->field_98_hSample, 64);
-            AIL_set_sample_loop_count(this->field_98_hSample, 1);
-            AIL_start_sample(this->field_98_hSample);
+                field_98_hSample,
+                (BYTE*)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[idx].field_0_offset,
+                field_A8_sdt_entries[idx].field_4_sample_length);
+            AIL_set_sample_playback_rate(field_98_hSample, GetPlayBackRateIdx_58DBF0(idx));
+            AIL_set_sample_pan(field_98_hSample, 64);
+            AIL_set_sample_loop_count(field_98_hSample, 1);
+            AIL_start_sample(field_98_hSample);
         }
     }
 }
@@ -1081,6 +1077,7 @@ BYTE wizardly_margulis::sub_58E2A0()
     return ret;
 }
 
+// todo
 char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 {
     int k256Counter; // edi
