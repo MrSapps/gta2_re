@@ -1141,7 +1141,7 @@ void sound_obj::sub_418CA0()
             break;
         case 31:
         case 32:
-            voc_idx = field_1454_anRandomTable[0] % 13u + 85;
+            voc_idx = (field_1454_anRandomTable[0] % 13u) + 85;
             if (voc_idx == 99)
             {
                 field_544C[0].field_18 = 0;
