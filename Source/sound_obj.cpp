@@ -41,10 +41,10 @@ void sound_obj::SetCDVol_41A270(unsigned char cdVol)
     field_25_cdVol = cdVol;
 }
 
+// match
 char sound_obj::Set3DSound_41A2F0(char b3dSound)
 {
     BYTE *p_field_1C_samp_count; // edi
-    unsigned __int8 v4; // al
     unsigned __int8 field_1C_samp_count; // cl
 
     if (this->field_0 != 0)
@@ -57,9 +57,8 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
                 p_field_1C_samp_count = &this->field_1C_samp_count;
                 if (gWizardly_margulis_6FFF00.sub_58D820(&this->field_1C_samp_count))
                 {
-                    v4 = *p_field_1C_samp_count;
+                    this->field_10_samp_count2 = *p_field_1C_samp_count; // note: regswap from redundant local
                     this->field_1D_b3d_sound = 1;
-                    this->field_10_samp_count2 = v4;
                     return 1;
                 }
                 else
