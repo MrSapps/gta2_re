@@ -211,7 +211,13 @@ void sound_obj::AddSampleToRequestedQueue_41A850()
     field_98_nActiveSampleQueue = this->field_98_nActiveSampleQueue;
     v3 = this->field_30_sQueueSample.field_1C * (127 - this->field_30_sQueueSample.field_24);
     requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
-    if (requested_count >= this->field_10_nActiveSamples)
+    if (requested_count < this->field_10_nActiveSamples)
+    {
+        old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
+        this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] = requested_count + 1;
+        new_requested_count = old_requested_count;
+    }
+    else
     {
         v6 = field_98_nActiveSampleQueue;
         new_requested_count = *((BYTE *)&this->field_9C_asSamples[1][15].field_64
@@ -220,12 +226,6 @@ void sound_obj::AddSampleToRequestedQueue_41A850()
             + 3);
         if (this->field_9C_asSamples[v6][new_requested_count].field_48_nCalculatedVolume <= v3)
             return;
-    }
-    else
-    {
-        old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
-        this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] = requested_count + 1;
-        new_requested_count = old_requested_count;
     }
     this->field_30_sQueueSample.field_48_nCalculatedVolume = v3;
     v7 = 0x10 * this->field_98_nActiveSampleQueue;
