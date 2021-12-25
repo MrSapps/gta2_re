@@ -2,14 +2,14 @@
 
 #include "3rdParty/mss.h"
 
-struct serene_proskuriakova_0x18
+struct sdt_entry_0x18
 {
     int field_0_offset;
     int field_4_sample_length;
     int field_8_playBackRate;
-    int field_C;
-    int field_10;
-    int field_14;
+    int field_C; // unknown
+    int field_10; // loop start?
+    int field_14; // loop end? -1 if no loop?
 };
 
 class cSampleManager
@@ -153,7 +153,7 @@ public:
     char field_A5_pad;
     char field_A6_pad;
     char field_A7_pad;
-    serene_proskuriakova_0x18 field_A8_sdt_entries[320];
+    sdt_entry_0x18 field_A8_sdt_entries[320];
     void* field_1EA8_pAudioBuffer1;
     void* field_1EAC_pAudioBuffer2;
     unsigned __int8 field_1EB0_count_samples;

@@ -1066,7 +1066,7 @@ char cSampleManager::LoadWavSdtData_58E980(const char *pRawOrSdtName)
         fclose(hRawFile_);
     }
 
-    fread(this->field_A8_sdt_entries, sizeof(serene_proskuriakova_0x18), 320u, hSdtFile);
+    fread(this->field_A8_sdt_entries, sizeof(sdt_entry_0x18), 320u, hSdtFile);
     fclose(hSdtFile);
     this->field_A4_bLoaded = 1;
     return 1;
