@@ -234,6 +234,7 @@ void festive_hopper::Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5)
     }
 }
 
+// match
 void festive_hopper::sub_5B8F70()
 {
     unsigned int pal_idx; // ebp
@@ -248,14 +249,13 @@ void festive_hopper::sub_5B8F70()
     {
         pal_idx = 0;
         v8 = this->field_4_item_alloc_count / this->field_6_count;
-        if (v8)
+        if (v8 > 0)
         {
             do
             {
                 converted_pal_sprite_pal = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(
                     this->field_8_pal_type,
                     pal_idx);
-                texture_idx = 0;
                 pSpriteIndex = gGtx_0x106C_703DD4->get_sprite_index_5AA440(converted_pal_sprite_pal);
                 ++dword_704ED0;
                 for (texture_idx=0; texture_idx < field_6_count;  texture_idx++)
