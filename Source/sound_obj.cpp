@@ -847,7 +847,7 @@ not_type1_or_2_and_after_fade:
 
         if (idx_iter < 1019)
         {
-            memcpy(
+            memmove(
                 &this->field_444C_pEntities[idx_iter],
                 &this->field_444C_pEntities[idx_iter + 1],
                 4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
