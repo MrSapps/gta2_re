@@ -289,6 +289,8 @@ public:
 
     gmp_map_zone* zone_by_name_4DEFD0(const char *pZoneName);
 
+    int zone_idx_by_name_4DF050(const char *pZoneName, int zone_name_len);
+
     // todo: other funcs between
 
     gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
