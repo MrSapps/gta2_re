@@ -6,9 +6,9 @@
 
 extern char gTmpBuffer_67C598[256];
 
-char byte_70488C[1280];
+wchar_t tmpAscii2WideStr_70488C[640];
 
-char byte_70462C[80];
+char tmpWide2AsciiStr_70462C[80];
 
 // todo
 unsigned __int16 text_0x14::sub_5B58D0(unsigned __int16 a2)
@@ -254,18 +254,18 @@ char* text_0x14::Wide2PesudoAscii_5B5D10(WORD *a1)
     {
         // jnb also used if comparing to sizeof() value instead of
         // numerical literal! cast to int fixes (sizeof returns unsigned?)
-        if (dstIdx >= static_cast<int>(sizeof(byte_70462C)-1))
+        if (dstIdx >= static_cast<int>(sizeof(tmpWide2AsciiStr_70462C)-1))
         {
             break;
         }
 
         if (*pSrc >= 0x80u)
         {
-            byte_70462C[dstIdx] = '#';
+            tmpWide2AsciiStr_70462C[dstIdx] = '#';
         }
         else
         {
-            byte_70462C[dstIdx] = static_cast<char>(*pSrc);
+            tmpWide2AsciiStr_70462C[dstIdx] = static_cast<char>(*pSrc);
         }
 
         pSrc++;
@@ -273,27 +273,25 @@ char* text_0x14::Wide2PesudoAscii_5B5D10(WORD *a1)
     }
 
     // add null terminator
-    byte_70462C[dstIdx] = 0;
-    return byte_70462C;
+    tmpWide2AsciiStr_70462C[dstIdx] = 0;
+    return tmpWide2AsciiStr_70462C;
 }
 
-// todo
-char *__stdcall text_0x14::sub_5B5DF0(BYTE *a1)
+// match
+wchar_t * text_0x14::Ascii2Wide_5B5DF0(char *pStr)
 {
-    BYTE *v1; // edx
-    char *v2; // ecx
-    char i; // al
-
-    v1 = a1;
-    v2 = byte_70488C;
-    for (i = *a1; i; ++v1)
+    // movsx vs movzx caused by unsigned vs signed char
+    wchar_t *pDst = tmpAscii2WideStr_70488C;
+    while(*pStr)
     {
-        *(WORD *)v2 = i;
-        i = v1[1];
-        v2 += 2;
+        *pDst = *pStr;
+        pDst++;
+        pStr++;
     }
-    *(WORD *)v2 = 0;
-    return byte_70488C;
+    
+    // null terminate
+    *pDst = 0;
+    return tmpAscii2WideStr_70488C;
 }
 
 // match

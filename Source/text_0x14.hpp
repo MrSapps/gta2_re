@@ -57,7 +57,7 @@ public:
 
     char * Wide2PesudoAscii_5B5D10(WORD *a1);
 
-    char *__stdcall sub_5B5DF0(BYTE *a1);
+    wchar_t *Ascii2Wide_5B5DF0(char *a1);
 
     void load_chunk_5B5E20(const char *chunk_type, int chunk_len);
 
