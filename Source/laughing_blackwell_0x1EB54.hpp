@@ -2490,7 +2490,7 @@ struct laughing_blackwell_0x1EB54
 
     char sub_4B3170(unsigned __int16 arg0);
 
-    int sub_4AEDB0(int a2);
+    int sub_4AEDB0();
 
     static char intro_bik_exists_4B5FF0();
 };

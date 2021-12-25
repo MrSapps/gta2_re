@@ -8,7 +8,7 @@ char laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
     return 0;
 }
 
-int laughing_blackwell_0x1EB54::sub_4AEDB0(int a2)
+int laughing_blackwell_0x1EB54::sub_4AEDB0()
 {
     // todo
     return 0;

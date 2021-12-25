@@ -224,22 +224,6 @@ void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1)
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-    //HINSTANCE hInstance_; // esi
-    //HWND Window; // eax
-    //int bQuit; // ebx
-   // DWORD v8; // esi
-   //DWORD v9; // edi
-    //int v10; // eax
-   // int state; // esi
-    //int v14; // eax
-    //int v15; // eax
-    //DWORD v16; // [esp+10h] [ebp-68h] BYREF
-    //struct tagRECT clientRec; // [esp+14h] [ebp-64h] BYREF
-    //struct tagRECT windowRec; // [esp+24h] [ebp-54h] BYREF
-    //struct tagMSG msg; // [esp+34h] [ebp-44h] BYREF
-   // WNDCLASSA WndClass; // [esp+50h] [ebp-28h] BYREF
-    //DWORD dxVer;
-
     //hInstance_ = hInstance;
     gHInstance_708220 = hInstance;
     if (CoInitialize(0) < 0)
@@ -254,8 +238,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     gMutex_707078 = CreateMutexA(0, 0, "GBH_COOP_MUTEX");
     GetGTA2Version_5E5D60(&gGTA2VersionMajor_708280, &gGTA2VersionMajor_708284);
-    DWORD v16;
     DWORD dxVer;
+    DWORD v16;
     GetDirectXVersion_4C4EC0(&dxVer, &v16);
 
     if ((unsigned int)dxVer < 0x601)
@@ -300,7 +284,6 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         return 0;
     }
 
-    int bQuit = nShowCmd;
     ShowWindow(gHwnd_707F04, nShowCmd);
     UpdateWindow(gHwnd_707F04);
     RECT clientRec;
@@ -308,8 +291,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     RECT windowRec;
     GetWindowRect(gHwnd_707F04, &windowRec);
 
-    DWORD v8 = window_width_706630 + windowRec.right + clientRec.left - clientRec.right - windowRec.left;
-    DWORD v9 = window_height_706B50 + windowRec.bottom + clientRec.top - clientRec.bottom - windowRec.top;
+    int v8 = window_width_706630 + windowRec.right + clientRec.left - clientRec.right - windowRec.left;
+    int v9 = window_height_706B50 + windowRec.bottom + clientRec.top - clientRec.bottom - windowRec.top;
 
     if (bDo_corner_window_67D4EE)
     {
@@ -329,7 +312,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     Input::DirectInputCreate_4986D0(gHInstance_708220);
     sub_5D96C0(); // todo: cc/arg?
-    ShowWindow(gHwnd_707F04, bQuit);
+
+    ShowWindow(gHwnd_707F04, nShowCmd);
     UpdateWindow(gHwnd_707F04);
     j_gbh_init_5D7CA0();
     Init_keybrd_jolly_and_sound_4DA440();
@@ -356,10 +340,11 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
     }
 
+    int bQuit = 0;
 LABEL_23:
     while (1)
     {
-        bQuit = 0;
+        
         if (!bDoFrontEnd_626B68)
         {
             break;
@@ -375,18 +360,23 @@ LABEL_23:
             {
                 while (1)
                 {
+                    MSG msg;
                     do
                     {
-                        MSG msg;
                         while (PeekMessageA(&msg, 0, 0, 0, 1u))
                         {
+                            // label here
                             if (msg.message == 18) // WM_QUIT
                             {
                                 Input::DInputRelease_498710();
                                 return msg.wParam;
+                               
                             }
-                            TranslateMessage(&msg);
-                            DispatchMessageA(&msg);
+                            else
+                            {
+                                TranslateMessage(&msg);
+                                DispatchMessageA(&msg);
+                            }
                         }
                     } while ((BYTE)bQuit || byte_70827C == 2 || byte_706C5D);
                     if (!bDoFrontEnd_626B68)
@@ -394,18 +384,22 @@ LABEL_23:
                         break;
                     }
 
-                    switch (gLaughing_blackwell_0x1EB54_67DC84.sub_4AEDB0(bQuit))
+                    // or switch ?
+                    int t = gLaughing_blackwell_0x1EB54_67DC84.sub_4AEDB0();
+                    if (t == 1)
                     {
-                    case 1:
                         bQuit = 1;
                         sub_4AD070();
                         DestroyWindow(gHwnd_707F04);
-                        break;
-                    case 3:
+                    }
+                    else if (t == 3)
+                    {
                         sub_4AD070();
                         bDoFrontEnd_626B68 = 0;
                         goto LABEL_23;
-                    case 4:
+                    }
+                    else if (t == 4)
+                    {
                         sub_4AD070();
                         bDoFrontEnd_626B68 = 0;
                         byte_6F5B71 = 1;
@@ -453,7 +447,7 @@ LABEL_23:
                 v15 = v15 & 0xFB; //lobyte
                 state = v15 + 11; //loword
                 */
-                state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 1;
+                state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 11;
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;
                 break;
