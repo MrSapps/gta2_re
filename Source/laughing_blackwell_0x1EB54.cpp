@@ -4638,23 +4638,23 @@ const wchar_t *__stdcall DrawText_5D8A10(
                     //v20 = gMagical_germain_0x8EC_6F5168->sub_4D2710(v16);
                 }
                 pTexture = v20;
-                /*
-                v25 = v11;
-                v26 = v11 >> 31;
-                pTexta = (wchar_t *)((__int64)((sprite_index_5AA440->field_4_width << 14) * __PAIR64__(v26, v25)) >> 14);
-                v27 = (__int64)((sprite_index_5AA440->field_5_height << 14) * __PAIR64__(v26, v25)) >> 14;
+                
+                v25 = v11.mValue;
+                v26 = v11.mValue >> 31;
+                int pTextaa = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
+                v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
                 gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
-                v28 = (int)pTexta + a99;
+                v28 = (int)pTextaa + a99.mValue;
                 gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
-                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)a99 * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp * 0.000061035156;
-                pBufferb = (double)((int)pTexta + a99) * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)a99.mValue * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
+                pBufferb = (double)((int)pTextaa + a99.mValue) * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[1].field_0_x = pBufferb;
                 gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
                 gQuadVerts_706B88.field_0_verts[2].field_0_x = pBufferb;
-                pBufferc = (double)(ypos_fp + (int)v27) * 0.000061035156;
+                pBufferc = (double)(ypos_fp.mValue + (int)v27) * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[2].field_4_y = pBufferc;
                 gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
                 gQuadVerts_706B88.field_0_verts[3].field_4_y = pBufferc;
@@ -4664,19 +4664,19 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
                 gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
                 gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
-                gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)a99 * 0.000061035156;
+                gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)a99.mValue * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
                 gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)(int)pBufferd * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
 
                 gbh_DrawQuad(drawFlags, pTexture, &gQuadVerts_706B88.field_0_verts[0], 255);
 
-                v15 = (__int16)retaddr;
+                //v15 = (__int16)retaddr;
                 v12 = v30;
                 v11 = (int)pBufferd;
                 fp4 = v28;
-                v13 = v29;
-                */
+                //v13 = v29;
+                
             }
             pTmpIter = pTextIter + 1;
             pTextIter = pTmpIter;
