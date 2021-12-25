@@ -764,7 +764,7 @@ int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
 // match
 void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 {
-    if (!this->field_0 || idx >= 1020)
+    if (!field_0 || idx >= 1020)
     {
         return;
     }
@@ -795,7 +795,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
         // fall through
 
     case 2:
-        this->field_3 = 0;
+        field_3 = 0;
         gSampManager_6FFF00.FadeOut_58E490();
         break;
     }
@@ -814,7 +814,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
     {
         if (idx == field_444C_pEntities[idx_iter])
         {
-            if (idx_iter < 1019)
+            if (idx_iter < 1020-1)
             {
                 memmove(
                     &field_444C_pEntities[idx_iter],
@@ -822,7 +822,8 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
                     sizeof(int) * (field_543C_444C_max_idx - (idx_iter + 1)));
             }
 
-            field_444C_pEntities[--field_543C_444C_max_idx] = 0;
+            field_543C_444C_max_idx--;
+            field_444C_pEntities[field_543C_444C_max_idx] = 0;
             break;
         }
         idx_iter++;
