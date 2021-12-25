@@ -294,6 +294,11 @@ public:
     gmp_map_zone* zone_by_type_bounded_4DF0F0(char zone_type);
 
     gmp_map_zone* first_zone_by_type_4DF1D0(char zone_type);
+
+    // todo: missing func
+
+    gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, char zone_type);
+
     // todo: other funcs between
 
     gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);

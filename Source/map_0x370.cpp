@@ -115,6 +115,47 @@ gmp_map_zone* Map_0x370::first_zone_by_type_4DF1D0(char zone_type)
     return 0;
 }
 
+// nomatch
+gmp_map_zone* Map_0x370::zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, char zone_type)
+{
+    gmp_map_zone **field_32C_pZones; // eax
+    gmp_map_zone *result; // eax
+
+    if (!this->field_328_pZoneData)
+    {
+        return 0;
+    }
+
+    this->field_368_zone_type = zone_type;
+    field_32C_pZones = this->field_32C_pZones;
+    this->field_36A_zone_x = zone_x;
+    this->field_36B_zone_y = zone_y;
+    this->field_36C_bUnknown = 1;
+    this->field_364_cur_zone_idx = 0;
+    if (!*(WORD *)field_32C_pZones)
+    {
+        return 0;
+    }
+
+    while (1)
+    {
+        result = get_zone_4DFB30(this->field_364_cur_zone_idx);
+        if (result->field_0_zone_type == this->field_368_zone_type
+            && this->field_36A_zone_x >= result->field_1_x
+            && this->field_36B_zone_y >= result->field_2_y
+            && this->field_36A_zone_x < result->field_1_x + result->field_3_w
+            && this->field_36B_zone_y < result->field_2_y + result->field_4_h)
+        {
+            break;
+        }
+        if (++this->field_364_cur_zone_idx >= *(WORD *)this->field_32C_pZones)
+        {
+            return 0;
+        }
+    }
+    return result;
+}
+
 // match
 gmp_map_zone* Map_0x370::get_zone_4DFB30(unsigned __int16 zone_idx)
 {
