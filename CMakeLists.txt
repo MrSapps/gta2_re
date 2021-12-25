@@ -20,7 +20,11 @@ include_directories(${decomp_SOURCE_DIR})
 
 add_executable (decomp_main WIN32 Source Class1.cpp Class2.cpp Class3.cpp Class4.cpp test.cpp StdAfx.cpp test.rc)
 #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
-set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map" )
+
+# NOICF is required because skip_ovly_5AAE20 and skip_psxt_5AAE30 have identical bodies and the linker will make them one and the same
+# however the real binary does have 2 copies. NOREF keeps functions that are not yet called so we can diff the content against the original.
+set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map /OPT:NOICF,NOREF" )
+set (CMAKE_SHARED_LINKER_FLAGS "/OPT:NOICF,NOREF")
 
 set_source_files_properties(
     test2.asm

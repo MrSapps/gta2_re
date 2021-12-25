@@ -178,27 +178,36 @@ __int16 gtx_0x106C::get_phys_pal_5AA6F0(unsigned __int16 palId)
     return this->field_28_palette_index->field_0_phys_palette[palId];
 }
 
+#define STRINGIZE(x) STRINGIZE2(x)
+#define STRINGIZE2(x) #x
+#define LINE_STRING STRINGIZE(__LINE__)
+#define UNIQUE_FUNC printf(__FILE__ LINE_STRING)
+
 unsigned __int16 gtx_0x106C::sub_5AA710(unsigned __int16 a2, __int16 a3)
 {
     // TODO
+    UNIQUE_FUNC;
     return 0;
 }
 
 __int16 gtx_0x106C::sub_5AA760(WORD *a2, WORD *a3)
 {
     // TODO
+    UNIQUE_FUNC;
     return 0;
 }
 
 __int16 gtx_0x106C::sub_5AA7B0(WORD *a2)
 {
     // TODO
+    UNIQUE_FUNC;
     return 0;
 }
 
 __int16 gtx_0x106C::sub_5AA800(WORD *a2)
 {
     // TODO
+    UNIQUE_FUNC;
     return 0;
 }
 
@@ -251,16 +260,19 @@ int gtx_0x106C::sub_5AA930(unsigned __int16 tile_idx, __int16 tile_val)
 void gtx_0x106C::create_tile_num_array_5AA950()
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::sub_5AA9A0(int a2)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::sub_5AAB30(unsigned int delx_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 sprite_index* gtx_0x106C::get_sprite_index_5AA440(unsigned __int16 idx)
@@ -271,16 +283,19 @@ sprite_index* gtx_0x106C::get_sprite_index_5AA440(unsigned __int16 idx)
 void gtx_0x106C::sub_5AABF0()
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::SetSpriteIndexDataPtrs_5AAC40()
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::sub_5AAC70()
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_car_info_5AAD50(int cari_chunk_size)
@@ -296,16 +311,19 @@ void gtx_0x106C::load_car_info_5AAD50(int cari_chunk_size)
 void gtx_0x106C::load_delta_index_5AAD80(int delx_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_delta_store_5AADD0(int dels_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_tiles_5AADF0(int tile_chunk_len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::skip_ovly_5AAE20(int a1)
@@ -321,78 +339,93 @@ void gtx_0x106C::skip_psxt_5AAE30(int a1)
 void gtx_0x106C::load_sprite_graphics_5AAE40(int sprg_chunk_len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_physical_palettes_5AAE70(int ppal_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_palette_index_5AAEA0(int palx_chunk_len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_map_object_info_5AAF00(int obji_chunk_len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_sprite_index_5AAF80(int sprx_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::sub_5AAFE0(unsigned __int16 a1)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_font_base_5AB0F0(int fonb_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 int gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(int len, WORD *pOffsets, int offsetsCount)
 {
     // TODO
+    UNIQUE_FUNC;
     return 0;
 }
 
 void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_sprite_base_5AB210(int sprite_base_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_palete_base_5AB2C0(int palette_base_chunk_len)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 bool gtx_0x106C::sub_5AB380(unsigned __int8 car_id)
 {
     // TODO
+    UNIQUE_FUNC;
     return false;
 }
 
 void gtx_0x106C::load_car_recycling_info_5AB3C0(int recy_chunk_size)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::read_spec_5AB3F0(int read_size2)
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::load_spec_5AB450()
 {
     // TODO
+    UNIQUE_FUNC;
 }
 
 void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, int chunk_len)
