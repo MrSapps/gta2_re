@@ -124,3 +124,12 @@ void sound_obj::Init_15_Array_427180()
     field_5528_idx15_cur = 0;
     field_5529_idx15 = 0;
 }
+
+// match
+void sound_obj::GenerateIntegerRandomNumberTable_41BA90()
+{
+    for (int i = 0; i < 5; i++)
+    {
+        field_1454_anRandomTable[i] = rand();
+    }
+}

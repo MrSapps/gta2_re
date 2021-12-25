@@ -242,10 +242,11 @@ struct sound_obj
 
     void SetCDVol_41A270(unsigned char cdVol);
 
-
     char Set3DSound_41A2F0(char b3dSound);
 
     void Init_15_Array_427180();
+
+    void GenerateIntegerRandomNumberTable_41BA90();
 };
 
 extern sound_obj gSound_obj_66F680;
