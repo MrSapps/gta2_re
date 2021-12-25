@@ -450,12 +450,14 @@ void Map_0x370::LoadMap_4E95B0(const char *pGmpFileName)
     chunk_header chunkHeader;
     File::Global_Read_4A71C0(&header, &len);
 
-    for (len = sizeof(chunk_header); File::Global_Read_4A7210(&chunkHeader, &len); len = sizeof(chunk_header))
+    len = sizeof(chunk_header);
+    while (File::Global_Read_4A7210(&chunkHeader, &len))
     {
         if (chunkHeader.field_4_size != 0)
         {
             load_chunk_4E94B0(chunkHeader.field_0_type, chunkHeader.field_4_size);
         }
+        len = sizeof(chunk_header);
     }
     File::Global_Close_4A70C0();
 
