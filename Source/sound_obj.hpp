@@ -264,6 +264,9 @@ struct sound_obj
     void sub_41B700();
 
     void sub_41B7A0();
+
+    void sub_41A2A0();
+
 };
 
 extern sound_obj gSound_obj_66F680;

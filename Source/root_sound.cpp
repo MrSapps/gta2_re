@@ -70,16 +70,8 @@ void root_sound::Release_40F130()
     // todo
 }
 
-bool root_sound::sub_40F140()
+void root_sound::sub_40F140()
 {
-    gSound_obj_66F680.field_98 = 1;
-    gSound_obj_66F680.sub_41B700();
-    gSound_obj_66F680.field_98 = 0;
-
-    gSound_obj_66F680.sub_41B700();
-    gSound_obj_66F680.sub_41B7A0();
-
-    gSound_obj_66F680.field_1450 = 0;
-
-    return gWizardly_margulis_6FFF00.sub_58E2A0();
+    gSound_obj_66F680.sub_41A2A0();
 }
+

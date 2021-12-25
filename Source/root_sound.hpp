@@ -46,7 +46,8 @@ struct root_sound
 
     void Release_40F130();
 
-    bool sub_40F140();
+    void sub_40F140();
+
 };
 
 
