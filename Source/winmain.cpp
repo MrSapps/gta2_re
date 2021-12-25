@@ -46,10 +46,32 @@ void sub_5D96C0()
     // todo
 }
 
-// todo move to another file for ordering
-void __stdcall Init_keybrd_jolly_and_sound_4DA440()
+class keybrd_0x204
+{
+public:
+    static void __stdcall create_4D5F50();
+};
+
+void __stdcall keybrd_0x204::create_4D5F50()
 {
     // todo
+}
+
+// todo move to another file for ordering
+// match
+void __stdcall Init_keybrd_jolly_and_sound_4DA440()
+{
+    keybrd_0x204::create_4D5F50();
+    jolly_poitras_0x2BC0::create_56C2C0();
+
+    if (!bSkip_audio_67D6BE)
+    {
+        gRoot_sound_66B038.sub_40EF80();
+        gRoot_sound_66B038.SetCDVol_40F0F0(gRegistry_6FF968.Set_Sound_Setting_586AE0("CDVol", 127));
+        gRoot_sound_66B038.SetSfxVol_40F0B0(gRegistry_6FF968.Set_Sound_Setting_586AE0("SFXVol", 127));
+        gRoot_sound_66B038.Set3DSound_40F160(gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound"));
+        gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
+    }
 }
 
 // todo move to another file for ordering

@@ -27,6 +27,13 @@ struct root_sound
     char Set3DSound_40F160(char b3dSound);
 
     char Get3DSound_40F180();
+
+    void sub_40EF80();
+
+    void SetCDVol_40F0F0(unsigned __int8 cdVol);
+
+    void SetSfxVol_40F0B0(unsigned __int8 cdVol);
+    
 };
 
 

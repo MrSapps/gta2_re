@@ -1594,6 +1594,8 @@ struct jolly_poitras_0x2BC0
     agitated_keldysh_0xF0 field_25B0;
     dreamy_clarke_0xA4 field_26A0[8];
 
+    static void __stdcall create_56C2C0();
+
     // todo: ordering
     void sub_56BB10(angry_lewin_0x85C *a2);
 
