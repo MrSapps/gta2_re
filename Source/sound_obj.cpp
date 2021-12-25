@@ -382,24 +382,15 @@ void sound_obj::ProcessActiveQueues_41AB80()
     // todo
 }
 
+// match
 void sound_obj::sub_41A6F0()
 {
-    unsigned int idx; // edi
-    unsigned int *pIter; // esi
-    char v3; // al
-
-    idx = 0;
-    if (this->field_543C_444C_max_idx)
+    for (unsigned int idx = 0; idx < field_543C_444C_max_idx; idx++)
     {
-        pIter = &this->field_444C_pEntities[0];
-        do
+        if (field_147C[field_444C_pEntities[idx]].field_1 < 10u)
         {
-            v3 = this->field_147C[*pIter].field_1;
-            if ((unsigned __int8)v3 < 10u)
-                this->field_147C[*pIter].field_1 = v3 + 1;
-            ++idx;
-            ++pIter;
-        } while (idx < this->field_543C_444C_max_idx);
+            field_147C[field_444C_pEntities[idx]].field_1++;
+        }
     }
 }
 
