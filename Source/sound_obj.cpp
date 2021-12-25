@@ -53,7 +53,7 @@ sound_obj::sound_obj()
     
     GenerateIntegerRandomNumberTable_41BA90();
 
-    field_1478 = 0;
+    field_1478_type5Idx = 0;
     field_1B = 0;
     field_1C_samp_count = 0;
     field_10_nActiveSamples = 0;
@@ -68,7 +68,7 @@ sound_obj::sound_obj()
 
     for (int i = 0; i < 1020; i++)
     {
-        field_147C[i].field_0 = 0;
+        field_147C[i].field_0_bUsed = 0;
         field_444C_pEntities[i] = 0;
     }
 
@@ -572,9 +572,9 @@ char sound_obj::sub_4153F0(sound_0x68 *pObj)
 }
 
 // match
-void sound_obj::sub_41A6C0(int idx)
+void sound_obj::ResetEntry_41A6C0(int idx)
 {
-    field_147C[idx].field_0 = 0;
+    field_147C[idx].field_0_bUsed = 0;
     field_147C[idx].field_1 = 0;
     field_147C[idx].field_4_pObj = 0;
     field_147C[idx].field_8_pAlloc = 0;
@@ -702,13 +702,13 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
     vigilant_maxwell *pMaxwellIter = &this->field_147C[1];
     while(idx < 1020)
     {
-        if (!pMaxwellIter->field_0)
+        if (!pMaxwellIter->field_0_bUsed)
         {
             if (pTuring->field_0_object_type == 5) // DrawUnk_0xBC ?
             {
-                if (!this->field_1478)
+                if (!this->field_1478_type5Idx)
                 {
-                    this->field_1478 = idx;
+                    this->field_1478_type5Idx = idx;
                 }
                 else
                 {
@@ -716,10 +716,10 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
                 }
             }
 
-            sub_41A6C0(idx);
+            ResetEntry_41A6C0(idx);
 
             field_147C[idx].field_4_pObj = pTuring;
-            field_147C[idx].field_0 = 1;
+            field_147C[idx].field_0_bUsed = 1;
             field_147C[idx].field_1 = 1;
             this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
 

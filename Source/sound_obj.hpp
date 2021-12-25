@@ -27,7 +27,7 @@ struct sound_unknown_0xC
 
 struct vigilant_maxwell
 {
-    char field_0;
+    char field_0_bUsed;
     char field_1;
     char field_2;
     char field_3;
@@ -161,7 +161,7 @@ public:
     __int16 field_1474;
     char field_1476;
     char field_1477;
-    int field_1478;
+    int field_1478_type5Idx;
     vigilant_maxwell field_147C[1020];
     int field_444C_pEntities[1020];
     int field_543C_444C_max_idx;
@@ -281,7 +281,7 @@ public:
 
     char sub_4153F0(sound_0x68 *pObj);
 
-    void sub_41A6C0(int idx);
+    void ResetEntry_41A6C0(int idx);
 
     void null_412240();
 
