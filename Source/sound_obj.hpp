@@ -357,6 +357,9 @@ public:
     void sub_41B490(sound_0x68 *pObj);
 
     DWORD* sub_4190B0(DWORD *a2);
+
+    BYTE sub_427310();
+
 };
 
 extern sound_obj gSound_obj_66F680;

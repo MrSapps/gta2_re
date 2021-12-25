@@ -1563,3 +1563,17 @@ DWORD* sound_obj::sub_4190B0(DWORD *a2)
     *a2 = ((v3 * (__int64)v3) >> 14) + ((v2 * (__int64)v2) >> 14); // note: cast required to match, probably some inlined operator
     return a2;
 }
+
+// match
+BYTE sound_obj::sub_427310()
+{
+    // note: return value and'ed with 0xFF if return type is wider
+    if (field_5529_idx15 < field_5528_idx15_cur)
+    {
+        return field_5528_idx15_cur - field_5529_idx15 - 1;
+    }
+    else
+    {
+        return field_5528_idx15_cur - field_5529_idx15 + 14;
+    }
+}
