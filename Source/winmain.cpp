@@ -99,6 +99,7 @@ void __stdcall GBH_GraphicsInit_5D97C0()
 }
 
 // todo move to another file for ordering
+// match
 void sub_5D96C0()
 {
     int v1 = 0;
@@ -124,12 +125,11 @@ void sub_5D96C0()
     gVidSys_7071D0->field_4_flags |= v1;
 
 
-    int iVar2 = GetHwndDCDeviceCaps_5D9800();
-    if (iVar2 == 0x10)
+    if (GetHwndDCDeviceCaps_5D9800() == 0x10)
     {
-        bool cVar1 = Vid_FindDevice_5D9290() ? true : false;
+        bool cVar1 = Vid_FindDevice_5D9290();
         byte_706C5C = 1;
-        if (cVar1 == 0)
+        if (!cVar1)
         {
             byte_706C5C = 0;
         }
@@ -138,7 +138,6 @@ void sub_5D96C0()
     {
         byte_706C5C = 0;
     }
-//LAB_005d9763:
 
     sub_5D92D0();
     
