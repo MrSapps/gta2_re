@@ -299,11 +299,8 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 void wizardly_margulis::Enum3DProviders_58E1F0()
 {
     int prov_counter; // ebx
-    const char **_field_22B4_str; // ebp
-    char *pAlloc; // eax
-    const char *pNameTmp; // edi
+    char **_field_22B4_str; // ebp
     HPROENUM hEnum; // [esp+14h] [ebp-8h] BYREF
-    char *pName; // [esp+18h] [ebp-4h] BYREF
     HPROVIDER* provIter;
 
     prov_counter = 0;
@@ -312,24 +309,18 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
     provIter = field_1EB4_h3dProvider;
     while(prov_counter< 256)
     {
+        char *pName; // [esp+18h] [ebp-4h] BYREF
         if (!AIL_enumerate_3D_providers(&hEnum, provIter, &pName))
         {
             break;
         }
 
-        pAlloc = (char *)operator new(0x50u);
-        pNameTmp = pName;
-        *_field_22B4_str = pAlloc;
-        strcpy(pAlloc, pNameTmp);
-        /*
-        if ((unsigned int)++prov_counter >= 256)
-        {
-            this->field_2710_3d_provider_count = prov_counter;
-            return;
-        }*/
+        *_field_22B4_str = (char *)operator new(0x50u);
+        strcpy(*_field_22B4_str, pName);
+
         prov_counter++;
         provIter++;
-        ++_field_22B4_str;
+        _field_22B4_str++;
     }
     this->field_2710_3d_provider_count = prov_counter;
 }
@@ -1102,7 +1093,7 @@ BYTE wizardly_margulis::sub_58E2A0()
 char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 {
     int k256Counter; // edi
-    const char **i; // ebx
+    char **i; // ebx
     unsigned int sampIdx; // ebp
     H3DSAMPLE  *field_26C4_3d_sample; // ebx
     H3DSAMPLE  _3D_sample_handle; // eax

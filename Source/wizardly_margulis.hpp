@@ -159,7 +159,7 @@ public:
     unsigned __int8 field_1EB2_3d_samp_count;
     char field_1EB3_pad;
     HPROVIDER field_1EB4_h3dProvider[256];
-    const char *field_22B4_str[256];
+    char *field_22B4_str[256];
     int field_26B4_env_idx;
     int field_26B8_bHave_env;
     int field_26BC_k17;
