@@ -143,7 +143,7 @@ wizardly_margulis::wizardly_margulis()
     field_1EB1_unknown = 2;
     field_1EB2_3d_samp_count = 0;
     field_26B4_env_idx = -1;
-    field_26B8_bHave_env = 0;
+    field_26B8_bEaxSupported = 0;
     field_26C0_3d_provider = 0;
     field_2704_float = -1.0;
     field_2708_float = -1.0;
@@ -454,7 +454,7 @@ void wizardly_margulis::Reset3DSamples_58D960()
     field_1EB0_count_samples = 16;
     field_1EB2_3d_samp_count = 0;
     field_26B4_env_idx = -1;
-    field_26B8_bHave_env = 0;
+    field_26B8_bEaxSupported = 0;
     field_26C0_3d_provider = 0;
     field_2704_float = -1.0;
     field_2708_float = -1.0;
@@ -672,21 +672,21 @@ void wizardly_margulis::StopChannel3D_58DFC0(int samp_idx)
 // match
 void wizardly_margulis::sub_58E010(int a2)
 {
-    if (field_26C0_3d_provider && field_26B8_bHave_env && a2 < 26)
+    if (field_26C0_3d_provider && field_26B8_bEaxSupported && a2 < 26)
     {
         field_26BC_k17 = a2;
         AIL_set_3D_provider_preference(field_26C0_3d_provider, "EAX environment selection", &a2);
     }
 }
 
-char wizardly_margulis::sub_58E140(HPROVIDER envIdx)
+char wizardly_margulis::sub_58E140(int envIdx)
 {
-    M3DRESULT ogEnvIdx = envIdx;
+    int ogEnvIdx = envIdx;
     field_26B4_env_idx = envIdx;
     if (envIdx != -1)
     {
         M3DRESULT envIdx2 = AIL_open_3D_provider(field_1EB4_h3dProvider[envIdx]);
-        if (envIdx2)
+        if (envIdx2 != M3D_NOERR)
         {
             field_26B4_env_idx = -1;
             return 0;
@@ -696,7 +696,7 @@ char wizardly_margulis::sub_58E140(HPROVIDER envIdx)
         AIL_3D_provider_attribute(field_26C0_3d_provider, "EAX environment selection", &envIdx2);
         if (envIdx2 != -1)
         {
-            field_26B8_bHave_env = 1;
+            field_26B8_bEaxSupported = 1;
             sub_58E010(17);
         }
         return 1;
