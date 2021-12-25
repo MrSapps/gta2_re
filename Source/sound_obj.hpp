@@ -7,7 +7,7 @@ class serene_brattain
 {
 public:
     //serene_brattain();
-    void test();
+    void sub_419DF0();
     int field_0;
     int field_4;
     int field_8;

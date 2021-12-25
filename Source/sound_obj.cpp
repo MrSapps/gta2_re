@@ -6,73 +6,65 @@ sound_obj gSound_obj_66F680;
 
 int dword_674CD8;
 
-// 0x419DF0 match
-/*
-serene_brattain::serene_brattain()
-{
-
-}*/
-
-void serene_brattain::test()
+// match
+void serene_brattain::sub_419DF0()
 {
 
 }
 
-// 0x419CD0
+// 0x419CD0 match
 sound_obj::sound_obj()
 {
-    int v2; // ebx
-    serene_brattain *p_field_8_obj; // edi
-    serene_brattain *v4; // edi
-    int v5; // ebx
-    vigilant_maxwell *v7; // eax
-    int v8; // edx
-
+    sound_0x68 * pIter = &field_9C_asSamples[0][0];
     for (int t = 0; t < 32; t++)
     {
-        //for (int tt = 0; tt < 2; tt++)
-        {
-            field_9C_asSamples[0][t].field_8_obj.test();
-        }
+        pIter->field_8_obj.sub_419DF0();
+        pIter++;
     }
 
     for (int j = 0; j < 16; j++)
     {
-        field_DC0[j].field_8_obj.test();
+        field_DC0[j].field_8_obj.sub_419DF0();
     }
 
-    this->field_1474 = 0;
-    this->field_0 = 0;
-    this->field_4 = 81920;
-    this->field_8 = 30;
-    this->field_C = 491520;
-    this->field_2 = 1;
-    this->field_24_sfx_vol = 127;
-    this->field_25_cdVol = 127;
-    this->field_28 = dword_674CD8;
-    this->field_2C = 0;
-    this->field_98_nActiveSampleQueue = 1;
+    field_1474 = 0;
+    field_0 = 0;
+    field_4 = 81920;
+    field_8 = 30;
+    field_C = 491520;
+    field_2 = 1;
+    field_24_sfx_vol = 127;
+    field_25_cdVol = 127;
+    field_28 = dword_674CD8;
+    field_2C = 0;
+    
+    field_98_nActiveSampleQueue = 1;
     ClearRequestedQueue_41B700();
-    this->field_98_nActiveSampleQueue = 0;
+    
+    field_98_nActiveSampleQueue = 0;
     ClearRequestedQueue_41B700();
+    
     ClearActivateSamples_41B7A0();
-    this->field_1450 = 0;
-    this->field_1468_v1 = 0;
-    this->field_146C_v2 = 0;
-    this->field_1470_v3 = 0;
+    
+    field_1450 = 0;
+    field_1468_v1 = 0;
+    field_146C_v2 = 0;
+    field_1470_v3 = 0;
+    
     GenerateIntegerRandomNumberTable_41BA90();
-    this->field_1478 = 0;
-    this->field_1B = 0;
-    this->field_1C_samp_count = 0;
-    this->field_10_nActiveSamples = 0;
-    this->field_5444 = 0;
-    this->field_5440 = 0;
-    this->field_1D_b3d_sound = 0;
-    this->field_14_sample_rate = 22050;
-    this->field_18 = 1;
-    this->field_19 = 1;
-    this->field_1 = 0;
-    this->field_1A = 1;
+
+    field_1478 = 0;
+    field_1B = 0;
+    field_1C_samp_count = 0;
+    field_10_nActiveSamples = 0;
+    field_5444 = 0;
+    field_5440 = 0;
+    field_1D_b3d_sound = 0;
+    field_14_sample_rate = 22050;
+    field_18 = 1;
+    field_19 = 1;
+    field_1 = 0;
+    field_1A = 1;
 
     for (int i = 0; i < 1020; i++)
     {
@@ -80,11 +72,11 @@ sound_obj::sound_obj()
         field_444C_pEntities[i] = 0;
     }
 
-    this->field_543C_444C_max_idx = 0;
-    this->field_5448_m_FrameCounter = 0;
-    this->field_544C[0].field_0 = 0; // todo: type check
-    this->field_544C[0].field_18 = 0; // todo: type check
-    this->field_3 = 1;
+    field_543C_444C_max_idx = 0;
+    field_5448_m_FrameCounter = 0;
+    field_544C[0].field_0 = 0; // todo: type check
+    field_544C[0].field_18 = 0; // todo: type check
+    field_3 = 1;
 }
 
 // match
