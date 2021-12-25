@@ -4,14 +4,14 @@
 
 struct palette_base
 {
-    __int16 field_0_tile;
-    __int16 field_2_sprite;
-    __int16 field_4_car_remap;
-    __int16 field_6_red_remap;
-    __int16 field_8_code_obj_remap;
-    __int16 field_A_map_obj_remap;
-    __int16 field_C_user_remap;
-    __int16 field_E_font_remap;
+    WORD field_0_tile;
+    WORD field_2_sprite;
+    WORD field_4_car_remap;
+    WORD field_6_red_remap;
+    WORD field_8_code_obj_remap;
+    WORD field_A_map_obj_remap;
+    WORD field_C_user_remap;
+    WORD field_E_font_remap;
 };
 
 struct sprite_base
@@ -189,9 +189,9 @@ public:
 
     void load_font_base_5AB0F0(unsigned int fonb_chunk_size);
 
-    WORD ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
+    static WORD __stdcall ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
 
-    void ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len);
+    static void __stdcall ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len);
 
     void load_sprite_base_5AB210(unsigned int sprite_base_chunk_size);
 

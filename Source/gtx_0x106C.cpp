@@ -599,7 +599,7 @@ void gtx_0x106C::load_font_base_5AB0F0(unsigned int fonb_chunk_size)
 }
 
 // match
-WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount)
+WORD __stdcall gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount)
 {
     WORD total = 0;
     while(offsetsCount >0 ) // jbe vs jz due to missing > 0 and signed vs unsigned
@@ -614,7 +614,7 @@ WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int off
     return total;
 }
 
-void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len)
+void __stdcall gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len)
 {
     int idx1 = len - 1;
     if (len - 1 > 0)
@@ -654,8 +654,29 @@ void gtx_0x106C::load_sprite_base_5AB210(unsigned int sprite_base_chunk_size)
 
 void gtx_0x106C::load_palete_base_5AB2C0(unsigned int palette_base_chunk_len)
 {
-    // TODO
-    UNIQUE_FUNC;
+    if (palette_base_chunk_len != sizeof(palette_base))
+    {
+        FatalError_4A38C0(1033, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1311, palette_base_chunk_len);
+    }
+
+    field_10_palette_base1 = new palette_base();
+    if (!field_10_palette_base1)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1313);
+    }
+
+    field_C_palette_base2 = new palette_base();
+    if (!field_C_palette_base2)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1315);
+    }
+
+    File::Global_Read_4A71C0(this->field_10_palette_base1, &palette_base_chunk_len);
+    
+    *field_C_palette_base2 = *field_10_palette_base1;
+
+    field_0_totalPalBase = ConvertToVirtualOffsets_5AB1A0(&field_C_palette_base2->field_0_tile, 8);
+    ConvertToVirtualOffsets_5AB1C0(&field_C_palette_base2->field_0_tile, 8);
 }
 
 bool gtx_0x106C::sub_5AB380(unsigned __int8 car_id)
