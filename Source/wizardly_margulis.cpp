@@ -208,12 +208,13 @@ void wizardly_margulis::Reset3DSamples_58D960()
     field_26BC_k17 = 0;
 }
 
+// match
 void wizardly_margulis::Close3DProvider_58E1C0()
 {
-    if (this->field_26C0_3d_provider)
+    if (field_26C0_3d_provider)
     {
-        AIL_close_3D_provider(this->field_26C0_3d_provider);
-        this->field_26C0_3d_provider = 0;
+        AIL_close_3D_provider(field_26C0_3d_provider);
+        field_26C0_3d_provider = 0;
         Sleep(1500u);
     }
 }
