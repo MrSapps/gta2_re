@@ -658,32 +658,57 @@ const char* sound_obj::GetFileName_41A1E0(const char *pStr)
     return result;
 }
 
+struct naughty_elion_0x4C;
+struct inspiring_cori_0xBC;
+struct naughty_elion_0x4C;
+
+struct brave_archimedes_0x3C
+{
+    __int16 field_0;
+    __int16 field_2;
+    naughty_elion_0x4C *field_4_pUnk;
+    inspiring_cori_0xBC *field_8_cori_or_leaky;
+    naughty_elion_0x4C *field_C;
+    int field_10;
+    int field_14;
+    int field_18;
+    int field_1C;
+    __int16 field_20;
+    __int16 field_22;
+    __int16 field_24;
+    __int16 field_26;
+    int field_28;
+    char field_2C;
+    char field_2D;
+    char field_2E;
+    char field_2F;
+    int field_30;
+    int field_34;
+    char field_38;
+    char field_39;
+    char field_3A;
+    char field_3B;
+};
+
 // todo
 int sound_obj::sub_419FA0(infallible_turing* pTuring)
 {
-    unsigned int idx; // edi
-    vigilant_maxwell *pMaxwellIter; // eax
-   // int *__shifted(vigilant_maxwell, 0x147C) pBaseOff; // ebp
-    infallible_turing *v7; // eax
-    sound_unknown_0xC *pNewObj; // eax
-
-    idx = 1;
+    unsigned int idx = 1;
     if (!this->field_0 || !pTuring)
     {
         return 0;
     }
 
-    pMaxwellIter = &this->field_147C[1];
+    vigilant_maxwell *pMaxwellIter = &this->field_147C[1];
     while(idx < 1020)
     {
         if (!pMaxwellIter->field_0)
         {
-            if (pTuring->field_0 == 5)
+            if (pTuring->field_0_object_type == 5) // DrawUnk_0xBC ?
             {
                 if (!this->field_1478)
                 {
                     this->field_1478 = idx;
-                    //          goto LABEL_10;
                 }
                 else
                 {
@@ -691,7 +716,6 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
                 }
             }
 
-            //LABEL_10:
             sub_41A6C0(idx);
 
             field_147C[idx].field_4_pObj = pTuring;
@@ -699,21 +723,22 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
             field_147C[idx].field_1 = 1;
             this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
 
-            switch (pTuring->field_0)
+            switch (pTuring->field_0_object_type)
             {
-            case 1:
+            case 1: // brave_archimedes_0x3C ?
             {
-                v7 = field_147C[idx].field_4_pObj->field_C;
+                brave_archimedes_0x3C *v7 = (brave_archimedes_0x3C*)field_147C[idx].field_4_pObj->field_C_pObject;
                 if (v7)
                 {
-                    // todo: wrong insts
-                    if (v7[3].field_0 == 2)
+                    switch(v7->field_30)
                     {
-                        pNewObj = new sound_unknown_0xC(); // (sound_unknown_0xC *)operator new(0xCu);
+                    case 2: // note: sub eax, 2 added via switch case instead of if
+                        sound_unknown_0xC *pNewObj = new sound_unknown_0xC();
                         field_147C[idx].field_8_pAlloc = pNewObj;
                         pNewObj->field_0 = dword_674CD8;
                         pNewObj->field_8 = 0;
                         pNewObj->field_A = 0;
+                        break;
                     }
                 }
                 break;

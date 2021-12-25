@@ -5,13 +5,13 @@
 // todo: move
 struct infallible_turing
 {
-    int field_0;
+    int field_0_object_type;
     char field_4;
     char field_5;
     char field_6;
     char field_7;
     int field_8;
-    infallible_turing *field_C;
+    infallible_turing *field_C_pObject;
 
     void release_40EF20();
 };
@@ -30,7 +30,7 @@ public:
     */
     // todo: ordering
 
-    infallible_turing* sub_40EF40(infallible_turing *a2, int a3);
+    infallible_turing* sub_40EF40(infallible_turing *pObject, int objectType);
 
     void sub_40EF80();
 

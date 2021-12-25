@@ -130,21 +130,21 @@ char root_sound::GetAudioDriveLetter_40F150()
 }
 
 // match
-infallible_turing* root_sound::sub_40EF40(infallible_turing *a2, int a3)
+infallible_turing* root_sound::sub_40EF40(infallible_turing *pObject, int objectType)
 {
-    infallible_turing* pTuring = field_0;
-    field_0 = field_0->field_C;
-    pTuring->field_C = a2;
-    pTuring->field_8 = 0;
-    pTuring->field_4 = 0;
-    pTuring->field_0 = a3;
+    infallible_turing* pCurrent = field_0;
+    field_0 = field_0->field_C_pObject;
+    pCurrent->field_C_pObject = pObject;
+    pCurrent->field_8 = 0;
+    pCurrent->field_4 = 0;
+    pCurrent->field_0_object_type = objectType;
 
     if (!bSkip_audio_67D6BE)
     {
-        pTuring->field_8 = gRoot_sound_66B038.sub_40EFB0(pTuring);
+        pCurrent->field_8 = gRoot_sound_66B038.sub_40EFB0(pCurrent);
     }
 
-    return pTuring;
+    return pCurrent;
 }
 
 // match
@@ -165,12 +165,12 @@ root_sound::root_sound() // match
     infallible_turing* pIter = field_4;
     for (int i = 0; i < 999; i++)
     {
-        pIter->field_C = pIter+1;
+        pIter->field_C_pObject = pIter+1;
         pIter++;
     }
 
     field_0 = field_4;
-    field_4[999].field_C = 0;
+    field_4[999].field_C_pObject = 0;
 }
 
 // 411E60
