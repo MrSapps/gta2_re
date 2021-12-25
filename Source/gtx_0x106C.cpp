@@ -243,7 +243,9 @@ unsigned __int16 gtx_0x106C::space_width_5AA7B0(WORD *a2)
         BYTE uVar1 = *a2;
         if (*a2 >= 101) 
         {
-            return uVar1 < 0xc9 ? 0xE9 : 0x20;
+            // 0xF0 = 0xD0
+            // 0xD0 = 0xC0
+            return uVar1 < 0xc9 ? 0x110 : 0x20;
         }
 
     }
