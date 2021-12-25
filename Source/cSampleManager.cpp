@@ -184,7 +184,7 @@ cSampleManager::cSampleManager()
 
 }
 
-// todo
+// nomatch
 char cSampleManager::sub_58D620()
 {
     // todo
@@ -745,7 +745,7 @@ void cSampleManager::ReleaseSample_58DAC0()
     }
 }
 
-// todo
+// nomatch
 void cSampleManager::sub_58E8C0(unsigned int idx, unsigned int a3)
 {
     if (idx < a3 && this->field_98_hSample && !SampleNotDone_58E880())

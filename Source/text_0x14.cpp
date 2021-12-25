@@ -405,7 +405,7 @@ __int16 word_626490[128] =
 };
 
 
-// todo
+// nomatch
 unsigned __int16 text_0x14::sub_5B58D0(unsigned __int16 a2)
 {
     // todo
@@ -528,7 +528,7 @@ void text_tdat::TDAT_Load_5B5A80(unsigned int size)
     File::Global_Read_4A71C0(field_0_data, &size);
 }
 
-// todo
+// nomatch
 unsigned __int16 text_0x14::sub_5B5AD0(wchar_t a2)
 {
     unsigned __int16 result; // ax
@@ -592,7 +592,7 @@ wchar_t * text_0x14::sub_5B5B80(wchar_t *pWideStr)
     return pWideStr;
 }
 
-// todo
+// nomatch
 int __stdcall text_0x14::sub_5B5BC0(WORD *a1, int a2, int a3, int a4)
 {
     // todo
@@ -666,7 +666,7 @@ void text_0x14::load_chunk_5B5E20(const char *chunk_type, unsigned int chunk_len
     }
 }
 
-// todo stack order wrong
+// nomatch stack order wrong
 void text_0x14::Load_5B5E90()
 {
     char expected_code[8]; // [esp+8h] [ebp-2Ch] BYREF
@@ -716,7 +716,7 @@ bool text_0x14::sub_5B5FA0(const char *pIdStr)
     return TKeyFind_5B59E0(pIdStr);
 }
 
-// todo
+// nomatch 0x5B5FB0
 text_0x14::text_0x14()
 {
     field_0_tKey = 0;
@@ -742,7 +742,7 @@ text_0x14::text_0x14()
     }
 }
 
-// todo
+// nomatch 0x5B6050
 text_0x14::~text_0x14()
 {
     // todo: inlined dtor?

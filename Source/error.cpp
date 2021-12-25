@@ -122,7 +122,7 @@ struct Coord2
 
 #define err_a1_int(msg, arg) sprintf(gTmpBuffer_67C598, msg, va_1);
 
-// todo
+// nomatch
 void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
 {
     va_list va; // [esp+94h] [ebp+34h] BYREF

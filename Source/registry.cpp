@@ -359,7 +359,7 @@ int Registry::Get_Screen_Setting_5870D0(const char *lpValueName, int a2)
     return Data;
 }
 
-// todo 0x587290
+// nomatch 0x587290
 Registry::Registry()
 {
 
@@ -424,7 +424,7 @@ char Registry::CreateNetworkRoot_587420(PHKEY phkResult)
     return 1;
 }
 
-// todo
+// nomatch
 DWORD Registry::Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName)
 {
     DWORD valueData;
@@ -581,7 +581,7 @@ void Registry::Set_Screen_Setting_587170(const char* lpValueName, int Data)
     }
 }
 
-// todo
+// nomatch
 void Registry::Set_Screen_Setting_5871E0(const char *lpValueName, BYTE *lpData, unsigned __int16 maxLen)
 {
     HKEY hKey; // [esp+8h] [ebp-8h] BYREF

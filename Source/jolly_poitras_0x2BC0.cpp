@@ -7,7 +7,7 @@ jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;
 
 wchar_t word_67DC8C[50];
 
-// todo 0x56B6E0
+// nomatch 0x56B6E0
 jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
 {
     // todo
@@ -56,7 +56,7 @@ jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
     sub_56BD20();
 }
 
-// todo 56B810
+// nomatch 56B810
 jolly_poitras_0x2BC0::~jolly_poitras_0x2BC0()
 {
 
@@ -185,7 +185,7 @@ char jolly_poitras_0x2BC0::HiScoreHscExists_56BCA0()
     File::Global_Close_4A70C0();
 */
 
-// todo
+// nomatch
 void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
 {
 
@@ -266,7 +266,7 @@ int len;
     File::Global_Close_4A70C0();
 */
 
-// todo: wrong stack slots
+// nomatch: wrong stack slots
 void jolly_poitras_0x2BC0::sub_56BE50()
 {
     char FileName[256];
@@ -340,13 +340,13 @@ void jolly_poitras_0x2BC0::sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3)
     // todo
 }
 
-// todo 0x56B500
+// nomatch 0x56B500
 agitated_keldysh_0xF0::agitated_keldysh_0xF0()
 {
     Init_56B520();
 }
 
-// todo 0x56B510
+// nomatch 0x56B510
 agitated_keldysh_0xF0::~agitated_keldysh_0xF0()
 {
 
@@ -362,7 +362,7 @@ void agitated_keldysh_0xF0::Init_56B520()
     }
 }
 
-// todo
+// nomatch
 char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
 {
     unsigned __int16 startIdx = 10;
@@ -410,18 +410,19 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
     return 0;
 }
 
-// todo 0x56B610
+// nomatch 0x56B610
 dreamy_clarke_0xA4::dreamy_clarke_0xA4()
 {
     sub_56B630();
 }
 
-// todo 0x56B620
+// nomatch 0x56B620
 dreamy_clarke_0xA4::~dreamy_clarke_0xA4()
 {
 
 }
 
+// stub
 void dreamy_clarke_0xA4::sub_56B630()
 {
     // todo

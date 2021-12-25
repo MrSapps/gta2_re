@@ -67,7 +67,7 @@ void __stdcall GBH_Graphics_Stub_5EA4D0()
         MB_OK);
 }
 
-// todo
+// nomatch
 void __stdcall GBH_Graphics_Unload_5EA500()
 {
     FreeLibrary(gGbhDllHandle_7085D8);
@@ -102,7 +102,7 @@ void __stdcall GBH_Graphics_Unload_5EA500()
     gbh_DrawFlatRect = (T_gbh_DrawFlatRect)GBH_Graphics_Stub_5EA4D0;
 }
 
-// todo
+// nomatch
 int GBH_Graphics_Free_5EA640()
 {
     if (gGBH_GraphicsLoaded_7085E0)
@@ -114,7 +114,7 @@ int GBH_Graphics_Free_5EA640()
     return 0;
 }
 
-// todo
+// nomatch
 int __stdcall GBH_GraphicsLoadDll_5EA680(const char* lpLibFileName)
 {
     CHAR Text[120];
@@ -183,7 +183,7 @@ public:
     int a, b, c, d, e;
 };
 
-// todo
+// nomatch
 int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys)
 {
     Bob b;

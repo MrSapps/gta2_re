@@ -16,7 +16,7 @@ LPDIRECTINPUTA gpDInput_67B804;
 HRESULT WINAPI Fn_DirectInputCreateA(HINSTANCE hinst, DWORD dwVersion, LPDIRECTINPUTA *ppDI, LPUNKNOWN punkOuter);
 #endif
 
-// todo
+// nomatch
 void __stdcall Input::DirectInputCreate_4986D0(HINSTANCE hInstance)
 {
 #if _MSC_VER <= 1200

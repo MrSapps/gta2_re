@@ -69,7 +69,7 @@ void __stdcall DMA_Video_Unload_5EB8C0(SVideo *pVidSys)
     Vid_InitDLL = (T_Vid_InitDLL)DMA_Video_Stub_5EB810;
 }
 
-// todo
+// nomatch
 int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
 {
     CHAR Text[120];

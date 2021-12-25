@@ -5,7 +5,7 @@
 
 keybrd_0x204* gKeybrd_0x204_6F52F4;
 
-// todo
+// nomatch
 void __stdcall keybrd_0x204::create_4D5F50()
 {
     // no match, OG hasn't got SEH here ??
@@ -30,14 +30,14 @@ void keybrd_0x204::destroy_4D5FA0()
     }
 }
 
-// todo 0x4D5D70
+// nomatch 0x4D5D70
 keybrd_0x204::keybrd_0x204()
 {
     field_200_keyBoardLayout = 0;
     memset(field_0_keys, 0, sizeof(field_0_keys));
 }
 
-// todo 0x4D5D90
+// nomatch 0x4D5D90
 keybrd_0x204::~keybrd_0x204()
 {
 
@@ -117,7 +117,7 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
 
 DWORD dword_620D2C = 0x2020;
 
-// todo
+// nomatch
 int keybrd_0x204::GetLayout_4D6000()
 {
     int result; // eax
@@ -157,7 +157,7 @@ int keybrd_0x204::GetLayout_4D6000()
     return result;
 }
 
-// todo
+// nomatch
 void keybrd_0x204::ReadCfg_4D5DA0(FILE *Stream, wchar_t *pOut)
 {
     __int16 read_char; // ax

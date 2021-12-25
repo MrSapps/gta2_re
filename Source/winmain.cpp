@@ -66,6 +66,7 @@ int gRenderdevice_706998;
 WORD gDMusicVer_67BD32;
 
 // todo move to another file for ordering
+// stub
 void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 {
     // todo
@@ -102,18 +103,21 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 }
 
 // todo: move
+// stub
 void __stdcall Input_MouseAcquire_5D7C60()
 {
     // todo
 }
 
 // todo: move
+// stub
 void __stdcall Input_ReleaseMouse_5D7C70()
 {
     // todo
 }
 
 // todo: move
+// stub
 void __stdcall HideCursor_5D94F0()
 {
     while (ShowCursor(0) >= 0)
@@ -121,6 +125,7 @@ void __stdcall HideCursor_5D94F0()
 }
 
 // todo: move
+// stub
 char Input_InitMouse_5D7BF0()
 {
     // todo
@@ -128,6 +133,7 @@ char Input_InitMouse_5D7BF0()
 }
 
 // todo: move
+// nomatch
 void __stdcall sub_5D93A0()
 {
     char v0; // bl
@@ -181,6 +187,7 @@ void __stdcall sub_5D93A0()
 }
 
 // todo: move
+// nomatch
 char sub_5D92C0()
 {
     return byte_706C5C;
@@ -196,6 +203,7 @@ void __stdcall ShowCursor_5D9660()
 }
 
 // todo: move
+// nomatch
 char sub_5D9510()
 {
 
@@ -305,12 +313,14 @@ int ReadScreenSettings_5D8F70()
 }
 
 // todo: move
+// stub
 void __stdcall SetSavedGamma_5D98E0()
 {
     // todo
 }
 
 // todo: move
+// nomatch
 void __stdcall sub_5D92D0()
 {
     DWORD field_4_flags; // ecx
@@ -491,18 +501,21 @@ void __stdcall Init_keybrd_jolly_and_sound_4DA440()
 }
 
 // todo move to another file for ordering
+// stub
 void __stdcall sub_4DA4D0()
 {
     // todo
 }
 
 // todo move to another file for ordering
+// stub
 void __stdcall sub_5D9690()
 {
     // todo
 }
 
 // todo move to another file for ordering
+// stub
 char sub_4DA850()
 {
     // todo
@@ -539,6 +552,7 @@ void __stdcall GetDirectMusicVer_4A0650()
 GUID IID_IDirectDrawSurface4_ = { 0x0B2B8630, 0xAD35, 0x11D0, 0x8E, 0xA6, 0x00, 0x60, 0x97, 0x97, 0xEA, 0x5B };
 
 // todo move to another file for ordering
+// nomatch
 void __stdcall GetDirectXVersion_4C4EC0(DWORD *pDXVer, DWORD *osKind)
 {
     DWORD dwMajorVersion; // eax
@@ -785,12 +799,14 @@ void __stdcall UpdateWinXY_5D8E70()
 }
 
 // todo move to another file for ordering
+// nomatch
 void __stdcall j_gbh_init_5D7CA0()
 {
     gbh_Init(0);
 }
 
 // todo move to another file for ordering
+// nomatch
 void __stdcall CleanUpInputAndOthers_4DA700()
 {
     // todo
@@ -799,6 +815,7 @@ void __stdcall CleanUpInputAndOthers_4DA700()
 int bStartNetworkGame_7081F0 = 0;
 
 // todo move to another file for ordering
+// stub
 int __stdcall SkipWhiteSpace_4DA390(char *pStr)
 {
     // todo
@@ -806,6 +823,7 @@ int __stdcall SkipWhiteSpace_4DA390(char *pStr)
 }
 
 // todo move to another file for ordering
+// stub
 char *__stdcall sub_4DA3F0(char *pStr)
 {
     // todo
@@ -894,6 +912,7 @@ void __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
 }
 
 // todo: move
+// nomatch
 void __stdcall sub_5D9230(int startMode)
 {
     gStartMode_626A0C = startMode;
@@ -901,12 +920,14 @@ void __stdcall sub_5D9230(int startMode)
 }
 
 // todo: move
+// stub
 void sub_5D9680()
 {
     // todo
 }
 
 // todo: move
+// stub
 void Input_Read_498D10()
 {
     // todo
@@ -914,12 +935,13 @@ void Input_Read_498D10()
 
 
 // todo: move
+// stub
 void __stdcall sub_5D9250()
 {
     // todo
 }
 
-// todo
+// nomatch
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
     switch (Msg)
@@ -1154,7 +1176,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     return DefWindowProcA(hWnd, Msg, wParam, lParam);
 }
 
-// todo
+// nomatch
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
     //hInstance_ = hInstance;
@@ -1439,7 +1461,7 @@ LABEL_23:
     return 0;
 }
 
-// todo
+// stub
 char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance)
 {
     return 1;
