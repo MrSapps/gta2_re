@@ -793,12 +793,11 @@ void wizardly_margulis::OpenStream_58E320(unsigned int a2)
 
             }
 
-            if (!tmp)
+            if (tmp)
             {
-                return;
+                AIL_set_stream_loop_count(field_9C_hStreams[0], 0);
+                AIL_start_stream(this->field_9C_hStreams[0]);
             }
-            AIL_set_stream_loop_count(field_9C_hStreams[0], 0);
-            AIL_start_stream(this->field_9C_hStreams[0]);
 
         }
     }
