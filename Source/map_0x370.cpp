@@ -329,13 +329,10 @@ int dword_6F6110 = 0x4000;
 // nomatch
 DWORD Map_0x370::sub_4DFF60(int a2, int a3, int a4)
 {
-    gmp_block_info *block_4DFE10; // eax
-    __int16 field_2_right; // ax
     DWORD result; // eax
-    gmp_block_info *v8; // eax
-    __int16 field_0_left; // ax
-
-    block_4DFE10 = get_block_4DFE10((a2 - dword_6F6110) >> 14, a3 >> 14, a4 >> 14);
+  
+    gmp_block_info *block_4DFE10 = get_block_4DFE10((a2 - dword_6F6110) >> 14, a3 >> 14, a4 >> 14);
+    __int16 field_2_right; // ax
     if (block_4DFE10 && (field_2_right = block_4DFE10->field_2_right) != 0)
     {
         result = gGtx_0x106C_703DD4->field_6C_spec[field_2_right & 0x3FF];
@@ -344,7 +341,8 @@ DWORD Map_0x370::sub_4DFF60(int a2, int a3, int a4)
     }
     else
     {
-        v8 = Map_0x370::get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
+        gmp_block_info *v8 = Map_0x370::get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
+        __int16 field_0_left; // ax
         if (v8 && (field_0_left = v8->field_0_left) != 0)
         {
             result = gGtx_0x106C_703DD4->field_6C_spec[field_0_left & 0x3FF];
