@@ -175,3 +175,41 @@ char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
     }
     return v4;
 }
+
+void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2)
+{
+    int field_98_nActiveQueue; // ecx
+    unsigned __int8 v4; // di
+    unsigned __int8 v5; // [esp+10h] [ebp-4h]
+
+    v5 = 0;
+
+    if (a2)
+    {
+        field_98_nActiveQueue = this->field_98_nActiveQueue;
+        while (1)
+        {
+            v4 = v5;
+            if (this->field_9C[field_98_nActiveQueue][this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][v5]].field_48 > (unsigned int)this->field_9C[field_98_nActiveQueue][a2].field_48)
+            {
+                break;
+            }
+            if (++v5 >= a2)
+            {
+                goto LABEL_5;
+            }
+        }
+
+        memcpy(
+            &this->field_D9C_abSampleQueueIndexTable[0][v5 + 1 + field_98_nActiveQueue * 16],
+            (char *)this->field_D9C_abSampleQueueIndexTable + v5 + field_98_nActiveQueue * 16,
+            this->field_10_nActiveSamples - v5 - 1);
+    }
+    else
+    {
+    LABEL_5:
+        v4 = v5;
+    }
+
+    this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][v4] = a2;
+}

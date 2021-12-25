@@ -253,6 +253,8 @@ struct sound_obj
     void sub_41B520(int a1, float *a2);
 
     char sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3);
+
+    void AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2);
 };
 
 extern sound_obj gSound_obj_66F680;
