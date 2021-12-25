@@ -388,7 +388,7 @@ bool Vid_FindDevice_5D9290()
 int GetHwndDCDeviceCaps_5D9800()
 {
     HDC hdc = GetDC(gHwnd_707F04);
-    int deviceCaps = GetDeviceCaps(hdc, 12);
+    int deviceCaps = GetDeviceCaps(hdc, BITSPIXEL);
     ReleaseDC(gHwnd_707F04, hdc);
     return deviceCaps;
 }
@@ -430,7 +430,7 @@ void sub_5D96C0()
     gVidSys_7071D0->field_4_flags |= v1;
 
 
-    if (GetHwndDCDeviceCaps_5D9800() == 0x10)
+    if (GetHwndDCDeviceCaps_5D9800() == 16) // 16 bpp?
     {
         bool cVar1 = Vid_FindDevice_5D9290();
         byte_706C5C = 1;
@@ -924,7 +924,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
 {
     switch (Msg)
     {
-   
+
     case WM_WINDOWPOSCHANGED:
     {
         if (gLaughing_blackwell_0x1EB54_67DC84)
@@ -1013,7 +1013,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
             Input_MouseAcquire_5D7C60();
         }
-            break;
+        break;
 
         case WA_INACTIVE:
         {
@@ -1021,7 +1021,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
             Input_ReleaseMouse_5D7C70();
         }
-            break;
+        break;
         }
         break;
 
@@ -1029,7 +1029,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         switch (wParam)
         {
         case 0u:
-           // goto wm_size_case_2;
+            // goto wm_size_case_2;
             byte_70827C = 0;
             gRoot_sound_66B038.sub_40F140();
             break;
@@ -1040,7 +1040,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             break;
 
         case 2u:
-       // wm_size_case_2:
+            // wm_size_case_2:
             byte_70827C = 0;
             gRoot_sound_66B038.sub_40F140();
             break;
