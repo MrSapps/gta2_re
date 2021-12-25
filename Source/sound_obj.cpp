@@ -802,10 +802,16 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
         pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
         if (pAny)
         {
-            if (pAny->field_30 == 2 && pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
+            switch (pAny->field_30)
             {
-                delete (pUnknown[0x1B5].field_8_pAlloc);
+            case 2:
+                if (pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
+                {
+                    delete (pUnknown[0x1B5].field_8_pAlloc);
+                }
+                break;
             }
+
         }
         else
         {
