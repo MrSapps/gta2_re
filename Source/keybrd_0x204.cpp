@@ -43,34 +43,45 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
     field_200_keyBoardLayout = 0;
     field_200_keyBoardLayout = GetLayout_4D6000();
 
+    char FileName[128]; // [esp+30h] [ebp-80h] BYREF
     const char *pKeyboardCfgFile; // edi
     switch (field_200_keyBoardLayout)
     {
+    case 0:
+        pKeyboardCfgFile = "data\\keyboard\\eng_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile); // note: compiler de-dups this to the end for all cases
+        break;
     case 1:
         pKeyboardCfgFile = "data\\keyboard\\fre_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     case 2:
         pKeyboardCfgFile = "data\\keyboard\\ger_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     case 3:
         pKeyboardCfgFile = "data\\keyboard\\ita_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     case 4:
         pKeyboardCfgFile = "data\\keyboard\\spa_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     case 5:
         pKeyboardCfgFile = "data\\keyboard\\por_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     case 6:
         pKeyboardCfgFile = "data\\keyboard\\rus_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
+
     default:
         pKeyboardCfgFile = "data\\keyboard\\eng_kb.cfg";
+        strcpy(FileName, pKeyboardCfgFile);
         break;
     }
 
-    char FileName[128]; // [esp+30h] [ebp-80h] BYREF
-    strcpy(FileName, pKeyboardCfgFile);
     FILE *hConfigFile = fopen(FileName, "rt");
     if (!hConfigFile)
     {
