@@ -60,7 +60,7 @@ char root_sound::LoadStyle_40EFF0(const char *pStyleName)
 
 void root_sound::sub_40EFD0(int a2)
 {
-    // todo
+    gSound_obj_66F680.sub_41A090(a2);
 }
 
 void root_sound::Release_40F130()

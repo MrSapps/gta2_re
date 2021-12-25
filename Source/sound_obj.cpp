@@ -590,3 +590,8 @@ int sound_obj::sub_419FA0(infallible_turing* a2)
     // todo
     return 0;
 }
+
+void sound_obj::sub_41A090(int a2)
+{
+    // todo
+}
