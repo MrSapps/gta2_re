@@ -558,11 +558,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
     }
     else
     {
-        if (field_132_f136_idx)
-        {
-            this->field_C9E4 = Time;
-        }
-        else
+        if (!field_132_f136_idx)
         {
             v9 = this->field_8_keys;
             v10 = 256;
@@ -580,8 +576,13 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
                 return 4;
             }
         }
+        else
+        {
+            this->field_C9E4 = Time;
+           
+        }
 
-        if (Time >= this->field_C9DC || this->field_C9E0 == 3)
+        if (Time >= this->field_C9DC || (this->field_C9E0 == 3))
         {
             sub_4AEC00();
             v12 = this->field_C9E0 + 1;
