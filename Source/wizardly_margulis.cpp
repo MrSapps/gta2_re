@@ -299,11 +299,11 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 // match
 void wizardly_margulis::Enum3DProviders_58E1F0()
 {
-    HPROENUM hEnum = 0; // [esp+14h] [ebp-8h] BYREF
+    HPROENUM hEnum = 0;
     unsigned int prov_counter = 0;
-    char *pName; // [esp+18h] [ebp-4h] BYREF
-    while(prov_counter< 256)
+    while (prov_counter < 256)
     {
+        char* pName;
         if (!AIL_enumerate_3D_providers(&hEnum, &field_1EB4_h3dProvider[prov_counter], &pName))
         {
             break;
@@ -314,7 +314,7 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 
         prov_counter++;
     }
-    this->field_2710_3d_provider_count = prov_counter;
+    field_2710_3d_provider_count = prov_counter;
 }
 
 bool wizardly_margulis::StreamStatus_58E2C0()
