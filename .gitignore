@@ -1,3 +1,6 @@
+build_vc2017
+build
+build_vc6
 Debug
 Release
 *.ncb
