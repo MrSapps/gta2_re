@@ -13,6 +13,7 @@
 #include "Bink.hpp"
 #include "dma_video.hpp"
 #include "keybrd_0x204.hpp"
+#include "gbh_graphics.hpp"
 #include <direct.h>
 #include <stdio.h>
 #include "resource.h"
@@ -51,10 +52,109 @@ extern char gTmpBuffer_67C598[256];
 
 extern char bDestroyed_6F5B70;
 
+DWORD gBufferMode_706B34;
+char gRenderDllName_7067F0[256];
+char gVideoDllName_706654[256];
+int gVideodevice_70694C;
+
+// todo: move
+void __stdcall sub_5D92D0()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall SetSavedGamma_5D98E0()
+{
+    // todo
+}
+
+// todo: move
+BOOL Vid_FindDevice_5D9290()
+{
+    // todo
+    return FALSE;
+}
+
+// todo move to another file for ordering
+int GetHwndDCDeviceCaps_5D9800()
+{
+    HDC DC; // esi
+    int DeviceCaps; // edi
+
+    DC = GetDC(gHwnd_707F04);
+    DeviceCaps = GetDeviceCaps(DC, 12);
+    ReleaseDC(gHwnd_707F04, DC);
+    return DeviceCaps;
+}
+
+// todo move to another file for ordering
+void __stdcall GBH_GraphicsInit_5D97C0()
+{
+    if (GBH_GraphicsLoad_5EB680(gRenderDllName_7067F0, gVidSys_7071D0))
+    {
+        FatalError_4A38C0(1011, "C:\\Splitting\\Gta2\\Source\\video.cpp", 206, gTmpBuffer_67C598);
+    }
+}
+
 // todo move to another file for ordering
 void sub_5D96C0()
 {
-    // todo
+    int v1 = 0;
+    if (DMA_Video_LoadDll_5EB970(gVideoDllName_706654))
+    {
+        FatalError_4A38C0(1011, "C:\\Splitting\\Gta2\\Source\\video.cpp", 1647, gVideoDllName_706654);
+    }
+
+    gVidSys_7071D0 = Vid_Init_SYS(gHInstance_708220, 0); // flags param ??
+    
+    Vid_SetDevice(gVidSys_7071D0, gVideodevice_70694C);
+
+    if (!gVidSys_7071D0)
+    {
+        FatalError_4A38C0(2, "C:\\Splitting\\Gta2\\Source\\video.cpp", 1656);
+    }
+
+    if (gBufferMode_706B34 == 1)
+    {
+        v1 = 64;
+    }
+
+    gVidSys_7071D0->field_4_flags |= v1;
+
+    bool Device_5D9290;
+    if (GetHwndDCDeviceCaps_5D9800() != 16 || (Device_5D9290 = Vid_FindDevice_5D9290(), byte_706C5C = 1, !Device_5D9290))
+    {
+        byte_706C5C = 0;
+    }
+
+    sub_5D92D0();
+    
+    GBH_GraphicsInit_5D97C0();
+
+    SetSavedGamma_5D98E0();
+
+    Vid_ClearScreen(
+        gVidSys_7071D0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        gVidSys_7071D0->field_48_rect_right,
+        gVidSys_7071D0->field_4C_rect_bottom);
+
+    Vid_FlipBuffers(gVidSys_7071D0);
+
+    Vid_ClearScreen(
+        gVidSys_7071D0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        gVidSys_7071D0->field_48_rect_right,
+        gVidSys_7071D0->field_4C_rect_bottom);
 }
 
 // todo move to another file for ordering
@@ -248,12 +348,6 @@ char sub_5D92C0()
 }
 
 // todo: move
-void __stdcall sub_5D92D0()
-{
-    // todo
-}
-
-// todo: move
 void sub_5D9680()
 {
     // todo
@@ -277,11 +371,6 @@ void Input_Read_498D10()
     // todo
 }
 
-// todo: move
-void __stdcall SetSavedGamma_5D98E0()
-{
-    // todo
-}
 
 // todo: move
 void __stdcall sub_5D9250()
@@ -289,12 +378,6 @@ void __stdcall sub_5D9250()
     // todo
 }
 
-// todo: move
-BOOL Vid_FindDevice_5D9290()
-{
-    // todo
-    return FALSE;
-}
 
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {

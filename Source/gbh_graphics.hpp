@@ -123,3 +123,5 @@ extern T_gbh_FreeImageTable gbh_FreeImageTable;
 extern T_gbh_LoadImage gbh_LoadImage;
 extern T_gbh_BlitImage gbh_BlitImage;
 extern T_gbh_BlitBuffer gbh_BlitBuffer;
+
+int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys);

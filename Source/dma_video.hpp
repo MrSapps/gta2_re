@@ -69,7 +69,7 @@ struct SVidVersion
 struct SVideoFunctions;
 
 typedef SVidVersion*(__stdcall *T_Vid_GetVersion)();
-typedef SVideo*(__stdcall *T_Vid_Init_SYS)(s32 param1, u16 param2_flags);
+typedef SVideo*(__stdcall *T_Vid_Init_SYS)(HINSTANCE param1, u16 param2_flags);
 typedef s32(__stdcall *T_Vid_CheckMode)(SVideo* pVideoDriver, s32 width, s32 height, s32 rgbBitCount);
 typedef SDisplayMode*(__stdcall*T_Vid_FindMode)(SVideo* pVideoDriver, s32 modeId);
 typedef s32(__stdcall*T_Vid_FindFirstMode)(SVideo* pVideoDriver, s32 rgbBitCountFilter);
@@ -140,3 +140,5 @@ extern T_Vid_ClearScreen Vid_ClearScreen;
 extern T_Vid_WindowProc Vid_WindowProc;
 extern T_Vid_InitDLL Vid_InitDLL;
 extern T_Vid_SetGamma Vid_SetGamma;
+
+int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName);
