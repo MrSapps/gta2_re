@@ -116,9 +116,23 @@ void __stdcall Video_Render_Inits_5D90E0()
 }
 
 // todo move to another file for ordering
+// match
+bool IsFullScreen_5D9280()
+{
+    return gStartMode_626A0C == 1;
+}
+
+// todo move to another file for ordering
+// match
 void __stdcall UpdateWinXY_5D8E70()
 {
-    // todo
+    if (!IsFullScreen_5D9280())
+    {
+        RECT winRec;
+        GetWindowRect(gHwnd_707F04, &winRec);
+        gWindowX_706B60 = winRec.left;
+        gWindowY_706B64 = winRec.top;
+    }
 }
 
 // todo move to another file for ordering
