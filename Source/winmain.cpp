@@ -65,16 +65,34 @@ int gRenderdevice_706998;
 
 WORD gDMusicVer_67BD32;
 
-// todo: move
-void __stdcall sub_5D92D0()
+// todo move to another file for ordering
+void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 {
     // todo
 }
 
 // todo: move
-void __stdcall SetSavedGamma_5D98E0()
+void __stdcall Input_MouseAcquire_5D7C60()
 {
     // todo
+}
+
+// todo: move
+void __stdcall Input_ReleaseMouse_5D7C70()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall sub_5D93A0()
+{
+    // todo
+}
+
+// todo: move
+char sub_5D92C0()
+{
+    return byte_706C5C;
 }
 
 // match
@@ -84,6 +102,172 @@ void __stdcall ShowCursor_5D9660()
     do {
         refCount = ShowCursor(1);
     } while (refCount < 0);
+}
+
+// todo: move
+char sub_5D9510()
+{
+    // todo
+    char result; // al
+    SVideo *pVidSys; // eax
+    DWORD field_4_flags; // ecx
+    struct tagRECT clientRect; // [esp+8h] [ebp-20h] BYREF
+    struct tagRECT windowRect; // [esp+18h] [ebp-10h] BYREF
+
+    result = sub_5D92C0();
+    if (result)
+    {
+        Input_ReleaseMouse_5D7C70();
+        SetWindowLongA(gHwnd_707F04, -16, 0x10CF0000);
+        SetWindowPos(gHwnd_707F04, 0, 0, 0, 0, 0, 0x63Bu);
+        UpdateWindow(gHwnd_707F04);
+        ShowWindow(gHwnd_707F04, 5);
+        GetWindowRect(gHwnd_707F04, &windowRect);
+        GetClientRect(gHwnd_707F04, &clientRect);
+        if (SetWindowPos(
+            gHwnd_707F04,
+            0,
+            gWindowX_706B60,
+            gWindowY_706B64,
+            windowRect.right + clientRect.left + window_width_706630 - clientRect.right - windowRect.left,
+            windowRect.bottom + clientRect.top + window_height_706B50 - clientRect.bottom - windowRect.top,
+            0x316u))
+        {
+            UpdateWindow(gHwnd_707F04);
+            ShowWindow(gHwnd_707F04, 5);
+            pVidSys = gVidSys_7071D0;
+            if (gVidSys_7071D0)
+            {
+                field_4_flags = gVidSys_7071D0->field_4_flags;
+               // BYTE1(field_4_flags) |= 1u;
+                field_4_flags |= 1u;
+                gVidSys_7071D0->field_4_flags = field_4_flags;
+                pVidSys = gVidSys_7071D0;
+            }
+            if (Vid_SetMode(pVidSys, gHwnd_707F04, -2) == 1)
+            {
+                return 0;
+            }
+            else
+            {
+                ShowCursor_5D9660();
+                return 1;
+            }
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return result;
+}
+
+
+// todo move to another file for ordering
+// match
+int ReadScreenSettings_5D8F70()
+{
+    const DWORD full_width_old = full_width_706B5C;
+    const DWORD window_width_old = window_width_706630;
+    const DWORD full_height_old = full_height_706798;
+    const int startMode_old = gStartMode_626A0C;
+    const int trippleBuffer_old = bTrippleBuffer_706C54;
+    const DWORD window_height_old = window_height_706B50;
+
+    if (bDoFrontEnd_626B68)
+    {
+        window_width_706630 = 640;
+        window_height_706B50 = 480;
+        full_width_706B5C = 640;
+        full_height_706798 = 480;
+    }
+    else
+    {
+        window_width_706630 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_width", 640);
+        window_height_706B50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_height", 480);
+        full_width_706B5C = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_width", 640);
+        full_height_706798 = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_height", 480);
+    }
+
+    gStartMode_626A0C = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
+
+    if (gBufferMode_706B34 == 0)
+    {
+        bTrippleBuffer_706C54 = 1;
+    }
+    else
+    {
+        bTrippleBuffer_706C54 = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
+    }
+
+    if (gStartMode_626A0C == startMode_old && bTrippleBuffer_706C54 == trippleBuffer_old)
+    {
+        if (gStartMode_626A0C == 1)
+        {
+            if (full_width_706B5C == full_width_old && full_height_706798 == full_height_old)
+            {
+                return 0;
+            }
+        }
+        else if (gStartMode_626A0C || window_width_706630 == window_width_old && window_height_706B50 == window_height_old)
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+// todo: move
+void __stdcall SetSavedGamma_5D98E0()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall sub_5D92D0()
+{
+    DWORD field_4_flags; // ecx
+    DWORD v1; // ecx
+
+    Init_FrameRateLightAndUnknown_5D8EB0();
+    ReadScreenSettings_5D8F70();
+    Input_MouseAcquire_5D7C60();
+
+    Vid_CloseScreen(gVidSys_7071D0);
+    field_4_flags = gVidSys_7071D0->field_4_flags;
+
+    if (bTrippleBuffer_706C54)
+    {
+        v1 = field_4_flags | 0x10;
+    }
+    else
+    {
+        v1 = field_4_flags & ~0x10u;
+    }
+
+    gVidSys_7071D0->field_4_flags = v1;
+
+    if (gStartMode_626A0C)
+    {
+        sub_5D93A0();
+    }
+    else if (!sub_5D9510())
+    {
+        if (window_width_706630 == 640 || (window_width_706630 = 640, window_height_706B50 = 480, !sub_5D9510()))
+        {
+            sub_5D93A0();
+            gStartMode_626A0C = 1;
+            gRegistry_6FF968.Set_Screen_Setting_587170("start_mode", 1u);
+        }
+        else
+        {
+            gRegistry_6FF968.Set_Screen_Setting_587170("window_width", window_width_706630);
+            gRegistry_6FF968.Set_Screen_Setting_587170("window_height", window_height_706B50);
+        }
+    }
+
+    SetSavedGamma_5D98E0();
 }
 
 // match
@@ -462,66 +646,6 @@ void __stdcall GetDirectXVersion_4C4EC0(DWORD *pDXVer, DWORD *osKind)
     }
 }
 
-// todo move to another file for ordering
-void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
-{
-    // todo
-}
-
-// todo move to another file for ordering
-// match
-int ReadScreenSettings_5D8F70()
-{
-    const DWORD full_width_old = full_width_706B5C;
-    const DWORD window_width_old = window_width_706630;
-    const DWORD full_height_old = full_height_706798;
-    const int startMode_old = gStartMode_626A0C;
-    const int trippleBuffer_old = bTrippleBuffer_706C54;
-    const DWORD window_height_old = window_height_706B50;
-
-    if (bDoFrontEnd_626B68)
-    {
-        window_width_706630 = 640;
-        window_height_706B50 = 480;
-        full_width_706B5C = 640;
-        full_height_706798 = 480;
-    }
-    else
-    {
-        window_width_706630 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_width", 640);
-        window_height_706B50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_height", 480);
-        full_width_706B5C = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_width", 640);
-        full_height_706798 = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_height", 480);
-    }
-
-    gStartMode_626A0C = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
-
-    if (gBufferMode_706B34 == 0)
-    {
-        bTrippleBuffer_706C54 = 1;
-    }
-    else
-    {
-        bTrippleBuffer_706C54 = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
-    }
-
-    if (gStartMode_626A0C == startMode_old && bTrippleBuffer_706C54 == trippleBuffer_old)
-    {
-        if (gStartMode_626A0C == 1)
-        {
-            if (full_width_706B5C == full_width_old && full_height_706798 == full_height_old)
-            {
-                return 0;
-            }
-        }
-        else if (gStartMode_626A0C || window_width_706630 == window_width_old && window_height_706B50 == window_height_old)
-        {
-            return 0;
-        }
-    }
-
-    return 1;
-}
 
 const char *off_626A00[2] = { "d3ddll.dll", "dmavideo.dll" };
 
@@ -691,25 +815,7 @@ void __stdcall sub_5D9230(int startMode)
 }
 
 // todo: move
-char sub_5D92C0()
-{
-    return byte_706C5C;
-}
-
-// todo: move
 void sub_5D9680()
-{
-    // todo
-}
-
-// todo: move
-void __stdcall Input_MouseAcquire_5D7C60()
-{
-    // todo
-}
-
-// todo: move
-void __stdcall Input_ReleaseMouse_5D7C70()
 {
     // todo
 }
