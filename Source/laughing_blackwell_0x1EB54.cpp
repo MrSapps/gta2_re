@@ -4615,13 +4615,13 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 else
                 {
                     pSprIdx = gMagical_germain_0x8EC_6F5168->field_8E0_sprite_index;
-                    pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)pTextIter);
+                    pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)text_char);
                 }
             }
             else
             {
                 pSprIdx = gMagical_germain_0x8EC_6F5168->field_8D4_sprite_index;
-                pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710((unsigned int *)pTextIter);
+                pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710(text_char);
             }
             STexture* pTexture = pTextureToUse;
 

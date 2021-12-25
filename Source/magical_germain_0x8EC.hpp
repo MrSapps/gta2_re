@@ -70,7 +70,9 @@ public:
 
     STexture * sub_4D27D0(unsigned int *a2);
 
-    STexture * sub_4D2710(unsigned int *a2);
+    STexture * sub_4D2710(wchar_t a2);
+
+    void sub_4D2610(wchar_t text_char);
 };
 
 extern magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;

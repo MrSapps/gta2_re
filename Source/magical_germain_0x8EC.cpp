@@ -2,6 +2,7 @@
 #include "error.hpp"
 #include "file.hpp"
 #include "chunk.hpp"
+#include "gtx_0x106C.hpp"
 
 magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;
 
@@ -113,8 +114,57 @@ STexture * magical_germain_0x8EC::sub_4D27D0(unsigned int *a2)
     return 0;
 }
 
-// stub
-STexture * magical_germain_0x8EC::sub_4D2710(unsigned int *a2)
+// nomatch
+STexture * magical_germain_0x8EC::sub_4D2710(wchar_t a2)
 {
-    return 0;
+    unsigned int field_C_id; // ebp
+    int v5; // ebx
+    //int *__shifted(kanji_0x10, 0xC) i; // eax
+    kanji_0x10 *v7; // edx
+    unsigned __int8 field_8E8_v1; // cl
+    
+    kanji_0x10 * v3;
+
+    field_C_id = -1;
+    v5 = 0;
+    //for (i = &this->field_0[0].field_C_id; ; i += 4)
+    kanji_0x10* i = field_0;
+    for (;;)
+    {
+        v7 = i;
+        if (i->field_2_text_char == a2
+            && v7->field_0_v1 == this->field_8E8_v1
+            && i->field_1_v2 == this->field_8E9_v2)
+        {
+            break;
+        }
+
+       
+        if (i->field_C_id < field_C_id)
+        {
+            field_C_id = i->field_C_id;
+            v3 = i;
+        }
+
+        if (++v5 >= 120)
+        {
+            field_8E8_v1 = this->field_8E8_v1;
+            this->field_8D0_pSprtData = v3->field_8_sprt_index->field_0_pData;
+            this->field_8D8_pTexture = v3->field_4_pTexture;
+            v3->field_0_v1 = field_8E8_v1;
+            v3->field_1_v2 = this->field_8E9_v2;
+            v3->field_2_text_char = (__int16)a2;
+            v3->field_C_id = this->field_8C0_count++;
+            sub_4D2610(a2);
+            return this->field_8D8_pTexture;
+        }
+    }
+    i->field_C_id = this->field_8C0_count++;
+    return v7->field_4_pTexture;
+}
+
+// stub
+void magical_germain_0x8EC::sub_4D2610(wchar_t text_char)
+{
+
 }
