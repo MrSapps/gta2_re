@@ -221,6 +221,32 @@ void sound_obj::Init_15_Array_427180()
     field_5529_idx15 = 0;
 }
 
+// nomatch
+void sound_obj::Set15Val_4271B0(unsigned int val)
+{
+    unsigned int clamped_val; // edi
+    int field_5529_idx15; // ebp
+
+    clamped_val = val;
+    if (val <= 136)
+    {
+        if (val < 69)
+        {
+            clamped_val = 69;
+        }
+    }
+    else
+    {
+        clamped_val = 136;
+    }
+    field_5529_idx15 = this->field_5529_idx15;
+    if ((field_5529_idx15 + 1) % 15 != this->field_5528_idx15_cur)
+    {
+        this->field_552C_15array[field_5529_idx15] = clamped_val;
+        this->field_5529_idx15 = (unsigned __int8)(this->field_5529_idx15 + 1) % 15;
+    }
+}
+
 // match
 void sound_obj::GenerateIntegerRandomNumberTable_41BA90()
 {
