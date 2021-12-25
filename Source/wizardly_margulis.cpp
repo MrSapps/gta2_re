@@ -3,8 +3,6 @@
 
 wizardly_margulis gWizardly_margulis_6FFF00;
 
-//#pragma comment(lib, "C:\\Program Files (x86)\\freeloader.com\\GTA2\\mss32.lib")
-
 struct voc_name
 {
     char field_0_str[30];
@@ -235,6 +233,7 @@ char wizardly_margulis::SoundInit_58D6C0(int *a2)
     return 1;
 }
 
+// match
 char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 {
     struct lol
@@ -308,18 +307,22 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 
     k256Counter = 0;
     hEnum = 0;
-    for (phProviderIter = this->field_22B4_str;
-        AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName);
-        ++phProviderIter)
+    phProviderIter = this->field_22B4_str;
+    
+    if (AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName))
     {
-        pAlloc = (char *)operator new(0x50u);
-        pNameTmp = pName;
-        *phProviderIter = pAlloc;
-        strcpy(pAlloc, pNameTmp);
-        if ((unsigned int)++k256Counter >= 256)
+        for (;;)
         {
-            this->field_2710_3d_provider_count = k256Counter;
-            return;
+            pAlloc = (char *)operator new(0x50u);
+            pNameTmp = pName;
+            *phProviderIter = pAlloc;
+            strcpy(pAlloc, pNameTmp);
+            if ((unsigned int)++k256Counter >= 256)
+            {
+                this->field_2710_3d_provider_count = k256Counter;
+                return;
+            }
+            ++phProviderIter;
         }
     }
     this->field_2710_3d_provider_count = k256Counter;
