@@ -1081,8 +1081,8 @@ bool nifty_maxwell_0x82::sub_4B6330()
 
 bool nifty_maxwell_0x82::sub_4B6390()
 {
-    unsigned __int16 field_6E_count = this->field_6E_count;
-    unsigned __int16 new_count = field_6E_count;
+    unsigned __int16 oldCount = this->field_6E_count;
+    unsigned __int16 new_count = oldCount;
     char bFound = 0;
     do
     {
@@ -1110,7 +1110,7 @@ bool nifty_maxwell_0x82::sub_4B6390()
 
     this->field_6E_count = new_count;
 
-    return field_6E_count != new_count ? true : false;
+    return oldCount != new_count ? true : false;
 }
 
 kind_beaver_6::kind_beaver_6()
