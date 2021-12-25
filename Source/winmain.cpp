@@ -507,6 +507,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             }
             break;
 
+        case SC_MOVE:
         case SC_RESTORE:
             UpdateWinXY_5D8E70();
             break;
