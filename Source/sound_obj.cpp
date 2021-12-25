@@ -1,5 +1,6 @@
 #include "sound_obj.hpp"
 #include "cSampleManager.hpp"
+#include <math.h>
 
 sound_obj gSound_obj_66F680;
 
@@ -313,4 +314,19 @@ bool sound_obj::VolCalc_419070(int a2, int a3, char a4)
         this->field_30_sQueueSample.field_24_nVolume = v5 >> 1;
     }
     return this->field_30_sQueueSample.field_24_nVolume != 0 ? true : false;
+}
+
+// match
+char sound_obj::sub_419020(int a2)
+{
+    if (field_28 < a2)
+    {
+        if (!field_2C)
+        {
+            field_2C = 1;
+            field_30_sQueueSample.field_28 = static_cast<int>(sqrt(field_28 / 16384.0) * 16384.0);
+        }
+        return 1;
+    }
+    return 0;
 }

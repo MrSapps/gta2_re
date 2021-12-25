@@ -275,6 +275,8 @@ struct sound_obj
     char CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3);
 
     bool VolCalc_419070(int a2, int a3, char a4);
+
+    char sub_419020(int a2);
 };
 
 extern sound_obj gSound_obj_66F680;
