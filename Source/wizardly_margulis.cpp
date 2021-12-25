@@ -850,12 +850,11 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
 {
     if (stream_idx || field_5_str[80])
     {
-        if (this->field_9C_hStreams[stream_idx])
+        if (field_9C_hStreams[stream_idx])
         {
             CloseVocalStream_58E6A0(stream_idx);
         }
 
-        const char *filePart; // edi
         char fileName[80]; // [esp+14h] [ebp-50h] BYREF
         if (!stream_idx)
         {
@@ -868,14 +867,12 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
             {
                 strcat(fileName, "A");
             }
-            filePart = ".WAV";
-            strcat(fileName, filePart);
+            strcat(fileName, ".WAV");
         }
         else
         {
             strcpy(fileName, "data\\audio\\vocals\\");
-            filePart = gVocNames_5FEA5C[voc_idx].field_0_str;
-            strcat(fileName, filePart);
+            strcat(fileName, gVocNames_5FEA5C[voc_idx].field_0_str);
         }
         
         field_9C_hStreams[stream_idx] = AIL_open_stream(field_0_hDriver, fileName, 0);
