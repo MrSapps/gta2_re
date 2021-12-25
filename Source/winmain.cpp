@@ -69,11 +69,13 @@ void __stdcall SetSavedGamma_5D98E0()
     // todo
 }
 
-
+// match
 void __stdcall ShowCursor_5D9660()
 {
-    // todo: repeated calls
-    while (ShowCursor(1) < 0);
+    int refCount;
+    do {
+        refCount = ShowCursor(1);
+    } while (refCount < 0);
 }
 
 // match
