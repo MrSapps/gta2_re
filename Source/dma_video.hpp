@@ -59,8 +59,8 @@ struct SVideo
 
 extern SVideo *gVidSys_7071D0;
 
-typedef int(__cdecl *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
-typedef int(__cdecl *T_Vid_CloseScreen)(SVideo* pVideo);
+typedef int(__stdcall *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
+typedef int(__stdcall *T_Vid_CloseScreen)(SVideo* pVideo);
 
 extern T_Vid_WindowProc Vid_WindowProc;
 extern T_Vid_CloseScreen Vid_CloseScreen;

@@ -379,21 +379,24 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         break;
 
     case WM_ACTIVATE: // order ok
-        if ((BYTE)wParam)
+        switch (wParam)
         {
-            if ((unsigned __int8)wParam <= 2u)
-            {
-                //LOBYTE(wParam) = 1;
-                BYTE tmp = 1;
-                laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
-                Input_MouseAcquire_5D7C60();
-            }
-        }
-        else
+        case WA_ACTIVE:
+        case WA_CLICKACTIVE:
         {
             BYTE tmp = 1;
             laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
+            Input_MouseAcquire_5D7C60();
+        }
+            break;
+
+        case WA_INACTIVE:
+        {
+            BYTE tmp = 0;
+            laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
             Input_ReleaseMouse_5D7C70();
+        }
+            break;
         }
         break;
 
