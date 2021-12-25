@@ -573,19 +573,22 @@ void wizardly_margulis::StopChannel_58DDD0(int channel)
 // todo
 bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
 {
-    if (!field_26C4_3d_sample[channel] || !this->field_A4_bLoaded)
+    if (field_26C4_3d_sample[channel] && this->field_A4_bLoaded)
     {
-        return 0;
+
+
+        AILSOUNDINFO soundInfo; // [esp+0h] [ebp-24h] BYREF
+        soundInfo.format = 1;
+        soundInfo.channels = 1;
+        soundInfo.data_len = this->field_A8_sdt_entries[nSfx].field_4_sample_length;
+        soundInfo.rate = rate;
+        soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[nSfx].field_0_offset);
+        soundInfo.bits = 8 * this->field_1EB1_unknown;
+        unsigned int tmp = AIL_set_3D_sample_info(field_26C4_3d_sample[channel], &soundInfo);
+        return tmp != 0;
     }
 
-    AILSOUNDINFO soundInfo; // [esp+0h] [ebp-24h] BYREF
-    soundInfo.format = 1;
-    soundInfo.channels = 1;
-    soundInfo.data_len = this->field_A8_sdt_entries[nSfx].field_4_sample_length;
-    soundInfo.rate = rate;
-    soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[nSfx].field_0_offset);
-    soundInfo.bits = 8 * this->field_1EB1_unknown;
-    return AIL_set_3D_sample_info(field_26C4_3d_sample[channel], &soundInfo) != 0 ? true : false;
+    return 0;
 }
 
 // match
@@ -750,13 +753,18 @@ void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
         if (this->field_A4_bLoaded)
         {
             AIL_set_sample_address(
-                this->field_98_hSample,
-                (BYTE*)this->field_1EAC_pAudioBuffer2 + this->field_A8_sdt_entries[idx].field_0_offset,
-                this->field_A8_sdt_entries[a3].field_0_offset - this->field_A8_sdt_entries[idx].field_0_offset);
-            AIL_set_sample_playback_rate(this->field_98_hSample, 18050);
-            AIL_set_sample_pan(this->field_98_hSample, 64);
-            AIL_set_sample_loop_count(this->field_98_hSample, 1);
-            AIL_start_sample(this->field_98_hSample);
+                field_98_hSample,
+                (BYTE*)field_1EAC_pAudioBuffer2 + 
+
+                field_A8_sdt_entries[idx].field_0_offset,
+
+                field_A8_sdt_entries[a3].field_0_offset - 
+                field_A8_sdt_entries[idx].field_0_offset);
+                
+            AIL_set_sample_playback_rate(field_98_hSample, 18050);
+            AIL_set_sample_pan(field_98_hSample, 64);
+            AIL_set_sample_loop_count(field_98_hSample, 1);
+            AIL_start_sample(field_98_hSample);
         }
     }
 }
