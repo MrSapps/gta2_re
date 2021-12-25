@@ -7,10 +7,10 @@ wizardly_margulis gWizardly_margulis_6FFF00;
 
 struct voc_name
 {
-    const char field_0_str[30];
+    char field_0_str[30];
 };
 
-voc_name gVocNames_5FEA5C[98] =
+const voc_name gVocNames_5FEA5C[98] =
 {
     { "accuracyb.wav" },
     { "back2front.wav" },
@@ -299,7 +299,30 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 
 void wizardly_margulis::Enum3DProviders_58E1F0()
 {
-    // todo
+    int k256Counter; // ebx
+    const char **phProviderIter; // ebp
+    char *pAlloc; // eax
+    const char *pNameTmp; // edi
+    HPROENUM hEnum; // [esp+14h] [ebp-8h] BYREF
+    char *pName; // [esp+18h] [ebp-4h] BYREF
+
+    k256Counter = 0;
+    hEnum = 0;
+    for (phProviderIter = this->field_22B4_str;
+        AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName);
+        ++phProviderIter)
+    {
+        pAlloc = (char *)operator new(0x50u);
+        pNameTmp = pName;
+        *phProviderIter = pAlloc;
+        strcpy(pAlloc, pNameTmp);
+        if ((unsigned int)++k256Counter >= 256)
+        {
+            this->field_2710_3d_provider_count = k256Counter;
+            return;
+        }
+    }
+    this->field_2710_3d_provider_count = k256Counter;
 }
 
 bool wizardly_margulis::StreamStatus_58E2C0()
@@ -594,15 +617,15 @@ void wizardly_margulis::SetChannel3DPosition_58DEA0(int a2, int a3, int a4, int 
     }
 }
 
-void wizardly_margulis::SetChannel3DDistances_58DED0(int a2, int a3, int a4)
+void wizardly_margulis::SetChannel3DDistances_58DED0(int a2, float a3, float a4)
 {
-    H3DSAMPLE  v4; // eax
+    H3DSAMPLE  hSample; // eax
 
-    v4 = this->field_26C4_3d_sample[a2];
-    if (v4)
+    hSample = this->field_26C4_3d_sample[a2];
+    if (hSample)
     {
         // todo: not in the import lib ??
-//        AIL_set_3D_sample_float_distances(v4, a3, a4, a3, a4);
+        AIL_set_3D_sample_distances(hSample, a3, a4, a3, a4);
     }
 }
 

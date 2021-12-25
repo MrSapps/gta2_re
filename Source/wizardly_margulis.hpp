@@ -75,7 +75,7 @@ public:
 
     void SetChannel3DPosition_58DEA0(int a2, int a3, int a4, int a5);
 
-    void SetChannel3DDistances_58DED0(int a2, int a3, int a4);
+    void SetChannel3DDistances_58DED0(int a2, float a3, float a4);
 
     void SetChannel3DFrequency_58DF00(int a2, int a3);
 
@@ -158,7 +158,7 @@ public:
     unsigned __int8 field_1EB1_unknown;
     unsigned __int8 field_1EB2_3d_samp_count;
     char field_1EB3_pad;
-    int field_1EB4_h3dProvider[256];
+    HPROVIDER field_1EB4_h3dProvider[256];
     const char *field_22B4_str[256];
     int field_26B4_env_idx;
     int field_26B8_bHave_env;
