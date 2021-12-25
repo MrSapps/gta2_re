@@ -21,6 +21,8 @@ struct dreamy_clarke_0xA4
     gifted_joliot field_0[3][4];
     wchar_t field_90_str[9];
     __int16 field_A2;
+
+    ~dreamy_clarke_0xA4();
 };
 
 // todo: move
