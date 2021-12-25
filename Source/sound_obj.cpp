@@ -904,7 +904,7 @@ void sound_obj::ProcessEntity_4123A0(int id)
         {
             if (field_147C[id].field_4_pObj->field_0_object_type == 3)
             {
-                sub_57DD50();
+                ProcessType3_57DD50();
             }
 
             if (!field_1)
@@ -940,12 +940,12 @@ void sound_obj::ProcessEntity_4123A0(int id)
 
         if (field_147C[id].field_4_pObj->field_0_object_type == 2)
         {
-            sub_412490(id);
+            ProcessType2_412490(id);
         }
     }
 }
 
-void sound_obj::sub_57DD50()
+void sound_obj::ProcessType3_57DD50()
 {
     // todo
 }
@@ -1219,7 +1219,7 @@ void sound_obj::ProcessType11_418B60(int a2)
 }
 
 // match
-void sound_obj::sub_412490(int idx)
+void sound_obj::ProcessType2_412490(int idx)
 {
     static BYTE byte_66F2D4;
     static BYTE byte_66F540;

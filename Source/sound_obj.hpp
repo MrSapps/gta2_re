@@ -306,7 +306,7 @@ public:
 
     void ProcessEntity_4123A0(int id);
 
-    void sub_57DD50();
+    void ProcessType3_57DD50();
 
     void ProcessType1_412740(int a2);
 
@@ -322,7 +322,7 @@ public:
 
     void ProcessType11_418B60(int a2);
 
-    void sub_412490(int idx);
+    void ProcessType2_412490(int idx);
 
     char sub_412260(sound_0x68 *pObj);
 
