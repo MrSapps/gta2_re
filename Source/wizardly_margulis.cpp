@@ -462,6 +462,7 @@ void wizardly_margulis::Reset3DSamples_58D960()
     field_26BC_k17 = 0;
 }
 
+// match
 int wizardly_margulis::sub_58DC30(int a2)
 {
     return field_A8_sdt_entries[a2].field_10;
