@@ -224,23 +224,23 @@ void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1)
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
-    HINSTANCE hInstance_; // esi
-    HWND Window; // eax
-    int bQuit; // ebx
-    DWORD v8; // esi
-    DWORD v9; // edi
-    int v10; // eax
-    int state; // esi
-    int v14; // eax
-    int v15; // eax
-    DWORD v16; // [esp+10h] [ebp-68h] BYREF
-    struct tagRECT clientRec; // [esp+14h] [ebp-64h] BYREF
-    struct tagRECT windowRec; // [esp+24h] [ebp-54h] BYREF
-    struct tagMSG msg; // [esp+34h] [ebp-44h] BYREF
-    WNDCLASSA WndClass; // [esp+50h] [ebp-28h] BYREF
-    DWORD dxVer;
+    //HINSTANCE hInstance_; // esi
+    //HWND Window; // eax
+    //int bQuit; // ebx
+   // DWORD v8; // esi
+   //DWORD v9; // edi
+    //int v10; // eax
+   // int state; // esi
+    //int v14; // eax
+    //int v15; // eax
+    //DWORD v16; // [esp+10h] [ebp-68h] BYREF
+    //struct tagRECT clientRec; // [esp+14h] [ebp-64h] BYREF
+    //struct tagRECT windowRec; // [esp+24h] [ebp-54h] BYREF
+    //struct tagMSG msg; // [esp+34h] [ebp-44h] BYREF
+   // WNDCLASSA WndClass; // [esp+50h] [ebp-28h] BYREF
+    //DWORD dxVer;
 
-    hInstance_ = hInstance;
+    //hInstance_ = hInstance;
     gHInstance_708220 = hInstance;
     if (CoInitialize(0) < 0)
     {
@@ -254,6 +254,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     gMutex_707078 = CreateMutexA(0, 0, "GBH_COOP_MUTEX");
     GetGTA2Version_5E5D60(&gGTA2VersionMajor_708280, &gGTA2VersionMajor_708284);
+    DWORD v16;
+    DWORD dxVer;
     GetDirectXVersion_4C4EC0(&dxVer, &v16);
 
     if ((unsigned int)dxVer < 0x601)
@@ -267,6 +269,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     gDebug_67D52C.Init_4ABBD0();
     gLucid_hamilton_67E8E0.sub_4C53D0();
     bDoFrontEnd_626B68 = bSkip_frontend_67D53B == 0;
+
+    WNDCLASSA WndClass;
     WndClass.style = 3;
     WndClass.lpfnWndProc = WindowProc_5E4EE0;
     WndClass.cbClsExtra = 0;
@@ -290,21 +294,22 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         return 0;
     }
     sprintf(gTmpBuffer_67C598, "GTA2");
-    Window = CreateWindowExA(0, "WinMain", gTmpBuffer_67C598, 0xCF0000u, 0, 0, 100, 100, 0, 0, hInstance, 0);
-    gHwnd_707F04 = Window;
-    if (!Window)
+    gHwnd_707F04 = CreateWindowExA(0, "WinMain", gTmpBuffer_67C598, 0xCF0000u, 0, 0, 100, 100, 0, 0, hInstance, 0);
+    if (!gHwnd_707F04)
     {
         return 0;
     }
 
-    bQuit = nShowCmd;
-    ShowWindow(Window, nShowCmd);
+    int bQuit = nShowCmd;
+    ShowWindow(gHwnd_707F04, nShowCmd);
     UpdateWindow(gHwnd_707F04);
+    RECT clientRec;
     GetClientRect(gHwnd_707F04, &clientRec);
+    RECT windowRec;
     GetWindowRect(gHwnd_707F04, &windowRec);
 
-    v8 = window_width_706630 + windowRec.right + clientRec.left - clientRec.right - windowRec.left;
-    v9 = window_height_706B50 + windowRec.bottom + clientRec.top - clientRec.bottom - windowRec.top;
+    DWORD v8 = window_width_706630 + windowRec.right + clientRec.left - clientRec.right - windowRec.left;
+    DWORD v9 = window_height_706B50 + windowRec.bottom + clientRec.top - clientRec.bottom - windowRec.top;
 
     if (bDo_corner_window_67D4EE)
     {
@@ -329,6 +334,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     j_gbh_init_5D7CA0();
     Init_keybrd_jolly_and_sound_4DA440();
 
+    int state;
     if (laughing_blackwell_0x1EB54::intro_bik_exists_4B5FF0())
     {
         state = gRegistry_6FF968.Get_Screen_Setting_5870D0("do_play_movie", 1) != 1 ? 0 : 8;
@@ -371,6 +377,7 @@ LABEL_23:
                 {
                     do
                     {
+                        MSG msg;
                         while (PeekMessageA(&msg, 0, 0, 0, 1u))
                         {
                             if (msg.message == 18) // WM_QUIT
@@ -387,8 +394,7 @@ LABEL_23:
                         break;
                     }
 
-                    v14 = gLaughing_blackwell_0x1EB54_67DC84.sub_4AEDB0(bQuit);
-                    switch (v14)
+                    switch (gLaughing_blackwell_0x1EB54_67DC84.sub_4AEDB0(bQuit))
                     {
                     case 1:
                         bQuit = 1;
@@ -421,12 +427,10 @@ LABEL_23:
         {
             if (gGame_0x40_67E008->field_2C_main_state == 1)
             {
-            LABEL_50:
                 DestroyWindow(gHwnd_707F04);
             }
             else
             {
-            LABEL_47:
                 state = 7;
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;
@@ -437,15 +441,19 @@ LABEL_23:
             switch (gGame_0x40_67E008->field_2C_main_state)
             {
             case 1:
-                goto LABEL_50;
+                DestroyWindow(gHwnd_707F04);
+                break;
 
             case 2:
                 gLucid_hamilton_67E8E0.sub_4C5A10(gGame_0x40_67E008->field_38_orf1);
                 gJolly_poitras_0x2BC0_6FEAC0.sub_56BB10(gGame_0x40_67E008->field_38_orf1);
                 gJolly_poitras_0x2BC0_6FEAC0.sub_56C010();
+                /* todo
                 v15 = -(gLucid_hamilton_67E8E0.sub_4C59A0() != 0);
                 v15 = v15 & 0xFB; //lobyte
                 state = v15 + 11; //loword
+                */
+                state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 1;
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;
                 break;
@@ -469,7 +477,10 @@ LABEL_23:
                 break;
 
             case 5:
-                goto LABEL_47;
+                state = 7;
+                CleanUpInputAndOthers_4DA700();
+                bDoFrontEnd_626B68 = 1;
+                break;
 
             case 6:
                 state = 0;
