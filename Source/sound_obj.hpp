@@ -92,7 +92,7 @@ struct sound_0x68
     int field_34;
     int field_38;
     int field_3C;
-    char field_40;
+    char field_40_pan;
     char field_41;
     char field_42;
     char field_43;
@@ -236,7 +236,7 @@ struct sound_obj
 
     void ClearRequestedQueue_41B700();
 
-    void sub_41B7A0();
+    void ClearActivateSamples_41B7A0();
 
     void sub_41A2A0();
 

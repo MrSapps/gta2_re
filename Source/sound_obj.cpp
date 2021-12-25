@@ -3,6 +3,8 @@
 
 sound_obj gSound_obj_66F680;
 
+int dword_674CD8;
+
 void sound_obj::ClearRequestedQueue_41B700()
 {
     for (unsigned int i = 0; i < field_10_nActiveSamples; i++)
@@ -13,9 +15,39 @@ void sound_obj::ClearRequestedQueue_41B700()
     field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue] = 0;
 }
 
-void sound_obj::sub_41B7A0()
+void sound_obj::ClearActivateSamples_41B7A0()
 {
-    // todo
+    for (unsigned __int8 i = 0; i < field_10_nActiveSamples; i++ )
+    {
+        field_DC0[i].field_0 = 0;
+        field_DC0[i].field_4 = 0;
+        field_DC0[i].field_14_samp_idx = 321;
+        field_DC0[i].field_8_obj = dword_674CD8;
+        field_DC0[i].field_C = dword_674CD8;
+        field_DC0[i].field_10 = dword_674CD8;
+        field_DC0[i].field_18 = 0;
+        field_DC0[i].field_1C = 4;
+        field_DC0[i].field_20_rate = 22050;
+        field_DC0[i].field_58_type = 0;
+        field_DC0[i].field_24 = 0;
+        field_DC0[i].field_60 = 0;
+        field_DC0[i].field_64 = 10;
+        field_DC0[i].field_28 = 0;
+        field_DC0[i].field_2C = 0;
+        field_DC0[i].field_2D = 0;
+        field_DC0[i].field_30 = 1;
+        field_DC0[i].field_34 = 0;
+        field_DC0[i].field_38 = -1;
+        field_DC0[i].field_3C = 0;
+        field_DC0[i].field_54 = 0x190000;
+        field_DC0[i].field_40_pan = 63;
+        field_DC0[i].field_41 = 0;
+        field_DC0[i].field_44 = -3;
+        field_DC0[i].field_48 = 0;
+        field_DC0[i].field_4C = 0;
+        field_DC0[i].field_50 = -1;
+        field_DC0[i].field_5C = 0;
+    }
 }
 
 // match
@@ -26,7 +58,7 @@ void sound_obj::sub_41A2A0()
     field_98_nActiveQueue = 0;
 
     ClearRequestedQueue_41B700();
-    sub_41B7A0();
+    ClearActivateSamples_41B7A0();
 
     field_1450 = 0;
 
