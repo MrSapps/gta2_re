@@ -683,18 +683,18 @@ char wizardly_margulis::sub_58E140(HPROVIDER envIdx)
 {
     M3DRESULT ogEnvIdx = envIdx;
     field_26B4_env_idx = envIdx;
-    if (field_26B4_env_idx != -1)
+    if (envIdx != -1)
     {
-        M3DRESULT envIdx = AIL_open_3D_provider(field_26B4_env_idx);
-        if (envIdx)
+        M3DRESULT envIdx2 = AIL_open_3D_provider(field_1EB4_h3dProvider[envIdx]);
+        if (envIdx2)
         {
             field_26B4_env_idx = -1;
             return 0;
         }
 
-        field_26C0_3d_provider = field_1EB4_h3dProvider[ogEnvIdx];
-        AIL_3D_provider_attribute(field_26C0_3d_provider, "EAX environment selection", &envIdx);
-        if (envIdx != -1)
+        field_26C0_3d_provider = field_1EB4_h3dProvider[envIdx];
+        AIL_3D_provider_attribute(field_26C0_3d_provider, "EAX environment selection", &envIdx2);
+        if (envIdx2 != -1)
         {
             field_26B8_bHave_env = 1;
             sub_58E010(17);
