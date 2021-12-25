@@ -257,23 +257,20 @@ int ReadScreenSettings_5D8F70()
     int trippleBuffer_old = bTrippleBuffer_706C54;
     DWORD window_height_old = window_height_706B50;
 
-    int full_height;
     if (bDoFrontEnd_626B68)
     {
         window_width_706630 = 640;
-        full_height = 480;
         window_height_706B50 = 480;
         full_width_706B5C = 640;
+        full_height_706798 = 480;
     }
     else
     {
         window_width_706630 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_width", 640);
         window_height_706B50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_height", 480);
         full_width_706B5C = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_width", 640);
-        full_height = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_height", 480);
+        full_height_706798 = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_height", 480);
     }
-
-    full_height_706798 = full_height;
 
     gStartMode_626A0C = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
 
