@@ -11,7 +11,9 @@ struct infallible_turing
     char field_6;
     char field_7;
     int field_8;
-    infallible_turing *field_C_pObject;
+    
+    // Type depends on what field_0_object_type is
+    void *field_C_pObject;
 
     void release_40EF20();
 };
