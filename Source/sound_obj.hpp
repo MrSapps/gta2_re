@@ -293,9 +293,9 @@ public:
 
     const char* GetFileName_41A1E0(const char *pStr);
 
-    int sub_419FA0(infallible_turing* a2);
+    int AddSoundObject_419FA0(infallible_turing* a2);
 
-    void sub_41A090(int a2);
+    void FreeSoundEntry_41A090(int a2);
 
     void Release_41A290();
 

@@ -10,7 +10,7 @@ void infallible_turing::release_40EF20()
 {
     if (field_8)
     {
-        gRoot_sound_66B038.sub_40EFD0(field_8);
+        gRoot_sound_66B038.FreeSoundEntry_40EFD0(field_8);
     }
 }
 
@@ -25,14 +25,14 @@ void root_sound::Service_40EFA0()
     //gSound_obj_66F680.Service_419EF0(); // stub
 }
 
-int root_sound::sub_40EFB0(infallible_turing* a2)
+int root_sound::AddSoundObject_40EFB0(infallible_turing* a2)
 {
-    return gSound_obj_66F680.sub_419FA0(a2);
+    return gSound_obj_66F680.AddSoundObject_419FA0(a2);
 }
 
-void root_sound::sub_40EFD0(int a2)
+void root_sound::FreeSoundEntry_40EFD0(int a2)
 {
-    gSound_obj_66F680.sub_41A090(a2);
+    gSound_obj_66F680.FreeSoundEntry_41A090(a2);
 }
 
 char root_sound::LoadStyle_40EFF0(const char *pStyleName)
@@ -130,7 +130,7 @@ char root_sound::GetAudioDriveLetter_40F150()
 }
 
 // match
-infallible_turing* root_sound::sub_40EF40(infallible_turing *pObject, int objectType)
+infallible_turing* root_sound::CreateSoundObject_40EF40(infallible_turing *pObject, int objectType)
 {
     infallible_turing* pCurrent = field_0;
     field_0 = field_0->field_C_pObject;
@@ -141,7 +141,7 @@ infallible_turing* root_sound::sub_40EF40(infallible_turing *pObject, int object
 
     if (!bSkip_audio_67D6BE)
     {
-        pCurrent->field_8 = gRoot_sound_66B038.sub_40EFB0(pCurrent);
+        pCurrent->field_8 = gRoot_sound_66B038.AddSoundObject_40EFB0(pCurrent);
     }
 
     return pCurrent;

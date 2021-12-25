@@ -451,7 +451,7 @@ void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
         snd2_67D6F8.field_0_object_type = 2;
         snd2_67D6F8.field_C_pObject = &snd1_67D818;
         snd2_67D6F8.field_4 = 0;
-        snd2_67D6F8.field_8 = gRoot_sound_66B038.sub_40EFB0(&snd2_67D6F8);
+        snd2_67D6F8.field_8 = gRoot_sound_66B038.AddSoundObject_40EFB0(&snd2_67D6F8);
         gRoot_sound_66B038.LoadStyle_40EFF0("data\\fstyle.sty");
         gRoot_sound_66B038.Set3DSound_40F160(0);
     }
@@ -464,7 +464,7 @@ void __stdcall laughing_blackwell_0x1EB54::destroy_4AD070()
 {
     if (!bSkip_audio_67D6BE && snd2_67D6F8.field_8)
     {
-        gRoot_sound_66B038.sub_40EFD0(snd2_67D6F8.field_8);
+        gRoot_sound_66B038.FreeSoundEntry_40EFD0(snd2_67D6F8.field_8);
         snd2_67D6F8.field_8 = 0;
     }
 
@@ -1083,7 +1083,7 @@ void laughing_blackwell_0x1EB54::sub_4B8650()
     {
         if (snd2_67D6F8.field_8)
         {
-            gRoot_sound_66B038.sub_40EFD0(snd2_67D6F8.field_8);
+            gRoot_sound_66B038.FreeSoundEntry_40EFD0(snd2_67D6F8.field_8);
             snd2_67D6F8.field_8 = 0;
         }
     }

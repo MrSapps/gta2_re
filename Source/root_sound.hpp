@@ -30,15 +30,15 @@ public:
     */
     // todo: ordering
 
-    infallible_turing* sub_40EF40(infallible_turing *pObject, int objectType);
+    infallible_turing* CreateSoundObject_40EF40(infallible_turing *pObject, int objectType);
 
     void sub_40EF80();
 
     void Service_40EFA0();
 
-    int sub_40EFB0(infallible_turing* a2);
+    int AddSoundObject_40EFB0(infallible_turing* a2);
 
-    void sub_40EFD0(int a2);
+    void FreeSoundEntry_40EFD0(int a2);
 
     char LoadStyle_40EFF0(const char *pStyleName);
 

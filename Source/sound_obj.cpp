@@ -691,7 +691,7 @@ struct brave_archimedes_0x3C
 };
 
 // todo
-int sound_obj::sub_419FA0(infallible_turing* pTuring)
+int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
 {
     unsigned int idx = 1;
     if (!this->field_0 || !pTuring)
@@ -763,7 +763,7 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
     
 }
 
-void sound_obj::sub_41A090(int a2)
+void sound_obj::FreeSoundEntry_41A090(int a2)
 {
     // todo
 }
