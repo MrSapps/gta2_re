@@ -2465,50 +2465,40 @@ void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
 
 int laughing_blackwell_0x1EB54::sub_5D8990(wchar_t *pStr, WORD a2)
 {
-    wchar_t *v2; // edi
-    int v3; // esi
-    int v4; // ebp
-    int v5; // ebx
-    __int16 v6; // ax
-    int result; // eax
-
-    v2 = pStr;
-    v3 = 0;
-    v4 = 0;
-    
-    v5 = (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA7B0(&a2);
+    wchar_t *pStrIter = pStr;
+    int current = 0;
+    int biggestLine = 0;
+    int spaceSize = gGtx_0x106C_703DD4->sub_5AA7B0(&a2);
     if (*pStr)
     {
-
-
         do
         {
-            v6 = *v2;
-            if (*v2 == ' ')
+            __int16 str_char = *pStrIter;
+            if (*pStrIter == ' ')
             {
-                v3 += v5;
+                current += spaceSize;
             }
-            else if (v6 == '\n')
+            else if (str_char == '\n')
             {
-                if (v3 > v4)
-                    v4 = v3;
-                v3 = 0;
+                if (current > biggestLine)
+                {
+                    biggestLine = current;
+                }
+                current = 0;
             }
-            else if (v6 != '#')
+            else if (str_char != '#')
             {
-                v3 += (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA760(&a2, v2);
+                current += gGtx_0x106C_703DD4->sub_5AA760(&a2, pStrIter);
             }
-            ++v2;
-        } while (*v2);
+            ++pStrIter;
+        } while (*pStrIter);
 
-
-        if (v3 > v4)
+        if (current > biggestLine)
         {
-            v4 = v3;
+            biggestLine = current;
         }
     }
-    return v4;
-
+    return biggestLine;
 }
 
 int laughing_blackwell_0x1EB54::sub_4B0190(wchar_t* a2, __int16 a3, int a4)

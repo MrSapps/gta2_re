@@ -201,7 +201,7 @@ unsigned __int16 gtx_0x106C::sub_5AA710(unsigned __int16 a2, __int16 a3)
     return result;
 }
 
-__int16 gtx_0x106C::sub_5AA760(WORD *a2, wchar_t *a3)
+unsigned __int16 gtx_0x106C::sub_5AA760(WORD *a2, wchar_t *a3)
 {
     unsigned __int16 v3; // ax
     int v4; // eax
@@ -217,7 +217,7 @@ __int16 gtx_0x106C::sub_5AA760(WORD *a2, wchar_t *a3)
     return v4 + 32;
 }
 
-__int16 gtx_0x106C::sub_5AA7B0(WORD *a2)
+unsigned __int16 gtx_0x106C::sub_5AA7B0(WORD *a2)
 {
     // TODO
     UNIQUE_FUNC;
