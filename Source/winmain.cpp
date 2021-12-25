@@ -491,6 +491,30 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         break;
 
     case WM_SYSCOMMAND:
+        switch (wParam & 0xFFF0)
+        {
+        case SC_SCREENSAVE:
+        case SC_MONITORPOWER:
+            return 0;
+
+        case SC_MINIMIZE:
+            UpdateWinXY_5D8E70();
+            if (byte_70827C != 2)
+            {
+                sub_5D9230(1u);
+                sub_5D92D0();
+                sub_5D9680();
+            }
+            break;
+
+        case SC_RESTORE:
+            UpdateWinXY_5D8E70();
+            break;
+
+        default:
+            break;
+        }
+        /*
         sysCommand = wParam & 0xFFF0;
         if (sysCommand > 0xF140)
         {
@@ -502,6 +526,9 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         }
         else if (sysCommand != 0xF140) // else added
         {
+            // F020 = SC_MINIMIZE
+            // 120 = SC_RESTORE
+            // 0xF140-0xF020 = 0x120
             v15 = sysCommand - 0xF020;
             if (v15)
             {
@@ -526,6 +553,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         {
             return 0;
         }
+        */
         break;
 
     case WM_SIZING:
