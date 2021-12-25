@@ -94,7 +94,11 @@ target_link_libraries(decomp_main mss32)
 
 # NOICF is required because skip_ovly_5AAE20 and skip_psxt_5AAE30 have identical bodies and the linker will make them one and the same
 # however the real binary does have 2 copies. NOREF keeps functions that are not yet called so we can diff the content against the original.
+if (${MSVC_VERSION} GREATER 1200)
 set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map /OPT:NOICF,NOREF /SAFESEH:NO" )
+else()
+set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map /OPT:NOICF,NOREF" )
+endif()
 set (CMAKE_SHARED_LINKER_FLAGS "/OPT:NOICF,NOREF")
 
 set(CompilerFlags
@@ -105,6 +109,8 @@ set(CompilerFlags
         CMAKE_C_FLAGS_DEBUG
         CMAKE_C_FLAGS_RELEASE
         )
+
+if (${MSVC_VERSION} EQUAL 1200)
 foreach(CompilerFlag ${CompilerFlags})
   string(REPLACE "/MD" "/ML /W3 /GX" ${CompilerFlag} "${${CompilerFlag}}")
 endforeach()
@@ -116,9 +122,14 @@ endforeach()
 foreach(CompilerFlag ${CompilerFlags})
   string(REPLACE "/GR" "/EHsc" ${CompilerFlag} "${${CompilerFlag}}")
 endforeach()
+endif()
 
 target_link_libraries (decomp_main Source)
 
-SET ( CMAKE_SHARED_LINKER_FLAGS /MANIFEST:NO )
+message(STATUS "${MSVC_VERSION}=${${MSVC_VERSION}}")
+
+if (${MSVC_VERSION} GREATER 1200)
+   SET ( CMAKE_SHARED_LINKER_FLAGS /MANIFEST:NO )
+endif()
 
 install (TARGETS decomp_main DESTINATION bin)
