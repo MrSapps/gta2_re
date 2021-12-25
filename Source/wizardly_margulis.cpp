@@ -681,7 +681,6 @@ void wizardly_margulis::sub_58E010(int a2)
 
 char wizardly_margulis::sub_58E140(int envIdx)
 {
-    int ogEnvIdx = envIdx;
     field_26B4_env_idx = envIdx;
     if (envIdx != -1)
     {
