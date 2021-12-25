@@ -846,6 +846,7 @@ void sound_obj::sub_57EA10()
     // todo
 }
 
+// match
 void sound_obj::Service_419EF0()
 {
     static char byte_674E24;
@@ -873,15 +874,13 @@ void sound_obj::Service_419EF0()
     {
         if (!field_1)
         {
-            const unsigned int frameCounter = field_5448_m_FrameCounter;
-            field_5448_m_FrameCounter = frameCounter + 1;
-            if (!(frameCounter % 5))
+            if (!(field_5448_m_FrameCounter++ % 5))
             {
-                gSound_obj_66F680.field_544C[0].field_0 = 1;
+                field_544C[0].field_0 = 1;
                 ServiceSoundEffects_41A3A0();
                 return;
             }
-            gSound_obj_66F680.field_544C[0].field_0 = 0;
+            field_544C[0].field_0 = 0;
         }
         ServiceSoundEffects_41A3A0();
     }

@@ -167,7 +167,7 @@ public:
     unsigned int field_543C_444C_max_idx;
     int field_5440;
     int field_5444;
-    int field_5448_m_FrameCounter;
+    unsigned int field_5448_m_FrameCounter;
     sound_7 field_544C[5];
     char field_54D8[5];
     char field_54DD;
