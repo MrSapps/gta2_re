@@ -354,3 +354,16 @@ char sound_obj::sub_4182A0(sound_0x68 *pObj)
     pObj->field_4C = 5;
     return 1;
 }
+
+// match
+char sound_obj::sub_418130(sound_0x68 *pObj)
+{
+    pObj->field_14_samp_idx = 24;
+    pObj->field_3C = 400;
+    pObj->field_4C = 2;
+    pObj->field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(24);
+    pObj->field_30 = 0;
+    pObj->field_34 = gSampManager_6FFF00.sub_58DC30(pObj->field_14_samp_idx);
+    pObj->field_38 = gSampManager_6FFF00.sub_58DC50(pObj->field_14_samp_idx);
+    return 1;
+}
