@@ -966,6 +966,7 @@ void sound_obj::sub_412A60(int a2)
     // todo
 }
 
+// match
 void sound_obj::sub_418CA0()
 {
     int voc_idx; // edx
@@ -1147,7 +1148,7 @@ void sound_obj::sub_418CA0()
         case 31:
         case 32:
             voc_idx = this->field_1454_anRandomTable[0] % 13u + 85;
-            if (this->field_1454_anRandomTable[0] % 13u != 14)
+            if (voc_idx != 0x63)
             {
                 goto play_it;
             }
@@ -1161,7 +1162,8 @@ void sound_obj::sub_418CA0()
 
     play_it:
         gSampManager_6FFF00.PlayVocal_58E510(1, voc_idx, 1);
-        gSampManager_6FFF00.SetVocalVolume_58E6D0(1, 127 * this->field_24_sfx_vol / 127);
+        BYTE v = 127 * this->field_24_sfx_vol / 127;
+        gSampManager_6FFF00.SetVocalVolume_58E6D0(1, v);
 
         this->field_544C[0].field_18 = 0;
     }

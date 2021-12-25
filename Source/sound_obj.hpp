@@ -124,7 +124,7 @@ public:
     char field_1E;
     char field_1F;
     int field_20;
-    char field_24_sfx_vol;
+    unsigned char field_24_sfx_vol;
     unsigned __int8 field_25_cdVol;
     char field_26;
     char field_27;
