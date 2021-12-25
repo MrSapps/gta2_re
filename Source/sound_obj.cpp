@@ -198,18 +198,18 @@ void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
     field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i] = sample;
 }
 
+// match
 void sound_obj::AddSampleToRequestedQueue_41A850()
 {
     unsigned int newVol = this->field_30_sQueueSample.field_1C * (127 - this->field_30_sQueueSample.field_24);
 
-    unsigned __int8 requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
-
     unsigned __int8 new_requested_count;
-    if (requested_count < this->field_10_nActiveSamples)
+    if (field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] < this->field_10_nActiveSamples)
     {
         unsigned __int8 old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
-        this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] = requested_count + 1;
         new_requested_count = old_requested_count;
+        this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue]++;
+       
     }
     else
     {
