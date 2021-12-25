@@ -1215,13 +1215,8 @@ void sound_obj::sub_412490(int idx)
 {
     static BYTE byte_66F2D4;
     static BYTE byte_66F540;
-
-    infallible_turing *field_C_pObject; // edi
-    int streamVol; // edx
-    int sampIdx1; // eax
-    int sampIdx2; // edi
-
-    field_C_pObject = (infallible_turing*)this->field_147C[idx].field_4_pObj->field_C_pObject;
+ 
+    infallible_turing* field_C_pObject = (infallible_turing*)field_147C[idx].field_4_pObj->field_C_pObject;
     if (!field_C_pObject)
     {
         return;
@@ -1229,25 +1224,24 @@ void sound_obj::sub_412490(int idx)
 
     if (field_C_pObject->field_4)
     {
-        this->field_3 = 0;
+        field_3 = 0;
         if (gSampManager_6FFF00.StreamStatus_58E2C0() || !byte_66F540)
         {
             gSampManager_6FFF00.CloseStream_58E460();
             gSampManager_6FFF00.OpenStream_58E320(2u);
-            gSampManager_6FFF00.StreamSetVolume_58E2F0(6 * this->field_25_cdVol / 10);
+            gSampManager_6FFF00.StreamSetVolume_58E2F0((6 * field_25_cdVol) / 10);
             byte_66F540 = 1;
         }
     }
     else
     {
-        if (this->field_3)
+        if (field_3)
         {
             if (gSampManager_6FFF00.StreamStatus_58E2C0())
             {
                 gSampManager_6FFF00.CloseStream_58E460();
                 gSampManager_6FFF00.OpenStream_58E320(0);
-                streamVol = 6 * this->field_25_cdVol / 10;
-                gSampManager_6FFF00.StreamSetVolume_58E2F0(streamVol);
+                gSampManager_6FFF00.StreamSetVolume_58E2F0((6 * field_25_cdVol) / 10);
             }
 
         }
@@ -1257,93 +1251,93 @@ void sound_obj::sub_412490(int idx)
             {
                 gSampManager_6FFF00.CloseStream_58E460();
                 gSampManager_6FFF00.OpenStream_58E320(1u);
-                streamVol = 6 * this->field_25_cdVol / 10;
-                gSampManager_6FFF00.StreamSetVolume_58E2F0(streamVol);
+                gSampManager_6FFF00.StreamSetVolume_58E2F0((6 * field_25_cdVol) / 10);
             }
         }
     }
 
+    int sampIdx1;
+    int sampIdx2;
     switch (field_C_pObject->field_0_object_type)
     {
     case 1:
         sampIdx1 = 0;
         sampIdx2 = 1;
-        goto LABEL_22;
+        break;
     case 2:
         sampIdx1 = 2;
         sampIdx2 = 3;
-        goto LABEL_22;
+        break;
     case 3:
         sampIdx1 = 4;
         sampIdx2 = 5;
-        goto LABEL_22;
+        break;
     case 4:
         sampIdx1 = 6;
         sampIdx2 = 7;
-        goto LABEL_22;
+        break;
     case 5:
         sampIdx1 = 8;
         sampIdx2 = 9;
-        goto LABEL_22;
+        break;
     case 6:
         sampIdx1 = 10;
         sampIdx2 = 11;
-        goto LABEL_22;
+        break;
     case 7:
         sampIdx1 = 12;
         sampIdx2 = 13;
-        goto LABEL_22;
+        break;
     case 8:
         sampIdx1 = 14;
         sampIdx2 = 15;
-        goto LABEL_22;
+        break;
     case 9:
         sampIdx1 = 16;
         sampIdx2 = 17;
-    LABEL_22:
-        this->field_30_sQueueSample.field_0 = idx;
-        this->field_30_sQueueSample.field_5C = 0;
-        this->field_30_sQueueSample.field_18 = 1;
-        this->field_30_sQueueSample.field_8_obj.field_0 = dword_66F3F0;
-        this->field_30_sQueueSample.field_8_obj.field_4 = dword_66F3F0;
-        this->field_30_sQueueSample.field_8_obj.field_8 = dword_66F3F0;
-        this->field_30_sQueueSample.field_1C_ReleasingVolumeModificator = 0;
-        this->field_30_sQueueSample.field_24_nVolume = 127;
-        this->field_30_sQueueSample.field_28 = dword_66F3F0;
-        this->field_30_sQueueSample.field_30 = 1;
-        this->field_30_sQueueSample.field_34 = 0;
-        this->field_30_sQueueSample.field_38 = -1;
-        this->field_30_sQueueSample.field_3C = 0;
-        this->field_30_sQueueSample.field_41 = 1;
-        this->field_30_sQueueSample.field_54 = 81920;
-        this->field_30_sQueueSample.field_58_type = 20;
-        this->field_30_sQueueSample.field_60 = 127;
-        this->field_30_sQueueSample.field_64 = 10;
-        this->field_30_sQueueSample.field_14_samp_idx = sampIdx1;
-        this->field_30_sQueueSample.field_40_pan = 0;
-        this->field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx1);
-        
-        this->field_30_sQueueSample.field_4 = byte_66F2D4++;
-        if (byte_66F2D4 >= 0xFF)
-        {
-            byte_66F2D4 = 0;
-        }
-        AddSampleToRequestedQueue_41A850();
-
-        this->field_30_sQueueSample.field_14_samp_idx = sampIdx2;
-        this->field_30_sQueueSample.field_40_pan = 127;
-        this->field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx2);
-        
-        this->field_30_sQueueSample.field_4 = byte_66F2D4++;
-        if (byte_66F2D4 >= 0xFF)
-        {
-            byte_66F2D4 = 0;
-        }
-
-        AddSampleToRequestedQueue_41A850();
         break;
 
     default:
         return;
     }
+
+    // Add first sample
+    field_30_sQueueSample.field_0 = idx;
+    field_30_sQueueSample.field_5C = 0;
+    field_30_sQueueSample.field_18 = 1;
+    field_30_sQueueSample.field_8_obj.field_0 = dword_66F3F0;
+    field_30_sQueueSample.field_8_obj.field_4 = dword_66F3F0;
+    field_30_sQueueSample.field_8_obj.field_8 = dword_66F3F0;
+    field_30_sQueueSample.field_1C_ReleasingVolumeModificator = 0;
+    field_30_sQueueSample.field_24_nVolume = 127;
+    field_30_sQueueSample.field_28 = dword_66F3F0;
+    field_30_sQueueSample.field_30 = 1;
+    field_30_sQueueSample.field_34 = 0;
+    field_30_sQueueSample.field_38 = -1;
+    field_30_sQueueSample.field_3C = 0;
+    field_30_sQueueSample.field_41 = 1;
+    field_30_sQueueSample.field_54 = 81920;
+    field_30_sQueueSample.field_58_type = 20;
+    field_30_sQueueSample.field_60 = 127;
+    field_30_sQueueSample.field_64 = 10;
+    field_30_sQueueSample.field_14_samp_idx = sampIdx1;
+    field_30_sQueueSample.field_40_pan = 0;
+    field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx1);
+    field_30_sQueueSample.field_4 = byte_66F2D4++;
+    if (byte_66F2D4 >= 0xFF)
+    {
+        byte_66F2D4 = 0;
+    }
+    AddSampleToRequestedQueue_41A850();
+
+    // Add second sample
+    field_30_sQueueSample.field_14_samp_idx = sampIdx2;
+    field_30_sQueueSample.field_40_pan = 127;
+    field_30_sQueueSample.field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(sampIdx2);
+    field_30_sQueueSample.field_4 = byte_66F2D4++;
+    if (byte_66F2D4 >= 0xFF)
+    {
+        byte_66F2D4 = 0;
+    }
+    AddSampleToRequestedQueue_41A850();
 }
