@@ -291,6 +291,8 @@ public:
 
     int zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len);
 
+    gmp_map_zone* zone_by_type_bounded_4DF0F0(char zone_type);
+
     // todo: other funcs between
 
     gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
