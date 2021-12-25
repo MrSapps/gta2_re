@@ -16,8 +16,10 @@ struct infallible_turing
     void release_40EF20();
 };
 
-struct root_sound
+class root_sound
 {
+public:
+
     infallible_turing *field_0;
     infallible_turing field_4[999+1];
     /*
@@ -28,37 +30,49 @@ struct root_sound
     */
     // todo: ordering
 
-    root_sound();
-
-    char Set3DSound_40F160(char b3dSound);
-
-    char Get3DSound_40F180();
+    infallible_turing* sub_40EF40(infallible_turing *a2, int a3);
 
     void sub_40EF80();
 
-    void SetCDVol_40F0F0(unsigned int cdVol);
-
-    void SetSfxVol_40F0B0(unsigned __int8 cdVol);
-    
     void Service_40EFA0();
 
     int sub_40EFB0(infallible_turing* a2);
 
+    void sub_40EFD0(int a2);
+
     char LoadStyle_40EFF0(const char *pStyleName);
 
-    void sub_40EFD0(int a2);
+    void sub_40F010();
+
+    void sub_40F020();
+
+    char* sub_40F030(int a1, int a2, int a3);
+
+    char sub_40F050(int a1, int a2);
+
+    void sub_40F070(char a1);
+
+    int sub_40F090(int state);
+
+    void SetSfxVol_40F0B0(unsigned __int8 cdVol);
+
+    void SetCDVol_40F0F0(unsigned int cdVol);
+
+    unsigned __int8 GetCDVol_40F120();
 
     void Release_40F130();
 
     void sub_40F140();
 
-    infallible_turing* sub_40EF40(infallible_turing *a2, int a3);
-
     char GetAudioDriveLetter_40F150();
 
-    unsigned __int8 GetCDVol_40F120();
+    char Set3DSound_40F160(char b3dSound);
 
-    int sub_40F090(int state);
+    char Get3DSound_40F180();
+
+    root_sound();
+
+    ~root_sound();
 };
 
 

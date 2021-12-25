@@ -19,6 +19,11 @@ root_sound::root_sound() // match
     field_4[999].field_C = 0;
 }
 
+root_sound::~root_sound()
+{
+    field_0 = 0;
+}
+
 // match
 char root_sound::Set3DSound_40F160(char b3dSound)
 {
@@ -79,6 +84,11 @@ char root_sound::LoadStyle_40EFF0(const char *pStyleName)
     return gSound_obj_66F680.LoadStyle_41A1B0(pStyleName);
 }
 
+void root_sound::sub_40F010()
+{
+    // todo
+}
+
 void root_sound::sub_40EFD0(int a2)
 {
     gSound_obj_66F680.sub_41A090(a2);
@@ -121,6 +131,32 @@ char root_sound::GetAudioDriveLetter_40F150()
 unsigned __int8 root_sound::GetCDVol_40F120()
 {
     return gSound_obj_66F680.field_25_cdVol;
+}
+
+void root_sound::sub_40F020()
+{
+    //gSound_obj_66F680.sub_57EA10();
+    // todo
+}
+
+char* root_sound::sub_40F030(int a1, int a2, int a3)
+{
+    //return gSound_obj_66F680.sub_57ECB0(a1, a2, a3);
+    // todo
+    return 0;
+}
+
+char root_sound::sub_40F050(int a1, int a2)
+{
+    //return gSound_obj_66F680.sub_57EE30(a1, a2);
+    // todo
+    return 0;
+}
+
+void root_sound::sub_40F070(char a1)
+{
+    //gSound_obj_66F680.sub_57EEE0(a1);
+    // todo
 }
 
 int root_sound::sub_40F090(int state)
