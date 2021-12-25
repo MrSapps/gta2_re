@@ -1072,7 +1072,7 @@ void laughing_blackwell_0x1EB54::sub_4B7AE0()
     // todo
 
     // TEST
-
+    
     if (gbh_BlitImage(tgaArray_61F0C8[23].field_84_img, 0, 0, 451, 144, 85, 0) == -10)
     {
         Load_tga_4B6520(23u);
@@ -1222,15 +1222,15 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
             switch (pBorg->field_BC6_nifty_idx)
             {
             case 0:
-                field_EE08 = 1;
+                field_EE08 = Play_1;
                 break;
 
             case 1:
-                field_EE08 = 0;
+                field_EE08 = Options_0;
                 break;
 
             case 2:
-                field_EE08 = 2;
+                field_EE08 = Quit_2;
                 break;
             }
         }
@@ -1239,13 +1239,13 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
             switch (pBorg->field_BC6_nifty_idx)
             {
             case 0u:
-                this->field_EE08 = 10;
+                this->field_EE08 = EnterPlayerName_10;
                 break;
             case 1u:
-                this->field_EE08 = 11;
+                this->field_EE08 = ResumeLoadSave_11;
                 break;
             case 2u:
-                this->field_EE08 = 6;
+                this->field_EE08 = ViewHiScore_6;
                 break;
             case 3u:
                 this->field_EE08 = gLucid_hamilton_67E8E0.sub_4C5980() + 7;
@@ -1259,11 +1259,11 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
         }
         else if (field_132_f136_idx == 5)
         {
-            field_EE08 = 12;
+            field_EE08 = HiScoresDisplay_12;
         }
         else if (field_132_f136_idx == 2)
         {
-            field_EE08 = 13;
+            field_EE08 = GameOver_13;
         }
         else if (field_132_f136_idx == 3u ||
             field_132_f136_idx == 6 ||
@@ -1271,19 +1271,19 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
             field_132_f136_idx == 0xB ||
             field_132_f136_idx == 0xE)
         {
-            field_EE08 = 16;
+            field_EE08 = RedBar_16;
         }
         else if (field_132_f136_idx == 4 || field_132_f136_idx == 0xA)
         {
-            field_EE08 = 15;
+            field_EE08 = Loading_15;
         }
         else if (field_132_f136_idx == 9)
         {
-            field_EE08 = 17;
+            field_EE08 = Credits_17;
         }
         else
         {
-            field_EE08 = 7;
+            field_EE08 = PlayArea1_7;
         }
     }
 }
@@ -1444,7 +1444,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 }
                 sub_4B4D00(v8, 0);
             LABEL_28:
-                this->field_EE08 = 16;
+                this->field_EE08 = RedBar_16;
                 this->field_110_state = 2;
                 dword_67D818 = 5;
                 break;
@@ -1457,7 +1457,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 sub_4B4D00(v9 >> 4, v9 & 0xF);
                 gLucid_hamilton_67E8E0.sub_4C5AD0(1);
             LABEL_9:
-                this->field_EE08 = 16;
+                this->field_EE08 = RedBar_16;
                 this->field_110_state = 2;
             LABEL_10:
                 pBorg = v18;
@@ -1865,7 +1865,7 @@ void laughing_blackwell_0x1EB54::sub_4B8020()
 
         sub_4B4D00(idx, i);
         gLucid_hamilton_67E8E0.sub_4C5AD0(0);
-        field_EE08 = 16;
+        field_EE08 = RedBar_16;
         field_110_state = 2;
     }
 }
@@ -2109,19 +2109,18 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0()
         gVidSys_7071D0->field_4C_rect_bottom);
 }
 
-
 void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
 {
     // todo
     BYTE tga_idx; // [esp+50h] [ebp-8h] BYREF
     BYTE not_used; // [esp+54h] [ebp-4h] BYREF
 
-    if (field_EE08 == 13
-        || field_EE08 == 16
-        || field_EE08 == 14
-        || field_EE08 == 15
-        || field_EE08 == 12
-        || field_EE08 == 17)
+    if (field_EE08 == GameOver_13
+        || field_EE08 == RedBar_16
+        || field_EE08 == BlueBar_14
+        || field_EE08 == Loading_15
+        || field_EE08 == HiScoresDisplay_12
+        || field_EE08 == Credits_17)
     {
         sub_4B6B00(field_EE08, &tga_idx, &not_used);
         int blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 640, 480, 0, 0);
@@ -2137,6 +2136,7 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
     {
         sub_4B6B00(field_EE08, &tga_idx, &not_used);
 
+        // Left side
         int blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         if (blitRet == -10)
         {
@@ -2144,6 +2144,7 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
             blitRet = gbh_BlitImage(tgaArray_61F0C8[tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         }
 
+        // Right side
         if (blitRet == 0)
         {
             blitRet = gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0);
@@ -2162,89 +2163,92 @@ void laughing_blackwell_0x1EB54::sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, B
 {
     switch (a1)
     {
-    case 0u:
+    case Options_0:
         *pTgaIdx = 1;
         *a3 = 0;
         break;
 
-    case 1u:
+    case Play_1:
         *pTgaIdx = 2;
         *a3 = 0;
         break;
 
-    case 2u:
+    case Quit_2:
         *pTgaIdx = 3;
         *a3 = 0;
         break;
 
-    case 3u:
+    case BonusAC_3:
         *pTgaIdx = 5;
         *a3 = 4;
         break;
 
-    case 4u:
+    case BonusDF_4:
         *pTgaIdx = 6;
         *a3 = 4;
         break;
-    case 5u:
+
+    case BonusGI_5:
         *pTgaIdx = 7;
         *a3 = 4;
         break;
 
-    case 6u:
+    case ViewHiScore_6:
         *pTgaIdx = 8;
         *a3 = 4;
         break;
 
-    case 7u:
+    case PlayArea1_7:
         *pTgaIdx = 9;
         *a3 = 4;
         break;
-    case 8u:
+
+    case PlayArea2_8:
         *pTgaIdx = 10;
         *a3 = 4;
         break;
 
-    case 9u:
+    case PlayArea3_9:
         *pTgaIdx = 11;
         *a3 = 4;
         break;
 
-    case 10u:
+    case EnterPlayerName_10:
         *pTgaIdx = 12;
         *a3 = 4;
         break;
 
-    case 11u:
+    case ResumeLoadSave_11:
         *pTgaIdx = 13;
         *a3 = 4;
         break;
-    case 12u:
+
+    case HiScoresDisplay_12:
         *pTgaIdx = 15;
         *a3 = 0;
         break;
 
-    case 13u:
+    case GameOver_13:
         *pTgaIdx = 19;
         *a3 = 0;
         break;
 
-    case 16u:
+    case RedBar_16:
         *pTgaIdx = 17;
         *a3 = 0;
         break;
 
-    case 14u:
+    case BlueBar_14:
         *pTgaIdx = 18;
         *a3 = 0;
         break;
 
-    case 15u:
+    case Loading_15:
         *pTgaIdx = 16;
         *a3 = 0;
         break;
 
-    case 17u:
+    case Credits_17:
         *pTgaIdx = 22;
         *a3 = 0;
         break;
@@ -2393,7 +2397,7 @@ laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
     sub_4B4440();
     LoadPlySlotSvgs_4B53C0();
     
-    field_EE08 = 1;
+    field_EE08 = Play_1;
     
     Load_tgas_4B66B0();
 

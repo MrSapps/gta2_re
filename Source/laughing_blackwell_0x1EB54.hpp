@@ -185,6 +185,28 @@ struct loving_borg_0xBCA
 
 struct dreamy_clarke_0xA4;
 
+enum MenuScreen
+{
+    Options_0 = 0,
+    Play_1 = 1,
+    Quit_2 = 2,
+    BonusAC_3 = 3,
+    BonusDF_4 = 4,
+    BonusGI_5 = 5,
+    ViewHiScore_6 = 6,
+    PlayArea1_7 = 7,
+    PlayArea2_8 = 8,
+    PlayArea3_9 = 9,
+    EnterPlayerName_10 = 10,
+    ResumeLoadSave_11 = 11,
+    HiScoresDisplay_12 = 12,
+    GameOver_13 = 13,
+    BlueBar_14 = 14, // for game over?
+    Loading_15 = 15, // seems to have some progress bar? prob never seen due to fast loading
+    RedBar_16 = 16, // for player quit ?
+    Credits_17 = 17,
+};
+
 struct laughing_blackwell_0x1EB54
 {
     LPDIRECTINPUTA field_0_pDInput;
