@@ -1612,9 +1612,13 @@ struct jolly_poitras_0x2BC0
 
     void sub_56C010();
 
-    static char PlySlotDatExists_56B940(int a1);
+    void GetPlySlotDatName_56B8A0(unsigned __int16 a1, char *a2);
 
-    static char HiScoreHscExists_56BCA0();
+    char PlySlotDatExists_56B940(int a1);
+
+    void GetHiScoreHscFileName_56BCF0(char *pName);
+
+    char HiScoreHscExists_56BCA0();
 
     void sub_56B990(int a2);
 

@@ -1,5 +1,7 @@
 #include "jolly_poitras_0x2BC0.hpp"
 #include "error.hpp"
+#include "file.hpp"
+#include <io.h>
 
 jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;
 
@@ -79,21 +81,102 @@ void jolly_poitras_0x2BC0::sub_56C010()
     // todo
 }
 
-char jolly_poitras_0x2BC0::PlySlotDatExists_56B940(int a1)
+// match
+void jolly_poitras_0x2BC0::GetPlySlotDatName_56B8A0(unsigned __int16 a1, char *a2)
 {
-    // todo
-    return 0;
+    char Buffer[8];
+    _itoa(a1, Buffer, 10);
+    strcpy(a2, "player\\plyslot");
+    strcat(a2, Buffer);
+    strcat(a2, ".dat");
 }
 
+// match
+char jolly_poitras_0x2BC0::PlySlotDatExists_56B940(int a1)
+{
+    char FileName[356];
+    GetPlySlotDatName_56B8A0(a1, FileName);
+
+    _finddata_t findData;
+    long hFind = _findfirst(FileName, &findData);
+    if (hFind == -1)
+    {
+        return 0;
+    }
+    _findclose(hFind);
+    return 1;
+}
+
+// match
+void jolly_poitras_0x2BC0::GetHiScoreHscFileName_56BCF0(char *pName)
+{
+    strcpy(pName, "player\\hiscores.hsc");
+}
+
+// match
 char jolly_poitras_0x2BC0::HiScoreHscExists_56BCA0()
 {
-    // todo
-    return 0;
+    char FileName[356];
+    GetHiScoreHscFileName_56BCF0(FileName);
+
+    _finddata_t findData;
+    long hFind = _findfirst(FileName, &findData);
+    if (hFind == -1)
+    {
+        return 0;
+    }
+    _findclose(hFind);
+    return 1;
 }
 
 void jolly_poitras_0x2BC0::sub_56B990(int a2)
 {
-    // todo
+    char *v2; // ebx
+    char *v3; // esi
+    int v4; // edi
+    char *v5; // esi
+    int v6; // edi
+    int v7; // [esp+10h] [ebp-16Ch] BYREF
+    int v8; // [esp+14h] [ebp-168h] BYREF
+    char FileName[356]; // [esp+18h] [ebp-164h] BYREF
+
+    v2 = (char *)this + 0xA4 * (unsigned __int16)a2;
+
+    GetPlySlotDatName_56B8A0(a2, FileName);
+    File::Global_Open_4A7060(FileName);
+
+    v3 = v2 + 0x2730;
+
+    v4 = 9;
+    do
+    {
+        v8 = 2;
+        File::Global_Read_4A71C0(v3, &v8);
+        v3 += 2;
+        --v4;
+    } while (v4);
+
+    v5 = v2 + 0x26A8;
+
+    v8 = 3;
+    do
+    {
+        v6 = 4;
+        do
+        {
+            v7 = 1;
+            File::Global_Read_4A71C0(v5 - 8, &v7);
+            v7 = 4;
+            File::Global_Read_4A71C0(v5 - 4, &v7);
+            v7 = 4;
+            File::Global_Read_4A71C0(v5, &v7);
+            v5 += 12;
+            --v6;
+        } while (v6);
+        --v8;
+    } while (v8);
+
+    File::Global_Close_4A70C0();
 }
 
 void jolly_poitras_0x2BC0::sub_56BA60(int a2)
