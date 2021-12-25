@@ -1,6 +1,7 @@
 #include "sound_obj.hpp"
 #include "cSampleManager.hpp"
 #include "Game_0x40.hpp"
+#include "laughing_blackwell_0x1EB54.hpp"
 #include <math.h>
 
 sound_obj gSound_obj_66F680;
@@ -1339,4 +1340,140 @@ void sound_obj::sub_412490(int idx)
         byte_66F2D4 = 0;
     }
     AddSampleToRequestedQueue_41A850();
+}
+
+char sound_obj::sub_412260(sound_0x68 *pObj)
+{
+    char result;
+
+    if (gGame_0x40_67E008 && this->field_1478_type5Idx && !this->field_1)
+    {
+        switch (pObj->field_58_type)
+        {
+        case 1:
+        case 6:
+            result = sub_416260(pObj);
+            break;
+        case 2:
+            result = sub_4182A0(pObj);
+            break;
+        case 3:
+            result = sub_4174C0(pObj);
+            break;
+        case 4:
+            result = sub_417A00(pObj);
+            break;
+        case 5:
+            result = sub_415730(pObj);
+            break;
+        case 7:
+            result = sub_417EF0(pObj);
+            break;
+        case 8:
+            result = sub_418130(pObj);
+            break;
+        case 9:
+            result = sub_4186D0(pObj);
+            break;
+        case 10:
+            result = sub_418940(pObj);
+            break;
+        case 11:
+            result = sub_414EE0(pObj);
+            break;
+        case 12:
+            result = sub_414C90(pObj);
+            break;
+        case 13:
+            result = sub_4153F0(pObj);
+            break;
+        case 15:
+            result = sub_415100(pObj);
+            break;
+        case 16:
+            result = sub_414320(pObj);
+            break;
+        case 17:
+            result = sub_414690(pObj);
+            break;
+        case 19:
+            result = sub_4149D0(pObj);
+            break;
+        case 20:
+            return 1;
+        default:
+            return 0;
+        }
+    }
+    else
+    {
+        return gLaughing_blackwell_0x1EB54_67DC84 && pObj->field_58_type == 20;
+    }
+    return result;
+}
+
+char sound_obj::sub_416260(sound_0x68 *a1)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_4174C0(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_417A00(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_415730(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_418940(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_414EE0(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_414C90(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_415100(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_414320(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_414690(sound_0x68 *a2)
+{
+    // todo
+    return 0;
+}
+
+char sound_obj::sub_4149D0(sound_0x68 *a2)
+{
+    // todo
+    return 0;
 }

@@ -323,6 +323,30 @@ public:
     void sub_418B60(int a2);
 
     void sub_412490(int idx);
+
+    char sub_412260(sound_0x68 *pObj);
+
+    char sub_416260(sound_0x68 *a1);
+
+    char sub_4174C0(sound_0x68 *a2);
+
+    char sub_417A00(sound_0x68 *a2);
+
+    char sub_415730(sound_0x68 *a2);
+
+    char sub_418940(sound_0x68 *a2);
+
+    char sub_414EE0(sound_0x68 *a2);
+ 
+    char sub_414C90(sound_0x68 *a2);
+
+    char sub_415100(sound_0x68 *a2);
+
+    char sub_414320(sound_0x68 *a2);
+
+    char sub_414690(sound_0x68 *a2);
+
+    char sub_4149D0(sound_0x68 *a2);
 };
 
 extern sound_obj gSound_obj_66F680;
