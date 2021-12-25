@@ -14,36 +14,23 @@ gmp_block_info* Map_0x370::get_block_452980(unsigned __int8 x_coord, unsigned __
     }
 }
 
-// nomatch
+// match
 gmp_map_zone* Map_0x370::zone_by_name_4DEFD0(const char *pZoneName)
 {
-    unsigned int name_len = strlen(pZoneName) + 1;
-    if (!this->field_328_pZoneData)
+    unsigned int name_len = strlen(pZoneName);
+    if (field_328_pZoneData)
     {
-        return 0;
-    }
-
-    this->field_364_cur_zone_idx = 0;
-    if (*(WORD *)field_32C_pZones <= 0)
-    {
-        return 0;
-    }
-
-    gmp_map_zone *pZone;
-    while (1)
-    {
-        pZone = get_zone_4DFB30(field_364_cur_zone_idx);
-        if (pZone->field_5_name_length == name_len - 1 && 
-            memcmp(pZone->field_6_name, pZoneName, name_len - 1) == 0)
+        for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
         {
-            break;
-        }
-        if (++field_364_cur_zone_idx >= *(WORD *)field_32C_pZones)
-        {
-            return 0;
+            gmp_map_zone *pZone = get_zone_4DFB30(field_364_cur_zone_idx);
+            if (pZone->field_5_name_length == name_len  &&
+                memcmp(pZone->field_6_name, pZoneName, name_len ) == 0)
+            {
+                return pZone;
+            }
         }
     }
-    return pZone;
+    return 0;
 }
 
 // match
