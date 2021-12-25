@@ -236,6 +236,12 @@ gmp_zone_unknown* Map_0x370::get_zone_unknown_4DF9A0(unsigned __int16 zone_idx)
     return &field_334_pUnknownZoneData[field_330_pZoneArray[zone_idx]];
 }
 
+// match
+void Map_0x370::set_nav_unknown_f0_4DF9D0(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_0 = a3;
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
