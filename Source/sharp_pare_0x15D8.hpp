@@ -55,7 +55,7 @@ struct sharp_pare_0x15D8
     festive_hopper field_15AC_unk;
     festive_hopper field_15C0_unk;
     __int16 field_15D4_idx;
-    __int16 field_15D6_pal_count;
+    unsigned __int16 field_15D6_pal_count;
 
     sharp_pare_0x15D8();
 

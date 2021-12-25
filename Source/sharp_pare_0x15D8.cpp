@@ -177,9 +177,14 @@ void sharp_pare_0x15D8::sub_5B9350()
     field_1544_pTexture = (STexture*)gbh_RegisterTexture(128, 128, 0, 0, 0);
 }
 
+// match
 void sharp_pare_0x15D8::FreePals_5B9140()
 {
-    // todo
+    for (unsigned __int16 i = 0; i < field_15D6_pal_count; ++i)
+    {
+        gbh_FreePalette(i);
+    }
+    field_15D6_pal_count = 0;
 }
 
 void sharp_pare_0x15D8::LoadPals_5B90F0()
@@ -195,6 +200,38 @@ void sharp_pare_0x15D8::ReadTextures_5B92E0()
 void sharp_pare_0x15D8::LoadTextures2_5B9180()
 {
     // todo
+    unsigned __int16 width_height; // bp
+    __int16 v3; // ax
+    __int16 v4; // ax
+    unsigned int idx; // esi
+    int pal_idx; // edi
+
+    width_height = 64;
+    if (gGtx_0x106C_703DD4->sub_5AA4F0(2))
+    {
+        /*
+        this->field_1000_bFreeTextures2 = 1;
+        v3 = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(2, 0);
+        v4 = gGtx_0x106C_703DD4->convert_pal_type_5AA5F0(2, v3);
+        idx = 0;
+        pal_idx = (unsigned __int16)gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(v4);
+        do
+        {
+            if (idx == 32)
+            {
+                width_height = 128;
+            }
+
+            this->field_1004_textures2[idx] = gbh_RegisterTexture(
+                width_height,
+                width_height,
+                gKind_khorana_0x3CC_67AF1C->field_0[(unsigned __int16)idx].field_0_pTexturePixelData,
+                pal_idx,
+                0);
+            ++idx;
+        } while (idx < 48);
+        */
+    }
 }
 
 // match
