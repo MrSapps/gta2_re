@@ -504,8 +504,9 @@ void gtx_0x106C::load_delta_index_5AAD80(int delx_chunk_size)
 
 void gtx_0x106C::load_delta_store_5AADD0(int dels_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    // note: malloc is adding an extra add esp, 4 ??
+    field_48_delta_store = (delta_store_entry *)malloc(dels_chunk_size); // todo: or new?
+    File::Global_Read_4A71C0(field_48_delta_store, &dels_chunk_size);
 }
 
 // match
