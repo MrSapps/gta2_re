@@ -296,17 +296,6 @@ BOOL Vid_FindDevice_5D9290()
 
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
-    int v12; // eax
-    int v13; // ecx
-    DWORD *pLparamRec; // eax
-    LONG top; // ecx
-    LONG bottom; // edx
-    LONG right; // ecx
-    char v21; // [esp+13h] [ebp-19h] BYREF
-    int newX; // [esp+14h] [ebp-18h] BYREF
-    int newY; // [esp+18h] [ebp-14h] BYREF
-    struct tagRECT winRec; // [esp+1Ch] [ebp-10h] BYREF
-
     switch (Msg)
     {
    
@@ -449,17 +438,18 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         break;
 
     case WM_WINDOWPOSCHANGING:
-        if (gLaughing_blackwell_0x1EB54_67DC84 && (*(BYTE *)(lParam + 24) & 2) == 0)
+    {
+        WINDOWPOS* pPos = reinterpret_cast<WINDOWPOS*>(lParam);
+        if (gLaughing_blackwell_0x1EB54_67DC84 && (pPos->flags & 2) == 0)
         {
-            WINDOWPOS* pPos = reinterpret_cast<WINDOWPOS*>(lParam);
-            newX = pPos->x;
-            newY = pPos->y;
+            int newX = pPos->x;
+            int newY = pPos->y;
             Bink::sub_5136D0(&newX, &newY);
             pPos->x = newX;
             pPos->y = newY;
         }
         break;
-
+    }
 
     case WM_SYSKEYDOWN:
         switch (wParam)
@@ -559,6 +549,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     case WM_SIZING:
     {
         RECT* pDragRect = reinterpret_cast<RECT*>(lParam);
+        RECT winRec;
         GetWindowRect(gHwnd_707F04, &winRec);
         pDragRect->left = winRec.left;
         pDragRect->top = winRec.top;
