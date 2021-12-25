@@ -231,8 +231,6 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     DWORD v9; // edi
     int v10; // eax
     int state; // esi
-    char b3dSound; // al
-    char b3dSound_; // al
     int v14; // eax
     int v15; // eax
     DWORD v16; // [esp+10h] [ebp-68h] BYREF
@@ -240,6 +238,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     struct tagRECT windowRec; // [esp+24h] [ebp-54h] BYREF
     struct tagMSG msg; // [esp+34h] [ebp-44h] BYREF
     WNDCLASSA WndClass; // [esp+50h] [ebp-28h] BYREF
+    DWORD dxVer;
 
     hInstance_ = hInstance;
     gHInstance_708220 = hInstance;
@@ -255,7 +254,6 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     gMutex_707078 = CreateMutexA(0, 0, "GBH_COOP_MUTEX");
     GetGTA2Version_5E5D60(&gGTA2VersionMajor_708280, &gGTA2VersionMajor_708284);
-    DWORD dxVer;
     GetDirectXVersion_4C4EC0(&dxVer, &v16);
 
     if ((unsigned int)dxVer < 0x601)
@@ -273,8 +271,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     WndClass.lpfnWndProc = WindowProc_5E4EE0;
     WndClass.cbClsExtra = 0;
     WndClass.cbWndExtra = 0;
-    WndClass.hInstance = hInstance_;
-    WndClass.hIcon = LoadIconA(hInstance_, (LPCSTR)0x65);
+    WndClass.hInstance = hInstance;
+    WndClass.hIcon = LoadIconA(hInstance, (LPCSTR)0x65);
     WndClass.hCursor = LoadCursorA(0, (LPCSTR)0x7F00);
     WndClass.hbrBackground = 0;
     WndClass.lpszMenuName = "WinMain";
@@ -285,14 +283,14 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     _getcwd(gWorkingDir_707F64, 256);
 
     ParseCommandLine_4DA320(lpCmdLine);
-    if (!Start_NetworkGame_5E5A30((int)hInstance_))
+    if (!Start_NetworkGame_5E5A30((int)hInstance))
     {
         ReleaseMutex(gMutex_707078);
         CloseHandle(gMutex_707078);
         return 0;
     }
     sprintf(gTmpBuffer_67C598, "GTA2");
-    Window = CreateWindowExA(0, "WinMain", gTmpBuffer_67C598, 0xCF0000u, 0, 0, 100, 100, 0, 0, hInstance_, 0);
+    Window = CreateWindowExA(0, "WinMain", gTmpBuffer_67C598, 0xCF0000u, 0, 0, 100, 100, 0, 0, hInstance, 0);
     gHwnd_707F04 = Window;
     if (!Window)
     {
@@ -305,7 +303,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     GetClientRect(gHwnd_707F04, &clientRec);
     GetWindowRect(gHwnd_707F04, &windowRec);
 
-    v8 = windowRec.right + window_width_706630 + clientRec.left - clientRec.right - windowRec.left;
+    v8 = window_width_706630 + windowRec.right + clientRec.left - clientRec.right - windowRec.left;
     v9 = window_height_706B50 + windowRec.bottom + clientRec.top - clientRec.bottom - windowRec.top;
 
     if (bDo_corner_window_67D4EE)
@@ -321,7 +319,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         gWindowY_706B64 = v10;
     }
 
-    if (!SetWindowPos(gHwnd_707F04, 0, gWindowX_706B60, v10, v8, v9, 0x314u))
+    if (!SetWindowPos(gHwnd_707F04, 0, gWindowX_706B60, gWindowY_706B64, v8, v9, 0x314u))
     {
         FatalError_4A38C0(7, "C:\\Splitting\\Gta2\\Source\\winmain.cpp", 661);
     }
@@ -339,21 +337,19 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     }
     else
     {
-        state = 0;
+        state = 0; //  xor     esi, esi
     }
 
     if (bIsFrench_67D53C)
     {
-        state = 14;
+        state = 14; // mov     esi, 0Eh
     }
 
     if (bNetworkGame_7081F0)
     {
         bDoFrontEnd_626B68 = 0;
-        b3dSound = gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound");
-        gRoot_sound_66B038.Set3DSound_40F160(b3dSound);
-        b3dSound_ = gRoot_sound_66B038.Get3DSound_40F180();
-        gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", b3dSound_);
+        gRoot_sound_66B038.Set3DSound_40F160(gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound"));
+        gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
     }
 
 LABEL_23:
