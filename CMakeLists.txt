@@ -12,13 +12,21 @@ add_library (Source
     Source/registry.cpp
     Source/file.hpp
     Source/file.cpp
+    Source/sharp_bose_0x54.hpp
+    Source/sharp_bose_0x54.cpp
+    Source/distracted_einstein_0xC.hpp
+    Source/distracted_einstein_0xC.cpp
     Source/gtx_0x106C.hpp
     Source/gtx_0x106C.cpp)
-
+    
 include_directories(Source)
 include_directories(${decomp_SOURCE_DIR})
 
-add_executable (decomp_main WIN32 Source Class1.cpp Class2.cpp Class3.cpp Class4.cpp test.cpp StdAfx.cpp test.rc)
+add_executable (decomp_main WIN32 Source
+    test.cpp
+    StdAfx.cpp
+    test.rc)
+
 #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
 
 # NOICF is required because skip_ovly_5AAE20 and skip_psxt_5AAE30 have identical bodies and the linker will make them one and the same

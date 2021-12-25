@@ -20,13 +20,13 @@ struct chunk_header
 // match
 car_info* gtx_0x106C::sub_5AA3B0(unsigned __int8 idx)
 {
-    return field_5C_cari[idx];
+    return field_5C_cari->field_0[idx];
 }
 
 // match
 BYTE* gtx_0x106C::sub_5AA3D0(unsigned __int8 idx)
 {
-    car_info* pCarInfo = field_5C_cari[idx];
+    car_info* pCarInfo = field_5C_cari->field_0[idx];
     return &pCarInfo->remap[pCarInfo->num_remaps];
 }
 
@@ -263,10 +263,178 @@ void gtx_0x106C::create_tile_num_array_5AA950()
     UNIQUE_FUNC;
 }
 
-void gtx_0x106C::sub_5AA9A0(int a2)
+/*
+ //gtx_0x106C *this_; // edi
+    unsigned int idx; // ebx
+    car_info *pCarInfoIter; // esi
+    unsigned int total_len; // ebp
+
+   // BYTE new_total_sprite; // dl
+    int num_remaps; // eax
+    int next_item_len; // eax
+    BYTE total_sprite; // [esp+12h] [ebp-6h]
+   // BYTE car_sprite; // [esp+13h] [ebp-5h]
+
+    //this_ = this;
+    idx = 0;
+    total_len = 0;
+    total_sprite = 0;
+    BYTE last_car_sprite = 0;
+    pCarInfoIter = (car_info *)this->field_58_car_info;
+
+    car_info_container* pInfo = new car_info_container();
+    this->field_5C_cari = pInfo;                  // 257 "dynamic" array ??
+    if (!this->field_5C_cari)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 821);
+    }
+
+    if (chunk_size > 0)
+    {
+        for (; total_len < chunk_size; idx++)
+            //while (1)
+        {
+            if (idx >= 256)
+            {
+                FatalError_4A38C0(34, "C:\\Splitting\\Gta2\\Source\\style.cpp", 825);
+            }
+
+            if (pCarInfoIter->w > 0x80u || pCarInfoIter->h > 0x80u || pCarInfoIter->num_remaps > 0x40u)
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 826, pCarInfoIter->model);
+            }
+
+            BYTE sprite = pCarInfoIter->sprite;
+            if (sprite && sprite != 1)
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 827, pCarInfoIter->model);
+            }
+
+            pInfo->field_0[pCarInfoIter->model] = pCarInfoIter;
+
+            if (pCarInfoIter->sprite)
+            {
+                total_sprite = last_car_sprite + total_sprite;
+                last_car_sprite = pCarInfoIter->sprite;
+            }
+
+            num_remaps = pCarInfoIter->num_remaps;
+            pCarInfoIter->sprite = total_sprite;
+
+            BYTE* pRemaps = pCarInfoIter->remap;
+            BYTE* t = pRemaps + num_remaps;
+            if (*t > 5u)// num_doors
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 842, pCarInfoIter->model);
+            }
+
+            // 0xE = remap
+            next_item_len = pCarInfoIter->remap[num_remaps] + sizeof(door_info) * pCarInfoIter->remap[num_remaps] + 1;
+
+            total_len += next_item_len;
+
+            pCarInfoIter = (car_info *)((char *)pCarInfoIter + next_item_len);
+
+            //++idx;
+
+            //if (total_len >= chunk_size)
+            //{
+            //    break;
+            //}
+            //this_ = this;
+        } // loop end
+
+        pInfo->field_400_count = idx;
+
+    }
+    else
+    {
+
+        this->field_5C_cari->field_400_count = 0;
+    }
+*/
+void gtx_0x106C::sub_5AA9A0(int chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    unsigned int total_len = 0;
+    BYTE total_sprite = 0;
+    BYTE last_car_sprite = 0;
+    car_info *pCarInfoIter = (car_info *)this->field_58_car_info;
+
+    //car_info_container* pInfo = 
+    this->field_5C_cari = new car_info_container();;                  // 257 "dynamic" array ??
+    if (!this->field_5C_cari)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 821);
+    }
+
+    if (chunk_size) // jbe
+    {
+
+
+        int idx = 0;
+        while (total_len < chunk_size)
+            //while (1)
+        {
+            if (idx >= 256)
+            {
+                FatalError_4A38C0(34, "C:\\Splitting\\Gta2\\Source\\style.cpp", 825);
+            }
+
+            if (pCarInfoIter->w > 0x80u || pCarInfoIter->h > 0x80u || pCarInfoIter->num_remaps > 0x40u)
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 826, pCarInfoIter->model);
+            }
+
+            BYTE sprite = pCarInfoIter->sprite;
+            if (sprite != 0 && sprite != 1)
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 827, pCarInfoIter->model);
+            }
+
+            field_5C_cari->field_0[pCarInfoIter->model] = pCarInfoIter;
+
+            if (pCarInfoIter->sprite)
+            {
+                total_sprite += last_car_sprite;
+                last_car_sprite = pCarInfoIter->sprite;
+            }
+
+            pCarInfoIter->sprite = total_sprite;
+
+            BYTE* pRemaps = (BYTE*)pCarInfoIter;
+            pRemaps += 0xE;
+            int doorCount = *(pRemaps + pCarInfoIter->num_remaps);
+            if (doorCount > 5u)// num_doors
+            {
+                FatalError_4A38C0(1107, "C:\\Splitting\\Gta2\\Source\\style.cpp", 842, pCarInfoIter->model);
+            }
+
+            // 0xE = remap
+            int next_item_len = doorCount + 0xE + pCarInfoIter->num_remaps;
+
+            total_len += next_item_len;
+
+            pCarInfoIter = (car_info *)((char *)pCarInfoIter + next_item_len);
+
+            idx++;
+
+            //++idx;
+
+            //if (total_len >= chunk_size)
+            //{
+            //    break;
+            //}
+            //this_ = this;
+        } // loop end
+
+
+        this->field_5C_cari->field_400_count = idx; // moved from if/else
+        return;
+    }
+
+    this->field_5C_cari->field_400_count = 0; // moved from if/else
+    //return;
+
 }
 
 void gtx_0x106C::sub_5AAB30(unsigned int delx_chunk_size)
@@ -300,12 +468,19 @@ void gtx_0x106C::sub_5AAC70()
 
 void gtx_0x106C::load_car_info_5AAD50(int cari_chunk_size)
 {
+    int len = cari_chunk_size;
     void *v3; // eax
 
     v3 = malloc(cari_chunk_size);
-    this->field_58_car_info = v3;
-    File::Global_Read_4A71C0(v3, &cari_chunk_size);
-    gtx_0x106C::sub_5AA9A0(cari_chunk_size);
+    File::Global_Read_4A71C0(v3, &len);
+    
+    //this->field_58_car_info = v3;
+    sub_5AA9A0(cari_chunk_size);
+
+    /*
+        chunk_header chunkHeader;
+    for (len = sizeof(chunk_header); File::Global_Read_4A7210(&chunkHeader, &len); len = sizeof(chunk_header))
+    */
 }
 
 void gtx_0x106C::load_delta_index_5AAD80(int delx_chunk_size)
@@ -410,24 +585,82 @@ bool gtx_0x106C::sub_5AB380(unsigned __int8 car_id)
     return false;
 }
 
+class test1
+{
+public:
+    static bool Read(void*, int*);
+};
+bool test1::Read(void*, int*)
+{
+    return false;
+}
+test1 gTest;
+
 void gtx_0x106C::load_car_recycling_info_5AB3C0(int recy_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    field_68_recy_chunk_size = recy_chunk_size;
+    unsigned __int8* pAlloc = reinterpret_cast<unsigned __int8*>(malloc(recy_chunk_size));
+    field_64_car_recycling_info = pAlloc;
+//    File::Global_Read_4A71C0(pAlloc, &recy_chunk_size);
+    test1::Read(pAlloc, &recy_chunk_size);
 }
+/*
+   // unsigned __int16 readBuffer_; // ax
+    int specEntry; // edi
+    unsigned __int16 readValue1; // [esp+4h] [ebp-8h] BYREF
+    int read_size; // [esp+8h] [ebp-4h] BYREF
 
-void gtx_0x106C::read_spec_5AB3F0(int read_size2)
+    read_size = 2;
+    File::Global_Read_4A71C0(&readValue1, &read_size);
+   // readBuffer_ = readValue1;
+    if (readValue1)
+    {
+        specEntry = type;
+        do
+        {
+            this->field_6C_spec[readValue1] = specEntry;
+            type = 2;
+            File::Global_Read_4A71C0(&readValue1, &type);
+           // readBuffer_ = readValue1;
+        } while (readValue1);
+    }
+*/
+void gtx_0x106C::read_spec_5AB3F0(int type)
 {
-    // TODO
-    UNIQUE_FUNC;
+    WORD read_value1;
+    int read_value1_size = 2;
+    File::Global_Read_4A71C0(&read_value1, &read_value1_size);
+    if (!read_value1)
+    {
+        return;
+    }
+//    if ((WORD)read_value1)
+    //{
+        do
+        {
+            read_value1_size = 2;
+            File::Global_Read_4A71C0(&read_value1, &read_value1_size);
+            field_6C_spec[read_value1] = type;
+        } while (read_value1);
+   // }
+
 }
 
+// match
 void gtx_0x106C::load_spec_5AB450()
 {
-    // TODO
-    UNIQUE_FUNC;
+    read_spec_5AB3F0(2);
+    read_spec_5AB3F0(3);
+    read_spec_5AB3F0(4);
+    read_spec_5AB3F0(5);
+    read_spec_5AB3F0(6);
+    read_spec_5AB3F0(7);
+    read_spec_5AB3F0(8);
+    read_spec_5AB3F0(9);
+    read_spec_5AB3F0(10);
 }
 
+// match
 void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, int chunk_len)
 {
     if (!strncmp(Str1, "PALB", 4u))
@@ -508,12 +741,9 @@ void gtx_0x106C::sub_5AB720()
         sub_5AABF0();
     }
 
-    if (field_20_sprite_index)
+    if (field_20_sprite_index && field_34_sprite_graphics)
     {
-        if (field_34_sprite_graphics)
-        {
-            SetSpriteIndexDataPtrs_5AAC40();
-        }
+        SetSpriteIndexDataPtrs_5AAC40();
     }
 }
 
@@ -601,7 +831,7 @@ gtx_0x106C::~gtx_0x106C()
     delta_store_entry *field_48_delta_store; // eax
     void *field_50_delta_buffer; // eax
     void *field_58_car_info; // eax
-    car_info **field_5C_cari; // edx
+    car_info_container*  field_5C_cari; // edx
     delta_entry *field_4C_delta_index; // eax
     void *field_54_del; // eax
     tile_array *field_40_tile; // eax
