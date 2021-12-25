@@ -22,7 +22,7 @@ void root_sound::sub_40EF80()
 void root_sound::Service_40EFA0()
 {
     // todo
-    //gSound_obj_66F680.Service_419EF0();
+    //gSound_obj_66F680.Service_419EF0(); // stub
 }
 
 int root_sound::sub_40EFB0(infallible_turing* a2)
@@ -43,6 +43,7 @@ char root_sound::LoadStyle_40EFF0(const char *pStyleName)
 void root_sound::sub_40F010()
 {
     // todo
+    //gSound_obj_66F680.sub_57E960(); // stub
 }
 
 void root_sound::sub_40F020()
@@ -104,11 +105,13 @@ void root_sound::SetCDVol_40F0F0(unsigned int cdVol)
     }
 }
 
+// match
 unsigned __int8 root_sound::GetCDVol_40F120()
 {
-    return gSound_obj_66F680.field_25_cdVol;
+    return gSound_obj_66F680.GetCDVol_41A280();
 }
 
+// match
 void root_sound::Release_40F130()
 {
     gSound_obj_66F680.Release_41A290();
@@ -122,6 +125,7 @@ void root_sound::sub_40F140()
 
 char root_sound::GetAudioDriveLetter_40F150()
 {
+    // gSound_obj_66F680.GetAudioDriveLetter_41A2E0()
     return gSampManager_6FFF00.field_4_gtaAudioDriveLetter;
 }
 
@@ -148,13 +152,12 @@ char root_sound::Set3DSound_40F160(char b3dSound)
 {
     return gSound_obj_66F680.Set3DSound_41A2F0(b3dSound);
 }
+
 // match
 char root_sound::Get3DSound_40F180()
 {
     return gSound_obj_66F680.Get3dSound_41A390();
 }
-
-
 
 // 0x411E30
 root_sound::root_sound() // match

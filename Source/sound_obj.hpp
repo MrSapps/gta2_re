@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include "root_sound.hpp" // for infallible_turing
 
 struct serene_brattain // same as sound_68 ?
 {
@@ -52,13 +53,7 @@ struct sound_7
     char field_2;
     char field_3;
     int field_4_fp;
-    int field_8_fp;
-    char field_C;
-    char field_D;
-    char field_E;
-    char field_F;
-    int field_10;
-    int field_14;
+    infallible_turing field_8_fp;
     int field_18;
 };
 
@@ -314,6 +309,9 @@ public:
     void sub_41A090(int a2);
 
     void Release_41A290();
+
+    unsigned __int8 GetCDVol_41A280();
+
 
 };
 

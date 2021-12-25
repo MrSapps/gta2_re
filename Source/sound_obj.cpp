@@ -600,3 +600,8 @@ void sound_obj::Release_41A290()
 {
     // todo
 }
+
+unsigned __int8 sound_obj::GetCDVol_41A280()
+{
+    return field_25_cdVol;
+}
