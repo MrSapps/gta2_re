@@ -241,12 +241,16 @@ unsigned __int16 gtx_0x106C::space_width_5AA7B0(WORD *a2)
         ].field_4_width;
 }
 
-// stub
+// nomatch
 __int16 gtx_0x106C::sub_5AA800(WORD *a2)
 {
-    // TODO
-    UNIQUE_FUNC;
-    return 0;
+    if (*a2 < 0x65u)
+        return this->field_20_sprite_index[this->field_14_sprite_base2->field_A_font
+        + 32
+        + (unsigned __int16)this->field_1C_font_base->field_2_base[(unsigned __int16)*a2]].field_5_height;
+    int v2 = -(*a2 < 0xC9u);
+    v2 = v2 & 0xEF;
+    return v2 + 0x22;
 }
 
 // nomatch
