@@ -59,14 +59,11 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
 {
     static short sLastIdx_6F626C;
 
-    unsigned __int16 idx; // di
-    int idx_; // ecx
-    __int16 v6; // ax
     __int16 local_array[40]; // [esp+8h] [ebp-50h]
 
     if (this->field_328_pZoneData)
     {
-        idx = 0;
+        unsigned __int16 idx = 0;
         this->field_36C_bUnknown = 0;
         this->field_368_zone_type = zone_type;
         this->field_364_cur_zone_idx = 0;
@@ -75,8 +72,7 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
         {
             if (Map_0x370::get_zone_4DFB30(this->field_364_cur_zone_idx)->field_0_zone_type == this->field_368_zone_type)
             {
-                idx_ = idx++;
-                local_array[idx_] = this->field_364_cur_zone_idx;
+                local_array[idx++] = this->field_364_cur_zone_idx;
                 if (idx >= 40u)
                 {
                     break;
@@ -89,7 +85,7 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
             return 0;
         }
 
-        v6 = ++sLastIdx_6F626C;
+        __int16 v6 = ++sLastIdx_6F626C;
         if (sLastIdx_6F626C >= (int)idx)
         {
             v6 = 0;
