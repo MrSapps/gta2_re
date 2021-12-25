@@ -2698,6 +2698,10 @@ struct laughing_blackwell_0x1EB54
     void sub_4B4EC0();
 
     int sub_4AEDB0();
+
+    void sub_4AD140();
+
+    void sub_4B7AE0();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

@@ -599,6 +599,24 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
     }
 }
 
+void laughing_blackwell_0x1EB54::sub_4AD140()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4B7AE0()
+{
+    // todo
+
+    // TEST
+
+    if (gbh_BlitImage(tgaArray_61F0C8[23].field_84_img, 0, 0, 451, 144, 85, 0) == -10)
+    {
+        Load_tga_4B6520(23u);
+        gbh_BlitImage(tgaArray_61F0C8[23].field_84_img, 0, 0, 451, 144, 85, 0);
+    }
+}
+
 const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
 {
     // todo
@@ -1392,6 +1410,157 @@ void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsign
 void laughing_blackwell_0x1EB54::sub_4ADF50() // int bQuit ??
 {
     // todo
+
+    /*
+    wchar_t *pLoading; // eax
+    unsigned __int16 v4; // di
+    __int16 v5; // esp^2
+    laughing_blackwell_0x1EB54 *v6; // eax
+    int v7; // ecx
+    int v8; // ecx
+    wchar_t *pLoading2; // eax
+    __int16 v11; // esp^2
+    laughing_blackwell_0x1EB54 *v12; // ecx
+    char v13; // al
+    int v14; // eax
+    int v15; // ecx
+    wchar_t *v16; // eax
+    bool v17; // zf
+    int *v18; // eax
+    int v19; // ecx
+    wchar_t *v20; // eax
+    int v21; // edx
+    laughing_blackwell_0x1EB54 *v22; // ecx
+    int v23; // ecx
+    wchar_t *v24; // eax
+    laughing_blackwell_0x1EB54 *v25; // ecx
+    int *v26; // eax
+    int v27; // ecx
+    wchar_t *pNo; // eax
+    int v29; // esi
+    int field_110_state; // edx
+    int fp_v4; // [esp-18h] [ebp-18h] BYREF
+    int fp_300; // [esp-14h] [ebp-14h] BYREF
+    laughing_blackwell_0x1EB54 *fp_320; // [esp-10h] [ebp-10h] BYREF
+    int flags; // [esp-Ch] [ebp-Ch]
+    int v35; // [esp-8h] [ebp-8h] BYREF
+    int v36; // [esp-4h] [ebp-4h]
+    */
+
+    field_110_state = this->field_110_state;
+
+    switch (field_110_state)
+    {
+    case 1:
+    case 3:
+    case 5:
+        if (this->field_132_f136_idx == 9)
+        {
+            sub_4B7AE0();
+        }
+        else
+        {
+            sub_4AD140();
+        }
+        break;
+
+    case 2:
+        /*
+        v36 = v29;
+        v4 = laughing_blackwell_0x1EB54::sub_4B0190(this, gText_0x14_704DFC->Find_5B5F90("loading"), -1, 320);
+        HIWORD(v6) = v5;
+        flags = 0x4000;
+        LOWORD(v6) = this->field_11C;
+        fp_320 = v6;
+        fp_300 = v7;
+        FP::FromInt_4369F0(&fp_300, 260);
+        fp_v4 = v8;
+        FP::sub_4AE970(&fp_v4, v4);
+        sub_4B87A0(gText_0x14_704DFC->Find_5B5F90("loading"), fp_v4, fp_300, fp_320, flags);
+        */
+        break;
+
+    case 4:
+        /*
+        v36 = v29;
+        if (this->field_EE0C == 1)
+        {
+            v35 = (int)this;
+            HIWORD(v12) = v11;
+            v13 = gText_0x14_704DFC->field_10_lang_code - 106;
+            v35 = 0x4000;
+            LOWORD(v12) = this->field_126;
+            v14 = -(v13 != 0);
+            flags = (int)v12;
+            LOBYTE(v14) = v14 & 0xFC;
+            fp_320 = v12;
+            FP::sub_4AE970(&fp_320, v14 + 16);
+            fp_300 = v15;
+            FP::sub_4AE970(&fp_300, 0x113u);
+            v16 = text_0x14::Find_5B5F90(gText_0x14_704DFC, aClrchar);
+            sub_4B87A0(v16, fp_300, (int)fp_320, (void *)flags, v35);
+        }
+        v17 = this->field_EE0A == 190;
+        v18 = &v35;
+        v35 = 0x4000;
+        if (v17)
+        {
+            LOWORD(field_110_state) = this->field_120;
+            flags = field_110_state;
+        }
+        else
+        {
+            LOWORD(v18) = this->field_11C;
+            flags = (int)v18;
+        }
+        fp_320 = this;
+        FP::FromInt_4369F0(&fp_320, 190);
+        fp_300 = v19;
+        FP::FromInt_4369F0(&fp_300, 300);
+        v20 = text_0x14::Find_5B5F90(gText_0x14_704DFC, "sure");
+        sub_4B87A0(v20, fp_300, (int)fp_320, (void *)flags, v35);
+        v17 = this->field_EE0A == 210;
+        v35 = 0x4000;
+        if (v17)
+        {
+            LOWORD(v22) = this->field_120;
+            flags = (int)v22;
+        }
+        else
+        {
+            LOWORD(v21) = this->field_11C;
+            flags = v21;
+        }
+        fp_320 = v22;
+        FP::FromInt_4369F0(&fp_320, 210);
+        fp_300 = v23;
+        FP::FromInt_4369F0(&fp_300, 300);
+        v24 = text_0x14::Find_5B5F90(gText_0x14_704DFC, "yes");
+        sub_4B87A0(v24, fp_300, (int)fp_320, (void *)flags, v35);
+        v17 = this->field_EE0A == 230;
+        v26 = &v35;
+        v35 = 0x4000;
+        if (v17)
+        {
+            LOWORD(v26) = this->field_120;
+            flags = (int)v26;
+        }
+        else
+        {
+            LOWORD(v25) = this->field_11C;
+            flags = (int)v25;
+        }
+        fp_320 = v25;
+        FP::FromInt_4369F0(&fp_320, 230);
+        fp_300 = v27;
+        FP::FromInt_4369F0(&fp_300, 300);
+        sub_4B87A0(gText_0x14_704DFC->Find_5B5F90("no"), fp_300, (int)fp_320, (void *)flags, v35);
+        */
+        break;
+
+    default:
+        FatalError_4A38C0(1006, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 1217, this->field_110_state);
+    }
 }
 
 void __stdcall sub_5D7D30()
