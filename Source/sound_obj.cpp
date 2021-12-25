@@ -399,3 +399,94 @@ int sound_obj::sub_417EF0(sound_0x68 *pObj)
     pObj->field_38 = -1;
     return 1;
 }
+
+// match
+int sound_obj::ConvertToPlayBackRate_417C60(int a1)
+{
+    int result;
+    switch (a1)
+    {
+    case 13:
+    case 36:
+        result = 22000;
+        break;
+    case 2:
+    case 8:
+    case 19:
+    case 40:
+    case 53:
+    case 71:
+        result = 18000;
+        break;
+    case 10:
+    case 16:
+    case 23:
+    case 24:
+    case 25:
+    case 26:
+    case 28:
+    case 29:
+    case 37:
+    case 42:
+    case 62:
+    case 67:
+    case 85:
+        result = 24000;
+        break;
+    case 1:
+    case 22:
+    case 30:
+    case 46:
+    case 49:
+    case 83:
+        result = 16000;
+        break;
+    case 5:
+    case 31:
+    case 38:
+    case 57:
+        result = 14000;
+        break;
+
+    case 3:
+    case 11:
+    case 54:
+        result = 11000;
+        break;
+    case 17:
+    case 21:
+    case 63:
+        result = 10300;
+        break;
+    case 7:
+    case 64:
+    case 86:
+        result = 11700;
+        break;
+
+    case 60:
+        result = 15000;
+        break;
+
+    case 27:
+        result = 11025;
+        break;
+
+    case 4:
+    case 32:
+    case 35:
+    case 41:
+    case 44:
+    case 50:
+    case 56:
+    case 70:
+    case 82:
+        result = 19000;
+        break;
+
+    default:
+        result = 22050;
+        break;
+    }
+    return result;
+}
