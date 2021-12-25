@@ -33,6 +33,34 @@ void magical_germain_0x8EC::LoadChunks_4D1FC0(const char *pChunkId, unsigned int
     }
 }
 
+void magical_germain_0x8EC::Load_kanji_dat_4D2090()
+{
+    File::Global_Open_4A7060("data\\kanji.dat");
+
+    kanji_header header;
+    unsigned int readSize = sizeof(kanji_header);
+    File::Global_Read_4A71C0(&header, &readSize);
+    if (strncmp("KANJ", header.field_0_id, sizeof(header.field_0_id)))
+    {
+        FatalError_4A38C0(93, "C:\\Splitting\\Gta2\\Source\\chunk.h", 37);
+    }
+
+    if (header.field_4_version != 100)
+    {
+        FatalError_4A38C0(94, "C:\\Splitting\\Gta2\\Source\\chunk.h", 33);
+    }
+
+    chunk_header chunkHeader; // [esp+10h] [ebp-8h] BYREF
+    for (readSize = sizeof(chunkHeader); File::Global_Read_4A7210(&chunkHeader, &readSize); readSize = sizeof(chunkHeader))
+    {
+        if (chunkHeader.field_4_size)
+        {
+            LoadChunks_4D1FC0(chunkHeader.field_0_type, chunkHeader.field_4_size);
+        }
+    }
+    File::Global_Close_4A70C0();
+}
+
 // nomatch 0x4D2C80
 magical_germain_0x8EC::magical_germain_0x8EC()
 {
@@ -42,7 +70,7 @@ magical_germain_0x8EC::magical_germain_0x8EC()
     field_8C4_pKidX = 0;
     field_8CC_kidx_size_words = 0;
     field_8C0_count = 0;
-    sub_4D2090();
+    Load_kanji_dat_4D2090();
 }
 
 // match 0x4D2CC0
@@ -63,12 +91,6 @@ magical_germain_0x8EC::~magical_germain_0x8EC()
 
 // stub
 void magical_germain_0x8EC::sub_4D2B40()
-{
-    // todo
-}
-
-// stub
-void magical_germain_0x8EC::sub_4D2090()
 {
     // todo
 }

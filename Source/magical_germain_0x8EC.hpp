@@ -55,13 +55,13 @@ public:
 
     void LoadChunks_4D1FC0(const char *pChunkId, unsigned int chunk_len);
 
+    void Load_kanji_dat_4D2090();
+
     magical_germain_0x8EC();
 
     ~magical_germain_0x8EC();
 
     void sub_4D2B40();
-
-    void sub_4D2090();
 
     int sub_4D29D0(unsigned __int16 a2);
 
