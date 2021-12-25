@@ -308,15 +308,13 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     if (bDo_corner_window_67D4EE)
     {
-        v10 = 0;
         gWindowX_706B60 = 0;
         gWindowY_706B64 = 0;
     }
     else
     {
         gWindowX_706B60 = (int)(GetSystemMetrics(0) - v8) / 2;
-        v10 = (int)(GetSystemMetrics(1) - v9) / 2;
-        gWindowY_706B64 = v10;
+        gWindowY_706B64 = (int)(GetSystemMetrics(1) - v9) / 2;
     }
 
     if (!SetWindowPos(gHwnd_707F04, 0, gWindowX_706B60, gWindowY_706B64, v8, v9, 0x314u))
@@ -375,7 +373,7 @@ LABEL_23:
                     {
                         while (PeekMessageA(&msg, 0, 0, 0, 1u))
                         {
-                            if (msg.message == 18)
+                            if (msg.message == 18) // WM_QUIT
                             {
                                 Input::DInputRelease_498710();
                                 return msg.wParam;
