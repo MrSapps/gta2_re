@@ -250,7 +250,7 @@ struct sound_obj
 
     void sub_41B540();
 
-    float* sub_41B520(int a1, float *a2);
+    void sub_41B520(int a1, float *a2);
 
     char sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3);
 };

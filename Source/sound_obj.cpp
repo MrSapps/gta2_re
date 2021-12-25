@@ -152,13 +152,10 @@ void sound_obj::sub_41B540()
     }
 }
 
-float* sound_obj::sub_41B520(int a1, float *a2)
+// match
+void sound_obj::sub_41B520(int a1, float *a2) // todo: prob a ref ?
 {
-    float *result; // eax
-
-    result = a2;
-    *a2 = (double)a1 * 0.000061035156;
-    return result;
+    *a2 = a1 / 16384.0f;
 }
 
 char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
