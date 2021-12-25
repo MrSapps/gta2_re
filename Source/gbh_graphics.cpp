@@ -172,8 +172,16 @@ int __stdcall GBH_GraphicsLoadDll_5EA680(const char* lpLibFileName)
     return 0;
 }
 
+class Bob
+{
+public:
+    Bob() {}
+    int a, b, c, d, e;
+};
+
 int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys)
 {
+    Bob b;
     int Dll_5EA680 = GBH_GraphicsLoadDll_5EA680(lpLibFileName);
     if (Dll_5EA680)
     {

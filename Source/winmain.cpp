@@ -69,6 +69,36 @@ WORD gDMusicVer_67BD32;
 void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 {
     // todo
+    /*
+    if (bNetworkGame_7081F0)
+    {
+        max_frame_rate_626A08 = 1;
+        min_frame_rate_706C50 = 1;
+    }
+    else
+    {
+        max_frame_rate_626A08 = gRegistry_6FF968.Get_Screen_Setting_5870D0("max_frame_rate", 1) != 0;
+        min_frame_rate_706C50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("min_frame_rate", 0) != 0;
+    }
+
+    if (gRegistry_6FF968.Get_Screen_Setting_5870D0("lighting", 1))
+    {
+        gLighting_626A09 = 1;
+        gLightingDrawFlag_7068F4 = 0x8000;
+    }
+    else
+    {
+        gLighting_626A09 = 0;
+        gLightingDrawFlag_7068F4 = 0;
+    }
+
+    if (gKind_khorana_0x3CC_67AF1C)
+    {
+        gKind_khorana_0x3CC_67AF1C->sub_48F710();
+    }
+
+    bExplodingOff_67D4FB = gRegistry_6FF968.Get_Screen_Setting_5870D0("exploding_on", 1) != 1;
+    */
 }
 
 // todo: move
@@ -757,7 +787,7 @@ void __stdcall UpdateWinXY_5D8E70()
 // todo move to another file for ordering
 void __stdcall j_gbh_init_5D7CA0()
 {
-    // todo
+    gbh_Init(0);
 }
 
 // todo move to another file for ordering

@@ -88,34 +88,34 @@ typedef s32(__stdcall *T_Vid_GetSurface)(SVideo* pVideoDriver);
 typedef s32(__stdcall *T_Vid_FreeSurface)(SVideo* pVideoDriver);
 typedef s32(__stdcall *T_Vid_ClearScreen)(SVideo* pVideoDriver, u8 aR, u8 aG, u8 aB, s32 aLeft, s32 aTop, s32 aRight, s32 aBottom);
 typedef s32(__stdcall *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
-typedef s32(__cdecl *T_Vid_InitDLL)(HINSTANCE hInstance, SVideoFunctions* a2);
-typedef s32(__cdecl *T_Vid_SetGamma)(SVideo* pVideoDriver, f32 a2, f32 a3, f32 a4);
+typedef s32(__stdcall *T_Vid_InitDLL)(HINSTANCE hInstance, SVideoFunctions* a2);
+typedef s32(__stdcall *T_Vid_SetGamma)(SVideo* pVideoDriver, f32 a2, f32 a3, f32 a4);
 
 
 struct SVideoFunctions
 {
-    T_Vid_GetVersion pVid_GetVersion;
-    T_Vid_Init_SYS pVid_Init_SYS;
-    T_Vid_CheckMode pVid_CheckMode;
-    T_Vid_FindMode pVid_FindMode;
-    T_Vid_FindFirstMode pVid_FindFirstMode;
-    T_Vid_FindNextMode pVid_FindNextMode;
-    T_Vid_FindDevice pVid_FindDevice;
-    T_Vid_SetDevice pVid_SetDevice;
-    T_Vid_CloseScreen pVid_CloseScreen;
-    T_Vid_SetMode pVid_SetMode;
-    T_Vid_FlipBuffers pVid_FlipBuffers;
-    T_Vid_ReleaseSurface pVid_ReleaseSurface;
-    T_Vid_GrabSurface pVid_GrabSurface;
-    T_Vid_ShutDown_SYS pVid_ShutDown_SYS;
-    T_Vid_EnableWrites pVid_EnableWrites;
-    T_Vid_DisableWrites pVid_DisableWrites;
-    T_Vid_GetSurface pVid_GetSurface;
-    T_Vid_FreeSurface pVid_FreeSurface;
-    T_Vid_ClearScreen pVid_ClearScreen;
-    T_Vid_WindowProc pVid_WindowProc;
-    T_Vid_InitDLL pVid_InitDLL;
-    T_Vid_SetGamma pVid_SetGamma;
+    T_Vid_GetVersion* pVid_GetVersion;
+    T_Vid_Init_SYS* pVid_Init_SYS;
+    T_Vid_CheckMode* pVid_CheckMode;
+    T_Vid_FindMode* pVid_FindMode;
+    T_Vid_FindFirstMode* pVid_FindFirstMode;
+    T_Vid_FindNextMode* pVid_FindNextMode;
+    T_Vid_FindDevice* pVid_FindDevice;
+    T_Vid_SetDevice* pVid_SetDevice;
+    T_Vid_CloseScreen* pVid_CloseScreen;
+    T_Vid_SetMode* pVid_SetMode;
+    T_Vid_FlipBuffers* pVid_FlipBuffers;
+    T_Vid_ReleaseSurface* pVid_ReleaseSurface;
+    T_Vid_GrabSurface* pVid_GrabSurface;
+    T_Vid_ShutDown_SYS* pVid_ShutDown_SYS;
+    T_Vid_EnableWrites* pVid_EnableWrites;
+    T_Vid_DisableWrites* pVid_DisableWrites;
+    T_Vid_GetSurface* pVid_GetSurface;
+    T_Vid_FreeSurface* pVid_FreeSurface;
+    T_Vid_ClearScreen* pVid_ClearScreen;
+    T_Vid_WindowProc* pVid_WindowProc;
+    T_Vid_InitDLL* pVid_InitDLL;
+    T_Vid_SetGamma* pVid_SetGamma;
 };
 
 extern T_Vid_GetVersion Vid_GetVersion;

@@ -1,23 +1,23 @@
 #include "input.hpp"
 
-#define DIRECTINPUT_VERSION 0x0500
+#define DIRECTINPUT_VERSION 0x0700
 
 #include <Dinput.h>
 #include "error.hpp"
 
-//#pragma comment(lib, "DInput.lib")
+#pragma comment(lib, "DInput.lib")
+//#pragma comment(lib, "DInput8.lib")
 
 LPDIRECTINPUTA gpDInput_67B804;
 
 void __stdcall Input::DirectInputCreate_4986D0(HINSTANCE hInstance)
 {
     // todo
-    /*
     if (DirectInputCreateA(hInstance, 1792, &gpDInput_67B804, 0) < 0)
     {
         FatalError_4A38C0(8, "C:\\Splitting\\Gta2\\Source\\diutil.cpp", 129);
     }
-    */
+    
 }
 
 // match
