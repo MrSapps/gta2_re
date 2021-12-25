@@ -57,6 +57,59 @@ int* gpGBH_Globals_7085E4;
         return -1;\
     }
 
+void __stdcall GBH_Graphics_Stub_5EA4D0()
+{
+    MessageBoxA(
+        0,
+        "Error: A GBH Graphic function was called without the DLL being loaded, or the function has not been fixed up.",
+        "GBH Graphics Error",
+        MB_OK);
+}
+
+void __stdcall GBH_Graphics_Unload_5EA500()
+{
+    FreeLibrary(gGbhDllHandle_7085D8);
+    gbh_InitDLL = (T_gbh_InitDLL)GBH_Graphics_Stub_5EA4D0;
+    gbh_CloseDLL = (T_gbh_CloseDLL)GBH_Graphics_Stub_5EA4D0;
+    gbh_Init = (T_gbh_Init)GBH_Graphics_Stub_5EA4D0;
+    gbh_DrawTile = (T_gbh_DrawTile)GBH_Graphics_Stub_5EA4D0;
+    gbh_DrawQuad = (T_gbh_DrawQuad)GBH_Graphics_Stub_5EA4D0;
+    gbh_DrawQuadClipped = (T_gbh_DrawQuadClipped)GBH_Graphics_Stub_5EA4D0;
+    gbh_DrawTriangle = (T_gbh_DrawTriangle)GBH_Graphics_Stub_5EA4D0;
+    gbh_Plot = (T_gbh_Plot)GBH_Graphics_Stub_5EA4D0;
+    gbh_SetWindow = (T_gbh_SetWindow)GBH_Graphics_Stub_5EA4D0;
+    gbh_PrintBitmap = (T_gbh_PrintBitmap)GBH_Graphics_Stub_5EA4D0;
+    gbh_SetColourDepth = (T_gbh_SetColourDepth)GBH_Graphics_Stub_5EA4D0;
+    gbh_GetGlobals = (T_gbh_GetGlobals)GBH_Graphics_Stub_5EA4D0;
+    gbh_ConvertColour = (T_gbh_ConvertColour)GBH_Graphics_Stub_5EA4D0;
+    gbh_RegisterTexture = (T_gbh_RegisterTexture)GBH_Graphics_Stub_5EA4D0;
+    ConvertColourBank = (T_ConvertColourBank)GBH_Graphics_Stub_5EA4D0;
+    DrawLine = (FARPROC)GBH_Graphics_Stub_5EA4D0;
+    MakeScreenTable = (T_MakeScreenTable)GBH_Graphics_Stub_5EA4D0;
+    SetShadeTableA = (T_SetShadeTableA)GBH_Graphics_Stub_5EA4D0;
+    gbh_GetUsedCache = (T_gbh_GetUsedCache)GBH_Graphics_Stub_5EA4D0;
+    gbh_SetCamera = (T_gbh_SetCamera)GBH_Graphics_Stub_5EA4D0;
+    gbh_ResetLights = (T_gbh_ResetLights)GBH_Graphics_Stub_5EA4D0;
+    gbh_AddLight = (T_gbh_AddLight)GBH_Graphics_Stub_5EA4D0;
+    gbh_SetAmbient = (T_gbh_SetAmbient)GBH_Graphics_Stub_5EA4D0;
+    gbh_InitImageTable = (T_gbh_InitImageTable)GBH_Graphics_Stub_5EA4D0;
+    gbh_FreeImageTable = (T_gbh_FreeImageTable)GBH_Graphics_Stub_5EA4D0;
+    gbh_LoadImage = (T_gbh_LoadImage)GBH_Graphics_Stub_5EA4D0;
+    gbh_BlitImage = (T_gbh_BlitImage)GBH_Graphics_Stub_5EA4D0;
+    gbh_BlitBuffer = (T_gbh_BlitBuffer)GBH_Graphics_Stub_5EA4D0;
+    gbh_DrawFlatRect = (T_gbh_DrawFlatRect)GBH_Graphics_Stub_5EA4D0;
+}
+
+int GBH_Graphics_Free_5EA640()
+{
+    if (gGBH_GraphicsLoaded_7085E0)
+    {
+        gGBH_GraphicsLoaded_7085E0 = 0;
+        gbh_CloseDLL();
+        GBH_Graphics_Unload_5EA500();
+    }
+    return 0;
+}
 
 int __stdcall GBH_GraphicsLoadDll_5EA680(const char* lpLibFileName)
 {
