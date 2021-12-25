@@ -848,12 +848,16 @@ void sound_obj::sub_57EA10()
 
 void sound_obj::Service_419EF0()
 {
-    static bool byte_674E24;
+    static char byte_674E24;
     if (gGame_0x40_67E008)
     {
         const bool v1 = gGame_0x40_67E008->field_0 == 2;
         field_1 = v1;
-        if (v1)
+        if (!v1)
+        {
+            GenerateIntegerRandomNumberTable_41BA90();
+        }
+        else
         {
             if (!byte_674E24)
             {
@@ -862,11 +866,7 @@ void sound_obj::Service_419EF0()
                 gSampManager_6FFF00.SetVocalVolume_58E6D0(1, 127u);
             }
         }
-        else
-        {
-            GenerateIntegerRandomNumberTable_41BA90();
-        }
-        byte_674E24 = gSound_obj_66F680.field_1;
+        byte_674E24 = field_1;
     }
 
     if (field_0)
