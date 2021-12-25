@@ -144,22 +144,17 @@ void sound_obj::sub_41B540()
 
     if (this->field_1D_b3d_sound)
     {
-        idx = 0;
         field_98_nActiveQueue = this->field_98_nActiveQueue;
-        if (this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue])
+        for (idx = 0; idx < this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]; idx++)
         {
-            do
+            v5 = &this->field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]];
+            if (!v5->field_18)
             {
-                array_off = 0x10 * field_98_nActiveQueue + this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx];
-                v5 = &this->field_9C[0][array_off];
-                if (!v5->field_18)
-                {
-                    sub_41B520(v5->field_28, &f28_conv);
-                    v5->field_60 = sub_41B660(v5->field_60, v5->field_64, (__int64)f28_conv);
-                }
-                field_98_nActiveQueue = this->field_98_nActiveQueue;
-                ++idx;
-            } while (idx < this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]);
+                sub_41B520(v5->field_28, &f28_conv);
+                v5->field_60 = sub_41B660(v5->field_60, v5->field_64, (__int64)f28_conv);
+            }
+            field_98_nActiveQueue = this->field_98_nActiveQueue;
+
         }
     }
 }
