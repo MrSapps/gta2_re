@@ -4510,6 +4510,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
     int mode,
     int a9)
 {
+    /*
     int new_Flags; // esi
     unsigned __int16 calcSpaceWidth; // ax
     Fix16 v11; // ebx
@@ -4536,29 +4537,31 @@ const wchar_t *__stdcall DrawText_5D8A10(
     int drawFlags; // [esp+18h] [ebp-Ch]
     void *retaddr; // [esp+24h] [ebp+0h]
     wchar_t *pTexta; // [esp+28h] [ebp+4h]
-    float v_1_2_x; // [esp+28h] [ebp+4h]
-    float v2_3_y; // [esp+28h] [ebp+4h]
-    int v2_v; // [esp+28h] [ebp+4h]
+    */
 
-    new_Flags = CalcQuadFlags_5D83E0(mode, a9) | 0x20000;
-    drawFlags = new_Flags;
-    pTextIter = pText;
+    int new_Flags = CalcQuadFlags_5D83E0(mode, a9) | 0x20000;
+    int drawFlags = new_Flags;
+    const wchar_t *pTextIter = pText;
 
     Fix16 cur_xpos = xpos_fp; // note: new var
-    calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0((WORD*)&spaceWidth);
-    v11 = fp4;
+    unsigned __int16 calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0((WORD*)&spaceWidth);
+    Fix16 v11 = fp4;
+
+    Fix16 space_amount;
     space_amount.mValue = fp4.mValue * calcSpaceWidth;
+
+    Fix16 lineHeight;
     lineHeight.mValue = v11.mValue * (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA800((WORD*)&spaceWidth);
   //  pTmpIter = (WORD *)*pUnknown;
     mode = a7;
 
-    kind = *pUnknown;
+    int kind = *pUnknown;
     if (v11.mValue == dword_706A6C.mValue)
     {
         drawFlags = new_Flags | 0x10000;
     }
 
-    v15 = spaceWidth;
+    int v15 = spaceWidth;
     if ((unsigned __int16)spaceWidth >= 101u)
     {
         if (kind == 8)
@@ -4573,124 +4576,125 @@ const wchar_t *__stdcall DrawText_5D8A10(
     }
 
     //if (*pText)
-    for (text_char = *pTextIter; *pTextIter; pTextIter++)
+    for (wchar_t text_char = *pTextIter; *pTextIter; pTextIter++)
     {
-        //do
-        {
-            // HIWORD(v16) =
-            //HIWORD(v16) = HIWORD(pTextIter);
 
-            // = LOWORD(v16)
-            text_char = *pTextIter;
-            if (*pTextIter == '\n')
+        // HIWORD(v16) =
+        //HIWORD(v16) = HIWORD(pTextIter);
+
+        // = LOWORD(v16)
+        text_char = *pTextIter;
+        if (*pTextIter == '\n')
+        {
+            cur_xpos = xpos_fp;
+            ypos_fp.mValue += lineHeight.mValue;
+        }
+        else if ((WORD)text_char == ' ')
+        {
+            cur_xpos.mValue += space_amount.mValue;
+        }
+        else if ((WORD)text_char == '#')
+        {
+            int v18;
+            if (kind == *pUnknown && (WORD)mode == (WORD)a7)
             {
-                cur_xpos = xpos_fp;
-                ypos_fp.mValue += lineHeight.mValue;
+                kind = 8;
+                /*
+                v17 = -((unsigned __int16)v15 < 0x65u);
+                // LOBYTE(v17) =
+                v17 = v17 & 0xFB;
+                v18 = v17 + 5;
+                */
+                v18 = v15 < 0x65u ? 10 : 5;
             }
-            else if ((WORD)text_char == ' ')
+            else
             {
-                cur_xpos.mValue += space_amount.mValue;
+                kind = *pUnknown;
+                v18 = a7;
             }
-            else if ((WORD)text_char == '#')
+            mode = v18;
+
+            if ((unsigned __int16)v15 >= 101u)
             {
-                if (kind == *pUnknown && (WORD)mode == (WORD)a7)
+                if (kind == 8)
                 {
-                    kind = 8;
-                    v17 = -((unsigned __int16)v15 < 0x65u);
-                    // LOBYTE(v17) =
-                    v17 = v17 & 0xFB;
-                    v18 = v17 + 5;
+                    gMagical_germain_0x8EC_6F5168->sub_4D29D0(mode);
                 }
                 else
                 {
-                    kind = *pUnknown;
-                    v18 = a7;
+                    gMagical_germain_0x8EC_6F5168->sub_4D28A0(v15);
                 }
-                mode = v18;
-                if ((unsigned __int16)v15 >= 101u)
+                v15 = spaceWidth;
+            }
+        }
+        else
+        {
+            sprite_index* sprite_index_5AA440;
+            STexture* pTextureToUse;
+            if ((unsigned __int16)v15 < 0x65u || (unsigned __int16)v15 > 107u)
+            {
+                if ((unsigned __int16)v15 < 0xC9u || (unsigned __int16)v15 > 203u)
                 {
-                    if (kind == 8)
-                    {
-                        gMagical_germain_0x8EC_6F5168->sub_4D29D0(mode);
-                    }
-                    else
-                    {
-                        gMagical_germain_0x8EC_6F5168->sub_4D28A0(v15);
-                    }
-                    v15 = spaceWidth;
+                    // LOWORD(sprite_pal) =
+                    unsigned __int16 sprite_pal = gGtx_0x106C_703DD4->sub_5AA710(v15, (WORD)text_char - 33);
+                    unsigned __int16 sprt_idx = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(7, sprite_pal);
+                    sprite_index_5AA440 = gGtx_0x106C_703DD4->get_sprite_index_5AA440(sprt_idx);
+                    pTextureToUse = gSharp_pare_0x15D8_705064->sub_5B94F0(7, sprite_pal, kind, mode);
+                }
+                else
+                {
+                    sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8E0;
+                    pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)pTextIter);
                 }
             }
             else
             {
-                if ((unsigned __int16)v15 < 0x65u || (unsigned __int16)v15 > 107u)
-                {
-                    if ((unsigned __int16)v15 < 0xC9u || (unsigned __int16)v15 > 203u)
-                    {
-                        // LOWORD(sprite_pal) =
-                        sprite_pal = gGtx_0x106C_703DD4->sub_5AA710(v15, (WORD)text_char - 33);
-                        sprite_pal_ = sprite_pal;
-                        sprt_idx = gGtx_0x106C_703DD4->convert_sprite_pal_5AA460(7, sprite_pal);
-                        sprite_index_5AA440 = gGtx_0x106C_703DD4->get_sprite_index_5AA440(sprt_idx);
-                        pTextureToUse = gSharp_pare_0x15D8_705064->sub_5B94F0(7, sprite_pal_, kind, mode);
-                    }
-                    else
-                    {
-                        sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8E0;
-                        pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)pTextIter);
-                    }
-                }
-                else
-                {
-                    sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8D4;
-                    pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710((unsigned int *)pTextIter);
-                }
-                pTexture = pTextureToUse;
-
-                //v25 = v11.mValue;
-                //v26 = v11.mValue >> 31;
-
-                Fix16 sprite_xoff;
-                sprite_xoff.mValue = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
-                v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
-                gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
-                gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
-                v28 = sprite_xoff.mValue + cur_xpos.mValue;
-                gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
-                gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
-
-                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)cur_xpos.mValue * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
-                v_1_2_x = (double)(sprite_xoff.mValue + cur_xpos.mValue) * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
-                gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
-                gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
-                v2_3_y = (double)(ypos_fp.mValue + (int)v27) * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[2].field_4_y = v2_3_y;
-                gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
-                gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
-                __int64 v1_u = (__int64)(((double)sprite_index_5AA440->field_4_width - 0.000099999997) * 16384.0);
-                v2_v = (__int64)(((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
-                gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
-                gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
-                gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
-                gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
-                gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)v1_u * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
-                gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)(int)v2_v * 0.000061035156;
-                gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
-
-                gbh_DrawQuad(drawFlags, pTexture, &gQuadVerts_706B88.field_0_verts[0], 255);
-
-                //v15 = (__int16)retaddr;
-                space_amount = kind;
-                v11 = v2_v;
-                fp4 = v28;
-                //v13 = v29;
-
+                sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8D4;
+                pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710((unsigned int *)pTextIter);
             }
-            //pTmpIter = pTextIter + 1;
-            //pTextIter = pTmpIter;
-        //} while (*pTmpIter);
+            STexture* pTexture = pTextureToUse;
+
+            //v25 = v11.mValue;
+            //v26 = v11.mValue >> 31;
+
+            Fix16 sprite_xoff;
+            sprite_xoff.mValue = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
+            int v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
+            gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
+            gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
+            int v28 = sprite_xoff.mValue + cur_xpos.mValue;
+            gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
+            gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
+
+            gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)cur_xpos.mValue * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
+            float v_1_2_x = (double)(sprite_xoff.mValue + cur_xpos.mValue) * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
+            gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
+            gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
+            float v2_3_y = (double)(ypos_fp.mValue + (int)v27) * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[2].field_4_y = v2_3_y;
+            gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
+            gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
+            float v1_u = (((double)sprite_index_5AA440->field_4_width - 0.000099999997) * 16384.0);
+            float v2_v = (((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
+            gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
+            gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
+            gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
+            gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
+            gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)v1_u * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
+            gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)(int)v2_v * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
+
+            gbh_DrawQuad(drawFlags, pTexture, &gQuadVerts_706B88.field_0_verts[0], 255);
+
+            //v15 = (__int16)retaddr;
+            space_amount = kind;
+            v11 = v2_v;
+            fp4 = v28;
+            //v13 = v29;
+
         }
     }
     return (const wchar_t*)pTextIter;
