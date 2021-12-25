@@ -158,6 +158,8 @@ struct loving_borg_0xBCA
 
     bool sub_4B61B0();
 
+    bool sub_4B6200();
+
     unsigned __int16 field_0;
     __int16 field_2;
     nifty_maxwell_0x82 field_4[10];
