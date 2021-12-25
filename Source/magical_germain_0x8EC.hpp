@@ -18,7 +18,7 @@ struct kanji_0x10
     __int16 field_2_text_char;
     STexture *field_4_pTexture;
     sprite_index *field_8_sprt_index;
-    int field_C_id;
+    unsigned int field_C_id;
 };
 
 /*
@@ -70,7 +70,7 @@ public:
 
     STexture * sub_4D27D0(unsigned int *a2);
 
-    STexture * sub_4D2710(wchar_t a2);
+    STexture * sub_4D2710(wchar_t text_char);
 
     void sub_4D2610(wchar_t text_char);
 };
