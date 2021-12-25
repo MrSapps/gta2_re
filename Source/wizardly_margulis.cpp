@@ -743,28 +743,28 @@ void wizardly_margulis::Close3DProvider_58E1C0()
     }
 }
 
+// match
 void wizardly_margulis::AllocSample_58DA80()
 {
-    HSAMPLE sample_handle; // eax
-
-    if (!this->field_98_hSample)
+    if (!field_98_hSample)
     {
-        sample_handle = AIL_allocate_sample_handle(this->field_0_hDriver);
-        this->field_98_hSample = sample_handle;
-        AIL_init_sample(sample_handle);
-        AIL_set_sample_type(this->field_98_hSample, 0, 0);
+        field_98_hSample = AIL_allocate_sample_handle(field_0_hDriver);
+        AIL_init_sample(field_98_hSample);
+        AIL_set_sample_type(field_98_hSample, 0, 0);
     }
 }
 
+// match
 void wizardly_margulis::ReleaseSample_58DAC0()
 {
-    if (this->field_98_hSample)
+    if (field_98_hSample)
     {
-        AIL_release_sample_handle(this->field_98_hSample);
-        this->field_98_hSample = 0;
+        AIL_release_sample_handle(field_98_hSample);
+        field_98_hSample = 0;
     }
 }
 
+// todo
 void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
 {
     if (idx < a3 && this->field_98_hSample && !SampleNotDone_58E880())
@@ -783,16 +783,14 @@ void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
     }
 }
 
+// match
 void wizardly_margulis::StreamSetVolume_58E2F0(unsigned __int8 vol)
 {
-    HSTREAM  v2; // eax
-
-    if (this->field_5_str[80])
+    if (field_5_str[80])
     {
-        v2 = this->field_9C_hStreams[0];
-        if (v2)
+        if (field_9C_hStreams[0])
         {
-            AIL_set_stream_volume(v2, vol);
+            AIL_set_stream_volume(field_9C_hStreams[0], vol);
         }
     }
 }
@@ -826,47 +824,46 @@ void wizardly_margulis::OpenStream_58E320(unsigned int a2)
     }
 }
 
+// match
 void wizardly_margulis::CloseStream_58E460()
 {
-    if (this->field_5_str[80])
+    if (field_5_str[80])
     {
-        if (this->field_9C_hStreams[0])
+        if (field_9C_hStreams[0])
         {
-            AIL_close_stream(this->field_9C_hStreams[0]);
-            this->field_9C_hStreams[0] = 0;
+            AIL_close_stream(field_9C_hStreams[0]);
+            field_9C_hStreams[0] = 0;
         }
     }
 }
 
+// match
 void wizardly_margulis::FadeOut_58E490()
 {
-    int new_vol; // esi
-    int vol_fader; // ebx
-    unsigned __int8 cur_vol; // [esp+4h] [ebp-4h]
-
-    if (this->field_5_str[80] && this->field_9C_hStreams[0])
+    if (field_5_str[80] && field_9C_hStreams[0])
     {
-        cur_vol = AIL_stream_volume(this->field_9C_hStreams[0]);
-        if (cur_vol)
+        unsigned __int8 cur_vol = AIL_stream_volume(field_9C_hStreams[0]);
+        if (cur_vol > 0)
         {
-            new_vol = cur_vol;
-            vol_fader = cur_vol;
+            unsigned int volL = cur_vol;
+            unsigned int volR = cur_vol;
             do
             {
-                AIL_set_stream_volume(this->field_9C_hStreams[0], new_vol);
+                AIL_set_stream_volume(field_9C_hStreams[0], volL);
                 AIL_delay(1);
-                --new_vol;
-                --vol_fader;
-            } while (vol_fader);
+                --volL;
+                --volR;
+            } while (volR);
         }
-        AIL_close_stream(this->field_9C_hStreams[0]);
-        this->field_9C_hStreams[0] = 0;
+        AIL_close_stream(field_9C_hStreams[0]);
+        field_9C_hStreams[0] = 0;
     }
 }
 
+// match
 char wizardly_margulis::GetAudioFileName_58E500()
 {
-    return this->field_5_str[80];
+    return field_5_str[80]; // todo: actually a flag
 }
 
 void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
@@ -910,42 +907,40 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
     }
 }
 
+// match
 void wizardly_margulis::CloseVocalStream_58E6A0(int stream_idx)
 {
-    if (this->field_9C_hStreams[stream_idx])
+    if (field_9C_hStreams[stream_idx])
     {
-        AIL_close_stream(this->field_9C_hStreams[stream_idx]);
-        this->field_9C_hStreams[stream_idx] = 0;
+        AIL_close_stream(field_9C_hStreams[stream_idx]);
+        field_9C_hStreams[stream_idx] = 0;
     }
 }
 
+// match
 void wizardly_margulis::SetVocalVolume_58E6D0(int stream_idx, unsigned __int8 vol)
 {
-    HSTREAM  hStream; // eax
-
-    hStream = this->field_9C_hStreams[stream_idx];
-    if (hStream)
+    if (field_9C_hStreams[stream_idx])
     {
-        AIL_set_stream_volume(hStream, vol);
+        AIL_set_stream_volume(field_9C_hStreams[stream_idx], vol);
     }
 }
 
+// match
 void wizardly_margulis::SetVocalSpeed_58E700(int stream_idx, int playbackRate)
 {
-    HSTREAM hStream; // eax
-
-    hStream = this->field_9C_hStreams[stream_idx];
-    if (hStream)
+    if (field_9C_hStreams[stream_idx])
     {
-        AIL_set_stream_playback_rate(hStream, playbackRate);
+        AIL_set_stream_playback_rate(field_9C_hStreams[stream_idx], playbackRate);
     }
 }
 
+// match
 int wizardly_margulis::GetVocalSpeed_58E720(int stream_idx)
 {
-    if (this->field_9C_hStreams[stream_idx])
+    if (field_9C_hStreams[stream_idx])
     {
-        return AIL_stream_playback_rate(this->field_9C_hStreams[stream_idx]);
+        return AIL_stream_playback_rate(field_9C_hStreams[stream_idx]);
     }
     else
     {
@@ -953,48 +948,40 @@ int wizardly_margulis::GetVocalSpeed_58E720(int stream_idx)
     }
 }
 
+// match
 void wizardly_margulis::SetVocalPosMs_58E750(int stream_idx, int ms_pos)
 {
-    HSTREAM  hStream; // eax
-
-    hStream = this->field_9C_hStreams[stream_idx];
-    if (hStream)
+    if (field_9C_hStreams[stream_idx])
     {
-        AIL_set_stream_ms_position(hStream, ms_pos);
+        AIL_set_stream_ms_position(field_9C_hStreams[stream_idx], ms_pos);
     }
 }
 
+// match
 int wizardly_margulis::GetVocalPosMs_58E770(long stream_idx)
 {
-    HSTREAM  hStream; // eax
-
-    hStream = this->field_9C_hStreams[stream_idx];
-    if (!hStream)
+    if (field_9C_hStreams[stream_idx])
     {
-        return 0;
+        AIL_stream_ms_position(field_9C_hStreams[stream_idx], 0, &stream_idx);
+        return stream_idx;
     }
-    AIL_stream_ms_position(hStream, 0, &stream_idx);
-    return stream_idx;
+    return 0;
 }
 
+// match
 int wizardly_margulis::GetVocalLengthMs_58E7A0(long stream_idx)
 {
-    HSTREAM  hStream; // eax
-
-    hStream = this->field_9C_hStreams[stream_idx];
-    if (!hStream)
+    if (field_9C_hStreams[stream_idx])
     {
-        return 0;
+        AIL_stream_ms_position(field_9C_hStreams[stream_idx], &stream_idx, 0);
+        return stream_idx;
     }
-    AIL_stream_ms_position(hStream, &stream_idx, 0);
-    return stream_idx;
+    return 0;
 }
 
+// match
 void wizardly_margulis::SetSampleVol_58E7D0(unsigned __int8 vol)
 {
-    HSAMPLE  field_98_hSample; // eax
-
-    field_98_hSample = this->field_98_hSample;
     if (field_98_hSample)
     {
         AIL_set_sample_volume(field_98_hSample, vol);
@@ -1024,11 +1011,13 @@ void wizardly_margulis::PlayAtIdx_58E7F0(int idx)
     }
 }
 
+// match
 bool wizardly_margulis::SampleNotDone_58E880()
 {
-    return AIL_sample_status(this->field_98_hSample) != 2;
+    return AIL_sample_status(field_98_hSample) != SMP_DONE ? true : false;
 }
 
+// match
 void wizardly_margulis::EndSample_58E960()
 {
     if (field_98_hSample)
