@@ -568,8 +568,34 @@ WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int off
 
 void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len)
 {
-    // TODO
-    UNIQUE_FUNC;
+    int idx1 = len - 1;
+    if (len - 1 > 0)
+    {
+        WORD *pIter1 = &pBuffer[idx1];
+        do
+        {
+            *pIter1 = *(pIter1 - 1);
+            --pIter1;
+            --idx1;
+        } while (idx1);
+    }
+    
+    if (len)
+    {
+        *pBuffer = 0;
+    }
+
+    if (len > 1)
+    {
+        WORD * pIter2 = pBuffer + 1;
+        int idx2 = len - 1;
+        do
+        {
+            *pIter2 += *(pIter2 - 1);
+            ++pIter2;
+            --idx2;
+        } while (idx2);
+    }
 }
 
 void gtx_0x106C::load_sprite_base_5AB210(int sprite_base_chunk_size)
