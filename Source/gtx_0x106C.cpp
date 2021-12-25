@@ -553,9 +553,10 @@ void gtx_0x106C::load_map_object_info_5AAF00(int obji_chunk_len)
     UNIQUE_FUNC;
 }
 
+// match
 void gtx_0x106C::load_sprite_index_5AAF80(int sprx_chunk_size)
 {
-    this->field_20_sprite_index = (sprite_index *)malloc(sprx_chunk_size + 8);
+    this->field_20_sprite_index = (sprite_index *)Memory::malloc_4FE4D0(sprx_chunk_size + 8);
     File::Global_Read_4A71C0(field_20_sprite_index, &sprx_chunk_size);
     if ((sprx_chunk_size & ~7u) > 524280)
     {
