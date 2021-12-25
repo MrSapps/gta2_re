@@ -267,6 +267,7 @@ struct sound_obj
 
     void sub_41A2A0();
 
+    void SetCDVol_41A270(unsigned char cdVol);
 };
 
 extern sound_obj gSound_obj_66F680;

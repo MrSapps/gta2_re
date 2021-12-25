@@ -32,7 +32,7 @@ struct root_sound
 
     void sub_40EF80();
 
-    void SetCDVol_40F0F0(unsigned __int8 cdVol);
+    void SetCDVol_40F0F0(unsigned int cdVol);
 
     void SetSfxVol_40F0B0(unsigned __int8 cdVol);
     

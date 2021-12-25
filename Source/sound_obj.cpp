@@ -34,3 +34,9 @@ void sound_obj::sub_41A2A0()
 
     gWizardly_margulis_6FFF00.sub_58E2A0();
 }
+
+// match
+void sound_obj::SetCDVol_41A270(unsigned char cdVol)
+{
+    field_25_cdVol = cdVol;
+}

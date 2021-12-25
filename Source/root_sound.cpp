@@ -33,9 +33,19 @@ void root_sound::sub_40EF80()
     */
 }
 
-void root_sound::SetCDVol_40F0F0(unsigned __int8 cdVol)
+void root_sound::SetCDVol_40F0F0(unsigned int cdVol)
 {
-    // todo
+    BYTE v = cdVol;
+    if (v > 127)
+    {
+        v = 127;
+        gSound_obj_66F680.SetCDVol_41A270(v);
+    }
+    else
+    {
+        gSound_obj_66F680.SetCDVol_41A270(v & 0xFF);
+    }
+    //return cdVol;
 }
 
 void root_sound::SetSfxVol_40F0B0(unsigned __int8 cdVol)
@@ -70,6 +80,7 @@ void root_sound::Release_40F130()
     // todo
 }
 
+// match
 void root_sound::sub_40F140()
 {
     gSound_obj_66F680.sub_41A2A0();
