@@ -178,51 +178,24 @@ char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
 
 void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2)
 {
-    unsigned __int8 idxToSet; // di
-    unsigned __int8 idx; // [esp+10h] [ebp-4h]
+    unsigned __int8 idx = 0;
+    unsigned __int8 idxToSet = idx;
 
-    idx = 0;
-    idxToSet = idx;
-
-    //if (a2)
+    while (idx < a2)
     {
-        while (idx < a2)
-        {
-            idxToSet = idx;
-            if (this->field_9C[field_98_nActiveQueue][this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]].field_48 > (unsigned int)this->field_9C[field_98_nActiveQueue][a2].field_48)
-            {
-                memmove(
-                    &this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx + 1],
-                    &this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx],
-                    this->field_10_nActiveSamples - idx - 1);
-                break;
-            }
-            idx++;
-            /*
-            if (++idx >= a2)
-            {
-                goto LABEL_5;
-            }*/
-        }
-       
-        if (idx < a2)
-        {
-           
-        }
-        this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][idxToSet] = a2;
-    }
-    /*
-    else
-    {
-        this->field_D9C_abSampleQueueIndexTable[this->field_98_nActiveQueue][idxToSet] = a2;
-    }*/
-
-    /*
-    else
-    {
-    LABEL_5:
         idxToSet = idx;
-    }*/
+        if (field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]].field_48 >
+            field_9C[field_98_nActiveQueue][a2].field_48)
+        {
+            memmove(
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx + 1],
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx],
+                field_10_nActiveSamples - idx - 1);
+            break;
+        }
+        idx++;
+    }
 
+    field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idxToSet] = a2;
    
 }
