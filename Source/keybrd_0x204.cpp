@@ -38,6 +38,7 @@ keybrd_0x204::~keybrd_0x204()
 
 }
 
+// match
 void keybrd_0x204::LoadKbCfg_4D5E00()
 {
     field_200_keyBoardLayout = 0;
@@ -94,13 +95,20 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
     {
         wchar_t tmpBuffer[16]; // [esp+10h] [ebp-A0h] BYREF
         ReadCfg_4D5DA0(hConfigFile, tmpBuffer);
-        if (tmpBuffer[0] == 126)
+        if (tmpBuffer[0] == '~')
         {
             *pKeyArrayIter = 0;
         }
         else
         {
-            *pKeyArrayIter = tmpBuffer[0] != '`' ? 0 : tmpBuffer[1];
+            if (tmpBuffer[0] != '`')
+            {
+                *pKeyArrayIter = 0;
+            }
+            else
+            {
+                *pKeyArrayIter = tmpBuffer[1];
+            }
         }
         ++pKeyArrayIter;
         --k256Counter;
