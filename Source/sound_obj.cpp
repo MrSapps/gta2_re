@@ -16,7 +16,7 @@ void serene_brattain::sub_419DF0()
 sound_obj::sound_obj()
 {
     sound_0x68 * pIter = &field_9C_asSamples[0][0];
-    for (int t = 0; t < 32; t++)
+    for (int t = 0; t < 2*16; t++)
     {
         pIter->field_8_obj.sub_419DF0();
         pIter++;
