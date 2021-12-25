@@ -106,8 +106,6 @@ char wizardly_margulis::sub_58D620()
 // match
 char wizardly_margulis::SoundInit_58D6C0(int *a2)
 {
-    HDIGDRIVER  field_0_hDriver; // esi
-
     AIL_startup();
 
     if (!sub_58D720(1, this->field_2714_bUnknown, 22050))
@@ -117,9 +115,10 @@ char wizardly_margulis::SoundInit_58D6C0(int *a2)
     }
 
     Enum3DProviders_58E1F0();
-    this->field_1EB0_count_samples = 16;
+    
+    field_1EB0_count_samples = 16;
     AllocSamples_58D9F0(1);
-    field_0_hDriver = this->field_0_hDriver;
+
     if (field_0_hDriver)
     {
         AIL_set_digital_master_volume(field_0_hDriver, 127);
@@ -140,8 +139,90 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 
 char wizardly_margulis::AllocSamples_58D9F0(int a2)
 {
-    // todo
-    return 0;
+    char result; // al
+    unsigned int idx; // ebx
+    HSAMPLE  *field_58_hSamples; // edi
+    HSAMPLE  sample_handle; // eax
+
+    Terminate_58DAE0();
+    Reset3DSamples_58D960();
+
+    if (!this->field_2714_bUnknown
+        || (AIL_waveOutClose(this->field_0_hDriver), (result = sub_58D720(1, 0, 22050)) != 0))
+    {
+        idx = 0;
+        if (field_1EB0_count_samples)
+        {
+            field_58_hSamples = this->field_58_hSamples;
+            do
+            {
+                sample_handle = AIL_allocate_sample_handle(field_0_hDriver);
+                *field_58_hSamples = sample_handle;
+                AIL_init_sample(sample_handle);
+                AIL_set_sample_type(*field_58_hSamples, 1, 1);
+                ++idx;
+                ++field_58_hSamples;
+            } while (idx < field_1EB0_count_samples);
+        }
+        return 1;
+    }
+    return result;
+}
+
+void wizardly_margulis::Terminate_58DAE0()
+{
+    unsigned __int8 v2; // bl
+    unsigned __int8 i; // [esp+8h] [ebp-4h]
+
+    v2 = 0;
+    for (i = 0; v2 < this->field_1EB0_count_samples; i = v2)
+    {
+        AIL_release_sample_handle(this->field_58_hSamples[i]);
+        this->field_58_hSamples[i] = 0;
+        ++v2;
+    }
+}
+
+void wizardly_margulis::Reset3DSamples_58D960()
+{
+    unsigned int idx; // ebp
+    H3DSAMPLE *pSampIter; // edi
+
+    idx = 0;
+    if (this->field_1EB2_3d_samp_count)
+    {
+        pSampIter = this->field_26C4_3d_sample;
+        do
+        {
+            if (*pSampIter)
+            {
+                AIL_release_3D_sample_handle(*pSampIter);
+                *pSampIter = 0;
+            }
+            ++idx;
+            ++pSampIter;
+        } while (idx < this->field_1EB2_3d_samp_count);
+    }
+    Close3DProvider_58E1C0();
+    this->field_1EB0_count_samples = 16;
+    this->field_1EB2_3d_samp_count = 0;
+    this->field_26B4_env_idx = -1;
+    this->field_26B8_bHave_env = 0;
+    this->field_26C0_3d_provider = 0;
+    this->field_2704_float = -1.0;
+    this->field_2708_float = -1.0;
+    this->field_270C_float = -1.0;
+    this->field_26BC_k17 = 0;
+}
+
+void wizardly_margulis::Close3DProvider_58E1C0()
+{
+    if (this->field_26C0_3d_provider)
+    {
+        AIL_close_3D_provider(this->field_26C0_3d_provider);
+        this->field_26C0_3d_provider = 0;
+        Sleep(1500u);
+    }
 }
 
 // match

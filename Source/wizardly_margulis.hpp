@@ -28,10 +28,16 @@ public:
 
     char AllocSamples_58D9F0(int a2);
 
+    void Terminate_58DAE0();
+
+    void Reset3DSamples_58D960();
+
+    void Close3DProvider_58E1C0();
+
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;
     char field_5_str[83];
-    int field_58_hSamples[16];
+    HSAMPLE field_58_hSamples[16];
     int field_98_hSample;
     int field_9C_hStreams[2];
     char field_A4_bLoaded;
@@ -51,7 +57,7 @@ public:
     int field_26B8_bHave_env;
     int field_26BC_k17;
     int field_26C0_3d_provider;
-    int field_26C4_3d_sample[16];
+    H3DSAMPLE field_26C4_3d_sample[16];
     float field_2704_float;
     float field_2708_float;
     float field_270C_float;
