@@ -280,11 +280,15 @@ void laughing_blackwell_0x1EB54::sub_4B8020()
     }
     else
     {
-        unsigned __int8 k3Counter = 3;
-        for (unsigned __int8 i = 3; !pClarke->field_0[idx][i].field_0 || k3Counter >= field_1EB51_blocks[idx]; i = k3Counter)
+        // note: reg swap + push swap due to redundant local
+        unsigned __int8 i = 3;
+        while (
+            !pClarke->field_0[idx][i].field_0 || 
+            i >= field_1EB51_blocks[idx])
         {
-            --k3Counter;
+            i--;
         }
+
         sub_4B4D00(idx, i);
         gLucid_hamilton_67E8E0.sub_4C5AD0(0);
         field_EE08 = 16;
