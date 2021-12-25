@@ -846,6 +846,7 @@ char wizardly_margulis::GetAudioFileName_58E500()
     return field_5_str[80]; // todo: actually a flag
 }
 
+// match
 void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
 {
     if (stream_idx || field_5_str[80])
@@ -855,12 +856,12 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
             CloseVocalStream_58E6A0(stream_idx);
         }
 
-        char fileName[80]; // [esp+14h] [ebp-50h] BYREF
+        char fileName[80];
         if (!stream_idx)
         {
             strcpy(fileName, field_5_str);
 
-            char Buffer[12]; // [esp+8h] [ebp-5Ch] BYREF
+            char Buffer[12];
             sprintf(Buffer, "%d", voc_idx);
             strcat(fileName, Buffer);
             if (!bAppendA)
@@ -878,7 +879,16 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
         field_9C_hStreams[stream_idx] = AIL_open_stream(field_0_hDriver, fileName, 0);
         if (field_9C_hStreams[stream_idx])
         {
-            AIL_set_stream_loop_count(field_9C_hStreams[stream_idx], stream_idx != 0);
+            int loops;
+            if (stream_idx != 0)
+            {
+                loops = 1;
+            }
+            else
+            {
+                loops = 0;
+            }
+            AIL_set_stream_loop_count(field_9C_hStreams[stream_idx], loops);
             AIL_start_stream(field_9C_hStreams[stream_idx]);
         }
     }
