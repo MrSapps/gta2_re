@@ -166,17 +166,16 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
         if (startIdx < 9u)
         {
             // ??????
-            //small_string* pIter = &field_0[9 - 1];// .field_14_score;
-            int* pIter = &field_0[9 - 1].field_14_score;
+            small_string* pIter = &field_0[9 - 1];// .field_14_score;
+          //  int* pIter = &field_0[9 - 1].field_14_score;
 
             int remainderCount = 9 - startIdx;
             do
             {
-                wcsncpy((wchar_t*)pIter - 1, (wchar_t*)pIter - 7, 9u);
-                pIter[1] = *pIter;
+                wcsncpy(pIter->field_0_str, (pIter+1)->field_0_str, 9u);
+                pIter->field_14_score = (pIter+1)->field_14_score;
 
-                //pIter--;
-                pIter -= 6;
+                pIter--;
 
                 --remainderCount;
             } while (remainderCount);
