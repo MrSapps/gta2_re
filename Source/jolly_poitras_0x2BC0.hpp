@@ -1605,6 +1605,8 @@ struct jolly_poitras_0x2BC0
 
     static void create_56C2C0();
 
+    static void destroy_56C340();
+
     // todo: ordering
     void sub_56BB10(angry_lewin_0x85C *a2);
 

@@ -59,6 +59,16 @@ void jolly_poitras_0x2BC0::create_56C2C0()
     }
 }
 
+// match
+void jolly_poitras_0x2BC0::destroy_56C340()
+{
+    if (gJolly_poitras_0x2BC0_6FEAC0)
+    {
+        delete gJolly_poitras_0x2BC0_6FEAC0;
+        gJolly_poitras_0x2BC0_6FEAC0 = 0;
+    }
+}
+
 void jolly_poitras_0x2BC0::sub_56BB10(angry_lewin_0x85C *a2)
 {
     // todo
@@ -155,14 +165,19 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
 
         if (startIdx < 9u)
         {
-            small_string* pIter = &field_0[9 - 1];// .field_14_score;
+            // ??????
+            //small_string* pIter = &field_0[9 - 1];// .field_14_score;
+            int* pIter = &field_0[9 - 1].field_14_score;
+
             int remainderCount = 9 - startIdx;
             do
             {
-                wcsncpy(pIter[1].field_0_str, pIter->field_0_str, 9u);
-                pIter[1].field_14_score = pIter->field_14_score;
+                wcsncpy((wchar_t*)pIter - 1, (wchar_t*)pIter - 7, 9u);
+                pIter[1] = *pIter;
 
-                pIter--;
+                //pIter--;
+                pIter -= 6;
+
                 --remainderCount;
             } while (remainderCount);
             //newScore = findScore;
