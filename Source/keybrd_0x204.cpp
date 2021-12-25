@@ -90,29 +90,24 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
     }
 
     __int16* pKeyArrayIter = this->field_0_keys;
-    int k256Counter = 256;
-    do
+    for (int i = 0; i < 256; i++)
     {
-        wchar_t tmpBuffer[16]; // [esp+10h] [ebp-A0h] BYREF
+        wchar_t tmpBuffer[16];
         ReadCfg_4D5DA0(hConfigFile, tmpBuffer);
         if (tmpBuffer[0] == '~')
         {
             *pKeyArrayIter = 0;
         }
+        else if (tmpBuffer[0] != '`')
+        {
+            *pKeyArrayIter = 0;
+        }
         else
         {
-            if (tmpBuffer[0] != '`')
-            {
-                *pKeyArrayIter = 0;
-            }
-            else
-            {
-                *pKeyArrayIter = tmpBuffer[1];
-            }
+            *pKeyArrayIter = tmpBuffer[1];
         }
         ++pKeyArrayIter;
-        --k256Counter;
-    } while (k256Counter);
+    }
 
     fclose(hConfigFile);
 }
