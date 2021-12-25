@@ -860,12 +860,7 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
             CloseVocalStream_58E6A0(stream_idx);
         }
 
-        if (stream_idx)
-        {
-            strcpy(fileName, "data\\audio\\vocals\\");
-            filePart = gVocNames_5FEA5C[voc_idx].field_0_str;
-        }
-        else
+        if (!stream_idx)
         {
             strcpy(fileName, this->field_5_str);
             sprintf(Buffer, "%d", voc_idx);
@@ -875,6 +870,12 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
                 strcat(fileName, "A");
             }
             filePart = ".WAV";
+
+        }
+        else
+        {
+            strcpy(fileName, "data\\audio\\vocals\\");
+            filePart = gVocNames_5FEA5C[voc_idx].field_0_str;
         }
         strcat(fileName, filePart);
         hStream = AIL_open_stream(this->field_0_hDriver, fileName, 0);
