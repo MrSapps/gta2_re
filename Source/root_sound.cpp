@@ -62,3 +62,14 @@ void root_sound::sub_40EFD0(int a2)
 {
     // todo
 }
+
+void root_sound::Release_40F130()
+{
+    // todo
+}
+
+bool root_sound::sub_40F140()
+{
+    // todo
+    return false;
+}

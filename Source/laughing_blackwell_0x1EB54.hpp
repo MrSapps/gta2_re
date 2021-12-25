@@ -2645,6 +2645,10 @@ struct laughing_blackwell_0x1EB54
     void GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr);
 
     char PlySlotSvgExists_4B5370(int idx);
+
+    // match
+    static void __stdcall sub_5E53C0(BYTE *a1);
+
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

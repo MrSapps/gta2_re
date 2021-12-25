@@ -10,6 +10,8 @@
 #include "lucid_hamilton.hpp"
 #include "root_sound.hpp"
 #include "laughing_blackwell_0x1EB54.hpp"
+#include "Bink.hpp"
+#include "dma_video.hpp"
 #include <direct.h>
 #include <stdio.h>
 #include "resource.h"
@@ -40,7 +42,13 @@ BYTE byte_6F5B71;
 
 BYTE byte_6F4BF4;
 
+int gStartMode_626A0C = 2;
+
+char byte_706C5C;
+
 extern char gTmpBuffer_67C598[256];
+
+extern char bDestroyed_6F5B70;
 
 // todo move to another file for ordering
 void sub_5D96C0()
@@ -224,26 +232,340 @@ void __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
     MessageBoxA(gHwnd_707F04, lpText, "Error!", 0);
 }
 
-LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+// todo: move
+void __stdcall sub_5D9230(int startMode)
 {
-    // todo
-    return DefWindowProc(hWnd, Msg, wParam, lParam);
+    gStartMode_626A0C = startMode;
+    gRegistry_6FF968.Set_Screen_Setting_587170("start_mode", startMode);
 }
 
-// match
-void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1)
+// todo: move
+char sub_5D92C0()
 {
-    if (bDoFrontEnd_626B68)
+    return byte_706C5C;
+}
+
+// todo: move
+void __stdcall sub_5D92D0()
+{
+    // todo
+}
+
+// todo: move
+void sub_5D9680()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall Input_MouseAcquire_5D7C60()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall Input_ReleaseMouse_5D7C70()
+{
+    // todo
+}
+
+// todo: move
+void Input_Read_498D10()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall SetSavedGamma_5D98E0()
+{
+    // todo
+}
+
+// todo: move
+void __stdcall sub_5D9250()
+{
+    // todo
+}
+
+// todo: move
+BOOL Vid_FindDevice_5D9290()
+{
+    // todo
+    return FALSE;
+}
+
+LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
+{
+    WPARAM param_; // ebx
+    HWND hwnd_; // ebp
+    UINT msg_; // esi
+    LPARAM lparam_; // edi
+    unsigned __int8 cdVol; // al
+    char sfxVol; // al
+    char reg_bDo3dSound; // al
+    char sound_bDo3dSound; // al
+    int v12; // eax
+    int v13; // ecx
+    WPARAM sysCommand; // eax
+    WPARAM v15; // eax
+    DWORD *pLparamRec; // eax
+    LONG top; // ecx
+    LONG bottom; // edx
+    LONG right; // ecx
+    char v21; // [esp+13h] [ebp-19h] BYREF
+    int newX; // [esp+14h] [ebp-18h] BYREF
+    int newY; // [esp+18h] [ebp-14h] BYREF
+    struct tagRECT winRec; // [esp+1Ch] [ebp-10h] BYREF
+
+    param_ = wParam;
+    hwnd_ = hWnd;
+    msg_ = Msg;
+    lparam_ = lParam;
+
+    if (Msg <= WM_WINDOWPOSCHANGING)
     {
-        if (gLaughing_blackwell_0x1EB54_67DC84)
+        if (Msg == WM_WINDOWPOSCHANGING)
         {
-            gLaughing_blackwell_0x1EB54_67DC84->field_10D = *a1;
+            if (gLaughing_blackwell_0x1EB54_67DC84 && (*(BYTE *)(lParam + 24) & 2) == 0)
+            {
+                v12 = *(DWORD *)(lParam + 12);
+                newX = *(DWORD *)(lParam + 8);
+                newY = v12;
+                Bink::sub_5136D0(&newX, &newY);
+                v13 = newY;
+                *(DWORD *)(lparam_ + 8) = newX;
+                *(DWORD *)(lparam_ + 12) = v13;
+            }
         }
+        else
+        {
+            switch (Msg)
+            {
+            case WM_DESTROY:
+                if (bNetworkGame_7081F0)
+                {
+                    gGoofy_thompson_7071E8.sub_520D10();
+                }
+
+                ReleaseMutex(gMutex_707078);
+                CloseHandle(gMutex_707078);
+                gMutex_707078 = 0;
+                sub_4DA740();
+                GBH_Graphis_DMA_Video_Free_5D9830();
+                PostQuitMessage(0);
+                goto ret_func;
+
+            case WM_SIZE:
+                switch (wParam)
+                {
+                case 0u:
+                    goto wm_size_case_2;
+
+                case 1u:
+                    byte_70827C = 2;
+                    gRoot_sound_66B038.Release_40F130();
+                    break;
+
+                case 2u:
+                wm_size_case_2:
+                    byte_70827C = 0;
+                    gRoot_sound_66B038.sub_40F140();
+                    break;
+                }
+                break;
+
+            case WM_ACTIVATE:
+                if ((BYTE)wParam)
+                {
+                    if ((unsigned __int8)wParam <= 2u)
+                    {
+                        //LOBYTE(wParam) = 1;
+                        wParam = 1;
+                        laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&wParam);
+                        Input_MouseAcquire_5D7C60();
+                    }
+                }
+                else
+                {
+                    v21 = 0;
+                    laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&v21);
+                    Input_ReleaseMouse_5D7C70();
+                }
+                goto ret_func;
+
+            case WM_SETFOCUS:
+                gRoot_sound_66B038.sub_40F140();
+                gRoot_sound_66B038.SetCDVol_40F0F0(gRegistry_6FF968.Set_Sound_Setting_586AE0("CDVol", 127));
+                gRoot_sound_66B038.SetSfxVol_40F0B0(gRegistry_6FF968.Set_Sound_Setting_586AE0("SFXVol", 127));
+
+                if (bDoFrontEnd_626B68)
+                {
+                    gRoot_sound_66B038.Set3DSound_40F160(0);
+                }
+                else
+                {
+                    gRoot_sound_66B038.Set3DSound_40F160(gRegistry_6FF968.Get_Sound_Settting_586A70("do_3d_sound"));
+                    gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
+                }
+
+                if (!bDestroyed_6F5B70)
+                {
+                    //LOBYTE(Msg) = 1;
+                    Msg = 1;
+                    laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&Msg);
+                    if (!bDoFrontEnd_626B68)
+                    {
+                        Input_Read_498D10();
+                    }
+
+                    if (gVidSys_7071D0 && !Bink::sub_513770())
+                    {
+                        sub_5D92D0();
+                        sub_5D9680();
+                        byte_706C5D = 0;
+                    }
+
+                    if (gGame_0x40_67E008)
+                    {
+                        gGame_0x40_67E008->sub_4B9720();
+                    }
+
+                    SetSavedGamma_5D98E0();
+                }
+                goto ret_func;
+
+            case WM_KILLFOCUS:
+                //LOBYTE(hWnd) = 0;
+                hWnd = 0;
+                laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&hWnd);
+                Input_ReleaseMouse_5D7C70();
+                gRoot_sound_66B038.Set3DSound_40F160(0);
+                gRoot_sound_66B038.Release_40F130();
+
+                if (gLaughing_blackwell_0x1EB54_67DC84 && Bink::sub_513760())
+                {
+                    Bink::Close1_513340();
+                    Bink::Close2_513390();
+                    gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(0);
+                }
+
+                if (!gVidSys_7071D0)
+                {
+                    return DefWindowProcA(hwnd_, msg_, param_, lparam_);
+                }
+
+                if (!Vid_FindDevice_5D9290())
+                {
+                    Vid_CloseScreen(gVidSys_7071D0);
+                    byte_706C5D = 1;
+                    ShowWindow(gHwnd_707F04, 7);
+                }
+                break;
+
+            default:
+                goto ret_func;
+            }
+
+        }
+        goto ret_func;
     }
-    else
+
+    if (Msg <= WM_SYSCOMMAND)
     {
-        byte_6F4BF4 = *a1;
+        if (Msg != WM_SYSCOMMAND)
+        {
+            if (Msg == WM_WINDOWPOSCHANGED)
+            {
+                if (gLaughing_blackwell_0x1EB54_67DC84)
+                {
+                    Bink::sub_513720();
+                }
+            }
+            else if (Msg == WM_SYSKEYDOWN)
+            {
+                switch (wParam)
+                {
+                case VK_RETURN:
+                    if (sub_5D92C0())
+                    {
+                        UpdateWinXY_5D8E70();
+                        if ((lparam_ & 0x20000000) != 0)
+                        {
+                            sub_5D9250();
+                            sub_5D92D0();
+                            sub_5D9680();
+                        }
+                    }
+                    goto ret_func;
+
+                case VK_MENU:
+                case VK_F10:
+                case VK_LMENU:
+                    return 0;
+
+                default:
+                    goto ret_func;
+                }
+            }
+            goto ret_func;
+        }
+
+        sysCommand = wParam & 0xFFF0;
+        if (sysCommand > 0xF140)
+        {
+            if (sysCommand == 0xF170)
+            {
+                return 0;
+            }
+            goto ret_func;
+        }
+
+        if (sysCommand != 0xF140)
+        {
+            v15 = sysCommand - 0xF020;
+            if (v15)
+            {
+                if (v15 == SC_MANAGER_QUERY_LOCK_STATUS)
+                {
+                    UpdateWinXY_5D8E70();
+                    if (byte_70827C != 2)
+                    {
+                        sub_5D9230(1u);
+                        sub_5D92D0();
+                        sub_5D9680();
+                    }
+                }
+            }
+            else
+            {
+                UpdateWinXY_5D8E70();
+            }
+            goto ret_func;
+        }
+        return 0;
     }
+
+    if (Msg == WM_SIZING)
+    {
+        GetWindowRect(gHwnd_707F04, &winRec);
+        pLparamRec = (DWORD *)lParam;
+        top = winRec.top;
+        *(DWORD *)lParam = winRec.left;
+        bottom = winRec.bottom;
+        pLparamRec[1] = top;
+        right = winRec.right;
+        pLparamRec[3] = bottom;
+        pLparamRec[2] = right;
+        return 0;
+    }
+
+ret_func:
+    if (gVidSys_7071D0)
+    {
+        Vid_WindowProc(gVidSys_7071D0, hwnd_, msg_, param_, lparam_);
+    }
+
+    return DefWindowProcA(hwnd_, msg_, param_, lparam_);
 }
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)

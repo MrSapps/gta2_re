@@ -27,6 +27,10 @@ struct Game_0x40
     char field_3D;
     char field_3E;
     char field_3F;
+
+    // todo: ordering
+
+    void sub_4B9720();
 };
 
 extern Game_0x40* gGame_0x40_67E008;

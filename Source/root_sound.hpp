@@ -43,6 +43,10 @@ struct root_sound
     char LoadStyle_40EFF0(const char *pStyleName);
 
     void sub_40EFD0(int a2);
+
+    void Release_40F130();
+
+    bool sub_40F140();
 };
 
 

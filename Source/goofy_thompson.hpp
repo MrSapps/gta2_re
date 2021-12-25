@@ -381,6 +381,8 @@ struct goofy_thompson
     // todo: ordering
 
     bool sub_5213E0();
+
+    void sub_520D10();
 };
 
 extern goofy_thompson gGoofy_thompson_7071E8;

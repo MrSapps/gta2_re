@@ -59,6 +59,8 @@ public:
     int Create_Player_Setting_587810(const char* lpValueName);
 
     void Set_Player_Setting_5878C0(const char* lpValueName, BYTE Data);
+
+    void Set_Screen_Setting_587170(const char* lpValueName, BYTE Data);
 };
 
 extern Registry gRegistry_6FF968;

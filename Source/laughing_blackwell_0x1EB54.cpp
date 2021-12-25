@@ -976,6 +976,24 @@ char laughing_blackwell_0x1EB54::PlySlotSvgExists_4B5370(int idx)
     return 1;
 }
 
+extern BYTE byte_6F4BF4;
+extern bool bDoFrontEnd_626B68;
+
+void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
+{
+    if (bDoFrontEnd_626B68)
+    {
+        if (gLaughing_blackwell_0x1EB54_67DC84)
+        {
+            gLaughing_blackwell_0x1EB54_67DC84->field_10D = *a1;
+        }
+    }
+    else
+    {
+        byte_6F4BF4 = *a1;
+    }
+}
+
 loving_borg_0xBCA::loving_borg_0xBCA()
 {
     field_0 = 0;
