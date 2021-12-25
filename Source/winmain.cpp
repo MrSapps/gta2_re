@@ -115,51 +115,52 @@ char sub_5D9510()
     struct tagRECT windowRect; // [esp+18h] [ebp-10h] BYREF
 
     result = sub_5D92C0();
-    if (result)
+    if (!result)
     {
-        Input_ReleaseMouse_5D7C70();
-        SetWindowLongA(gHwnd_707F04, -16, 0x10CF0000);
-        SetWindowPos(gHwnd_707F04, 0, 0, 0, 0, 0, 0x63Bu);
-        UpdateWindow(gHwnd_707F04);
-        ShowWindow(gHwnd_707F04, 5);
-        GetWindowRect(gHwnd_707F04, &windowRect);
-        GetClientRect(gHwnd_707F04, &clientRect);
-        if (SetWindowPos(
-            gHwnd_707F04,
-            0,
-            gWindowX_706B60,
-            gWindowY_706B64,
-            windowRect.right + clientRect.left + window_width_706630 - clientRect.right - windowRect.left,
-            windowRect.bottom + clientRect.top + window_height_706B50 - clientRect.bottom - windowRect.top,
-            0x316u))
-        {
-            UpdateWindow(gHwnd_707F04);
-            ShowWindow(gHwnd_707F04, 5);
-            pVidSys = gVidSys_7071D0;
-            if (gVidSys_7071D0)
-            {
-                field_4_flags = gVidSys_7071D0->field_4_flags;
-               // BYTE1(field_4_flags) |= 1u;
-                field_4_flags |= 1u;
-                gVidSys_7071D0->field_4_flags = field_4_flags;
-                pVidSys = gVidSys_7071D0;
-            }
-            if (Vid_SetMode(pVidSys, gHwnd_707F04, -2) == 1)
-            {
-                return 0;
-            }
-            else
-            {
-                ShowCursor_5D9660();
-                return 1;
-            }
-        }
-        else
-        {
-            return 0;
-        }
+        return 0;
     }
-    return result;
+
+    Input_ReleaseMouse_5D7C70();
+    SetWindowLongA(gHwnd_707F04, -16, 0x10CF0000);
+    SetWindowPos(gHwnd_707F04, 0, 0, 0, 0, 0, 0x63Bu);
+    UpdateWindow(gHwnd_707F04);
+    ShowWindow(gHwnd_707F04, 5);
+    GetWindowRect(gHwnd_707F04, &windowRect);
+    GetClientRect(gHwnd_707F04, &clientRect);
+
+    if (!SetWindowPos(
+        gHwnd_707F04,
+        0,
+        gWindowX_706B60,
+        gWindowY_706B64,
+        windowRect.right + clientRect.left + window_width_706630 - clientRect.right - windowRect.left,
+        windowRect.bottom + clientRect.top + window_height_706B50 - clientRect.bottom - windowRect.top,
+        0x316u))
+    {
+        return 0;
+    }
+
+    UpdateWindow(gHwnd_707F04);
+    ShowWindow(gHwnd_707F04, 5);
+    pVidSys = gVidSys_7071D0;
+    if (gVidSys_7071D0)
+    {
+        field_4_flags = gVidSys_7071D0->field_4_flags;
+        // BYTE1(field_4_flags) |= 1u;
+        field_4_flags |= 1u;
+        gVidSys_7071D0->field_4_flags = field_4_flags;
+        pVidSys = gVidSys_7071D0;
+    }
+
+    if (Vid_SetMode(pVidSys, gHwnd_707F04, -2) == 1)
+    {
+        return 0;
+    }
+    else
+    {
+        ShowCursor_5D9660();
+        return 1;
+    }
 }
 
 
