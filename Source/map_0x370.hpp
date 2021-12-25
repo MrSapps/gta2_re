@@ -22,6 +22,12 @@ struct gmp_block_info
     unsigned __int8 field_B_slope_type;
 };
 
+struct gmp_header
+{
+    char field_0_file_type[4];
+    __int16 field_4_version;
+};
+
 struct gmp_compressed_map_32
 {
     unsigned int field_0_base[256][256];
@@ -357,6 +363,12 @@ public:
     // todo
 
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
+
+    void load_chunk_4E94B0(const char *pChunkType, int chunkLen);
+
+    void process_loaded_zone_data_4E95A0();
+
+    void LoadMap_4E95B0(const char *pGmpFileName);
 
     Map_0x370();
 

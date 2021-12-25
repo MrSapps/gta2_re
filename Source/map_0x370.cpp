@@ -1,5 +1,8 @@
 #include "map_0x370.hpp"
 #include "gtx_0x106C.hpp"
+#include "file.hpp"
+#include "error.hpp"
+#include "chunk.hpp"
 
 gmp_block_info gBlockInfo1_6F5F40;
 gmp_block_info gBlockInfo2_6F6028;
@@ -395,6 +398,73 @@ gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
         }
     }
     return pZone;
+}
+
+// stub
+void Map_0x370::load_chunk_4E94B0(const char *pChunkType, int chunkLen)
+{
+    /*
+    if (!strncmp(pChunkType, "DMAP", 4u))
+    {
+        load_dmap_4E92B0(chunkLen);
+    }
+    else if (!strncmp(pChunkType, "ZONE", 4u))
+    {
+        load_zone_4E9250(chunkLen);
+    }
+    else if (!strncmp(pChunkType, "MOBJ", 4u))
+    {
+        load_mobj_4E91A0(chunkLen);
+    }
+    else if (!strncmp(pChunkType, "ANIM", 4u))
+    {
+        load_anim_4E9280(chunkLen);
+    }
+    else if (!strncmp(pChunkType, "LGHT", 4u))
+    {
+        load_lght_4E9200(chunkLen);
+    }
+    else if (!strncmp(pChunkType, "RGEN", 4u))
+    {
+        load_rgen_4E94A0();
+    }
+    else
+    {
+        File::Global_Seek_4A7140(&chunkLen);
+    }*/
+}
+
+// stub
+void Map_0x370::process_loaded_zone_data_4E95A0()
+{
+    //do_process_loaded_zone_data_4E8E30();
+}
+
+// match
+void Map_0x370::LoadMap_4E95B0(const char *pGmpFileName)
+{
+    gmp_header header;
+    File::Global_Open_4A7060(pGmpFileName);
+
+    unsigned int len = sizeof(gmp_header);
+    chunk_header chunkHeader;
+    File::Global_Read_4A71C0(&header, &len);
+
+    for (len = sizeof(chunk_header); File::Global_Read_4A7210(&chunkHeader, &len); len = sizeof(chunk_header))
+    {
+        if (chunkHeader.field_4_size != 0)
+        {
+            load_chunk_4E94B0(chunkHeader.field_0_type, chunkHeader.field_4_size);
+        }
+    }
+    File::Global_Close_4A70C0();
+
+    process_loaded_zone_data_4E95A0();
+
+    if (!field_0_pDmap)
+    {
+        FatalError_4A38C0(132, "C:\\Splitting\\Gta2\\Source\\map.cpp", 6329);// error map not compressed
+    }
 }
 
 // match 0x4E9660
