@@ -6,6 +6,7 @@
 #include "jolly_poitras_0x2BC0.hpp"
 #include "lucid_hamilton.hpp"
 #include "text_0x14.hpp"
+#include "gbh_graphics.hpp"
 #include <io.h>
 #include <wchar.h>
 
@@ -326,4 +327,175 @@ char laughing_blackwell_0x1EB54::sub_4B7FB0()
 void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsigned __int8 bonusBlockIdx)
 {
     // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
+{
+    // todo
+    /*
+    sub_5D7D30();
+
+    gbh_BeginScene();
+    DrawBackground_4B6E10();
+    sub_4ADF50(a2);
+    gbh_EndScene();
+
+    FreeSurface_5D7DC0();
+
+    Vid_FlipBuffers(gVidSys_7071D0);
+
+    Vid_ClearScreen(
+        gVidSys_7071D0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        gVidSys_7071D0->field_48_rect_right,
+        gVidSys_7071D0->field_4C_rect_bottom);
+    */
+}
+
+void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
+{
+    // todo
+    /*
+    unsigned __int8 local_EE08; // al
+    int blitRet; // eax
+    unsigned __int8 v4; // [esp+0h] [ebp-58h]
+    unsigned __int8 v5; // [esp+1Ch] [ebp-3Ch]
+    unsigned __int8 v6; // [esp+34h] [ebp-24h]
+    unsigned __int8 v7; // [esp+34h] [ebp-24h]
+    int tga_idx; // [esp+50h] [ebp-8h] BYREF
+    int not_used; // [esp+54h] [ebp-4h] BYREF
+
+    local_EE08 = this->field_EE08;
+    if (local_EE08 == 13
+        || local_EE08 == 16
+        || local_EE08 == 14
+        || local_EE08 == 15
+        || local_EE08 == 12
+        || local_EE08 == 17)
+    {
+        sub_4B6B00(local_EE08, &tga_idx, &not_used);
+        if (gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0) == -10)
+        {
+            Load_tga_4B6520(this, v7);
+            gbh_BlitImage(tgaArray_61F0C8[v7].field_84_img, 0, 0, 640, 480, 0, 0);
+        }
+    }
+    else
+    {
+        sub_4B6B00(local_EE08, &tga_idx, &not_used);
+
+        blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
+        if (blitRet == -10)
+        {
+            Load_tga_4B6520(v6);
+            blitRet = gbh_BlitImage(tgaArray_61F0C8[v6].field_84_img, 0, 0, 278, 480, 0, 0);
+        }
+
+        if (!blitRet && gbh_BlitImage(tgaArray_61F0C8[v5].field_84_img, 0, 0, 362, 480, 278, 0) == -10)
+        {
+            Load_tga_4B6520(v4);
+            gbh_BlitImage(tgaArray_61F0C8[v4].field_84_img, 0, 0, 362, 480, 278, 0);
+        }
+    }
+    */
+}
+
+void laughing_blackwell_0x1EB54::sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3)
+{
+    switch (a1)
+    {
+    case 0u:
+        *pTgaIdx = 1;
+        *a3 = 0;
+        break;
+
+    case 1u:
+        *pTgaIdx = 2;
+        *a3 = 0;
+        break;
+
+    case 2u:
+        *pTgaIdx = 3;
+        *a3 = 0;
+        break;
+
+    case 3u:
+        *pTgaIdx = 5;
+        *a3 = 4;
+        break;
+
+    case 4u:
+        *pTgaIdx = 6;
+        *a3 = 4;
+        break;
+    case 5u:
+        *pTgaIdx = 7;
+        *a3 = 4;
+        break;
+
+    case 6u:
+        *pTgaIdx = 8;
+        *a3 = 4;
+        break;
+
+    case 7u:
+        *pTgaIdx = 9;
+        *a3 = 4;
+        break;
+    case 8u:
+        *pTgaIdx = 10;
+        *a3 = 4;
+        break;
+
+    case 9u:
+        *pTgaIdx = 11;
+        *a3 = 4;
+        break;
+
+    case 10u:
+        *pTgaIdx = 12;
+        *a3 = 4;
+        break;
+
+    case 11u:
+        *pTgaIdx = 13;
+        *a3 = 4;
+        break;
+    case 12u:
+        *pTgaIdx = 15;
+        *a3 = 0;
+        break;
+
+    case 13u:
+        *pTgaIdx = 19;
+        *a3 = 0;
+        break;
+
+    case 16u:
+        *pTgaIdx = 17;
+        *a3 = 0;
+        break;
+
+    case 14u:
+        *pTgaIdx = 18;
+        *a3 = 0;
+        break;
+
+    case 15u:
+        *pTgaIdx = 16;
+        *a3 = 0;
+        break;
+
+    case 17u:
+        *pTgaIdx = 22;
+        *a3 = 0;
+        break;
+
+    default:
+        return;
+    }
 }

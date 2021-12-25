@@ -2537,6 +2537,12 @@ struct laughing_blackwell_0x1EB54
     void sub_4B4D00(
         unsigned __int8 mainBlockIdx,
         unsigned __int8 bonusBlockIdx);
+
+    void sub_4ADFB0(int a2);
+
+    void DrawBackground_4B6E10();
+
+    void sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3);
 };
 
 int __stdcall SetGamma_5D9910(int gamma);
