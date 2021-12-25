@@ -3,9 +3,11 @@
 #include <windows.h>
 #include "root_sound.hpp" // for infallible_turing
 
-struct serene_brattain 
+class serene_brattain 
 {
-    serene_brattain();
+public:
+    //serene_brattain();
+    void test();
     int field_0;
     int field_4;
     int field_8;

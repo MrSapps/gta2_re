@@ -7,7 +7,13 @@ sound_obj gSound_obj_66F680;
 int dword_674CD8;
 
 // 0x419DF0 match
+/*
 serene_brattain::serene_brattain()
+{
+
+}*/
+
+void serene_brattain::test()
 {
 
 }
@@ -21,23 +27,19 @@ sound_obj::sound_obj()
     int v5; // ebx
     vigilant_maxwell *v7; // eax
     int v8; // edx
-    /*
-    v2 = 32;
-    p_field_8_obj = (serene_brattain *)&this->field_9C_asSamples[0][0].field_8_obj;
-    do
-    {
-        serene_brattain::sub_419DF0(p_field_8_obj++);
-        --v2;
-    } while (v2);
 
-    v4 = (serene_brattain *)&this->field_DC0[0].field_8_obj;
-    v5 = 16;
-    do
+    for (int t = 0; t < 32; t++)
     {
-        serene_brattain::sub_419DF0(v4++);
-        --v5;
-    } while (v5);
-    */
+        //for (int tt = 0; tt < 2; tt++)
+        {
+            field_9C_asSamples[0][t].field_8_obj.test();
+        }
+    }
+
+    for (int j = 0; j < 16; j++)
+    {
+        field_DC0[j].field_8_obj.test();
+    }
 
     this->field_1474 = 0;
     this->field_0 = 0;
