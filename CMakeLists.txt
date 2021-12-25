@@ -12,6 +12,8 @@ add_library (Source
     Source/chunk.hpp
     Source/debug.hpp
     Source/debug.cpp
+    Source/gbh_graphics.hpp
+    Source/gbh_graphics.cpp
     Source/text_0x14.hpp
     Source/text_0x14.cpp
     Source/root_sound.hpp

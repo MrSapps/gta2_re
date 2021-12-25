@@ -7,6 +7,7 @@
 #include "source/lucid_hamilton.hpp"
 #include "Source/winmain.hpp"
 #include "Source/text_0x14.hpp"
+#include "Source/gbh_graphics.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -108,12 +109,18 @@ void test_text_0x14()
     text_0x14 t;
 }
 
+void test_gbh_graphics()
+{
+    GBH_GraphicsLoadDll_5EA680("meh.dll");
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
                      int       nCmdShow)
  {
     test_text_0x14();
+    test_gbh_graphics();
 
     /*
     test_registry();
