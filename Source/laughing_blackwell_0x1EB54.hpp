@@ -128,9 +128,9 @@ struct laughing_blackwell_0x1EB54
     char field_C9B3;
     __int16 field_C9B4;
     __int16 field_C9B6;
-    wchar_t field_C9B8[8];
-    char field_C9C8;
-    char field_C9C9;
+    wchar_t field_C9B8[9];
+    //char field_C9C8;
+    //char field_C9C9;
     unsigned __int8 field_C9CA;
     char field_C9CB;
     char field_C9CC;

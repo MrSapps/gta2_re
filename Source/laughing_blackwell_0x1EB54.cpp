@@ -7,6 +7,7 @@
 #include "lucid_hamilton.hpp"
 #include "text_0x14.hpp"
 #include <io.h>
+#include <wchar.h>
 
 int __stdcall SetGamma_5D9910(int gamma)
 {
@@ -214,9 +215,23 @@ void laughing_blackwell_0x1EB54::sub_4B4280()
 
 void laughing_blackwell_0x1EB54::sub_4B8530()
 {
-    // todo
+    short total = field_C9CA;
+    if (total < 9)
+    {
+        int remainder = 9 - total;
+        //remainder &= 0xFFFF;
+        wchar_t* pStart = &field_C9B8[total];
+        while (remainder)
+        {
+            *pStart = 0;
+            pStart++;
+            remainder--;
+        }
+//        wmemset(&field_C9B8[total], 0, remainder);
+    }
 }
 
+// match
 void laughing_blackwell_0x1EB54::sub_4B8560()
 {
     if (!wcscmp(field_C9B8, L"WFUSDFCF")) // french bonus mission unlocks?
