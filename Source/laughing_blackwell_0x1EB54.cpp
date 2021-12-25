@@ -12,6 +12,7 @@
 #include "gtx_0x106C.hpp"
 #include "magical_germain_0x8EC.hpp"
 #include "file.hpp"
+#include "dma_video.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -36,6 +37,12 @@ DIDATAFORMAT gKeyboardDataFormat_601A54;
 
 extern LPDIRECTINPUTA gpDInput_67B804;
 extern HWND gHwnd_707F04;
+
+DWORD dword_70675C;
+DWORD dword_70679C;
+
+extern int window_width_706630;
+extern int window_height_706B50;
 
 struct struc_61F0C8
 {
@@ -505,10 +512,40 @@ void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsign
     // todo
 }
 
-void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
+void laughing_blackwell_0x1EB54::sub_4ADF50(int bQuit)
 {
     // todo
-    /*
+}
+
+void __stdcall sub_5D7D30()
+{
+    Vid_GetSurface(gVidSys_7071D0);
+    MakeScreenTable(
+        (int)gVidSys_7071D0->field_50_surface_pixels_ptr,
+        gVidSys_7071D0->field_54_surface_pixels_pitch,
+        gVidSys_7071D0->field_4C_rect_bottom);
+
+    if (gVidSys_7071D0->field_40_full_screen == -2)
+    {
+        dword_70679C = window_height_706B50 - 1;
+        dword_70675C = window_width_706630 - 1;
+    }
+    else
+    {
+        dword_70675C = gVidSys_7071D0->field_48_rect_right - 1;
+        dword_70679C = gVidSys_7071D0->field_4C_rect_bottom - 1;
+    }
+
+    gbh_SetWindow(0, 0, dword_70675C, dword_70679C);
+}
+
+void __cdecl FreeSurface_5D7DC0()
+{
+    Vid_FreeSurface(gVidSys_7071D0);
+}
+
+void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
+{
     sub_5D7D30();
 
     gbh_BeginScene();
@@ -529,7 +566,6 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
         0,
         gVidSys_7071D0->field_48_rect_right,
         gVidSys_7071D0->field_4C_rect_bottom);
-    */
 }
 
 

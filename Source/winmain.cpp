@@ -103,7 +103,7 @@ void __stdcall sub_5D93A0()
     char v0; // bl
     int bcheckModeRet; // esi
    // SVideo *v2; // eax
-    DWORD field_4_flags; // ecx
+    BYTE field_4_flags; // ecx
 
     v0 = 0;
     bcheckModeRet = Vid_CheckMode(gVidSys_7071D0, full_width_706B5C, full_height_706798, 16);

@@ -2614,6 +2614,8 @@ struct laughing_blackwell_0x1EB54
         unsigned __int8 mainBlockIdx,
         unsigned __int8 bonusBlockIdx);
 
+    void sub_4ADF50(int bQuit );
+
     void sub_4ADFB0(int a2);
 
     void DrawBackground_4B6E10();
