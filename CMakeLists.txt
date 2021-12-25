@@ -12,6 +12,12 @@ add_library (Source
     Source/chunk.hpp
     Source/debug.hpp
     Source/debug.cpp
+    Source/magical_germain_0x8EC.hpp
+    Source/magical_germain_0x8EC.cpp
+    Source/sharp_pare_0x15D8.hpp
+    Source/sharp_pare_0x15D8.cpp
+    Source/Bink.hpp
+    Source/Bink.cpp
     Source/gbh_graphics.hpp
     Source/gbh_graphics.cpp
     Source/text_0x14.hpp

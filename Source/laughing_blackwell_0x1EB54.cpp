@@ -7,9 +7,23 @@
 #include "lucid_hamilton.hpp"
 #include "text_0x14.hpp"
 #include "gbh_graphics.hpp"
+#include "Bink.hpp"
+#include "sharp_pare_0x15D8.hpp"
+#include "gtx_0x106C.hpp"
+#include "magical_germain_0x8EC.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>
+
+laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
+
+DWORD dword_67D6F8;
+int* dword_67D704;
+BYTE byte_67D6FC;
+DWORD gSoundIdx_67D700;
+int dword_67D818;
+BYTE byte_67D81C;
+unsigned int counter_706C4C;
 
 struct struc_61F0C8
 {
@@ -54,7 +68,46 @@ int __stdcall SetGamma_5D9910(int gamma)
     return 0;
 }
 
-laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
+void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
+{
+    if (!gLaughing_blackwell_0x1EB54_67DC84)
+    {
+        gLaughing_blackwell_0x1EB54_67DC84 = new laughing_blackwell_0x1EB54();
+    }
+
+    if (!bSkip_audio_67D6BE)
+    {
+        dword_67D818 = 0;
+        byte_67D81C = 0;
+        dword_67D6F8 = 2;
+        dword_67D704 = &dword_67D818;
+        byte_67D6FC = 0;
+        gSoundIdx_67D700 = gRoot_sound_66B038.sub_40EFB0(&dword_67D6F8);
+        gRoot_sound_66B038.LoadStyle_40EFF0("data\\fstyle.sty");
+        gRoot_sound_66B038.Set3DSound_40F160(0);
+    }
+
+    Bink::Reset_513210();
+}
+
+// match
+void __stdcall laughing_blackwell_0x1EB54::destroy_4AD070()
+{
+    if (!bSkip_audio_67D6BE && gSoundIdx_67D700)
+    {
+        gRoot_sound_66B038.sub_40EFD0(gSoundIdx_67D700);
+        gSoundIdx_67D700 = 0;
+    }
+
+    if (gLaughing_blackwell_0x1EB54_67DC84)
+    {
+        delete gLaughing_blackwell_0x1EB54_67DC84;
+        gLaughing_blackwell_0x1EB54_67DC84 = 0;
+    }
+
+    Bink::Close1_513340();
+    Bink::Close2_513390();
+}
 
 void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 {
@@ -77,11 +130,11 @@ const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
 // match
 bool laughing_blackwell_0x1EB54::intro_bik_exists_4B5FF0()
 {
-    // ecx wasn't first due to global being an object instead of a pointer
+    // note: ecx wasn't first due to global being an object instead of a pointer
     _finddata_t findData;
 
     // note: put call in argument rather than local to change inst ordering
-    const  long hFind = _findfirst(gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50(), &findData);
+    const long hFind = _findfirst(gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50(), &findData);
 
     if (hFind == -1)
     {
@@ -92,10 +145,6 @@ bool laughing_blackwell_0x1EB54::intro_bik_exists_4B5FF0()
     return 1;
 
 }
-
-int dword_67D818;
-BYTE byte_67D81C;
-unsigned int counter_706C4C;
 
 void sub_SetGamma()
 {
@@ -435,7 +484,7 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
             if (blitRet == -10)
             {
                 Load_tga_4B6520(not_used);
-                gbh_BlitImage(tgaArray_61F0C8[not_used+1].field_84_img, 0, 0, 362, 480, 278, 0);
+                gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0);
             }
         }
     }
@@ -567,4 +616,77 @@ void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
     free(pAlloc);
 
 
+}
+
+laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()
+{
+    FreeKeyBoardDevice_4AFD00();
+
+    if (gSharp_pare_0x15D8_705064)
+    {
+        delete gSharp_pare_0x15D8_705064;
+        gSharp_pare_0x15D8_705064 = 0;
+    }
+
+    if (gGtx_0x106C_703DD4)
+    {
+        delete gGtx_0x106C_703DD4;
+        gGtx_0x106C_703DD4 = 0;
+    }
+
+    if (gText_0x14_704DFC)
+    {
+        delete gText_0x14_704DFC;
+        gText_0x14_704DFC = 0;
+    }
+
+    if (gMagical_germain_0x8EC_6F5168)
+    {
+        delete gMagical_germain_0x8EC_6F5168;
+        gMagical_germain_0x8EC_6F5168 = 0;
+    }
+
+    FreeImageTable_4B6750();
+}
+
+void laughing_blackwell_0x1EB54::FreeKeyBoardDevice_4AFD00()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
+{
+    gbh_FreeImageTable();
+}
+
+loving_borg_0xBCA::~loving_borg_0xBCA()
+{
+    field_0 = 0;
+    field_2 = 0;
+    field_BC6_nifty_idx = 0;
+    field_BC8 = 0;
+}
+
+competent_noyce_0x6E::~competent_noyce_0x6E()
+{
+    field_1 = 1;
+    field_0 = 0;
+    field_2 = 0;
+    field_4 = 0;
+    field_6A = -1;
+    field_6C = -1;
+}
+
+nifty_maxwell_0x82::~nifty_maxwell_0x82()
+{
+    field_0 = 0;
+    field_1 = 1;
+    field_2 = 0;
+    field_4 = 0;
+    field_6A = -1;
+    field_6C = -1;
+    field_6E_count = 0;
+    field_70 = 0;
+    field_7E = 0;
+    field_80 = 0;
 }

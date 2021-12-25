@@ -6,6 +6,8 @@
 #include <stdio.h>
 #include <windows.h>
 
+gtx_0x106C *gGtx_0x106C_703DD4;
+
 struct sty_header
 {
     char field_0_type[4];

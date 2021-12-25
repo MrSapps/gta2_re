@@ -251,3 +251,5 @@ public:
     char field_6B;
     int field_6C_spec[1024];
 };
+
+extern gtx_0x106C *gGtx_0x106C_703DD4;

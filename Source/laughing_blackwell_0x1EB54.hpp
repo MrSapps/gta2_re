@@ -42,6 +42,8 @@ struct admiring_euler_4
 // todo: move
 struct competent_noyce_0x6E
 {
+    ~competent_noyce_0x6E();
+
     char field_0;
     char field_1;
     __int16 field_2;
@@ -56,6 +58,8 @@ struct competent_noyce_0x6E
 #pragma pack(1)
 struct nifty_maxwell_0x82
 {
+    ~nifty_maxwell_0x82();
+
     char field_0;
     char field_1;
     __int16 field_2;
@@ -85,6 +89,8 @@ struct kind_beaver_6
 // todo: move
 struct loving_borg_0xBCA
 {
+    ~loving_borg_0xBCA();
+
     unsigned __int16 field_0;
     __int16 field_2;
     nifty_maxwell_0x82 field_4[10];
@@ -2488,6 +2494,11 @@ struct laughing_blackwell_0x1EB54
 
     // todo: ordering
 
+    // todo move to another file for ordering
+    static void __stdcall create_4ACFA0();
+
+    static void __stdcall destroy_4AD070();
+
     void sub_4B3170(unsigned __int16 arg0);
 
     int sub_4AEDB0();
@@ -2545,6 +2556,12 @@ struct laughing_blackwell_0x1EB54
     void sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3);
 
     void Load_tga_4B6520(unsigned __int16 idx);
+
+    ~laughing_blackwell_0x1EB54();
+
+    void FreeKeyBoardDevice_4AFD00();
+
+    void FreeImageTable_4B6750();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

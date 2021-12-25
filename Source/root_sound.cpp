@@ -45,3 +45,20 @@ void root_sound::sub_40EFA0()
 {
     // todo
 }
+
+int root_sound::sub_40EFB0(DWORD *a2)
+{
+    // todo
+    return 0;
+}
+
+char root_sound::LoadStyle_40EFF0(const char *pStyleName)
+{
+    // todo
+    return 0;
+}
+
+void root_sound::sub_40EFD0(int a2)
+{
+    // todo
+}

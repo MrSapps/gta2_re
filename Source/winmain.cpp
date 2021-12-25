@@ -75,12 +75,6 @@ void __stdcall Init_keybrd_jolly_and_sound_4DA440()
 }
 
 // todo move to another file for ordering
-void __stdcall sub_4ACFA0()
-{
-    // todo
-}
-
-// todo move to another file for ordering
 void __stdcall sub_4DA4D0()
 {
     // todo
@@ -132,12 +126,6 @@ void __stdcall CleanUpInputAndOthers_4DA700()
 char bPlay_replay_67D4F4 = 0;
 char bConstant_replay_save_67D5C4 = 0;
 int bStartNetworkGame_7081F0 = 0;
-
-// todo move to another file for ordering
-void __stdcall sub_4AD070()
-{
-    // todo
-}
 
 // todo move to another file for ordering
 int __stdcall SkipWhiteSpace_4DA390(char *pStr)
@@ -376,7 +364,7 @@ LABEL_23:
             break;
         }
 
-        sub_4ACFA0();
+        laughing_blackwell_0x1EB54::create_4ACFA0();
         gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(state);
 
     LABEL_27:
@@ -419,18 +407,18 @@ LABEL_23:
                     if (t == 1)
                     {
                         bQuit = 1;
-                        sub_4AD070();
+                        laughing_blackwell_0x1EB54::destroy_4AD070();
                         DestroyWindow(gHwnd_707F04);
                     }
                     else if (t == 3)
                     {
-                        sub_4AD070();
+                        laughing_blackwell_0x1EB54::destroy_4AD070();
                         bDoFrontEnd_626B68 = 0;
                         goto LABEL_23;
                     }
                     else if (t == 4)
                     {
-                        sub_4AD070();
+                        laughing_blackwell_0x1EB54::destroy_4AD070();
                         bDoFrontEnd_626B68 = 0;
                         byte_6F5B71 = 1;
                         goto LABEL_23;

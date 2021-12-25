@@ -1,5 +1,7 @@
 #pragma once
 
+#include <windows.h>
+
 // todo: move
 struct infallible_turing;
 struct infallible_turing
@@ -35,6 +37,12 @@ struct root_sound
     void SetSfxVol_40F0B0(unsigned __int8 cdVol);
     
     void sub_40EFA0();
+
+    int sub_40EFB0(DWORD *a2);
+
+    char LoadStyle_40EFF0(const char *pStyleName);
+
+    void sub_40EFD0(int a2);
 };
 
 
