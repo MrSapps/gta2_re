@@ -458,6 +458,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             if (sub_5D92C0())
             {
                 UpdateWinXY_5D8E70();
+                // The previous key state. The value is 1 if the key is down before the message is sent, or it is 0 if the key is up.
                 if ((lParam & 0x20000000) != 0)
                 {
                     sub_5D9250();
@@ -477,16 +478,14 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         }
         break;
 
-
-
     case WM_SYSCOMMAND:
         switch (wParam & 0xFFF0)
         {
-        case SC_SCREENSAVE:
         case SC_MONITORPOWER:
+        case SC_SCREENSAVE:
             return 0;
 
-        case SC_MINIMIZE:
+        case SC_MAXIMIZE:
             UpdateWinXY_5D8E70();
             if (byte_70827C != 2)
             {
@@ -496,54 +495,13 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             }
             break;
 
-        case SC_MOVE:
-        case SC_RESTORE:
+        case SC_MINIMIZE:
             UpdateWinXY_5D8E70();
             break;
 
         default:
             break;
         }
-        /*
-        sysCommand = wParam & 0xFFF0;
-        if (sysCommand > 0xF140)
-        {
-            if (sysCommand == 0xF170)
-            {
-                return 0;
-            }
-            //goto ret_func;
-        }
-        else if (sysCommand != 0xF140) // else added
-        {
-            // F020 = SC_MINIMIZE
-            // 120 = SC_RESTORE
-            // 0xF140-0xF020 = 0x120
-            v15 = sysCommand - 0xF020;
-            if (v15)
-            {
-                if (v15 == SC_MANAGER_QUERY_LOCK_STATUS)
-                {
-                    UpdateWinXY_5D8E70();
-                    if (byte_70827C != 2)
-                    {
-                        sub_5D9230(1u);
-                        sub_5D92D0();
-                        sub_5D9680();
-                    }
-                }
-            }
-            else
-            {
-                UpdateWinXY_5D8E70();
-            }
-            //goto ret_func;
-        }
-        else // added
-        {
-            return 0;
-        }
-        */
         break;
 
     case WM_SIZING:
