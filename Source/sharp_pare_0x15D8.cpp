@@ -211,7 +211,24 @@ void festive_hopper::Free_5B9050()
 
 void festive_hopper::Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5)
 {
-    // todo
+    if (!this->field_0_pAlloc)
+    {
+        if (a2)
+        {
+            this->field_4_item_alloc_count = a3 * a2;
+            this->field_6_count = a3;
+            this->field_10_bDoFree = 1;
+            this->field_8_pal_type = a4;
+            this->field_C_pal_type = a5;
+            this->field_0_pAlloc = (STexture**)malloc(4 * (unsigned __int16)(a3 * a2));
+            
+            unsigned int i = 0;
+            while  (i < this->field_4_item_alloc_count)
+            {
+                this->field_0_pAlloc[i++] = 0;
+            }
+        }
+    }
 }
 
 void festive_hopper::sub_5B8F70()
