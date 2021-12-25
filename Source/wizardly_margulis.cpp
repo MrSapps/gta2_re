@@ -679,6 +679,7 @@ void wizardly_margulis::sub_58E010(int a2)
     }
 }
 
+// match
 char wizardly_margulis::sub_58E140(int envIdx)
 {
     field_26B4_env_idx = envIdx;
@@ -692,6 +693,7 @@ char wizardly_margulis::sub_58E140(int envIdx)
         }
 
         field_26C0_3d_provider = field_1EB4_h3dProvider[envIdx];
+        // using another local for envIdx2 doesn't match here, meh
         AIL_3D_provider_attribute(field_26C0_3d_provider, "EAX environment selection", &envIdx2);
         if (envIdx2 != -1)
         {
