@@ -309,6 +309,16 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
 
     switch (Msg)
     {
+   
+    case WM_WINDOWPOSCHANGED:
+    {
+        if (gLaughing_blackwell_0x1EB54_67DC84)
+        {
+            Bink::sub_513720();
+        }
+        break;
+    }
+
     case WM_SETFOCUS: // order ok
         gRoot_sound_66B038.sub_40F140();
         gRoot_sound_66B038.SetCDVol_40F0F0(gRegistry_6FF968.Set_Sound_Setting_586AE0("CDVol", 127));
@@ -375,8 +385,8 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
                 ShowWindow(gHwnd_707F04, 7);
             }
         }
-    }
         break;
+    }
 
     case WM_ACTIVATE: // order ok
         switch (wParam)
@@ -400,18 +410,6 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         }
         break;
 
-
-    case WM_WINDOWPOSCHANGING:
-    {
-        WINDOWPOS* pPos = reinterpret_cast<WINDOWPOS*>(lParam);
-        newX = pPos->x;
-        newY = pPos->y;
-        Bink::sub_5136D0(&newX, &newY);
-        pPos->x = newX;
-        pPos->y = newY;
-        break;
-    }
-
     case WM_SIZE:
         switch (wParam)
         {
@@ -434,6 +432,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         }
         break;
 
+
     case WM_DESTROY: // order ok
         if (bNetworkGame_7081F0)
         {
@@ -443,17 +442,24 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
         ReleaseMutex(gMutex_707078);
         CloseHandle(gMutex_707078);
         gMutex_707078 = 0;
+
         sub_4DA740();
         GBH_Graphis_DMA_Video_Free_5D9830();
         PostQuitMessage(0);
         break;
 
-    case WM_WINDOWPOSCHANGED:
-        if (gLaughing_blackwell_0x1EB54_67DC84)
+    case WM_WINDOWPOSCHANGING:
+        if (gLaughing_blackwell_0x1EB54_67DC84 && (*(BYTE *)(lParam + 24) & 2) == 0)
         {
-            Bink::sub_513720();
+            WINDOWPOS* pPos = reinterpret_cast<WINDOWPOS*>(lParam);
+            newX = pPos->x;
+            newY = pPos->y;
+            Bink::sub_5136D0(&newX, &newY);
+            pPos->x = newX;
+            pPos->y = newY;
         }
         break;
+
 
     case WM_SYSKEYDOWN:
         switch (wParam)
@@ -480,6 +486,8 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             break;
         }
         break;
+
+
 
     case WM_SYSCOMMAND:
         switch (wParam & 0xFFF0)
