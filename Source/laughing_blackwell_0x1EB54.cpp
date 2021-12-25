@@ -571,93 +571,73 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
     loving_borg_0xBCA* pBorg = &field_136[field_132_f136_idx];
     if (this->field_110_state != 2)
     {
-        if (!field_132_f136_idx)
+        if (field_132_f136_idx == 0)
         {
             switch (pBorg->field_BC6_nifty_idx)
             {
             case 0:
-                this->field_EE08 = 1;
+                field_EE08 = 1;
                 break;
 
             case 1:
-                this->field_EE08 = 0; // case 1
+                field_EE08 = 0;
                 break;
 
             case 2:
-                this->field_EE08 = 2;
+                field_EE08 = 2;
                 break;
             }
         }
-        else
+        else if (field_132_f136_idx == 1)
         {
-
-            switch (field_132_f136_idx)
+            switch (pBorg->field_BC6_nifty_idx)
             {
-            case 1u:
-                switch (pBorg->field_BC6_nifty_idx)
-                {
-                case 0u:
-                    this->field_EE08 = 10;
-                    break;
-                case 1u:
-                    this->field_EE08 = 11;
-                    break;
-                case 2u:
-                    this->field_EE08 = 6;
-                    break;
-                case 3u:
-                    this->field_EE08 = gLucid_hamilton_67E8E0.sub_4C5980() + 7;
-                    break;
-                case 4u:
-                    this->field_EE08 = ((unsigned __int8)gLucid_hamilton_67E8E0.sub_4C5990() >> 4) + 3;
-                    break;
-                default:
-                    return;
-                }
+            case 0u:
+                this->field_EE08 = 10;
                 break;
-            case 5u:
-                this->field_EE08 = 12;
+            case 1u:
+                this->field_EE08 = 11;
                 break;
             case 2u:
-                this->field_EE08 = 13;
+                this->field_EE08 = 6;
                 break;
             case 3u:
-            case 6u:
-            case 7u:
-            case 0xBu:
-            case 0xEu:
-                this->field_EE08 = 16;
+                this->field_EE08 = gLucid_hamilton_67E8E0.sub_4C5980() + 7;
                 break;
             case 4u:
-            case 0xAu:
-                this->field_EE08 = 15;
-                break;
-            case 9u:
-                this->field_EE08 = 17;
+                this->field_EE08 = ((unsigned __int8)gLucid_hamilton_67E8E0.sub_4C5990() >> 4) + 3;
                 break;
             default:
-                this->field_EE08 = 7;
                 break;
             }
-            /*
-            if ((WORD)field_BC6_nifty_idx)
-            {
-                // >= 1
-                v5 = field_BC6_nifty_idx - 1;
-                if (v5) // >= 2
-                {
-                    if (v5 == 1) // case 2
-                        this->field_EE08 = 2;
-                }
-                else // 1-1 = 0
-                {
-                    this->field_EE08 = 0; // case 1
-                }
-            }
-            else
-            {
-                this->field_EE08 = 1; // case 0
-            }*/
+        }
+        else if (field_132_f136_idx == 5)
+        {
+            field_EE08 = 12;
+        }
+        else if (field_132_f136_idx == 2)
+        {
+            field_EE08 = 13;
+        }
+        else if (field_132_f136_idx == 3u ||
+            field_132_f136_idx == 6 ||
+            field_132_f136_idx == 7 ||
+            field_132_f136_idx == 0xB ||
+            field_132_f136_idx == 0xE)
+        {
+            field_EE08 = 16;
+        }
+        else if (field_132_f136_idx == 4 || field_132_f136_idx == 0xA)
+        {
+            field_EE08 = 15;
+        }
+        else if (field_132_f136_idx == 9)
+        {
+            field_EE08 = 17;
+        }
+        else
+        {
+            field_EE08 = 7;
         }
     }
 }
