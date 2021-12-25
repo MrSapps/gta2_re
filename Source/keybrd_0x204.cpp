@@ -7,6 +7,7 @@ keybrd_0x204* gKeybrd_0x204_6F52F4;
 
 void __stdcall keybrd_0x204::create_4D5F50()
 {
+    // no match, OG hasn't got SEH here ??
     if (!gKeybrd_0x204_6F52F4)
     {
         gKeybrd_0x204_6F52F4 = new keybrd_0x204();
@@ -18,6 +19,7 @@ void __stdcall keybrd_0x204::create_4D5F50()
     gKeybrd_0x204_6F52F4->LoadKbCfg_4D5E00();
 }
 
+// match
 void keybrd_0x204::destroy_4D5FA0()
 {
     if (gKeybrd_0x204_6F52F4)
