@@ -384,7 +384,23 @@ void sound_obj::ProcessActiveQueues_41AB80()
 
 void sound_obj::sub_41A6F0()
 {
-    // todo
+    unsigned int idx; // edi
+    unsigned int *pIter; // esi
+    char v3; // al
+
+    idx = 0;
+    if (this->field_543C_444C_max_idx)
+    {
+        pIter = &this->field_444C_pEntities[0];
+        do
+        {
+            v3 = this->field_147C[*pIter].field_1;
+            if ((unsigned __int8)v3 < 10u)
+                this->field_147C[*pIter].field_1 = v3 + 1;
+            ++idx;
+            ++pIter;
+        } while (idx < this->field_543C_444C_max_idx);
+    }
 }
 
 char sound_obj::CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3)
