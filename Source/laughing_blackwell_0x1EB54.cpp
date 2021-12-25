@@ -1082,29 +1082,35 @@ bool nifty_maxwell_0x82::sub_4B6330()
 bool nifty_maxwell_0x82::sub_4B6390()
 {
     unsigned __int16 field_6E_count = this->field_6E_count;
-    unsigned __int16 remainder = field_6E_count;
+    unsigned __int16 new_count = field_6E_count;
     char bFound = 0;
     do
     {
-        if (remainder)
+       
+        if (new_count ==0 )
         {
-            --remainder;
+            if (byte_67DA80)
+            {
+                new_count = this->field_7E;
+            }
         }
-        else if (byte_67DA80)
+      
+        else
         {
-            remainder = this->field_7E;
+            --new_count; // add     eax, 0FFFFh
+           
         }
 
-        if (this->field_72[remainder])
+        if (this->field_72[new_count])
         {
             bFound = 1;
         }
 
-    } while (remainder != this->field_6E_count && !bFound);
+    } while (new_count != this->field_6E_count && !bFound); // 6E not reloaded
 
-    this->field_6E_count = remainder;
+    this->field_6E_count = new_count;
 
-    return field_6E_count != remainder ? true : false;
+    return field_6E_count != new_count ? true : false;
 }
 
 kind_beaver_6::kind_beaver_6()
