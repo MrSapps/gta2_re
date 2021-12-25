@@ -1075,18 +1075,23 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
         }
     }
 
-    int k256Counter = 0;
-    for (char **i = this->field_22B4_str;
-        !*i
-        || strncmp(*i, "Microsoft DirectSound3D hardware support", 0x1Eu)
-        || !sub_58E140(k256Counter);
-        ++i)
+    int i;
+    for (i = 0; i < 256; i++)
     {
-        if ((unsigned int)++k256Counter >= 256)
+        if (field_22B4_str[i])
         {
-            return 0;
+            if (strncmp(field_22B4_str[i], "Microsoft DirectSound3D hardware support", 0x1Eu) == 0 && sub_58E140(i))
+            {
+                break;
+            }
         }
     }
+
+    if (i >= 256)
+    {
+        return 0;
+    }
+
 
     if (this->field_26C0_3d_provider)
     {
