@@ -1589,13 +1589,9 @@ struct jolly_poitras_0x2BC0
     int field_17F8;
     int field_17FC;
     struc_221 field_1800[3];
-    int field_1878;
-    int field_187C;
-    int field_1880;
-    int field_1884;
-    int field_1888;
-    int field_188C;
-    agitated_keldysh_0xF0 field_1890[12];
+    int field_1878[3];
+    int field_1884[3];
+    agitated_keldysh_0xF0 field_1890[3][4];
     agitated_keldysh_0xF0 field_23D0;
     agitated_keldysh_0xF0 field_24C0;
     agitated_keldysh_0xF0 field_25B0;

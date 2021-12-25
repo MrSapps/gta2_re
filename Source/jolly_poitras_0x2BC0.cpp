@@ -10,16 +10,23 @@ wchar_t word_67DC8C[50];
 jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
 {
     // todo
-    int* pIter1 = &this->field_1884;
+    int* tmp = field_1878;
+    int* pIter1 = this->field_1884;
     struc_221* pIter2 = this->field_1800;
 
     int i;
     for (i = 0; i < 3; i++)
     {
-        ++pIter1;
+      //  ++pIter1;
         memset(pIter2, 0, sizeof(struc_221));
-        *(pIter1 - 4) = 0;
-        *(pIter1 - 1) = 0;
+        *pIter1 = 0;
+        pIter1++;
+
+        *tmp = 0;
+        tmp++;
+
+//        *(pIter1 - 4) = 0;
+  //      *(pIter1 - 1) = 0;
         ++pIter2;
     }
 
@@ -214,9 +221,69 @@ void jolly_poitras_0x2BC0::sub_56BA60(int a2)
     // todo
 }
 
+/*
+int len;
+    int k3Counter;
+    int k4Counter;
+
+    char FileName[256];
+    GetHiScoreHscFileName_56BCF0(FileName);
+    File::Global_Open_4A7060(FileName);
+
+    len = 240;
+    File::Global_Read_4A71C0(&field_23D0.field_0, &len);
+
+
+    for (k3Counter = 0; k3Counter < 3; k3Counter++)
+    {
+        for (k4Counter = 0; k4Counter < 4; k4Counter++)
+        {
+            len = 240;
+            File::Global_Read_4A71C0(&field_1890[k3Counter][k4Counter].field_0, &len);
+        }
+
+        len = 40;
+        File::Global_Read_4A71C0(&field_1800[k3Counter], &len); // 3 40 byte objs
+
+        len = 4;
+        File::Global_Read_4A71C0(&field_1878[k3Counter], &len);
+
+        len = 4;
+        File::Global_Read_4A71C0(&field_1884[k3Counter], &len);
+    }
+
+    File::Global_Close_4A70C0();
+*/
+
+// todo: wrong stack slots
 void jolly_poitras_0x2BC0::sub_56BE50()
 {
-    // todo
+    char FileName[256];
+    GetHiScoreHscFileName_56BCF0(FileName);
+    File::Global_Open_4A7060(FileName);
+
+    int len = 240;
+    File::Global_Read_4A71C0(&field_23D0.field_0, &len);
+
+    for (int k3Counter = 0; k3Counter < 3; k3Counter++)
+    {
+        for (int k4Counter = 0; k4Counter < 4; k4Counter++)
+        {
+            len = 240;
+            File::Global_Read_4A71C0(&field_1890[k3Counter][k4Counter].field_0, &len);
+        }
+
+        len = 40;
+        File::Global_Read_4A71C0(&field_1800[k3Counter], &len); // 3 40 byte objs
+
+        len = 4;
+        File::Global_Read_4A71C0(&field_1878[k3Counter], &len);
+
+        len = 4;
+        File::Global_Read_4A71C0(&field_1884[k3Counter], &len);
+    }
+
+    File::Global_Close_4A70C0();
 }
 
 void jolly_poitras_0x2BC0::sub_56C1D0()
