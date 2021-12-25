@@ -174,9 +174,12 @@ void laughing_blackwell_0x1EB54::sub_4B4410()
     sub_4B42E0();
 }
 
+// match
 dreamy_clarke_0xA4* laughing_blackwell_0x1EB54::sub_4B43E0()
 {
-    return &gJolly_poitras_0x2BC0_6FEAC0->field_26A0[gLucid_hamilton_67E8E0.sub_4C59B0()];
+    // note: movsx vs movzx due to signedness
+    unsigned short idx = gLucid_hamilton_67E8E0.sub_4C59B0();
+    return &gJolly_poitras_0x2BC0_6FEAC0->field_26A0[idx];
 }
 
 void laughing_blackwell_0x1EB54::sub_4B42E0()
