@@ -11,6 +11,8 @@ add_library (Source
     Source/error.hpp
     Source/error.cpp
     Source/chunk.hpp
+    Source/keybrd_0x204.hpp
+    Source/keybrd_0x204.cpp
     Source/debug.hpp
     Source/debug.cpp
     Source/wizardly_margulis.hpp

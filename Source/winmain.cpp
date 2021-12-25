@@ -12,6 +12,7 @@
 #include "laughing_blackwell_0x1EB54.hpp"
 #include "Bink.hpp"
 #include "dma_video.hpp"
+#include "keybrd_0x204.hpp"
 #include <direct.h>
 #include <stdio.h>
 #include "resource.h"
@@ -52,17 +53,6 @@ extern char bDestroyed_6F5B70;
 
 // todo move to another file for ordering
 void sub_5D96C0()
-{
-    // todo
-}
-
-class keybrd_0x204
-{
-public:
-    static void __stdcall create_4D5F50();
-};
-
-void __stdcall keybrd_0x204::create_4D5F50()
 {
     // todo
 }
