@@ -73,7 +73,7 @@ public:
 
     void SetChannel3DVolume_58DE80(int idx, int vol);
 
-    void SetChannel3DPosition_58DEA0(int a2, int a3, int a4, int a5);
+    void SetChannel3DPosition_58DEA0(int channel, float x, float y, float z);
 
     void SetChannel3DDistances_58DED0(int a2, float a3, float a4);
 

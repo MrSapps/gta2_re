@@ -573,117 +573,98 @@ void wizardly_margulis::StopChannel_58DDD0(int channel)
 
 bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
 {
-    H3DSAMPLE  hSample; // edx
-    void* field_1EAC_pAudioBuffer2; // esi
-    int field_0_offset; // edi
-    int v7; // eax
-    AILSOUNDINFO soundInfo; // [esp+0h] [ebp-24h] BYREF
-
-    hSample = this->field_26C4_3d_sample[channel];
-    if (!hSample || !this->field_A4_bLoaded)
+    if (!field_26C4_3d_sample[channel] || !this->field_A4_bLoaded)
     {
         return 0;
     }
 
-    field_1EAC_pAudioBuffer2 = this->field_1EAC_pAudioBuffer2;
+    AILSOUNDINFO soundInfo; // [esp+0h] [ebp-24h] BYREF
     soundInfo.format = 1;
     soundInfo.channels = 1;
-    field_0_offset = this->field_A8_sdt_entries[nSfx].field_0_offset;
     soundInfo.data_len = this->field_A8_sdt_entries[nSfx].field_4_sample_length;
     soundInfo.rate = rate;
-    v7 = 8 * this->field_1EB1_unknown;
-    soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_0_offset);
-    soundInfo.bits = v7;
-    return AIL_set_3D_sample_info(hSample, &soundInfo) != 0;
+    soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[nSfx].field_0_offset);
+    soundInfo.bits = 8 * this->field_1EB1_unknown;
+    return AIL_set_3D_sample_info(field_26C4_3d_sample[channel], &soundInfo) != 0 ? true : false;
 }
 
+// match
 void wizardly_margulis::SetChannel3DVolume_58DE80(int idx, int vol)
 {
-    H3DSAMPLE  v3; // eax
-
-    v3 = this->field_26C4_3d_sample[idx];
-    if (v3)
+    if (field_26C4_3d_sample[idx])
     {
-        AIL_set_3D_sample_volume(v3, vol);
+        AIL_set_3D_sample_volume(field_26C4_3d_sample[idx], vol);
     }
 }
 
-void wizardly_margulis::SetChannel3DPosition_58DEA0(int a2, int a3, int a4, int a5)
+// match
+void wizardly_margulis::SetChannel3DPosition_58DEA0(int channel, float x, float y, float z)
 {
-    H3DSAMPLE  v5; // eax
-
-    v5 = this->field_26C4_3d_sample[a2];
-    if (v5)
+    if (field_26C4_3d_sample[channel])
     {
-        AIL_set_3D_position(v5, a3, a4, a5);
+        AIL_set_3D_position(field_26C4_3d_sample[channel], x, y, z);
     }
 }
 
-void wizardly_margulis::SetChannel3DDistances_58DED0(int a2, float a3, float a4)
+// match
+void wizardly_margulis::SetChannel3DDistances_58DED0(int channel, float maxDist, float minDist)
 {
-    H3DSAMPLE  hSample; // eax
-
-    hSample = this->field_26C4_3d_sample[a2];
-    if (hSample)
+    if (field_26C4_3d_sample[channel])
     {
-        // todo: not in the import lib ??
-        AIL_set_3D_sample_distances(hSample, a3, a4, a3, a4);
+        AIL_set_3D_sample_distances(field_26C4_3d_sample[channel], maxDist, minDist, maxDist, minDist);
     }
 }
 
-void wizardly_margulis::SetChannel3DFrequency_58DF00(int a2, int a3)
+// match
+void wizardly_margulis::SetChannel3DFrequency_58DF00(int channel, int freq)
 {
-    H3DSAMPLE  v3; // eax
-
-    v3 = this->field_26C4_3d_sample[a2];
-    if (v3)
+    if (field_26C4_3d_sample[channel])
     {
-        AIL_set_3D_sample_playback_rate(v3, a3);
+        AIL_set_3D_sample_playback_rate(field_26C4_3d_sample[channel], freq);
     }
 }
 
-void wizardly_margulis::SetChannel3DLoopPoints_58DF20(int a2, int a3, int a4)
+// match
+void wizardly_margulis::SetChannel3DLoopPoints_58DF20(int channel, int a3, int a4)
 {
-    H3DSAMPLE  v4; // eax
-
-    v4 = this->field_26C4_3d_sample[a2];
-    if (v4)
+    if (field_26C4_3d_sample[channel])
     {
-        AIL_set_3D_sample_loop_block(v4, a3, a4);
+        AIL_set_3D_sample_loop_block(field_26C4_3d_sample[channel], a3, a4);
     }
 }
 
+// match
 void wizardly_margulis::SetChannel3DLoopCount_58DF50(int channel, int a3)
 {
-    H3DSAMPLE  v3; // eax
-
-    v3 = this->field_26C4_3d_sample[channel];
-    if (v3)
+    if (field_26C4_3d_sample[channel])
     {
-        AIL_set_3D_sample_loop_count(v3, a3);
+        AIL_set_3D_sample_loop_count(field_26C4_3d_sample[channel], a3);
     }
 }
 
+// todo
 bool wizardly_margulis::GetChannel3DUsedFlag_58DF70(int a2)
 {
-    return this->field_26C4_3d_sample[a2] && AIL_3D_sample_status(this->field_26C4_3d_sample[a2]) == 4;
+    return field_26C4_3d_sample[a2] && AIL_3D_sample_status(field_26C4_3d_sample[a2]) == SMP_PLAYING;
 }
 
+// match
 void wizardly_margulis::StartChannel3D_58DFA0(int samp_idx)
 {
-    if (this->field_26C4_3d_sample[samp_idx])
+    if (field_26C4_3d_sample[samp_idx])
     {
-        AIL_start_3D_sample(this->field_26C4_3d_sample[samp_idx]);
+        AIL_start_3D_sample(field_26C4_3d_sample[samp_idx]);
     }
 }
 
+// match
 void wizardly_margulis::StopChannel3D_58DFC0(int samp_idx)
 {
-    if (this->field_26C4_3d_sample[samp_idx])
+    if (field_26C4_3d_sample[samp_idx])
     {
-        if (AIL_3D_sample_status(this->field_26C4_3d_sample[samp_idx]) == 4)
+        if (AIL_3D_sample_status(field_26C4_3d_sample[samp_idx]) == 4)
         {
-            AIL_end_3D_sample(this->field_26C4_3d_sample[samp_idx]);
+            AIL_end_3D_sample(field_26C4_3d_sample[samp_idx]);
         }
     }
 }
