@@ -177,21 +177,22 @@ char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
 }
 
 // match
-void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2)
+void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
 {
-    unsigned __int8 idx = 0;
-    for (; idx < a2; idx++)
+    unsigned __int8 i = 0;
+    while (i < sample)
     {
-        if (field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]].field_48 >
-            field_9C[field_98_nActiveQueue][a2].field_48)
+        if (field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i]].field_48 >
+            field_9C[field_98_nActiveQueue][sample].field_48)
         {
             memmove(
-                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx + 1],
-                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx],
-                field_10_nActiveSamples - idx - 1);
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i + 1],
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i],
+                field_10_nActiveSamples - i - 1);
             break;
         }
+        i++;
     }
 
-    field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx] = a2;
+    field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i] = sample;
 }
