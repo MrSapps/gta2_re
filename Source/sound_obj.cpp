@@ -661,7 +661,7 @@ const char* sound_obj::GetFileName_41A1E0(const char *pStr)
 // todo
 int sound_obj::sub_419FA0(infallible_turing* pTuring)
 {
-    int idx; // edi
+    unsigned int idx; // edi
     vigilant_maxwell *pMaxwellIter; // eax
    // int *__shifted(vigilant_maxwell, 0x147C) pBaseOff; // ebp
     infallible_turing *v7; // eax
@@ -673,13 +673,21 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
         return 0;
     }
 
-    for (pMaxwellIter = &this->field_147C[1]; pMaxwellIter->field_0; ++pMaxwellIter)
+    pMaxwellIter = &this->field_147C[1];
+    while(idx < 1020)
     {
-        if ((unsigned int)++idx >= 1020)
+        if (!pMaxwellIter->field_0)
         {
-            return 0;
+            break;
         }
+        idx++;
+        ++pMaxwellIter;
     }
+    /*
+    if (idx >= 1020)
+    {
+        return 0;
+    }*/
 
     if (pTuring->field_0 == 5)
     {
@@ -720,7 +728,6 @@ LABEL_10:
     else if (pTuring->field_0 == 2)
     {
         sub_57EA10();
-        return idx;
     }
     return idx;
 }
