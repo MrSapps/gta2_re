@@ -312,6 +312,8 @@ struct sound_obj
 
     void sub_41A090(int a2);
 
+    void Release_41A290();
+
 };
 
 extern sound_obj gSound_obj_66F680;

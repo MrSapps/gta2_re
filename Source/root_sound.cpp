@@ -65,7 +65,7 @@ void root_sound::sub_40EFD0(int a2)
 
 void root_sound::Release_40F130()
 {
-    // todo
+    gSound_obj_66F680.Release_41A290();
 }
 
 // match

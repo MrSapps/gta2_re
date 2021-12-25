@@ -595,3 +595,8 @@ void sound_obj::sub_41A090(int a2)
 {
     // todo
 }
+
+void sound_obj::Release_41A290()
+{
+    // todo
+}
