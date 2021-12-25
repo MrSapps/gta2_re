@@ -783,12 +783,18 @@ void wizardly_margulis::OpenStream_58E320(unsigned int a2)
             strcat(wavPath, dma_wav_5FF5D8[a2]);
             hStream = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
             this->field_9C_hStreams[0] = hStream;
-            if (hStream
-                || a2 == 1
-                && (strcpy(wavPath, this->field_5_str),
-                    strcat(wavPath, "d.wav"),
-                    hStream = AIL_open_stream(this->field_0_hDriver, wavPath, 0),
-                    (this->field_9C_hStreams[0] = hStream) != 0))
+            if (this->field_9C_hStreams[0] == 0)
+            {
+                if (a2 == 1)
+                {
+                    strcpy(wavPath, this->field_5_str);
+                    strcat(wavPath, dma_wav_5FF5D8[0]);
+                    hStream = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
+                }
+
+            }
+
+            if (hStream)
             {
                 AIL_set_stream_loop_count(hStream, 0);
                 AIL_start_stream(this->field_9C_hStreams[0]);
