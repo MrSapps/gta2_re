@@ -183,36 +183,29 @@ void wizardly_margulis::Terminate_58DAE0()
     }
 }
 
+// match
 void wizardly_margulis::Reset3DSamples_58D960()
 {
-    unsigned int idx; // ebp
-    H3DSAMPLE *pSampIter; // edi
-
-    idx = 0;
-    if (this->field_1EB2_3d_samp_count)
+    for (unsigned int i = 0; i < field_1EB2_3d_samp_count; i++)
     {
-        pSampIter = this->field_26C4_3d_sample;
-        do
+        if (field_26C4_3d_sample[i])
         {
-            if (*pSampIter)
-            {
-                AIL_release_3D_sample_handle(*pSampIter);
-                *pSampIter = 0;
-            }
-            ++idx;
-            ++pSampIter;
-        } while (idx < this->field_1EB2_3d_samp_count);
+            AIL_release_3D_sample_handle(field_26C4_3d_sample[i]);
+            field_26C4_3d_sample[i] = 0;
+        }
     }
+
     Close3DProvider_58E1C0();
-    this->field_1EB0_count_samples = 16;
-    this->field_1EB2_3d_samp_count = 0;
-    this->field_26B4_env_idx = -1;
-    this->field_26B8_bHave_env = 0;
-    this->field_26C0_3d_provider = 0;
-    this->field_2704_float = -1.0;
-    this->field_2708_float = -1.0;
-    this->field_270C_float = -1.0;
-    this->field_26BC_k17 = 0;
+
+    field_1EB0_count_samples = 16;
+    field_1EB2_3d_samp_count = 0;
+    field_26B4_env_idx = -1;
+    field_26B8_bHave_env = 0;
+    field_26C0_3d_provider = 0;
+    field_2704_float = -1.0;
+    field_2708_float = -1.0;
+    field_270C_float = -1.0;
+    field_26BC_k17 = 0;
 }
 
 void wizardly_margulis::Close3DProvider_58E1C0()
