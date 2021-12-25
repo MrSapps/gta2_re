@@ -44,23 +44,21 @@ void frosty_pasteur_0xC1EA8::GetScrFileName_5122D0()
         memset(field_45C_scr_file_name, 0, sizeof(field_45C_scr_file_name));
 
         unsigned int lenAfterSlash = strlen(pSlashPos);
-        if (lenAfterSlash)
+
+        for (;;)
         {
-            for (;;)
+            if (lenAfterSlash == 0)
             {
-                if (lenAfterSlash == 0)
-                {
-                    return;
-                }
-
-                if (pSlashPos[lenAfterSlash] == '.')
-                {
-                    strncpy(field_45C_scr_file_name, pSlashPos, lenAfterSlash);
-                    return;
-                }
-
-                lenAfterSlash--;
+                return;
             }
+
+            if (pSlashPos[lenAfterSlash] == '.')
+            {
+                strncpy(field_45C_scr_file_name, pSlashPos, lenAfterSlash);
+                return;
+            }
+
+            lenAfterSlash--;
         }
     }
 }
