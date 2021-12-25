@@ -34,19 +34,23 @@ public:
 
     void Close3DProvider_58E1C0();
 
+    void AllocSample_58DA80();
+
+    void ReleaseSample_58DAC0();
+
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;
     char field_5_str[83];
     HSAMPLE field_58_hSamples[16];
-    int field_98_hSample;
+    HSAMPLE field_98_hSample;
     int field_9C_hStreams[2];
     char field_A4_bLoaded;
     char field_A5_pad;
     char field_A6_pad;
     char field_A7_pad;
     serene_proskuriakova_0x18 field_A8_sdt_entries[320];
-    void *field_1EA8_pAudioBuffer1;
-    int field_1EAC_pAudioBuffer2;
+    void* field_1EA8_pAudioBuffer1;
+    void* field_1EAC_pAudioBuffer2;
     unsigned __int8 field_1EB0_count_samples;
     unsigned __int8 field_1EB1_unknown;
     unsigned __int8 field_1EB2_3d_samp_count;

@@ -128,8 +128,64 @@ char wizardly_margulis::SoundInit_58D6C0(int *a2)
 
 char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 {
-    // todo
-    return 0;
+    struct lol
+    {
+        WAVEFORMAT waveFormat; // [esp+Ch] [ebp-10h] BYREF
+        __int16 t;
+    };
+    lol l;
+
+    if (a2)
+    {
+        this->field_1EB1_unknown = 2;
+    }
+    else
+    {
+        this->field_1EB1_unknown = 1;
+    }
+
+    l.waveFormat.nChannels = 2;
+    l.waveFormat.nSamplesPerSec = sampleRate;
+    l.waveFormat.nAvgBytesPerSec = 2 * sampleRate * field_1EB1_unknown;
+    l.waveFormat.wFormatTag = 1;
+    l.waveFormat.nBlockAlign = (unsigned __int8)(2 * field_1EB1_unknown);
+
+    // todo: not sure how/why this is here ??
+    l.t = (unsigned __int8)(8 * field_1EB1_unknown);
+
+    AIL_set_preference(1, 37);                    // DIG_MIXER_CHANNELS
+    AIL_set_preference(15, 0);                    // DIG_USE_WAVEOUT
+
+    if (a3 != 0)
+    {
+        AIL_set_preference(33, 1);
+    }
+    else
+    {
+        AIL_set_preference(33, 0);
+    }
+
+    AIL_set_preference(31, 1);                    // DIG_ENABLE_RESAMPLE_FILTER 
+
+    if (AIL_waveOutOpen(&this->field_0_hDriver, 0, -1, &l.waveFormat))
+    {
+        return 0;
+    }
+
+    this->field_2714_bUnknown = a3;
+    
+    AllocSample_58DA80();
+
+    this->field_1EA8_pAudioBuffer1 = AIL_mem_alloc_lock(6100000);
+    if (!field_1EA8_pAudioBuffer1)
+    {
+        ReleaseSample_58DAC0();
+        AIL_waveOutClose(this->field_0_hDriver);
+        return 0;
+        
+    }
+    this->field_1EAC_pAudioBuffer2 = field_1EA8_pAudioBuffer1;
+    return 1;
 }
 
 void wizardly_margulis::Enum3DProviders_58E1F0()
@@ -206,6 +262,28 @@ void wizardly_margulis::Close3DProvider_58E1C0()
         AIL_close_3D_provider(field_26C0_3d_provider);
         field_26C0_3d_provider = 0;
         Sleep(1500u);
+    }
+}
+
+void wizardly_margulis::AllocSample_58DA80()
+{
+    HSAMPLE sample_handle; // eax
+
+    if (!this->field_98_hSample)
+    {
+        sample_handle = AIL_allocate_sample_handle(this->field_0_hDriver);
+        this->field_98_hSample = sample_handle;
+        AIL_init_sample(sample_handle);
+        AIL_set_sample_type(this->field_98_hSample, 0, 0);
+    }
+}
+
+void wizardly_margulis::ReleaseSample_58DAC0()
+{
+    if (this->field_98_hSample)
+    {
+        AIL_release_sample_handle(this->field_98_hSample);
+        this->field_98_hSample = 0;
     }
 }
 
