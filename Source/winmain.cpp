@@ -470,8 +470,8 @@ LABEL_23:
 
             case 2:
                 gLucid_hamilton_67E8E0.sub_4C5A10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56BB10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56C010();
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56BB10(gGame_0x40_67E008->field_38_orf1);
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56C010();
                 /* todo
                 v15 = -(gLucid_hamilton_67E8E0.sub_4C59A0() != 0);
                 v15 = v15 & 0xFB; //lobyte
@@ -484,8 +484,8 @@ LABEL_23:
 
             case 3:
                 gLucid_hamilton_67E8E0.sub_4C5A10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56BB10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56C010();
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56BB10(gGame_0x40_67E008->field_38_orf1);
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56C010();
                 state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 2;
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;
@@ -493,8 +493,8 @@ LABEL_23:
 
             case 4:
                 gLucid_hamilton_67E8E0.sub_4C5A10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56BB10(gGame_0x40_67E008->field_38_orf1);
-                gJolly_poitras_0x2BC0_6FEAC0.sub_56C010();
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56BB10(gGame_0x40_67E008->field_38_orf1);
+                gJolly_poitras_0x2BC0_6FEAC0->sub_56C010();
                 state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 3;
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;

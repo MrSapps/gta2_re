@@ -76,7 +76,7 @@ foreach(CompilerFlag ${CompilerFlags})
 endforeach()
 
 foreach(CompilerFlag ${CompilerFlags})
-  string(REPLACE "/GR" "" ${CompilerFlag} "${${CompilerFlag}}")
+  string(REPLACE "/GR" "/EHsc" ${CompilerFlag} "${${CompilerFlag}}")
 endforeach()
 
 

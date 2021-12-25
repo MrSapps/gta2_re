@@ -33,6 +33,13 @@ struct small_string
 // todo: move
 struct agitated_keldysh_0xF0
 {
+    agitated_keldysh_0xF0();
+    ~agitated_keldysh_0xF0();
+
+    void Init_56B520();
+
+    char sub_56B550(const wchar_t *Source, int a3);
+
     small_string field_0[10];
 };
 
@@ -1594,12 +1601,31 @@ struct jolly_poitras_0x2BC0
     agitated_keldysh_0xF0 field_25B0;
     dreamy_clarke_0xA4 field_26A0[8];
 
-    static void __stdcall create_56C2C0();
+    jolly_poitras_0x2BC0();
+
+    static void create_56C2C0();
 
     // todo: ordering
     void sub_56BB10(angry_lewin_0x85C *a2);
 
     void sub_56C010();
+
+    static char PlySlotDatExists_56B940(int a1);
+
+    static char HiScoreHscExists_56BCA0();
+
+    void sub_56B990(int a2);
+
+    void sub_56BA60(int a2);
+
+    void sub_56BE50();
+
+    void sub_56C1D0();
+
+    void sub_56BF20();
+
+    void sub_56BD20();
+
 };
 
-extern jolly_poitras_0x2BC0 gJolly_poitras_0x2BC0_6FEAC0;
+extern jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;
