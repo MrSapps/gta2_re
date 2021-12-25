@@ -36,35 +36,21 @@ gmp_map_zone* Map_0x370::zone_by_name_4DEFD0(const char *pZoneName)
 // nomatch
 int Map_0x370::zone_idx_by_name_4DF050(const char *pZoneName, int zone_name_len)
 {
-    gmp_map_zone **field_32C_pZones; // eax
-    gmp_map_zone *pZone; // eax
-
     if (!this->field_328_pZoneData)
     {
         return 0;
     }
 
-    field_32C_pZones = this->field_32C_pZones;
-    this->field_364_cur_zone_idx = 0;
-    if (!*(WORD *)field_32C_pZones)
+    for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
     {
-        return -1;
-    }
-
-    while (1)
-    {
-        pZone = get_zone_4DFB30(this->field_364_cur_zone_idx);
+        gmp_map_zone * pZone = get_zone_4DFB30(field_364_cur_zone_idx);
         if (pZone->field_5_name_length == (BYTE)zone_name_len
             && !_strnicmp(pZone->field_6_name, pZoneName, (unsigned __int8)zone_name_len))
         {
-            return this->field_364_cur_zone_idx;
-        }
-        if (++this->field_364_cur_zone_idx >= *(WORD *)this->field_32C_pZones)
-        {
-            return -1;
+            return field_364_cur_zone_idx;
         }
     }
-   
+    return -1;
 }
 
 // match
