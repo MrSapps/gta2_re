@@ -3,7 +3,7 @@
 
 sound_obj gSound_obj_66F680;
 
-void sound_obj::sub_41B700()
+void sound_obj::ClearRequestedQueue_41B700()
 {
     /*
     unsigned __int8 count = this->field_10_samp_count2;
@@ -26,10 +26,10 @@ void sound_obj::sub_41B7A0()
 void sound_obj::sub_41A2A0()
 {
     field_98_nActiveQueue = 1;
-    sub_41B700();
+    ClearRequestedQueue_41B700();
     field_98_nActiveQueue = 0;
 
-    sub_41B700();
+    ClearRequestedQueue_41B700();
     sub_41B7A0();
 
     field_1450 = 0;

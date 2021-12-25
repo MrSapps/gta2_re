@@ -247,7 +247,7 @@ struct sound_obj
     __int16 field_5572;
     int field_5574;
 
-    void sub_41B700();
+    void ClearRequestedQueue_41B700();
 
     void sub_41B7A0();
 
