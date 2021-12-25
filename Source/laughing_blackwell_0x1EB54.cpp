@@ -4629,8 +4629,11 @@ const wchar_t *__stdcall DrawText_5D8A10(
             //v26 = v11.mValue >> 31;
 
             Fix16 sprite_xoff;
-            sprite_xoff.mValue = (pSprIdx->field_4_width << 14) * (v11.mValue >> 14);
-            int v27 = (pSprIdx->field_5_height << 14) * (v11.mValue >> 14);
+            sprite_xoff.mValue = (pSprIdx->field_4_width << 14) *  (v11.mValue >> 14);
+            
+            Fix16 sprite_yoff;
+            sprite_yoff.mValue = (pSprIdx->field_5_height << 14) * (v11.mValue >> 14);
+
             gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
             gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
             int v28 = sprite_xoff.mValue + cur_xpos.mValue;
@@ -4643,7 +4646,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
             gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
             gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
             gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
-            float v2_3_y = (double)(ypos_fp.mValue + (int)v27) * 0.000061035156;
+            float v2_3_y = (double)(ypos_fp.mValue + sprite_yoff.mValue) * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[2].field_4_y = v2_3_y;
             gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
             gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
@@ -4655,7 +4658,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
             gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
             gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)v1_u * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
-            gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)(int)v2_v * 0.000061035156;
+            gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)v2_v * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
 
             gbh_DrawQuad(drawFlags, pTexture, &gQuadVerts_706B88.field_0_verts[0], 255);
