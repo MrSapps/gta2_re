@@ -11,6 +11,13 @@ add_library (mss32 SHARED
     )
 target_compile_definitions(mss32 PRIVATE BUILD_MSS)
 
+add_custom_command (
+    TARGET mss32
+    POST_BUILD
+    COMMAND del $(TargetPath)
+)
+
+
 add_library (Source 
     Source/3rdParty/mss.h
     Source/types.hpp
