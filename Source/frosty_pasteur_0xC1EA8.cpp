@@ -51,7 +51,6 @@ void frosty_pasteur_0xC1EA8::GetScrFileName_5122D0()
                 strncpy(field_45C_scr_file_name, pSlashPos, lenAfterSlash);
                 return;
             }
-
             lenAfterSlash--;
         }
     }
