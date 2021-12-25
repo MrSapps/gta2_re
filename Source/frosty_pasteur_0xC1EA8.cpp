@@ -34,32 +34,32 @@ void frosty_pasteur_0xC1EA8::Load_512330(const char *pScrName)
 void frosty_pasteur_0xC1EA8::LoadStringTbl_5121E0(unsigned __int16 tableSize)
 {
     unsigned int total_str_length = 0;
-    str_table_entry *pStringDataIter1 = this->field_1334C_strings;
+    BYTE* pStringDataIter1 = (BYTE*)this->field_1334C_strings;
     while (total_str_length < tableSize)
     {
-        int str_length = pStringDataIter1->field_8_length + 9;
+        int str_length = pStringDataIter1[8] + 9;
         total_str_length += str_length;
-        pStringDataIter1 = (str_table_entry *)((char *)pStringDataIter1 + str_length);
+        pStringDataIter1 += str_length;
     }
 
     this->field_13350_pStringTbl = reinterpret_cast<str_table_normalized*>(Memory::malloc_4FE4D0(sizeof(str_table_normalized)));
     memset(field_13350_pStringTbl, 0, sizeof(str_table_normalized));
 
     str_table_entry *pStringDataIter2 = this->field_1334C_strings;
-    unsigned int total_str_length_ = 0;
-    unsigned __int16 str_count = 0;
-
-    int offset; // ebp
+  
+   // int offset; // ebp
     if (tableSize)
     {
-        offset = 4;
+        //offset = 4;
+        unsigned int total_str_length_ = 0;
+        unsigned __int16 str_count = 0;
 
         do
         {
             pStringDataIter2->field_2_zone_idx = gMap_0x370_6F6268->zone_idx_by_name_4DF050(
                 (char *)&pStringDataIter2[1],
                 strlen((const char *)&pStringDataIter2[1]));
-            offset += 4;
+            //offset += 4;
             field_13350_pStringTbl->field_4[str_count] = pStringDataIter2;
             int str_length_ = pStringDataIter2->field_8_length + 9;
             total_str_length_ += str_length_;
