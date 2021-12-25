@@ -78,7 +78,7 @@ public:
 
     bool sub_4B6330();
 
-    unsigned __int16 get_field_6E_count() const { return field_6E_count; }
+    bool sub_4B6390();
 
     char field_0;
     char field_1;
