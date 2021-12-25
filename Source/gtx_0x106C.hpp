@@ -234,7 +234,7 @@ public:
     void* field_2C_physical_palettes;
     void* field_30_physical_palettes_size;
     BYTE *field_34_sprite_graphics;
-    int field_38;
+    void* field_38;
     void *field_3C_tiles;
     tile_array *field_40_tile;
     void* field_44_aligned_tiles_size;

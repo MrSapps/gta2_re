@@ -527,10 +527,11 @@ void gtx_0x106C::skip_psxt_5AAE30(unsigned int a1)
     File::Global_Seek_4A7140(&a1);
 }
 
+// match
 void gtx_0x106C::load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len)
 {
-    // TODO
-    UNIQUE_FUNC;
+    field_34_sprite_graphics = reinterpret_cast<BYTE*>(Memory::Aligned_malloc_4FE510(sprg_chunk_len, &field_38));
+    File::Global_Read_4A71C0(field_34_sprite_graphics, &sprg_chunk_len);
 }
 
 // match
