@@ -44,8 +44,8 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
     field_200_keyBoardLayout = 0;
     field_200_keyBoardLayout = GetLayout_4D6000();
 
-    char FileName[128]; // [esp+30h] [ebp-80h] BYREF
-    const char *pKeyboardCfgFile; // edi
+    char FileName[128];
+    const char *pKeyboardCfgFile;
     switch (field_200_keyBoardLayout)
     {
     case 0:
@@ -89,24 +89,22 @@ void keybrd_0x204::LoadKbCfg_4D5E00()
         FatalError_4A38C0(151, "C:\\Splitting\\Gta2\\Source\\keybrd.cpp", 187);
     }
 
-    __int16* pKeyArrayIter = this->field_0_keys;
     for (int i = 0; i < 256; i++)
     {
         wchar_t tmpBuffer[16];
         ReadCfg_4D5DA0(hConfigFile, tmpBuffer);
         if (tmpBuffer[0] == '~')
         {
-            *pKeyArrayIter = 0;
+            field_0_keys[i] = 0;
         }
         else if (tmpBuffer[0] != '`')
         {
-            *pKeyArrayIter = 0;
+            field_0_keys[i] = 0;
         }
         else
         {
-            *pKeyArrayIter = tmpBuffer[1];
+            field_0_keys[i] = tmpBuffer[1];
         }
-        ++pKeyArrayIter;
     }
 
     fclose(hConfigFile);
