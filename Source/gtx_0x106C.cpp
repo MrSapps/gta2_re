@@ -536,15 +536,26 @@ void gtx_0x106C::load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len)
 // match
 void gtx_0x106C::load_physical_palettes_5AAE70(unsigned int ppal_chunk_size)
 {
-    this->field_2C_physical_palettes = Memory::Aligned_malloc_4FE510(ppal_chunk_size, &this->field_30_physical_palettes_size);
+    field_2C_physical_palettes = Memory::Aligned_malloc_4FE510(ppal_chunk_size, &field_30_physical_palettes_size);
     File::Global_Read_4A71C0(field_2C_physical_palettes, &ppal_chunk_size);
-    this->field_8_physical_palettes_len = (unsigned int)ppal_chunk_size >> 10;
+    field_8_physical_palettes_len = ppal_chunk_size >> 10;
 }
 
+// match
 void gtx_0x106C::load_palette_index_5AAEA0(unsigned int palx_chunk_len)
 {
-    // TODO
-    UNIQUE_FUNC;
+    if (palx_chunk_len != sizeof(palette_index))
+    {
+        FatalError_4A38C0(1033, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1157, palx_chunk_len);
+    }
+
+    field_28_palette_index = new palette_index();
+    if (!field_28_palette_index)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1159);
+    }
+
+    File::Global_Read_4A71C0(field_28_palette_index, &palx_chunk_len);
 }
 
 void gtx_0x106C::load_map_object_info_5AAF00(unsigned int obji_chunk_len)
