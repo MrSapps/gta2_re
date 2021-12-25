@@ -1,6 +1,9 @@
 #include "map_0x370.hpp"
 #include "gtx_0x106C.hpp"
 
+gmp_block_info gBlockInfo1_6F5F40;
+gmp_block_info gBlockInfo2_6F6028;
+
 // match
 gmp_block_info* Map_0x370::get_block_452980(unsigned __int8 x_coord, unsigned __int8 y_coord, unsigned __int8 z_coord)
 {
@@ -392,6 +395,54 @@ gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
         }
     }
     return pZone;
+}
+
+// nomatch 0x4E9660
+Map_0x370::Map_0x370()
+{
+    field_4_obj.field_320_max_idx = 0;
+    field_328_pZoneData = 0;
+    field_32C_pZones = 0;
+    field_338_pMapObjects = 0;
+    field_344_map_object_count = 0;
+    field_0_pDmap = 0;
+    field_330_pZoneArray = 0;
+    field_334_pUnknownZoneData = 0;
+    field_340_pTileAnimData = 0;
+    field_33C_pLightData = 0;
+    field_348_num_lights = 0;
+    field_350_num_blocks_extra = 0;
+    field_34C_num_blocks = 0;
+    field_354_num_blocks = 0;
+    field_358_column_words = 0;
+    field_35C_column_word_extra = 0;
+    field_360_column_words = 0;
+    field_364_cur_zone_idx = -1; // 0xFFFF literal
+    field_368_zone_type = -1; // dl
+    field_36A_zone_x = 0;
+    field_36B_zone_y = 0;
+    field_36C_bUnknown = 0;
+    field_366 = 0;
+    field_369 = -1; // dl
+    field_36D = 0;
+    field_36E = 0;
+    field_36F = 0;
+
+    gBlockInfo1_6F5F40.field_0_left = 0;
+    gBlockInfo1_6F5F40.field_2_right = 0;
+    gBlockInfo1_6F5F40.field_4_top = 0;
+    gBlockInfo1_6F5F40.field_6_bottom = 0;
+    gBlockInfo1_6F5F40.field_8_lid = 0;
+    gBlockInfo1_6F5F40.field_A_arrows = 0;
+    gBlockInfo1_6F5F40.field_B_slope_type = 0;
+
+    gBlockInfo2_6F6028.field_A_arrows = 0;
+    gBlockInfo2_6F6028.field_0_left = 3073;
+    gBlockInfo2_6F6028.field_2_right = 3073;
+    gBlockInfo2_6F6028.field_4_top = 3073;
+    gBlockInfo2_6F6028.field_6_bottom = 3073;
+    gBlockInfo2_6F6028.field_8_lid = 1;
+    gBlockInfo2_6F6028.field_B_slope_type = 3;
 }
 
 // match 0x4E9770

@@ -358,6 +358,8 @@ public:
 
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
+    Map_0x370();
+
     ~Map_0x370();
 public:
     gmp_compressed_map_32 *field_0_pDmap;
