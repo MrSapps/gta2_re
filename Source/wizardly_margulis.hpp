@@ -24,28 +24,129 @@ public:
     char sub_58D720(char a2, char a3, int sampleRate);
 
     // todo: order
-    void Enum3DProviders_58E1F0();
 
     char AllocSamples_58D9F0(int a2);
 
-    void Terminate_58DAE0();
+    void sub_58E8C0(unsigned int idx, unsigned int a3);
+
+    char sub_58D820(BYTE *pMaxSamples);
 
     void Reset3DSamples_58D960();
-
-    void Close3DProvider_58E1C0();
 
     void AllocSample_58DA80();
 
     void ReleaseSample_58DAC0();
 
+    void Terminate_58DAE0();
+
+    void Shutdown_58DB30();
+
+    int GetPlayBackRateIdx_58DBF0(int idx);
+
+    int sub_58DC10(int idx);
+
+    int sub_58DC30(int a2);
+
+    int sub_58DC50(int a2);
+
+    int GetSampleLength_maybe_58DC70(int a2);
+
+    void sub_58DC90(int channel, int a3);
+
+    void SetChannelVolume_58DCE0(int a2, int a3);
+
+    void SetChannelPan_58DD00(int a2, int a3);
+
+    void SetChannelFrequency_58DD20(int a2, int a3);
+
+    void SetChannelLoopPoints_58DD40(int a2, int a3, int a4);
+
+    void SetChannelLoopCount_58DD60(int a2, int a3);
+
+    bool GetChannelUsedFlag_58DD80(int a2);
+
+    void StartChannel_58DDB0(int a2);
+
+    void StopChannel_58DDD0(int idx);
+
+    bool InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate);
+
+    void SetChannel3DVolume_58DE80(int idx, int vol);
+
+    void SetChannel3DPosition_58DEA0(int a2, int a3, int a4, int a5);
+
+    void SetChannel3DDistances_58DED0(int a2, int a3, int a4);
+
+    void SetChannel3DFrequency_58DF00(int a2, int a3);
+
+    void SetChannel3DLoopPoints_58DF20(int a2, int a3, int a4);
+
+    void SetChannel3DLoopCount_58DF50(int channel, int a3);
+
+    bool GetChannel3DUsedFlag_58DF70(int a2);
+
+    void StartChannel3D_58DFA0(int samp_idx);
+
+    void StopChannel3D_58DFC0(int samp_idx);
+
+    void sub_58E010(int a2);
+
+    char sub_58E140(int a2);
+
+    // todo order
+    void Close3DProvider_58E1C0();
+
+    // todo order
+    void Enum3DProviders_58E1F0();
+
+    // order func
+
+    bool StreamStatus_58E2C0();
+
+    void StreamSetVolume_58E2F0(unsigned __int8 vol);
+
+    void OpenStream_58E320(unsigned int a2);
+
+    void CloseStream_58E460();
+
+    void FadeOut_58E490();
+
+    char GetAudioFileName_58E500();
+
+    void PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA);
+
+    void CloseVocalStream_58E6A0(int stream_idx);
+
+    void SetVocalVolume_58E6D0(int stream_idx, unsigned __int8 vol);
+
+    void SetVocalSpeed_58E700(int stream_idx, int playbackRate);
+
+    int GetVocalSpeed_58E720(int stream_idx);
+
+    void SetVocalPosMs_58E750(int stream_idx, int ms_pos);
+
+    int GetVocalPosMs_58E770(long stream_idx);
+
+    int GetVocalLengthMs_58E7A0(long stream_idx);
+
+    void SetSampleVol_58E7D0(unsigned __int8 vol);
+
+    void PlayAtIdx_58E7F0(int idx);
+
+    bool SampleNotDone_58E880();
+
+    void EndSample_58E960();
+
     char LoadWavSdtData_58E980(const char *pRawOrSdtName);
+
+    BYTE sub_58E2A0();
 
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;
     char field_5_str[83];
     HSAMPLE field_58_hSamples[16];
     HSAMPLE field_98_hSample;
-    int field_9C_hStreams[2];
+    HSTREAM field_9C_hStreams[2];
     char field_A4_bLoaded;
     char field_A5_pad;
     char field_A6_pad;
@@ -72,10 +173,6 @@ public:
     char field_2715_pad;
     char field_2716_pad;
     char field_2717_pad;
-
-    BYTE sub_58E2A0();
-
-    char sub_58D820(BYTE *a2);
 };
 
 extern wizardly_margulis gWizardly_margulis_6FFF00;
