@@ -378,7 +378,7 @@ void wizardly_margulis::Shutdown_58DB30()
 {
     for (unsigned int i = 0; i < 2; ++i)
     {
-        if (!i)
+        if (i == 0)
         {
             if (this->field_5_str[80])
             {
@@ -400,10 +400,11 @@ void wizardly_margulis::Shutdown_58DB30()
                 }
             }
         }
-        if (this->field_9C_hStreams[i])
+
+        if (field_9C_hStreams[i])
         {
-            AIL_close_stream(this->field_9C_hStreams[i]);
-            this->field_9C_hStreams[i] = 0;
+            AIL_close_stream(field_9C_hStreams[i]);
+            field_9C_hStreams[i] = 0;
         }
     }
 
@@ -411,8 +412,7 @@ void wizardly_margulis::Shutdown_58DB30()
     Reset3DSamples_58D960();
     Terminate_58DAE0();
 
-    AIL_mem_free_lock(this->field_1EA8_pAudioBuffer1);
-    HDIGDRIVER field_0_hDriver = this->field_0_hDriver;
+    AIL_mem_free_lock(field_1EA8_pAudioBuffer1);
     this->field_1EA8_pAudioBuffer1 = 0;
     this->field_1EAC_pAudioBuffer2 = 0;
     AIL_waveOutClose(field_0_hDriver);
