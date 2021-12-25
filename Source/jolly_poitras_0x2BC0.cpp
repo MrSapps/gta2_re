@@ -195,7 +195,7 @@ void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
     int i = 9;
     do
     {
-        int readLen = 2;
+        unsigned int readLen = 2;
         File::Global_Read_4A71C0(pStr, &readLen);
         pStr++;
         i--;
@@ -208,7 +208,7 @@ void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
     {
         for (j = 0; j < 4; j++)
         {
-            int len_read = 1;
+            unsigned int len_read = 1;
             File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_0, &len_read);
 
             len_read = 4;
@@ -267,7 +267,7 @@ void jolly_poitras_0x2BC0::sub_56BE50()
     GetHiScoreHscFileName_56BCF0(FileName);
     File::Global_Open_4A7060(FileName);
 
-    int len = 240;
+    unsigned int len = 240;
     File::Global_Read_4A71C0(&field_23D0.field_0, &len);
 
     for (int k3Counter = 0; k3Counter < 3; k3Counter++)

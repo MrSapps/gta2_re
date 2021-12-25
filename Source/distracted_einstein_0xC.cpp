@@ -7,7 +7,6 @@ void distracted_einstein_0xC::sub_5BEBF0()
     field_8 += timeGetTime() - field_4;
 }
 
-// match
 distracted_einstein_0xC::distracted_einstein_0xC() // 5BEC10
 {
     this->field_0 = 0;

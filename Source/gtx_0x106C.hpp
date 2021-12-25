@@ -27,7 +27,7 @@ struct sprite_base
 struct font_base
 {
     __int16 field_0_font_count;
-    __int16 field_2_base[2];
+    WORD field_2_base[1]; // variable – see font_count
 };
 
 struct sprite_index
@@ -163,49 +163,49 @@ public:
 
     void sub_5AAC70();
 
-    void load_car_info_5AAD50(int cari_chunk_size);
+    void load_car_info_5AAD50(unsigned int cari_chunk_size);
 
-    void load_delta_index_5AAD80(int delx_chunk_size);
+    void load_delta_index_5AAD80(unsigned int delx_chunk_size);
 
-    void load_delta_store_5AADD0(int dels_chunk_size);
+    void load_delta_store_5AADD0(unsigned int dels_chunk_size);
 
-    void load_tiles_5AADF0(int tile_chunk_len);
+    void load_tiles_5AADF0(unsigned int tile_chunk_len);
 
-    void skip_ovly_5AAE20(int a1);
+    void skip_ovly_5AAE20(unsigned int a1);
 
-    void skip_psxt_5AAE30(int a1);
+    void skip_psxt_5AAE30(unsigned int a1);
 
-    void load_sprite_graphics_5AAE40(int sprg_chunk_len);
+    void load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len);
 
-    void load_physical_palettes_5AAE70(int ppal_chunk_size);
+    void load_physical_palettes_5AAE70(unsigned int ppal_chunk_size);
 
-    void load_palette_index_5AAEA0(int palx_chunk_len);
+    void load_palette_index_5AAEA0(unsigned int palx_chunk_len);
 
-    void load_map_object_info_5AAF00(int obji_chunk_len);
+    void load_map_object_info_5AAF00(unsigned int obji_chunk_len);
 
-    void load_sprite_index_5AAF80(int sprx_chunk_size);
+    void load_sprite_index_5AAF80(unsigned int sprx_chunk_size);
 
     void sub_5AAFE0(unsigned __int16 a1);
 
-    void load_font_base_5AB0F0(int fonb_chunk_size);
+    void load_font_base_5AB0F0(unsigned int fonb_chunk_size);
 
     WORD ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount);
 
-    void ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len);
+    void ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len);
 
-    void load_sprite_base_5AB210(int sprite_base_chunk_size);
+    void load_sprite_base_5AB210(unsigned int sprite_base_chunk_size);
 
-    void load_palete_base_5AB2C0(int palette_base_chunk_len);
+    void load_palete_base_5AB2C0(unsigned int palette_base_chunk_len);
 
     bool sub_5AB380(unsigned __int8 car_id);
 
-    void load_car_recycling_info_5AB3C0(int recy_chunk_size);
+    void load_car_recycling_info_5AB3C0(unsigned int recy_chunk_size);
 
-    void read_spec_5AB3F0(int read_size2);
+    void read_spec_5AB3F0(unsigned int read_size2);
 
     void load_spec_5AB450();
 
-    void LoadChunk_5AB4B0(const char *Str1, int chunk_len);
+    void LoadChunk_5AB4B0(const char *Str1, unsigned int chunk_len);
 
     void sub_5AB720();
 

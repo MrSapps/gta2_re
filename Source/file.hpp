@@ -29,13 +29,13 @@ public:
 
     static void __stdcall Global_Close_UnChecked_4A7110();
 
-    static void __stdcall Global_Seek_4A7140(int *pOffset);
+    static void __stdcall Global_Seek_4A7140(unsigned int *pOffset);
 
     static void __stdcall File_Error_4A7190(int Code, int a2, int a3);
 
-    static void __stdcall Global_Read_4A71C0(void *pBuffer, int *pBufferSize);
+    static void __stdcall Global_Read_4A71C0(void *pBuffer, unsigned int *pBufferSize);
 
-    static bool __stdcall Global_Read_4A7210(void *Buffer, int *pSize);
+    static bool __stdcall Global_Read_4A7210(void *Buffer, unsigned int *pSize);
 
     static size_t __stdcall GetRemainderSize_4A7250(void *Buffer, DWORD *a2);
 

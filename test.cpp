@@ -8,6 +8,8 @@
 #include "Source/winmain.hpp"
 #include "Source/text_0x14.hpp"
 #include "Source/gbh_graphics.hpp"
+#include "Source/distracted_einstein_0xC.hpp"
+#include "Source/sharp_bose_0x54.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -114,21 +116,36 @@ void test_gbh_graphics()
     GBH_GraphicsLoadDll_5EA680("meh.dll");
 }
 
+void test_distracted_einstein_0xC()
+{
+    distracted_einstein_0xC t;
+    t.sub_5BEBF0();
+}
+
+void test_sharp_bose_0x54()
+{
+    sharp_bose_0x54 t;
+    t.sub_5BECF0(0, 0);
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
                      int       nCmdShow)
  {
-    test_text_0x14();
-    test_gbh_graphics();
+    if (lpCmdLine && strstr(lpCmdLine, "billybobbins"))
+    {
+        test_text_0x14();
+        test_gbh_graphics();
+        test_distracted_einstein_0xC();
+        test_sharp_bose_0x54();
+        test_registry();
+        test_file();
+        test_gtx_0x106C();
+        test_lucid_hamilton();
+        test_winmain();
+    }
 
-    /*
-    test_registry();
-    test_file();
-    test_gtx_0x106C();
-    test_lucid_hamilton();
-    test_winmain();
-    */
     WinMain_5E53F0(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 
     return 0;

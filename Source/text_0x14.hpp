@@ -20,7 +20,7 @@ struct text_tdat
 {
     BYTE *field_0_data;
     int field_4_len;
-    void TDAT_Load_5B5A80(int size);
+    void TDAT_Load_5B5A80(unsigned int size);
 };
 
 
@@ -39,7 +39,7 @@ public:
 
     void sub_5B5930(WORD *a1);
 
-    void TKEY_Load_5B5960(int size);
+    void TKEY_Load_5B5960(unsigned int size);
 
     void TDAT_Offsets2Strings_5B59B0(BYTE *pDat);
 
@@ -59,7 +59,7 @@ public:
 
     wchar_t *Ascii2Wide_5B5DF0(char *a1);
 
-    void load_chunk_5B5E20(const char *chunk_type, int chunk_len);
+    void load_chunk_5B5E20(const char *chunk_type, unsigned int chunk_len);
 
     void Load_5B5E90();
 

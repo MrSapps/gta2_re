@@ -450,7 +450,7 @@ void text_0x14::sub_5B5930(WORD *pStr)
 }
 
 // match
-void text_0x14::TKEY_Load_5B5960(int chunkSize)
+void text_0x14::TKEY_Load_5B5960(unsigned int chunkSize)
 {
     field_4_tKey_count = chunkSize / sizeof(text_0xC);
     field_0_tKey = new text_0xC[field_4_tKey_count];
@@ -515,7 +515,7 @@ wchar_t * text_0x14::TKeyFind_5B5A50(const char *pIdStr)
 }
 
 // match
-void text_tdat::TDAT_Load_5B5A80( int size)
+void text_tdat::TDAT_Load_5B5A80(unsigned int size)
 {
     field_4_len = size / sizeof(wchar_t);
     field_0_data = new BYTE[field_4_len * sizeof(wchar_t)];
@@ -650,7 +650,7 @@ wchar_t * text_0x14::Ascii2Wide_5B5DF0(char *pStr)
 }
 
 // match
-void text_0x14::load_chunk_5B5E20(const char *chunk_type, int chunk_len)
+void text_0x14::load_chunk_5B5E20(const char *chunk_type, unsigned int chunk_len)
 {
     if (!strncmp(chunk_type, "TKEY", 4u))
     {
@@ -679,7 +679,7 @@ void text_0x14::Load_5B5E90()
     
     File::Global_Open_4A7060(gxtFileName);
 
-    int len = sizeof(gtx_header);
+    unsigned int len = sizeof(gtx_header);
     gtx_header gtxHeader; // [esp+10h] [ebp-24h] BYREF
     File::Global_Read_4A71C0(&gtxHeader, &len);
 

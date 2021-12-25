@@ -225,7 +225,7 @@ void __stdcall File::Global_Close_UnChecked_4A7110()
 }
 
 // match
-void __stdcall File::Global_Seek_4A7140(int *pOffset)
+void __stdcall File::Global_Seek_4A7140(unsigned int *pOffset)
 {
     if (!gbGlobalFileOpen_67D160)
     {
@@ -246,7 +246,7 @@ void __stdcall File::File_Error_4A7190(int Code, int a2, int a3)
 }
 
 // match
-void __stdcall File::Global_Read_4A71C0(void *pBuffer, int *pBufferSize)
+void __stdcall File::Global_Read_4A71C0(void *pBuffer, unsigned int *pBufferSize)
 {
     if (!gbGlobalFileOpen_67D160)
     {
@@ -260,7 +260,7 @@ void __stdcall File::Global_Read_4A71C0(void *pBuffer, int *pBufferSize)
 }
 
 // match
-bool __stdcall File::Global_Read_4A7210(void *Buffer, int *pSize)
+bool __stdcall File::Global_Read_4A7210(void *Buffer, unsigned int *pSize)
 {
     if (!gbGlobalFileOpen_67D160)
     {

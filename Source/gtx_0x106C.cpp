@@ -454,8 +454,8 @@ void gtx_0x106C::sub_5AAB30(unsigned int delx_chunk_size)
     UNIQUE_FUNC;
 }
 
-// match
 // note: param type matters
+// match
 sprite_index* gtx_0x106C::get_sprite_index_5AA440(unsigned __int16 idx)
 {
     return &this->field_20_sprite_index[idx];
@@ -479,9 +479,9 @@ void gtx_0x106C::sub_5AAC70()
     UNIQUE_FUNC;
 }
 
-void gtx_0x106C::load_car_info_5AAD50(int cari_chunk_size)
+void gtx_0x106C::load_car_info_5AAD50(unsigned int cari_chunk_size)
 {
-    int len = cari_chunk_size;
+    unsigned int len = cari_chunk_size;
     void *v3; // eax
 
     v3 = malloc(cari_chunk_size);
@@ -496,65 +496,65 @@ void gtx_0x106C::load_car_info_5AAD50(int cari_chunk_size)
     */
 }
 
-void gtx_0x106C::load_delta_index_5AAD80(int delx_chunk_size)
+void gtx_0x106C::load_delta_index_5AAD80(unsigned int delx_chunk_size)
 {
     // TODO
     UNIQUE_FUNC;
 }
 
 // match
-void gtx_0x106C::load_delta_store_5AADD0(int dels_chunk_size)
+void gtx_0x106C::load_delta_store_5AADD0(unsigned int dels_chunk_size)
 {
     field_48_delta_store = (delta_store_entry *)Memory::malloc_4FE4D0(dels_chunk_size); // todo: or new?
     File::Global_Read_4A71C0(field_48_delta_store, &dels_chunk_size);
 }
 
 // match
-void gtx_0x106C::load_tiles_5AADF0(int tile_chunk_len)
+void gtx_0x106C::load_tiles_5AADF0(unsigned int tile_chunk_len)
 {
     field_3C_tiles = Memory::Aligned_malloc_4FE510(tile_chunk_len, &field_44_aligned_tiles_size);
     File::Global_Read_4A71C0(field_3C_tiles, &tile_chunk_len);
     create_tile_num_array_5AA950();
 }
 
-void gtx_0x106C::skip_ovly_5AAE20(int a1)
+void gtx_0x106C::skip_ovly_5AAE20(unsigned int a1)
 {
     File::Global_Seek_4A7140(&a1);
 }
 
-void gtx_0x106C::skip_psxt_5AAE30(int a1)
+void gtx_0x106C::skip_psxt_5AAE30(unsigned int a1)
 {
     File::Global_Seek_4A7140(&a1);
 }
 
-void gtx_0x106C::load_sprite_graphics_5AAE40(int sprg_chunk_len)
+void gtx_0x106C::load_sprite_graphics_5AAE40(unsigned int sprg_chunk_len)
 {
     // TODO
     UNIQUE_FUNC;
 }
 
 // match
-void gtx_0x106C::load_physical_palettes_5AAE70(int ppal_chunk_size)
+void gtx_0x106C::load_physical_palettes_5AAE70(unsigned int ppal_chunk_size)
 {
     this->field_2C_physical_palettes = Memory::Aligned_malloc_4FE510(ppal_chunk_size, &this->field_30_physical_palettes_size);
     File::Global_Read_4A71C0(field_2C_physical_palettes, &ppal_chunk_size);
     this->field_8_physical_palettes_len = (unsigned int)ppal_chunk_size >> 10;
 }
 
-void gtx_0x106C::load_palette_index_5AAEA0(int palx_chunk_len)
+void gtx_0x106C::load_palette_index_5AAEA0(unsigned int palx_chunk_len)
 {
     // TODO
     UNIQUE_FUNC;
 }
 
-void gtx_0x106C::load_map_object_info_5AAF00(int obji_chunk_len)
+void gtx_0x106C::load_map_object_info_5AAF00(unsigned int obji_chunk_len)
 {
     // TODO
     UNIQUE_FUNC;
 }
 
 // match
-void gtx_0x106C::load_sprite_index_5AAF80(int sprx_chunk_size)
+void gtx_0x106C::load_sprite_index_5AAF80(unsigned int sprx_chunk_size)
 {
     this->field_20_sprite_index = (sprite_index *)Memory::malloc_4FE4D0(sprx_chunk_size + 8);
     File::Global_Read_4A71C0(field_20_sprite_index, &sprx_chunk_size);
@@ -571,10 +571,31 @@ void gtx_0x106C::sub_5AAFE0(unsigned __int16 a1)
     UNIQUE_FUNC;
 }
 
-void gtx_0x106C::load_font_base_5AB0F0(int fonb_chunk_size)
+void gtx_0x106C::load_font_base_5AB0F0(unsigned int fonb_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    if (fonb_chunk_size < 2)
+    {
+        FatalError_4A38C0(1033, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1268, fonb_chunk_size);
+    }
+
+    this->field_1C_font_base = (font_base *)Memory::malloc_4FE4D0(fonb_chunk_size);
+    File::Global_Read_4A71C0(field_1C_font_base, &fonb_chunk_size);
+    
+    unsigned __int16 fountCount = this->field_1C_font_base->field_0_font_count;
+    if (fonb_chunk_size != (fountCount * 2) + 2)
+    {
+        FatalError_4A38C0(1033, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1271, fonb_chunk_size);
+    }
+
+    this->field_2_font_base_total = ConvertToVirtualOffsets_5AB1A0(
+        this->field_1C_font_base->field_2_base,
+        this->field_1C_font_base->field_0_font_count);
+
+    ConvertToVirtualOffsets_5AB1C0(
+        this->field_1C_font_base->field_2_base,
+        this->field_1C_font_base->field_0_font_count);
+
+    sub_5AAFE0(this->field_1C_font_base->field_0_font_count);
 }
 
 // match
@@ -593,7 +614,7 @@ WORD gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int off
     return total;
 }
 
-void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len)
+void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigned int len)
 {
     int idx1 = len - 1;
     if (len - 1 > 0)
@@ -625,13 +646,13 @@ void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len)
     }
 }
 
-void gtx_0x106C::load_sprite_base_5AB210(int sprite_base_chunk_size)
+void gtx_0x106C::load_sprite_base_5AB210(unsigned int sprite_base_chunk_size)
 {
     // TODO
     UNIQUE_FUNC;
 }
 
-void gtx_0x106C::load_palete_base_5AB2C0(int palette_base_chunk_len)
+void gtx_0x106C::load_palete_base_5AB2C0(unsigned int palette_base_chunk_len)
 {
     // TODO
     UNIQUE_FUNC;
@@ -645,7 +666,7 @@ bool gtx_0x106C::sub_5AB380(unsigned __int8 car_id)
 }
 
 // match
-void gtx_0x106C::load_car_recycling_info_5AB3C0(int recy_chunk_size)
+void gtx_0x106C::load_car_recycling_info_5AB3C0(unsigned int recy_chunk_size)
 {
     field_64_car_recycling_info = (unsigned __int8 *)Memory::malloc_4FE4D0(recy_chunk_size);;
     field_68_recy_chunk_size = recy_chunk_size;
@@ -672,10 +693,10 @@ void gtx_0x106C::load_car_recycling_info_5AB3C0(int recy_chunk_size)
         } while (readValue1);
     }
 */
-void gtx_0x106C::read_spec_5AB3F0(int type)
+void gtx_0x106C::read_spec_5AB3F0(unsigned int type)
 {
     WORD read_value1;
-    int read_value1_size = 2;
+    unsigned int read_value1_size = 2;
     File::Global_Read_4A71C0(&read_value1, &read_value1_size);
     if (!read_value1)
     {
@@ -708,7 +729,7 @@ void gtx_0x106C::load_spec_5AB450()
 }
 
 // match
-void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, int chunk_len)
+void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, unsigned int chunk_len)
 {
     if (!strncmp(Str1, "PALB", 4u))
     {
@@ -800,7 +821,7 @@ void gtx_0x106C::LoadSty_5AB750(const char *pStyFileName)
     File::Global_Open_4A7060(pStyFileName);
 
     sty_header styHeader;
-    int len = sizeof(sty_header);
+    unsigned int len = sizeof(sty_header);
     File::Global_Read_4A71C0(styHeader.field_0_type, &len);
 
     if (strncmp("GBST", styHeader.field_0_type, sizeof(styHeader.field_0_type)))
