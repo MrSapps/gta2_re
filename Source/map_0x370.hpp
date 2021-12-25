@@ -238,7 +238,7 @@ struct Map_sub
 
 struct gmp_map_zone
 {
-    char field_0_zone_type;
+    unsigned char field_0_zone_type;
     unsigned __int8 field_1_x;
     unsigned __int8 field_2_y;
     unsigned __int8 field_3_w;
@@ -292,13 +292,13 @@ public:
 
     int zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len);
 
-    gmp_map_zone* zone_by_type_bounded_4DF0F0(char zone_type);
+    gmp_map_zone* zone_by_type_bounded_4DF0F0(unsigned char zone_type);
 
-    gmp_map_zone* first_zone_by_type_4DF1D0(char zone_type);
+    gmp_map_zone* first_zone_by_type_4DF1D0(unsigned char zone_type);
 
     // todo: missing func
 
-    gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, char zone_type);
+    gmp_map_zone* zone_by_pos_and_type_4DF4D0(char zone_x, char zone_y, unsigned char zone_type);
 
     // todo: other funcs
 
@@ -381,8 +381,8 @@ public:
     int field_360_column_words;
     unsigned __int16 field_364_cur_zone_idx;
     __int16 field_366;
-    char field_368_zone_type;
-    char field_369;
+    unsigned char field_368_zone_type;
+    unsigned char field_369;
     unsigned __int8 field_36A_zone_x;
     unsigned __int8 field_36B_zone_y;
     char field_36C_bUnknown;
