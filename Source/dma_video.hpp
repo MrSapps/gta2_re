@@ -66,7 +66,7 @@ struct SVidVersion
     char mVersionString[255];
 };
 
-struct SPtrVideoFunctions;
+struct SVideoFunctions;
 
 typedef SVidVersion*(__stdcall *T_Vid_GetVersion)();
 typedef SVideo*(__stdcall *T_Vid_Init_SYS)(s32 param1, u16 param2_flags);
@@ -88,7 +88,7 @@ typedef s32(__stdcall *T_Vid_GetSurface)(SVideo* pVideoDriver);
 typedef s32(__stdcall *T_Vid_FreeSurface)(SVideo* pVideoDriver);
 typedef s32(__stdcall *T_Vid_ClearScreen)(SVideo* pVideoDriver, u8 aR, u8 aG, u8 aB, s32 aLeft, s32 aTop, s32 aRight, s32 aBottom);
 typedef s32(__stdcall *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
-typedef s32(__cdecl *T_Vid_InitDLL)(HINSTANCE hInstance, SPtrVideoFunctions* a2);
+typedef s32(__cdecl *T_Vid_InitDLL)(HINSTANCE hInstance, SVideoFunctions* a2);
 typedef s32(__cdecl *T_Vid_SetGamma)(SVideo* pVideoDriver, f32 a2, f32 a3, f32 a4);
 
 
