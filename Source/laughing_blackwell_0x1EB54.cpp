@@ -502,7 +502,6 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
     int result; // eax
     char *v9; // ecx
     int v10; // edx
-    char v11; // al
     char v12; // al
     HDIGDRIVER  field_0_hDriver; // [esp-4h] [ebp-10h]
 
@@ -582,14 +581,14 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
             }
         }
 
-        if (Time >= this->field_C9DC || (v11 = this->field_C9E0, v11 == 3))
+        if (Time >= this->field_C9DC || this->field_C9E0 == 3)
         {
             sub_4AEC00();
             v12 = this->field_C9E0 + 1;
             this->field_C9DC += 33;
             this->field_C9E0 = v12;
         }
-        else if (v11)
+        else if (this->field_C9E0)
         {
             sub_4ADFB0(); // bQuit ??
             result = this->field_108;
