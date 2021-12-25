@@ -274,8 +274,8 @@ int ReadScreenSettings_5D8F70()
     }
 
     full_height_706798 = full_height;
-    int startMode = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
-    gStartMode_626A0C = startMode;
+
+    gStartMode_626A0C = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
 
     if (gBufferMode_706B34 == 0)
     {
@@ -284,19 +284,18 @@ int ReadScreenSettings_5D8F70()
     else
     {
         bTrippleBuffer_706C54 = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
-        startMode = gStartMode_626A0C;
     }
 
-    if (startMode == startMode_old && bTrippleBuffer_706C54 == trippleBuffer_old)
+    if (gStartMode_626A0C == startMode_old && bTrippleBuffer_706C54 == trippleBuffer_old)
     {
-        if (startMode == 1)
+        if (gStartMode_626A0C == 1)
         {
             if (full_width_706B5C == full_width_old && full_height_706798 == full_height_old)
             {
                 return 0;
             }
         }
-        else if (startMode || window_width_706630 == window_width_old && window_height_706B50 == window_height_old)
+        else if (gStartMode_626A0C || window_width_706630 == window_width_old && window_height_706B50 == window_height_old)
         {
             return 0;
         }
