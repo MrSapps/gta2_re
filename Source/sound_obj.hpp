@@ -291,6 +291,8 @@ struct sound_obj
     int ConvertToPlayBackRate_417C60(int a1);
 
     char sub_4153F0(sound_0x68 *pObj);
+
+    void sub_41A6C0(int idx);
 };
 
 extern sound_obj gSound_obj_66F680;

@@ -484,3 +484,12 @@ char sound_obj::sub_4153F0(sound_0x68 *pObj)
     pObj->field_38 = gSampManager_6FFF00.sub_58DC50(36);
     return 1;
 }
+
+// match
+void sound_obj::sub_41A6C0(int idx)
+{
+    field_147C[idx].field_0 = 0;
+    field_147C[idx].field_1 = 0;
+    field_147C[idx].field_4_pObj = 0;
+    field_147C[idx].field_8 = 0;
+}
