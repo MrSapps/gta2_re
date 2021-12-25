@@ -376,13 +376,7 @@ void wizardly_margulis::Terminate_58DAE0()
 
 void wizardly_margulis::Shutdown_58DB30()
 {
-    unsigned int i; // ebx
-    int v3; // esi
-    int v4; // ebp
-    HDIGDRIVER  field_0_hDriver; // edx
-    unsigned __int8 v6; // [esp+10h] [ebp-4h]
-
-    for (i = 0; i < 2; ++i)
+    for (unsigned int i = 0; i < 2; ++i)
     {
         if (!i)
         {
@@ -390,11 +384,11 @@ void wizardly_margulis::Shutdown_58DB30()
             {
                 if (this->field_9C_hStreams[0])
                 {
-                    v6 = AIL_stream_volume(this->field_9C_hStreams[0]);
+                    unsigned __int8 v6 = AIL_stream_volume(this->field_9C_hStreams[0]);
                     if (v6)
                     {
-                        v3 = v6;
-                        v4 = v6;
+                        int v3 = v6;
+                        int v4 = v6;
                         do
                         {
                             AIL_set_stream_volume(this->field_9C_hStreams[0], v3);
@@ -418,7 +412,7 @@ void wizardly_margulis::Shutdown_58DB30()
     Terminate_58DAE0();
 
     AIL_mem_free_lock(this->field_1EA8_pAudioBuffer1);
-    field_0_hDriver = this->field_0_hDriver;
+    HDIGDRIVER field_0_hDriver = this->field_0_hDriver;
     this->field_1EA8_pAudioBuffer1 = 0;
     this->field_1EAC_pAudioBuffer2 = 0;
     AIL_waveOutClose(field_0_hDriver);
