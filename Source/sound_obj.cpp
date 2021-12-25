@@ -1471,3 +1471,19 @@ void sound_obj::VecDiff_41B4E0(serene_brattain *pVec, serene_brattain *pRet)
     pRet->field_4 = pVec->field_4 - field_146C_v2;
     pRet->field_8 = pVec->field_8 - field_1470_v3;
 }
+
+// match
+void sound_obj::sub_41B490(sound_0x68 *pObj)
+{
+    if (pObj->field_41)
+    {
+        if (pObj->field_30)
+        {
+            pObj->field_44 = (static_cast<unsigned int>(field_8) * gSampManager_6FFF00.GetSampleLength_maybe_58DC70(pObj->field_14_samp_idx)) / pObj->field_20_rate;
+        }
+        else
+        {
+            pObj->field_44 = -3;
+        }
+    }
+}
