@@ -4,9 +4,10 @@
 
 root_sound gRoot_sound_66B038;
 
+// match
 char root_sound::Set3DSound_40F160(char b3dSound)
 {
-    return 0;
+    return gSound_obj_66F680.Set3DSound_41A2F0(b3dSound);
 }
 
 char root_sound::Get3DSound_40F180()
@@ -85,4 +86,3 @@ void root_sound::sub_40F140()
 {
     gSound_obj_66F680.sub_41A2A0();
 }
-

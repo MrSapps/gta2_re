@@ -66,7 +66,7 @@ struct sound_obj
     char field_19;
     char field_1A;
     char field_1B;
-    char field_1C_samp_count;
+    BYTE field_1C_samp_count;
     char field_1D_b3d_sound;
     char field_1E;
     char field_1F;
@@ -268,6 +268,11 @@ struct sound_obj
     void sub_41A2A0();
 
     void SetCDVol_41A270(unsigned char cdVol);
+
+
+    char Set3DSound_41A2F0(char b3dSound);
+
+
 };
 
 extern sound_obj gSound_obj_66F680;
