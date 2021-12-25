@@ -2626,6 +2626,8 @@ struct laughing_blackwell_0x1EB54
 
     ~laughing_blackwell_0x1EB54();
 
+    void AcquireKeyBoard_4AFD70();
+
     void FreeKeyBoardDevice_4AFD00();
 
     void FreeImageTable_4B6750();

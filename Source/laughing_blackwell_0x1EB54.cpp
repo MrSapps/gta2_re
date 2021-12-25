@@ -877,11 +877,23 @@ laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()
     FreeImageTable_4B6750();
 }
 
+void laughing_blackwell_0x1EB54::AcquireKeyBoard_4AFD70()
+{
+    LPDIRECTINPUTDEVICEA field_4_pKeyboardDevice; // eax
+
+    field_4_pKeyboardDevice = this->field_4_pKeyboardDevice;
+    if (!field_4_pKeyboardDevice || field_4_pKeyboardDevice->Acquire() < 0)
+    {
+        this->field_10C_bKeyboardAcquired = 1;
+    }
+}
+
 void laughing_blackwell_0x1EB54::FreeKeyBoardDevice_4AFD00()
 {
     // todo
 }
 
+// match
 void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
 {
     gbh_FreeImageTable();
