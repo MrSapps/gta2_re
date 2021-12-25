@@ -37,9 +37,16 @@ void root_sound::SetCDVol_40F0F0(unsigned int cdVol)
     //return cdVol;
 }
 
-void root_sound::SetSfxVol_40F0B0(unsigned __int8 cdVol)
+void root_sound::SetSfxVol_40F0B0(unsigned __int8 sfxVol)
 {
-    // todo
+    if (sfxVol <= 127u)
+    {
+        gSound_obj_66F680.SetSfxVol_41A250(sfxVol);
+    }
+    else
+    {
+        gSound_obj_66F680.SetSfxVol_41A250(127);
+    }
 }
 
 void root_sound::Service_40EFA0()
