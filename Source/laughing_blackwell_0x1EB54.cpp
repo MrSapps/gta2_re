@@ -68,6 +68,7 @@ int __stdcall SetGamma_5D9910(int gamma)
     return 0;
 }
 
+// match
 void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
 {
     if (!gLaughing_blackwell_0x1EB54_67DC84)
@@ -616,6 +617,11 @@ void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
     free(pAlloc);
 
 
+}
+
+laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
+{
+    // todo
 }
 
 laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()

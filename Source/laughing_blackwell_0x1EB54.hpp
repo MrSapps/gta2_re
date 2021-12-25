@@ -2557,6 +2557,8 @@ struct laughing_blackwell_0x1EB54
 
     void Load_tga_4B6520(unsigned __int16 idx);
 
+    laughing_blackwell_0x1EB54(); 
+
     ~laughing_blackwell_0x1EB54();
 
     void FreeKeyBoardDevice_4AFD00();
