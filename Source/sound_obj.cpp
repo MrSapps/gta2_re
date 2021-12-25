@@ -1162,7 +1162,55 @@ void sound_obj::sub_418CA0()
 
 void sound_obj::sub_418B60(int a2)
 {
-    // todo
+    infallible_turing *field_C_pObject; // eax
+    int field_0_object_type; // eax
+    unsigned __int8 v4; // al
+
+    field_C_pObject = (infallible_turing*)this->field_147C[a2].field_4_pObj->field_C_pObject;
+    if (field_C_pObject)
+    {
+        field_0_object_type = field_C_pObject->field_0_object_type;
+        if (field_0_object_type > 0)
+        {
+            if (field_0_object_type <= 300)
+            {
+                if (field_0_object_type <= 150)
+                {
+                    this->field_30_sQueueSample.field_20_rate = 33178;
+                    v4 = 70;
+                }
+                else
+                {
+                    this->field_30_sQueueSample.field_20_rate = 26221;
+                    v4 = 55;
+                }
+            }
+            else
+            {
+                this->field_30_sQueueSample.field_20_rate = 22050;
+                v4 = 40;
+            }
+            this->field_30_sQueueSample.field_14_samp_idx = 57;
+            this->field_30_sQueueSample.field_0 = a2;
+            this->field_30_sQueueSample.field_5C = 0;
+            this->field_30_sQueueSample.field_24_nVolume = v4;
+            this->field_30_sQueueSample.field_60 = v4;
+            this->field_30_sQueueSample.field_64 = 100;
+            this->field_30_sQueueSample.field_58_type = 20;
+            this->field_30_sQueueSample.field_54 = 1638400;
+            this->field_30_sQueueSample.field_4 = 0;
+            this->field_30_sQueueSample.field_41 = 0;
+            this->field_30_sQueueSample.field_18 = 1;
+            this->field_30_sQueueSample.field_1C_ReleasingVolumeModificator = 0;
+            this->field_30_sQueueSample.field_3C = 0;
+            this->field_30_sQueueSample.field_30 = 0;
+            this->field_30_sQueueSample.field_34 = 0;
+            this->field_30_sQueueSample.field_38 = -1;
+            this->field_30_sQueueSample.field_40_pan = 63;
+            this->field_30_sQueueSample.field_4C = 3;
+            sound_obj::AddSampleToRequestedQueue_41A850();
+        }
+    }
 }
 
 void sound_obj::sub_412490(int idx)
