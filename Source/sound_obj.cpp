@@ -702,15 +702,14 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
 LABEL_10:
     sub_41A6C0(idx);
     
-    //pBaseOff = (int *__shifted(vigilant_maxwell, 0x147C))(&this->field_0 + 0xC * idx);
-    
-
     field_147C[idx].field_4_pObj = pTuring;
     field_147C[idx].field_0 = 1;
     field_147C[idx].field_1 = 1;
     this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
 
-    if (pTuring->field_0 == 1)
+    switch (pTuring->field_0)
+    {
+    case 1:
     {
         v7 = field_147C[idx].field_4_pObj->field_C;
         if (v7)
@@ -724,11 +723,16 @@ LABEL_10:
                 pNewObj->field_A = 0;
             }
         }
+        break;
     }
-    else if (pTuring->field_0 == 2)
+
+    case 2:
     {
         sub_57EA10();
+        break;
     }
+    }
+
     return idx;
 }
 
