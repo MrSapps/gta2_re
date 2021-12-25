@@ -46,7 +46,7 @@ public:
 
     int Get_Int_5873E0(HKEY hKey, const char *subKey);
 
-    int CreateNetworkRoot_587420(PHKEY phkResult);
+    char CreateNetworkRoot_587420(PHKEY phkResult);
 
     int Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName);
 
