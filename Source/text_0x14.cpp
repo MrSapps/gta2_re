@@ -10,6 +10,399 @@ wchar_t tmpAscii2WideStr_70488C[640];
 
 char tmpWide2AsciiStr_70462C[80];
 
+wchar_t word_626590[256] =
+{
+  128u,
+  129u,
+  130u,
+  131u,
+  132u,
+  133u,
+  134u,
+  135u,
+  136u,
+  137u,
+  138u,
+  139u,
+  140u,
+  141u,
+  142u,
+  143u,
+  144u,
+  145u,
+  146u,
+  147u,
+  148u,
+  149u,
+  150u,
+  128u,
+  129u,
+  130u,
+  131u,
+  132u,
+  133u,
+  134u,
+  135u,
+  136u,
+  137u,
+  138u,
+  139u,
+  140u,
+  141u,
+  142u,
+  143u,
+  144u,
+  145u,
+  146u,
+  147u,
+  148u,
+  149u,
+  173u,
+  173u,
+  175u,
+  176u,
+  177u,
+  178u,
+  179u,
+  180u,
+  181u,
+  182u,
+  183u,
+  184u,
+  185u,
+  186u,
+  187u,
+  188u,
+  189u,
+  190u,
+  191u,
+  192u,
+  193u,
+  194u,
+  195u,
+  196u,
+  197u,
+  198u,
+  199u,
+  200u,
+  201u,
+  202u,
+  203u,
+  204u,
+  205u,
+  206u,
+  207u,
+  208u,
+  209u,
+  177u,
+  178u,
+  179u,
+  180u,
+  181u,
+  182u,
+  183u,
+  184u,
+  185u,
+  186u,
+  187u,
+  188u,
+  189u,
+  190u,
+  191u,
+  192u,
+  193u,
+  194u,
+  195u,
+  196u,
+  197u,
+  198u,
+  199u,
+  200u,
+  201u,
+  202u,
+  203u,
+  204u,
+  205u,
+  206u,
+  207u,
+  208u,
+  209u,
+  243u,
+  244u,
+  245u,
+  246u,
+  247u,
+  248u,
+  249u,
+  250u,
+  251u,
+  252u,
+  253u,
+  254u,
+  255u,
+  128u,
+  129u,
+  130u,
+  131u,
+  132u,
+  133u,
+  134u,
+  135u,
+  136u,
+  137u,
+  138u,
+  139u,
+  140u,
+  141u,
+  142u,
+  143u,
+  144u,
+  145u,
+  146u,
+  147u,
+  148u,
+  149u,
+  150u,
+  65u,
+  65u,
+  65u,
+  65u,
+  132u,
+  133u,
+  69u,
+  69u,
+  69u,
+  69u,
+  73u,
+  73u,
+  73u,
+  73u,
+  79u,
+  79u,
+  79u,
+  79u,
+  85u,
+  85u,
+  85u,
+  85u,
+  173u,
+  173u,
+  175u,
+  176u,
+  177u,
+  178u,
+  179u,
+  180u,
+  181u,
+  182u,
+  183u,
+  184u,
+  185u,
+  186u,
+  187u,
+  188u,
+  189u,
+  190u,
+  191u,
+  192u,
+  193u,
+  194u,
+  195u,
+  196u,
+  197u,
+  198u,
+  199u,
+  200u,
+  201u,
+  202u,
+  203u,
+  204u,
+  205u,
+  206u,
+  207u,
+  208u,
+  209u,
+  210u,
+  211u,
+  212u,
+  213u,
+  214u,
+  215u,
+  216u,
+  217u,
+  218u,
+  219u,
+  220u,
+  221u,
+  222u,
+  223u,
+  224u,
+  225u,
+  226u,
+  227u,
+  228u,
+  229u,
+  230u,
+  231u,
+  232u,
+  233u,
+  234u,
+  235u,
+  236u,
+  237u,
+  238u,
+  239u,
+  240u,
+  241u,
+  242u,
+  243u,
+  244u,
+  245u,
+  246u,
+  247u,
+  248u,
+  249u,
+  250u,
+  251u,
+  252u,
+  253u,
+  254u,
+  255u
+};
+
+__int16 word_626490[128] =
+{
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  177,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  210,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  193,
+  208,
+  192,
+  184,
+  198,
+  182,
+  199,
+  187,
+  205,
+  178,
+  181,
+  197,
+  204,
+  183,
+  196,
+  194,
+  195,
+  203,
+  206,
+  180,
+  190,
+  188,
+  179,
+  202,
+  185,
+  186,
+  189,
+  191,
+  207,
+  200,
+  209,
+  201,
+  226,
+  241,
+  225,
+  217,
+  231,
+  215,
+  232,
+  220,
+  238,
+  211,
+  214,
+  230,
+  237,
+  216,
+  229,
+  227,
+  228,
+  236,
+  239,
+  213,
+  223,
+  221,
+  212,
+  235,
+  218,
+  219,
+  222,
+  224,
+  240,
+  233,
+  242,
+  234
+};
+
+
 // todo
 unsigned __int16 text_0x14::sub_5B58D0(unsigned __int16 a2)
 {
@@ -45,19 +438,13 @@ void text_0x14::sub_5B5910(WORD *a2)
     }
 }
 
-// todo
-unsigned __int16 text_0x14::sub_5B5930(WORD *a1)
+// match
+void text_0x14::sub_5B5930(WORD *pStr)
 {
-    WORD *v2; // esi
-    unsigned __int16 result; // ax
-
-    v2 = a1;
-    for (result = *a1; result; ++v2)
+    for (WORD* pStrIter = pStr; *pStrIter; ++pStrIter)
     {
-        *v2 = sub_5B58D0(result);
-        result = v2[1];
+        *pStrIter = sub_5B58D0(*pStrIter);
     }
-    return result;
 }
 
 // match
@@ -159,7 +546,8 @@ unsigned __int16 text_0x14::sub_5B5AD0(unsigned __int16 a2)
         {
             if (a2 >= 0x80u && a2 <= 0xFFu)
             {
-                //result = word_626590[a2];
+                // todo: these arrays are very wrong
+                result = word_626590[a2];
             }
         }
         else
@@ -176,7 +564,7 @@ unsigned __int16 text_0x14::sub_5B5AD0(unsigned __int16 a2)
         {
             if (a2 >= 0x80u && a2 <= 0xFFu)
             {
-                //result = word_626490[a2];
+                result = word_626490[a2];
             }
         }
         else
@@ -192,17 +580,12 @@ unsigned __int16 text_0x14::sub_5B5AD0(unsigned __int16 a2)
     return result;
 }
 
-// todo
+// match
 WORD * text_0x14::sub_5B5B80(WORD *pWideStr)
 {
-    unsigned __int16 str_chr; // ax
-    WORD *i; // esi
-
-    str_chr = *pWideStr;
-    for (i = pWideStr; str_chr; ++i)
+    for (WORD *pStrIter = pWideStr; *pStrIter; ++pStrIter)
     {
-        *i = sub_5B5AD0(str_chr);
-        str_chr = i[1];
+        *pStrIter = sub_5B5AD0(*pStrIter);
     }
     return pWideStr;
 }
@@ -213,36 +596,6 @@ int __stdcall text_0x14::sub_5B5BC0(WORD *a1, int a2, int a3, int a4)
     // todo
     return 0;
 }
-
-/*
-WORD * pSrc = a1;
-    // jnb forced to jge by changing unsigned int loop index to int
-    int dstIdx = 0;
-    while (pSrc) // bug: should be *pSrc
-    {
-        if (dstIdx < 79)
-        {
-            if (*pSrc >= 0x80u)
-            {
-                byte_70462C[dstIdx] = '#';
-            }
-            else
-            {
-                byte_70462C[dstIdx] = static_cast<char>(*pSrc);
-            }
-            pSrc++;
-            dstIdx++;
-        }
-        else
-        {
-            break;
-        }
-    }
-
-    // add null terminator
-    byte_70462C[dstIdx] = 0;
-    return byte_70462C;
-*/
 
 // match
 char* text_0x14::Wide2PesudoAscii_5B5D10(WORD *a1)

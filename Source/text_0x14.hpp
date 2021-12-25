@@ -37,7 +37,7 @@ public:
 
     void sub_5B5910(WORD *a2);
 
-    unsigned __int16 sub_5B5930(WORD *a1);
+    void sub_5B5930(WORD *a1);
 
     void TKEY_Load_5B5960(int size);
 
