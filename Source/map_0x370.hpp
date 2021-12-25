@@ -289,7 +289,7 @@ public:
 
     gmp_map_zone* zone_by_name_4DEFD0(const char *pZoneName);
 
-    int zone_idx_by_name_4DF050(const char *pZoneName, int zone_name_len);
+    int zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len);
 
     // todo: other funcs between
 

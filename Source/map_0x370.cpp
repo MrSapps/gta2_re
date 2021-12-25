@@ -33,8 +33,8 @@ gmp_map_zone* Map_0x370::zone_by_name_4DEFD0(const char *pZoneName)
     return 0;
 }
 
-// nomatch
-int Map_0x370::zone_idx_by_name_4DF050(const char *pZoneName, int zone_name_len)
+// match
+int Map_0x370::zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len)
 {
     if (!this->field_328_pZoneData)
     {
@@ -44,8 +44,9 @@ int Map_0x370::zone_idx_by_name_4DF050(const char *pZoneName, int zone_name_len)
     for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
     {
         gmp_map_zone * pZone = get_zone_4DFB30(field_364_cur_zone_idx);
-        if (pZone->field_5_name_length == (BYTE)zone_name_len
-            && !_strnicmp(pZone->field_6_name, pZoneName, (unsigned __int8)zone_name_len))
+        // note: esp/stack reorder due to int -> byte cast on zone_name_len wrong type
+        if (pZone->field_5_name_length == zone_name_len &&
+            _strnicmp(pZone->field_6_name, pZoneName, zone_name_len) == 0)
         {
             return field_364_cur_zone_idx;
         }
