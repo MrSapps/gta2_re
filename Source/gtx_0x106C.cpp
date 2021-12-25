@@ -550,11 +550,16 @@ void gtx_0x106C::load_font_base_5AB0F0(int fonb_chunk_size)
     UNIQUE_FUNC;
 }
 
-int gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(int len, WORD *pOffsets, int offsetsCount)
+unsigned int gtx_0x106C::ConvertToVirtualOffsets_5AB1A0(WORD *pOffsets, unsigned int offsetsCount)
 {
-    // TODO
-    UNIQUE_FUNC;
-    return 0;
+    unsigned int total = 0;
+    while(offsetsCount)
+    {
+        total += *pOffsets;
+        pOffsets++;
+        offsetsCount--;
+    }
+    return total;
 }
 
 void gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, int len)

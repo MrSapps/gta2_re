@@ -1602,6 +1602,7 @@ struct jolly_poitras_0x2BC0
     dreamy_clarke_0xA4 field_26A0[8];
 
     jolly_poitras_0x2BC0();
+    ~jolly_poitras_0x2BC0();
 
     static void create_56C2C0();
 

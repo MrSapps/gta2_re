@@ -55,6 +55,11 @@ jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
     sub_56BD20();
 }
 
+jolly_poitras_0x2BC0::~jolly_poitras_0x2BC0()
+{
+
+}
+
 // match
 void jolly_poitras_0x2BC0::create_56C2C0()
 {

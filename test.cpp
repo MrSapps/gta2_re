@@ -72,7 +72,7 @@ void test_gtx_0x106C()
     c.load_sprite_index_5AAF80(0);
     c.sub_5AAFE0(0);
     c.load_font_base_5AB0F0(0);
-    c.ConvertToVirtualOffsets_5AB1A0(0, 0, 0);
+    c.ConvertToVirtualOffsets_5AB1A0(0, 0);
     c.ConvertToVirtualOffsets_5AB1C0(0, 0);
     c.load_sprite_base_5AB210(0);
     c.load_palete_base_5AB2C0(0);
