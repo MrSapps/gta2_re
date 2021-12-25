@@ -1,5 +1,6 @@
 #pragma once
 
+#include "fix16.hpp"
 #include <windows.h>
 
 struct gmp_col_info
@@ -351,7 +352,7 @@ public:
 
     // todo
 
-    DWORD sub_4DFF60(int a2, int a3, int a4);
+    DWORD sub_4DFF60(Fix16 x_coord, Fix16 y_coord, Fix16 z_coord);
 
     // todo
 

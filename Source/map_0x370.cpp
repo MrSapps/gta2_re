@@ -324,35 +324,31 @@ gmp_block_info* Map_0x370::get_block_4DFE10(int x_coord, int y_coord, int z_coor
     return 0;
 }
 
-int dword_6F6110 = 0x4000;
+Fix16 dword_6F6110; // = 0x4000; // todo
 
-// nomatch
-DWORD Map_0x370::sub_4DFF60(int a2, int a3, int a4)
+// match
+DWORD Map_0x370::sub_4DFF60(Fix16 x_coord, Fix16 y_coord, Fix16 z_coord)
 {
-
-    int t1 = (a2 - dword_6F6110) >> 14;
-    int t2 = a3 >> 14;
-    int t3 = a4 >> 14;
-    gmp_block_info *pBlock1 = get_block_4DFE10(t1, t2, t3);
+    gmp_block_info *pBlock1 = get_block_4DFE10((x_coord - dword_6F6110).ToInt(), y_coord.ToInt(), z_coord.ToInt());
     if (pBlock1 && pBlock1->field_2_right != 0)
     {
-        DWORD result = gGtx_0x106C_703DD4->field_6C_spec[pBlock1->field_2_right & 0x3FF];
-        if (result == 3)
+        DWORD spec = gGtx_0x106C_703DD4->field_6C_spec[pBlock1->field_2_right & 0x3FF];
+        if (spec == 3)
         {
             return 1;
         }
-        return result;
+        return spec;
     }
 
-    gmp_block_info *pBlock2 = get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
+    gmp_block_info *pBlock2 = get_block_4DFE10(x_coord.ToInt(), y_coord.ToInt(), z_coord.ToInt());
     if (pBlock2 && pBlock2->field_0_left != 0)
     {
-        DWORD result = gGtx_0x106C_703DD4->field_6C_spec[pBlock2->field_0_left & 0x3FF];
-        if (result == 3)
+        DWORD spec = gGtx_0x106C_703DD4->field_6C_spec[pBlock2->field_0_left & 0x3FF];
+        if (spec == 3)
         {
             return 1;
         }
-        return result;
+        return spec;
     }
 
     return 0;

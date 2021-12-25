@@ -11,9 +11,21 @@ struct Fix16
         return *this;
     }
 
+    Fix16 operator-(const Fix16& in)
+    {
+        Fix16 t;
+        t.mValue = mValue - in.mValue;
+        return t;
+    }
+
     float AsFloat() const
     {
         return mValue / 16384.0f;
+    }
+
+    inline int ToInt()
+    {
+        return mValue >> 14;
     }
 
     Fix16& FromInt_4369F0(int a2);
