@@ -304,22 +304,32 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
     const char *pNameTmp; // edi
     HPROENUM hEnum; // [esp+14h] [ebp-8h] BYREF
     char *pName; // [esp+18h] [ebp-4h] BYREF
+    HPROVIDER* provIter;
 
     prov_counter = 0;
     hEnum = 0;
-    for (_field_22B4_str = this->field_22B4_str;
-        AIL_enumerate_3D_providers(&hEnum, field_1EB4_h3dProvider, &pName);
-        ++_field_22B4_str)
+    _field_22B4_str = this->field_22B4_str;
+    provIter = field_1EB4_h3dProvider;
+    while(prov_counter< 256)
     {
+        if (!AIL_enumerate_3D_providers(&hEnum, provIter, &pName))
+        {
+            break;
+        }
+
         pAlloc = (char *)operator new(0x50u);
         pNameTmp = pName;
         *_field_22B4_str = pAlloc;
         strcpy(pAlloc, pNameTmp);
+        /*
         if ((unsigned int)++prov_counter >= 256)
         {
             this->field_2710_3d_provider_count = prov_counter;
             return;
-        }
+        }*/
+        prov_counter++;
+        provIter++;
+        ++_field_22B4_str;
     }
     this->field_2710_3d_provider_count = prov_counter;
 }
