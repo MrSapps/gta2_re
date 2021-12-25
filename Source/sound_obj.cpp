@@ -245,6 +245,31 @@ void sound_obj::Set15Val_4271B0(unsigned int val)
     }
 }
 
+// nomatch
+void sound_obj::sub_427220()
+{
+    if (!(field_5448_m_FrameCounter % 10u) &&
+        !field_5520 &&
+        !gSampManager_6FFF00.SampleNotDone_58E880())
+    {
+        gSampManager_6FFF00.EndSample_58E960();
+        field_5520 = 1;
+    }
+
+    if (field_5528_idx15_cur != field_5529_idx15 &&
+        !gSampManager_6FFF00.SampleNotDone_58E880() &&
+        field_5520 == 1)
+    {
+        if (field_5528_idx15_cur >= 15u)
+        {
+            field_5528_idx15_cur = 15;
+        }
+        gSampManager_6FFF00.PlayAtIdx_58E7F0(field_552C_15array[field_5528_idx15_cur]);
+        gSampManager_6FFF00.SetSampleVol_58E7D0((110 * (unsigned int)field_24_sfx_vol) >> 7);
+        field_5528_idx15_cur = (field_5528_idx15_cur + 1) % 15;
+    }
+}
+
 // match
 void sound_obj::GenerateIntegerRandomNumberTable_41BA90()
 {

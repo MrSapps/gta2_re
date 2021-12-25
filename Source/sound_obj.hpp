@@ -239,6 +239,8 @@ public:
 
     void Set15Val_4271B0(unsigned int val);
 
+    void sub_427220();
+
     void GenerateIntegerRandomNumberTable_41BA90();
 
     void sub_41B540();
