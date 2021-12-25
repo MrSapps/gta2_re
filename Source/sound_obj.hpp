@@ -303,6 +303,9 @@ struct sound_obj
 
     void sub_419E10();
 
+    char LoadStyle_41A1B0(const char *pStyleName);
+
+    const char* GetFileName_41A1E0(const char *pStr);
 };
 
 extern sound_obj gSound_obj_66F680;

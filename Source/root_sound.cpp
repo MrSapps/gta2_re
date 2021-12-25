@@ -55,8 +55,7 @@ int root_sound::sub_40EFB0(infallible_turing* a2)
 
 char root_sound::LoadStyle_40EFF0(const char *pStyleName)
 {
-    // todo
-    return 0;
+    return gSound_obj_66F680.LoadStyle_41A1B0(pStyleName);
 }
 
 void root_sound::sub_40EFD0(int a2)

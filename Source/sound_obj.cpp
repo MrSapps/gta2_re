@@ -532,3 +532,54 @@ void sound_obj::sub_419E10()
         }
     }
 }
+
+char sound_obj::LoadStyle_41A1B0(const char *pStyleName)
+{
+    if (!field_0)
+    {
+        return 0;
+    }
+    return gSampManager_6FFF00.LoadWavSdtData_58E980(GetFileName_41A1E0(pStyleName));
+}
+
+char byte_674E28[80];
+
+const char* sound_obj::GetFileName_41A1E0(const char *pStr)
+{
+    const char *pSlashStr; // eax
+    const char *pAfterSlash; // eax
+    char after_slash_char; // dl
+    unsigned __int8 total_idx; // si
+    int dst_idx; // ecx
+    const char *result; // eax
+    unsigned __int8 src_idx; // [esp+8h] [ebp+4h]
+
+    pSlashStr = strrchr(pStr, '\\');
+    if (pSlashStr)
+        pAfterSlash = pSlashStr + 1;
+    else
+        pAfterSlash = pStr;
+    after_slash_char = *pAfterSlash;
+    src_idx = 0;
+    if (*pAfterSlash == '.')
+    {
+        total_idx = 0;
+    }
+    else
+    {
+        total_idx = 0;
+        dst_idx = 0;
+        do
+        {
+            if (!after_slash_char)
+                break;
+            byte_674E28[dst_idx] = after_slash_char;
+            total_idx = ++src_idx;
+            dst_idx = src_idx;
+            after_slash_char = pAfterSlash[src_idx];
+        } while (after_slash_char != '.');
+    }
+    result = byte_674E28;
+    byte_674E28[total_idx] = 0;
+    return result;
+}
