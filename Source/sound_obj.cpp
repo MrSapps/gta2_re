@@ -367,3 +367,23 @@ char sound_obj::sub_418130(sound_0x68 *pObj)
     pObj->field_38 = gSampManager_6FFF00.sub_58DC50(pObj->field_14_samp_idx);
     return 1;
 }
+
+// match
+char sound_obj::sub_417F40(int a1)
+{
+    switch (a1)
+    {
+    case 3:
+    case 7:
+    case 11:
+    case 17:
+    case 21:
+    case 58:
+    case 63:
+    case 64:
+    case 86:
+        return 1;
+    default:
+        return 0;
+    }
+}
