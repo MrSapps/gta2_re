@@ -115,8 +115,9 @@ struct sound_0x68
 
 struct infallible_turing;
 
-struct sound_obj
+class sound_obj
 {
+public:
     char field_0;
     char field_1;
     char field_2;
