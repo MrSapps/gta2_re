@@ -103,3 +103,29 @@ void frosty_pasteur_0xC1EA8::LoadSubScripts_5125F0()
 {
 
 }
+
+// nomatch
+str_table_entry* frosty_pasteur_0xC1EA8::FindStringById_503080(__int16 stringId)
+{
+    str_table_normalized *pTableIter; // ecx
+    int idx; // edx
+    str_table_entry *result; // eax
+
+    pTableIter = this->field_13350_pStringTbl;
+    idx = 0;
+    result = pTableIter->field_4[0];
+    if (!result)
+    {
+        return 0;
+    }
+
+    while (result->field_0_str_id != stringId)
+    {
+        result = pTableIter->field_4[(unsigned __int16)++idx];
+        if (!result)
+        {
+            return 0;
+        }
+    }
+    return result;
+}

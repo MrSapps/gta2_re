@@ -34,6 +34,8 @@ public:
 
     EXPORT void LoadSubScripts_5125F0();
 
+    EXPORT str_table_entry* FindStringById_503080(__int16 stringId);
+
     __int16 field_0;
     __int16 field_2;
     int field_4[96];
