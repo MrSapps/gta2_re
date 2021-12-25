@@ -163,8 +163,8 @@ public:
     char field_1477;
     int field_1478_type5Idx;
     vigilant_maxwell field_147C[1020];
-    int field_444C_pEntities[1020];
-    int field_543C_444C_max_idx;
+    unsigned int field_444C_pEntities[1020];
+    unsigned int field_543C_444C_max_idx;
     int field_5440;
     int field_5444;
     int field_5448_m_FrameCounter;

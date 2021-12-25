@@ -764,41 +764,23 @@ int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
 // match
 void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 {
-    vigilant_maxwell *pMaxwell; // ebx
-    infallible_turing *pTuring; // eax
-   // vigilant_maxwell *pUnknown; // edi
-    brave_archimedes_0x3C *pAny; // eax
-    unsigned int idx_iter; // eax
-  //  unsigned int field_543C_444C_max_idx; // ecx
-  //  int *pEntityIter; // edx
-    int new_max; // eax
-
-    if (!this->field_0)
-    {
-        return;
-    }
-    
-    if (idx >= 1020)
+    if (!this->field_0 || idx >= 1020)
     {
         return;
     }
 
-    pMaxwell = &this->field_147C[idx];
-
+    vigilant_maxwell *pMaxwell = &this->field_147C[idx];
     if (!pMaxwell->field_0_bUsed)
     {
         return;
     }
 
-    pTuring = this->field_147C[idx].field_4_pObj;
-//    pUnknown = (vigilant_maxwell *)((char *)this + 0xC * idx);
-
-    // 1-1 = 0 looking for 1
+    infallible_turing * pTuring = this->field_147C[idx].field_4_pObj;
     switch(pTuring->field_0_object_type)
     {
     case 1:
     {
-        pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
+        brave_archimedes_0x3C *pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
         if (pAny)
         {
             switch (pAny->field_30)
@@ -831,7 +813,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 
 not_type1_or_2_and_after_fade:
     pMaxwell->field_0_bUsed = 0;
-    idx_iter = 0;
+    unsigned int idx_iter = 0;
     field_147C[idx].field_4_pObj->field_C_pObject = 0;
     field_147C[idx].field_1 = 0;
     if (field_147C[idx].field_4_pObj->field_0_object_type == 5)
@@ -840,31 +822,24 @@ not_type1_or_2_and_after_fade:
     }
 
     field_543C_444C_max_idx = this->field_543C_444C_max_idx;
-   // if (field_543C_444C_max_idx)
+    while (idx_iter < field_543C_444C_max_idx)
     {
-        while (idx_iter < field_543C_444C_max_idx)
+        if (idx == field_444C_pEntities[idx_iter])
         {
-            if (idx == field_444C_pEntities[idx_iter])
+            if (idx_iter < 1019)
             {
-                if (idx_iter < 1019)
-                {
-                    memmove(
-                        &this->field_444C_pEntities[idx_iter],
-                        &this->field_444C_pEntities[idx_iter + 1],
-                        4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
-                }
-
-                new_max = this->field_543C_444C_max_idx - 1;
-                this->field_543C_444C_max_idx = new_max;
-                this->field_444C_pEntities[new_max] = 0;
-                break;
+                memmove(
+                    &this->field_444C_pEntities[idx_iter],
+                    &this->field_444C_pEntities[idx_iter + 1],
+                    4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
             }
-            idx_iter++;
+
+            int new_max = this->field_543C_444C_max_idx - 1;
+            this->field_543C_444C_max_idx = new_max;
+            this->field_444C_pEntities[new_max] = 0;
+            break;
         }
-
-
-
-      
+        idx_iter++;
     }
 }
 
