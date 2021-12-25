@@ -169,17 +169,13 @@ char wizardly_margulis::AllocSamples_58D9F0(int a2)
     return result;
 }
 
+// match
 void wizardly_margulis::Terminate_58DAE0()
 {
-    unsigned __int8 v2; // bl
-    unsigned __int8 i; // [esp+8h] [ebp-4h]
-
-    v2 = 0;
-    for (i = 0; v2 < this->field_1EB0_count_samples; i = v2)
+    for (unsigned __int8 i = 0; i < field_1EB0_count_samples; i++)
     {
-        AIL_release_sample_handle(this->field_58_hSamples[i]);
-        this->field_58_hSamples[i] = 0;
-        ++v2;
+        AIL_release_sample_handle(field_58_hSamples[i]);
+        field_58_hSamples[i] = 0;
     }
 }
 
