@@ -24,6 +24,7 @@ DWORD gSoundIdx_67D700;
 int dword_67D818;
 BYTE byte_67D81C;
 unsigned int counter_706C4C;
+int dword_67D930;
 
 extern wchar_t word_67DC8C[50];
 
@@ -621,9 +622,144 @@ void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
 
 }
 
-laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
+// todo: move me
+void __stdcall sub_5D7CB0()
 {
     // todo
+}
+
+laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
+{
+    field_10D = 1;
+
+    gText_0x14_704DFC = new text_0x14();
+    if (!gText_0x14_704DFC)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2288);
+    }
+
+    gGtx_0x106C_703DD4 = new gtx_0x106C();
+    if (!gGtx_0x106C_703DD4)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2290);
+    }
+
+    gSharp_pare_0x15D8_705064 = new sharp_pare_0x15D8();
+    if (!gSharp_pare_0x15D8_705064)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2292);
+    }
+
+    if (gText_0x14_704DFC->field_10_lang_code == 'j')
+    {
+        // pmagical_germain_0x8EC = pmagical_germain_0x8EC_mem ? magical_germain_0x8EC::ctor_4D2C80(pmagical_germain_0x8EC_mem) : 0;
+        gMagical_germain_0x8EC_6F5168 = new magical_germain_0x8EC();
+        if (!gMagical_germain_0x8EC_6F5168)
+        {
+            FatalError_4A38C0(32, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2297);
+        }
+    }
+    InitKeyBoardDevice_4AFBE0();
+    
+    gText_0x14_704DFC->Load_5B5E90();
+    gGtx_0x106C_703DD4->LoadSty_5AB750("data\\fstyle.sty");
+
+    gSharp_pare_0x15D8_705064->sub_5B9350();
+
+    sub_5D7CB0();
+
+    gbh_SetAmbient(1.0);
+    
+    if (gMagical_germain_0x8EC_6F5168)
+    {
+        gMagical_germain_0x8EC_6F5168->sub_4D2B40();
+    }
+
+    field_110_state = 1;
+    field_114 = 0;
+    field_118 = 0;
+    field_C9D5 = 0;
+    field_C9D6 = 0;
+    field_C9D3 = 0;
+    field_C9D4 = 0;
+    field_C9D7 = 0;
+    field_C9D8 = 0;
+    field_C9D9 = 0;
+    field_10C_bKeyboardAcquired = 0;
+    field_108 = 2;
+    field_C9E1_bCheatsEnabled = 0;
+    
+    sub_4AF0E0();
+    
+    field_C9DC = timeGetTime();
+    field_C9E0 = 0;
+    field_132_f136_idx = 0;
+    field_C9E4 = 0;
+    
+    sub_4B0220();
+    
+    field_C9B2 = 0;
+    field_C9B3 = 1;
+    field_C9B4 = 256;
+    field_C9B6 = 5;
+
+    memset(&field_C9A0, 0, sizeof(field_C9A0));
+    /*
+    *(_DWORD *)this->field_C9A0 = 0;
+    *(_DWORD *)&this->field_C9A0[2] = 0;
+    *(_DWORD *)&this->field_C9A0[4] = 0;
+    *(_DWORD *)&this->field_C9A0[6] = 0;
+    this->field_C9A0[8] = 0;
+    */
+
+    memset(&field_C9B8, 0, sizeof(field_C9B8));
+    /*
+    *(_DWORD *)this->field_C9B8 = 0;
+    *(_DWORD *)&this->field_C9B8[2] = 0;
+    *(_DWORD *)&this->field_C9B8[4] = 0;
+    *(_DWORD *)&this->field_C9B8[6] = 0;
+    *(_WORD *)&this->field_C9C8 = 0;
+    */
+    field_C9CA = 0;
+    field_C9CB = 0;
+    field_1EB50_idx = 0;
+
+    field_1EB51_blocks[0] = 0;
+    field_1EB51_blocks[1] = 0;
+    field_1EB51_blocks[2] = 0;
+    
+    sub_4B4440();
+    LoadPlySlotSvgs_4B53C0();
+    
+    field_EE08 = 1;
+    
+    Load_tgas_4B66B0();
+
+    field_EE0D = 0;
+    field_EE0A = 190;
+    field_EE0C = 0;
+    field_1EB30 = 0;
+    field_1EB38 = 0;
+    field_1EB34 = dword_67D930;
+    field_1EB4A = 0;
+    field_1EB4B = 0;
+    field_1EB4C = 0;
+    field_1EB4D = 0;
+    field_1EB4E = 0;
+    field_1EB4F = 0;
+
+    // todo: fix me
+    /*
+    v11 = &this->field_1EB42;
+    v12 = 8;
+    do
+    {
+        *((_BYTE *)v11 - 8) = -1;
+        *(_BYTE *)v11 = -1;
+        v11 = (__int16 *)((char *)v11 + 1);
+        --v12;
+    } while (v12);
+    */
 }
 
 laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()
@@ -665,6 +801,36 @@ void laughing_blackwell_0x1EB54::FreeKeyBoardDevice_4AFD00()
 void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
 {
     gbh_FreeImageTable();
+}
+
+void laughing_blackwell_0x1EB54::InitKeyBoardDevice_4AFBE0()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4AF0E0()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4B0220()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4B4440()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::Load_tgas_4B66B0()
+{
+    // todo
 }
 
 loving_borg_0xBCA::loving_borg_0xBCA()

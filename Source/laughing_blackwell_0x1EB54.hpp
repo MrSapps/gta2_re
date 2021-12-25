@@ -2586,6 +2586,18 @@ struct laughing_blackwell_0x1EB54
     void FreeKeyBoardDevice_4AFD00();
 
     void FreeImageTable_4B6750();
+
+    void InitKeyBoardDevice_4AFBE0();
+
+    void sub_4AF0E0();
+
+    void sub_4B0220();
+
+    void sub_4B4440();
+
+    void LoadPlySlotSvgs_4B53C0();
+
+    void Load_tgas_4B66B0();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

@@ -565,8 +565,8 @@ struct magical_germain_0x8EC
     int field_8B8;
     int field_8BC;
     int field_8C0;
-    int field_8C4_pKidX;
-    int field_8C8_pKBIT;
+    void* field_8C4_pKidX;
+    void* field_8C8_pKBIT;
     int field_8CC;
     int field_8D0;
     int field_8D4;
@@ -578,6 +578,14 @@ struct magical_germain_0x8EC
     char field_8E9;
     char field_8EA;
     char field_8EB;
+
+    magical_germain_0x8EC();
+
+    ~magical_germain_0x8EC();
+
+    void sub_4D2B40();
+
+    void sub_4D2090();
 };
 
 extern magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;

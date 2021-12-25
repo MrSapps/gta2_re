@@ -23,6 +23,14 @@ struct festive_hopper
     char field_11;
     char field_12;
     char field_13;
+
+    void Free_5B9050();
+
+    void Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5);
+
+    void sub_5B8F70();
+
+    void LoadTextures_5B8F00();
 };
 
 struct sharp_pare_0x15D8
@@ -44,6 +52,20 @@ struct sharp_pare_0x15D8
     festive_hopper field_15C0_unk;
     __int16 field_15D4_idx;
     __int16 field_15D6_pal_count;
+
+    sharp_pare_0x15D8();
+
+    ~sharp_pare_0x15D8();
+
+    void sub_5B9350();
+
+    void FreePals_5B9140();
+
+    void LoadPals_5B90F0();
+
+    void ReadTextures_5B92E0();
+
+    void LoadTextures2_5B9180();
 };
 
 extern sharp_pare_0x15D8 *gSharp_pare_0x15D8_705064;
