@@ -80,20 +80,55 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
             }
         }
 
-        if (idx <= 0)
+        if (idx > 0)
+        {
+            sLastIdx_6F626C++;
+            if (sLastIdx_6F626C >= idx)
+            {
+                sLastIdx_6F626C = 0;
+            }
+            return get_zone_4DFB30(local_array[sLastIdx_6F626C]);
+        }
+    }
+
+    return 0;
+}
+
+// nomatch
+gmp_map_zone* Map_0x370::first_zone_by_type_4DF1D0(char zone_type)
+{
+    gmp_map_zone **field_32C_pZones; // edx
+    gmp_map_zone *pZone; // eax
+
+    if (this->field_328_pZoneData)
+    {
+
+
+        field_32C_pZones = this->field_32C_pZones;
+        this->field_36C_bUnknown = 0;
+        this->field_368_zone_type = zone_type;
+        this->field_364_cur_zone_idx = 0;
+
+        if (!*(WORD *)field_32C_pZones)
         {
             return 0;
         }
 
-        sLastIdx_6F626C++;
-        if (sLastIdx_6F626C >= idx)
+        while (1)
         {
-            sLastIdx_6F626C = 0;
+            pZone = get_zone_4DFB30(this->field_364_cur_zone_idx);
+            if (pZone->field_0_zone_type == this->field_368_zone_type)
+            {
+                break;
+            }
+
+            if (++this->field_364_cur_zone_idx >= *(WORD *)this->field_32C_pZones)
+            {
+                return 0;
+            }
         }
-
-        return get_zone_4DFB30(local_array[sLastIdx_6F626C]);
+        return pZone;
     }
-
     return 0;
 }
 
