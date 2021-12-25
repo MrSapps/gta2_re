@@ -2467,8 +2467,8 @@ int laughing_blackwell_0x1EB54::sub_5D8990(wchar_t *pStr, WORD a2)
 {
     wchar_t *pStrIter = pStr;
     int current = 0;
-    int biggestLine = 0;
     int spaceSize = gGtx_0x106C_703DD4->sub_5AA7B0(&a2);
+    int biggestLine = 0;
     if (*pStr)
     {
         do
