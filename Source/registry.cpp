@@ -579,3 +579,23 @@ void Registry::Set_Screen_Setting_587170(const char* lpValueName, BYTE Data)
         FatalError_4A38C0(42, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 745);
     }
 }
+
+void Registry::Set_Screen_Setting_5871E0(const char *lpValueName, BYTE *lpData, unsigned __int16 maxLen)
+{
+    HKEY hKey; // [esp+8h] [ebp-8h] BYREF
+    DWORD cbData; // [esp+Ch] [ebp-4h] BYREF
+
+    Open_Screen_Root_586DB0(&hKey);
+
+    cbData = maxLen;
+    if (RegQueryValueExA(hKey, lpValueName, 0, 0, lpData, &cbData)
+        && RegSetValueExA(hKey, lpValueName, 0, 1u, lpData, strlen((const char *)lpData) + 1))
+    {
+        FatalError_4A38C0(46, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 781);
+    }
+
+    if (RegCloseKey(hKey))
+    {
+        FatalError_4A38C0(42, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 787);
+    }
+}

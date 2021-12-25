@@ -56,6 +56,7 @@ DWORD gBufferMode_706B34;
 char gRenderDllName_7067F0[256];
 char gVideoDllName_706654[256];
 int gVideodevice_70694C;
+int gRenderdevice_706998;
 
 // todo: move
 void __stdcall sub_5D92D0()
@@ -238,9 +239,41 @@ void __stdcall GetDirectXVersion_4C4EC0(DWORD *a1, DWORD *a2)
 }
 
 // todo move to another file for ordering
-void __stdcall Video_Render_Inits_5D90E0()
+void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 {
     // todo
+}
+
+// todo move to another file for ordering
+int ReadScreenSettings_5D8F70()
+{
+    return 0;
+}
+
+const char *off_626A00[2] = { "d3ddll.dll", "dmavideo.dll" };
+
+// todo move to another file for ordering
+void __stdcall Video_Render_Inits_5D90E0()
+{
+    gRenderdevice_706998 = gRegistry_6FF968.Get_Screen_Setting_5870D0("renderdevice", 1);
+    gVideodevice_70694C = gRegistry_6FF968.Get_Screen_Setting_5870D0("videodevice", 1);
+    strcpy(gRenderDllName_7067F0, off_626A00[0]);
+    strcpy(gVideoDllName_706654, off_626A00[1]);
+    gRegistry_6FF968.Set_Screen_Setting_5871E0("rendername", (BYTE *)gRenderDllName_7067F0, 0xFFu);
+    gRegistry_6FF968.Set_Screen_Setting_5871E0("videoname", (BYTE *)gVideoDllName_706654, 0xFFu);
+
+    if (!strcmp(gRenderDllName_7067F0, "softdll.dll"))
+    {
+        gBufferMode_706B34 = 0;
+    }
+    else
+    {
+        gBufferMode_706B34 = 2 - (strcmp(gRenderDllName_7067F0, "3dfx.dll") != 0);
+    }
+
+    Init_FrameRateLightAndUnknown_5D8EB0();
+    ReadScreenSettings_5D8F70();
+
 }
 
 // todo move to another file for ordering
