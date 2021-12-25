@@ -3,6 +3,8 @@
 #include "error.hpp"
 #include "debug.hpp"
 #include "root_sound.hpp"
+#include "jolly_poitras_0x2BC0.hpp"
+#include "lucid_hamilton.hpp"
 #include <io.h>
 
 int __stdcall SetGamma_5D9910(int gamma)
@@ -160,6 +162,24 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
 }
 
 void laughing_blackwell_0x1EB54::sub_4B8280()
+{
+    // todo
+}
+
+// match
+void laughing_blackwell_0x1EB54::sub_4B4410()
+{
+    sub_4B43E0()->sub_56B630();
+    gJolly_poitras_0x2BC0_6FEAC0->sub_56BA60(field_136[1].field_4[0].field_6E_count);
+    sub_4B42E0();
+}
+
+dreamy_clarke_0xA4* laughing_blackwell_0x1EB54::sub_4B43E0()
+{
+    return &gJolly_poitras_0x2BC0_6FEAC0->field_26A0[gLucid_hamilton_67E8E0.sub_4C59B0()];
+}
+
+void laughing_blackwell_0x1EB54::sub_4B42E0()
 {
     // todo
 }

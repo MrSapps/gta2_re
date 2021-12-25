@@ -94,6 +94,8 @@ struct loving_borg_0xBCA
     __int16 field_BC8;
 };
 
+struct dreamy_clarke_0xA4;
+
 struct laughing_blackwell_0x1EB54
 {
     LPDIRECTINPUTA field_0_pDInput;
@@ -2513,6 +2515,12 @@ struct laughing_blackwell_0x1EB54
     void sub_4AE9A0();
 
     void sub_4B8280();
+
+    void sub_4B4410();
+
+    dreamy_clarke_0xA4* sub_4B43E0();
+
+    void sub_4B42E0();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

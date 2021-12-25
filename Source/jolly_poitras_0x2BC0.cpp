@@ -216,7 +216,7 @@ void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
     File::Global_Close_4A70C0();
 }
 
-void jolly_poitras_0x2BC0::sub_56BA60(int a2)
+void jolly_poitras_0x2BC0::sub_56BA60(__int16 a2)
 {
     // todo
 }
@@ -391,4 +391,9 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
 dreamy_clarke_0xA4::~dreamy_clarke_0xA4()
 {
 
+}
+
+void dreamy_clarke_0xA4::sub_56B630()
+{
+    // todo
 }

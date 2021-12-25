@@ -23,6 +23,8 @@ struct dreamy_clarke_0xA4
     __int16 field_A2;
 
     ~dreamy_clarke_0xA4();
+
+    void sub_56B630();
 };
 
 // todo: move
@@ -1620,7 +1622,7 @@ struct jolly_poitras_0x2BC0
 
     void sub_56B990(int a2);
 
-    void sub_56BA60(int a2);
+    void sub_56BA60(__int16 a2);
 
     void sub_56BE50();
 
