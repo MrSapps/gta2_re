@@ -345,8 +345,11 @@ public:
 
     gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
 
-
     // todo: other funcs between
+
+    gmp_block_info* get_block_4DFE10(int x_coord, int y_coord, int z_coord);
+
+    // todo
 
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 

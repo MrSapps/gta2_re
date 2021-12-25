@@ -309,6 +309,24 @@ gmp_map_zone* Map_0x370::get_zone_4DFB30(unsigned __int16 zone_idx)
 }
 
 // nomatch
+gmp_block_info* Map_0x370::get_block_4DFE10(int x_coord, int y_coord, int z_coord)
+{
+    gmp_compressed_map_32 *field_0_pDmap; // esi
+    gmp_col_info *pCol; // ecx
+    int offset; // edx
+
+    field_0_pDmap = this->field_0_pDmap;
+    pCol = (gmp_col_info *)&this->field_0_pDmap->field_40008_pColumn[this->field_0_pDmap->field_0_base[y_coord][x_coord]];
+    if (z_coord >= pCol->field_0_height)
+        return 0;
+    offset = pCol->field_1_offset;
+    if (z_coord < offset)
+        return 0;
+    else
+        return &field_0_pDmap->field_4000C_block[pCol->field_4_blockd[z_coord - offset]];
+}
+
+// nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
     gmp_map_zone **field_32C_pZones; // edx
