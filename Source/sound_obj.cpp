@@ -769,13 +769,12 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
         return;
     }
 
-    vigilant_maxwell *pMaxwell = &field_147C[idx];
-    if (!pMaxwell->field_0_bUsed)
+    if (!field_147C[idx].field_0_bUsed)
     {
         return;
     }
 
-    infallible_turing * pTuring = field_147C[idx].field_4_pObj;
+    infallible_turing* pTuring = field_147C[idx].field_4_pObj;
     switch(pTuring->field_0_object_type)
     {
     case 1:
@@ -801,7 +800,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
         break;
     }
 
-    pMaxwell->field_0_bUsed = 0;
+    field_147C[idx].field_0_bUsed = 0;
     field_147C[idx].field_4_pObj->field_C_pObject = 0;
     field_147C[idx].field_1 = 0;
 
@@ -818,9 +817,9 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
             if (idx_iter < 1019)
             {
                 memmove(
-                    &this->field_444C_pEntities[idx_iter],
-                    &this->field_444C_pEntities[idx_iter + 1],
-                    4 * (field_543C_444C_max_idx - (idx_iter + 1)));
+                    &field_444C_pEntities[idx_iter],
+                    &field_444C_pEntities[idx_iter + 1],
+                    sizeof(int) * (field_543C_444C_max_idx - (idx_iter + 1)));
             }
 
             field_444C_pEntities[--field_543C_444C_max_idx] = 0;
