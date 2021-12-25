@@ -129,53 +129,83 @@ char jolly_poitras_0x2BC0::HiScoreHscExists_56BCA0()
     return 1;
 }
 
-void jolly_poitras_0x2BC0::sub_56B990(int a2)
-{
-    char *v2; // ebx
-    char *v3; // esi
-    int v4; // edi
-    char *v5; // esi
-    int v6; // edi
-    int v7; // [esp+10h] [ebp-16Ch] BYREF
-    int v8; // [esp+14h] [ebp-168h] BYREF
-    char FileName[356]; // [esp+18h] [ebp-164h] BYREF
+/*
+ char FileName[356];
 
-    v2 = (char *)this + 0xA4 * (unsigned __int16)a2;
+    unsigned __int16 idx = (unsigned __int16)slotIdx;
 
-    GetPlySlotDatName_56B8A0(a2, FileName);
+    wchar_t* pStr = field_26A0[idx].field_90_str;
+    GetPlySlotDatName_56B8A0(idx, FileName);
     File::Global_Open_4A7060(FileName);
 
-    v3 = v2 + 0x2730;
 
-    v4 = 9;
+
+    int i = 9;
     do
     {
-        v8 = 2;
-        File::Global_Read_4A71C0(v3, &v8);
-        v3 += 2;
-        --v4;
-    } while (v4);
+        int readLen = 2;
+        File::Global_Read_4A71C0(pStr, &readLen);
+        pStr++;
+        i--;
+    } while (i);
 
-    v5 = v2 + 0x26A8;
 
-    v8 = 3;
-    do
+    int j;
+    int k;
+    for (k = 0; k < 3; k++)
     {
-        v6 = 4;
-        do
+        for (j = 0; j < 4; j++)
         {
-            v7 = 1;
-            File::Global_Read_4A71C0(v5 - 8, &v7);
-            v7 = 4;
-            File::Global_Read_4A71C0(v5 - 4, &v7);
-            v7 = 4;
-            File::Global_Read_4A71C0(v5, &v7);
-            v5 += 12;
-            --v6;
-        } while (v6);
-        --v8;
-    } while (v8);
+            int len_read = 1;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_0, &len_read);
 
+            len_read = 4;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_4, &len_read);
+
+            len_read = 4;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_8, &len_read);
+        }
+    }
+    File::Global_Close_4A70C0();
+*/
+
+void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
+{
+
+    char FileName[356];
+    unsigned __int16 idx = (unsigned __int16)slotIdx;
+  
+    wchar_t  * pStr = field_26A0[idx].field_90_str; // todo: This instruction is too early lea     esi, [ebx+2730h]
+    GetPlySlotDatName_56B8A0(idx, FileName);
+    File::Global_Open_4A7060(FileName);
+
+
+    int i = 9;
+    do
+    {
+        int readLen = 2;
+        File::Global_Read_4A71C0(pStr, &readLen);
+        pStr++;
+        i--;
+    } while (i);
+
+
+    int j;
+    int k;
+    for (k = 0; k < 3; k++)
+    {
+        for (j = 0; j < 4; j++)
+        {
+            int len_read = 1;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_0, &len_read);
+
+            len_read = 4;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_4, &len_read);
+
+            len_read = 4;
+            File::Global_Read_4A71C0(&field_26A0[idx].field_0[k][j].field_8, &len_read);
+        }
+    }
     File::Global_Close_4A70C0();
 }
 
