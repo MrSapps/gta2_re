@@ -33,9 +33,9 @@ public:
 
     static void __stdcall File_Error_4A7190(int Code, int a2, int a3);
 
-    static void __stdcall Global_Read_4A71C0(void *pBuffer, DWORD *pBufferSize);
+    static void __stdcall Global_Read_4A71C0(void *pBuffer, int *pBufferSize);
 
-    static bool __stdcall Global_Read_4A7210(void *Buffer, DWORD *pSize);
+    static bool __stdcall Global_Read_4A7210(void *Buffer, int *pSize);
 
     static size_t __stdcall GetRemainderSize_4A7250(void *Buffer, DWORD *a2);
 

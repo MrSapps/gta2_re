@@ -122,7 +122,54 @@ void test_gtx_0x106C()
 {
     gtx_0x106C c;
     c.sub_5AA3B0(0);
-    c.LoadSty_5AB750("blah.sty");
+    c.sub_5AA3D0(0);
+    c.get_sprite_index_5AA440(0);
+    c.convert_sprite_pal_5AA460(0, 0);
+    c.sub_5AA4F0(0);
+    c.sub_5AA560(0);
+    c.convert_pal_type_5AA5F0(0, 0);
+    c.GetPalData_5AA6A0(0);
+    c.get_phys_pal_5AA6F0(0);
+    c.sub_5AA710(0, 0);
+    c.sub_5AA760(0, 0);
+    c.sub_5AA7B0(0);
+    c.sub_5AA800(0);
+    c.sub_5AA850(0);
+    c.sub_5AA870(0);
+    c.sub_5AA890();
+    c.get_physical_palettes_len_5AA900();
+    c.get_map_object_info_5AA910(0);
+    c.sub_5AA930(0, 0);
+    c.create_tile_num_array_5AA950();
+    c.sub_5AA9A0(0);
+    c.sub_5AAB30(0);
+    c.sub_5AABF0();
+    c.SetSpriteIndexDataPtrs_5AAC40();
+    c.sub_5AAC70();
+    c.load_car_info_5AAD50(0);
+    c.load_delta_index_5AAD80(0);
+    c.load_delta_store_5AADD0(0);
+    c.load_tiles_5AADF0(0);
+    c.skip_ovly_5AAE20(0);
+    c.skip_psxt_5AAE30(0);
+    c.load_sprite_graphics_5AAE40(0);
+    c.load_physical_palettes_5AAE70(0);
+    c.load_palette_index_5AAEA0(0);
+    c.load_map_object_info_5AAF00(0);
+    c.load_sprite_index_5AAF80(0);
+    c.sub_5AAFE0(0);
+    c.load_font_base_5AB0F0(0);
+    c.ConvertToVirtualOffsets_5AB1A0(0, 0, 0);
+    c.ConvertToVirtualOffsets_5AB1C0(0, 0);
+    c.load_sprite_base_5AB210(0);
+    c.load_palete_base_5AB2C0(0);
+    c.sub_5AB380(0);
+    c.load_car_recycling_info_5AB3C0(0);
+    c.read_spec_5AB3F0(0);
+    c.load_spec_5AB450();
+    c.LoadChunk_5AB4B0(0, 0);
+    c.sub_5AB720();
+    c.LoadSty_5AB750(0);
 }
 
 int APIENTRY WinMain(HINSTANCE hInstance,
