@@ -540,7 +540,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
         v7 = 256;
         do
         {
-            if (*field_8_keys < 0)
+            if ((*field_8_keys & 0x80u) != 0)
             {
                 Bink::Close1_513340();
                 Bink::Close2_513390();
@@ -564,7 +564,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
             v10 = 256;
             do
             {
-                if (*v9 < 0)
+                if ((*v9 & 0x80u) != 0)
                 {
                     this->field_C9E4 = Time;
                 }
