@@ -250,12 +250,12 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 // todo move to another file for ordering
 int ReadScreenSettings_5D8F70()
 {
-    DWORD full_width_old = full_width_706B5C;
-    DWORD window_width_old = window_width_706630;
-    DWORD full_height_old = full_height_706798;
-    int startMode_old = gStartMode_626A0C;
-    int trippleBuffer_old = bTrippleBuffer_706C54;
-    DWORD window_height_old = window_height_706B50;
+    const DWORD full_width_old = full_width_706B5C;
+    const DWORD window_width_old = window_width_706630;
+    const DWORD full_height_old = full_height_706798;
+    const int startMode_old = gStartMode_626A0C;
+    const int trippleBuffer_old = bTrippleBuffer_706C54;
+    const DWORD window_height_old = window_height_706B50;
 
     if (bDoFrontEnd_626B68)
     {
