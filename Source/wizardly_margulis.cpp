@@ -431,9 +431,10 @@ int wizardly_margulis::GetPlayBackRateIdx_58DBF0(int idx)
     return playBackRate;
 }
 
+// match
 int wizardly_margulis::sub_58DC10(int idx)
 {
-    return this->field_A8_sdt_entries[idx].field_C;
+    return field_A8_sdt_entries[idx].field_C;
 }
 
 // match
