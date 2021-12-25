@@ -1237,32 +1237,32 @@ void sound_obj::sub_412490(int idx)
             gSampManager_6FFF00.StreamSetVolume_58E2F0(6 * this->field_25_cdVol / 10);
             byte_66F540 = 1;
         }
-        goto LABEL_12;
-    }
-
-    if (this->field_3)
-    {
-        if (!gSampManager_6FFF00.StreamStatus_58E2C0())
-        {
-            goto LABEL_12;
-        }
-        gSampManager_6FFF00.CloseStream_58E460();
-        gSampManager_6FFF00.OpenStream_58E320(0);
-        streamVol = 6 * this->field_25_cdVol / 10;
     }
     else
     {
-        if (!gSampManager_6FFF00.StreamStatus_58E2C0())
+        if (this->field_3)
         {
-            goto LABEL_12;
-        }
-        gSampManager_6FFF00.CloseStream_58E460();
-        gSampManager_6FFF00.OpenStream_58E320(1u);
-        streamVol = 6 * this->field_25_cdVol / 10;
-    }
-    gSampManager_6FFF00.StreamSetVolume_58E2F0(streamVol);
+            if (gSampManager_6FFF00.StreamStatus_58E2C0())
+            {
+                gSampManager_6FFF00.CloseStream_58E460();
+                gSampManager_6FFF00.OpenStream_58E320(0);
+                streamVol = 6 * this->field_25_cdVol / 10;
+                gSampManager_6FFF00.StreamSetVolume_58E2F0(streamVol);
+            }
 
-LABEL_12:
+        }
+        else
+        {
+            if (gSampManager_6FFF00.StreamStatus_58E2C0())
+            {
+                gSampManager_6FFF00.CloseStream_58E460();
+                gSampManager_6FFF00.OpenStream_58E320(1u);
+                streamVol = 6 * this->field_25_cdVol / 10;
+                gSampManager_6FFF00.StreamSetVolume_58E2F0(streamVol);
+            }
+        }
+    }
+
     switch (field_C_pObject->field_0_object_type)
     {
     case 1:
