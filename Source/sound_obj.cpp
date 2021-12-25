@@ -341,3 +341,16 @@ char sound_obj::sub_4186D0(sound_0x68 *pObj)
     pObj->field_20_rate = RandomDisplacement_41A650(pObj->field_14_samp_idx) + gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(pObj->field_14_samp_idx);
     return 1;
 }
+
+// match
+char sound_obj::sub_4182A0(sound_0x68 *pObj)
+{
+    pObj->field_14_samp_idx = 0;
+    pObj->field_3C = 700;
+    pObj->field_30 = 0;
+    pObj->field_34 = 0;
+    pObj->field_38 = -1;
+    pObj->field_20_rate = gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(0);
+    pObj->field_4C = 5;
+    return 1;
+}
