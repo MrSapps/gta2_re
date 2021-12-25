@@ -1463,3 +1463,11 @@ char sound_obj::sub_4149D0(sound_0x68 *a2)
     // todo
     return 0;
 }
+
+// match
+void sound_obj::VecDiff_41B4E0(serene_brattain *pVec, serene_brattain *pRet)
+{
+    pRet->field_0 = pVec->field_0 - field_1468_v1;
+    pRet->field_4 = pVec->field_4 - field_146C_v2;
+    pRet->field_8 = pVec->field_8 - field_1470_v3;
+}
