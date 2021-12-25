@@ -54,7 +54,7 @@ int Map_0x370::zone_idx_by_name_4DF050(const char *pZoneName, BYTE zone_name_len
     return -1;
 }
 
-// nomatch
+// match
 gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
 {
     static short sLastIdx_6F626C;
@@ -80,13 +80,13 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
             }
         }
 
-        if (!idx)
+        if (idx <= 0)
         {
             return 0;
         }
 
         sLastIdx_6F626C++;
-        if (sLastIdx_6F626C >= (int)idx)
+        if (sLastIdx_6F626C >= idx)
         {
             sLastIdx_6F626C = 0;
         }
