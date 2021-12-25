@@ -134,27 +134,20 @@ void sound_obj::GenerateIntegerRandomNumberTable_41BA90()
     }
 }
 
+// match
 void sound_obj::sub_41B540()
 {
-    unsigned int idx; // ebx
-    int field_98_nActiveQueue; // eax
-    int array_off; // eax
-    sound_0x68 *v5; // edi
-    float f28_conv; // [esp+8h] [ebp-4h] BYREF
-
-    if (this->field_1D_b3d_sound)
+    if (field_1D_b3d_sound)
     {
-        field_98_nActiveQueue = this->field_98_nActiveQueue;
-        for (idx = 0; idx < this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]; idx++)
+        for (unsigned int idx = 0; idx < field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]; idx++)
         {
-            v5 = &this->field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]];
-            if (!v5->field_18)
+            sound_0x68 *pIter = &field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]];
+            if (!pIter->field_18)
             {
-                sub_41B520(v5->field_28, &f28_conv);
-                v5->field_60 = sub_41B660(v5->field_60, v5->field_64, (__int64)f28_conv);
+                float f28_conv;
+                sub_41B520(pIter->field_28, &f28_conv);
+                pIter->field_60 = sub_41B660(pIter->field_60, pIter->field_64, (unsigned int)f28_conv);
             }
-            field_98_nActiveQueue = this->field_98_nActiveQueue;
-
         }
     }
 }
