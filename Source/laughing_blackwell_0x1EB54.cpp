@@ -14,11 +14,14 @@
 #include "file.hpp"
 #include "dma_video.hpp"
 #include "cSampleManager.hpp"
+#include "fix16.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>
 
 #pragma comment(lib, "dxguid.lib")
+
+const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, short* fp3, Fix16 fp4);
 
 void Start_GTA2Manager_5E4DE0();
 
@@ -34,7 +37,9 @@ extern wchar_t word_67DC8C[50];
 
 DWORD dword_67D9FC;
 
-__int16 word_703C3C;
+// todo: likely an array
+short word_703C14 = 7;
+__int16 word_703C3C = 8;
 
 wchar_t tmpBuff_67BD9C[640];
 
@@ -1062,10 +1067,681 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
     }
 }
 
+// todo: add to header
+extern int gGTA2VersionMajor_708280;
+extern int gGTA2VersionMajor_708284;
+
 // stub
 void laughing_blackwell_0x1EB54::sub_4AD140()
 {
-    // todo
+    int v1; // edx
+    int v2; // ebx
+    unsigned __int16 field_132_f136_idx; // dx
+    int v5; // ecx
+    int v6; // eax
+    loving_borg_0xBCA *v7; // edi
+    __int16 v8; // esp^2
+    int v9; // eax
+    int v10; // ecx
+    int *v11; // ecx
+    __int16 v12; // ax
+    void *v13; // edx
+    void *v14; // eax
+    __int16 v15; // ax
+    void *v16; // ecx
+    __int16 v17; // dx
+    __int16 v18; // ax
+    unsigned __int8 v19; // al
+    wchar_t *v20; // ecx
+    unsigned __int16 v21; // ax
+    int v22; // ecx
+    unsigned __int8 v23; // al
+    unsigned __int8 v24; // bl
+    unsigned __int8 v25; // bp
+    wchar_t *_5B5F90; // eax
+    unsigned __int16 v27; // ax
+    bool v28; // zf
+    int *v29; // ecx
+    int v30; // eax
+    int v31; // ebp
+    wchar_t *v32; // edx
+    int *v33; // ecx
+    unsigned __int16 v34; // ax
+    void *v35; // eax
+    char v36; // cl
+    __int16 v37; // ax
+    void *v38; // ecx
+    void *v39; // edx
+    __int16 v40; // ax
+    void *v41; // ecx
+    int *v42; // ecx
+    int *v43; // ecx
+    unsigned __int16 v44; // ax
+    char v45; // dl
+    DWORD *v46; // eax
+    wchar_t *v47; // ecx
+    int v48; // ecx
+    int v49; // edx
+    wchar_t *v50; // ecx
+    int v51; // ecx
+    bool v52; // cf
+    int v53; // eax
+    unsigned __int16 v54; // ax
+    int v55; // eax
+    int v56; // ebp
+    unsigned __int16 v57; // bx
+    unsigned __int16 v58; // dx
+    int *v59; // eax
+    wchar_t *v60; // ecx
+    __int16 v61; // ax
+    int v62; // edx
+    unsigned __int16 v63; // ax
+    int v64; // ecx
+    int *v65; // ecx
+    wchar_t *v66; // ecx
+    int v67; // ecx
+    __int16 v68; // ax
+    unsigned __int16 v69; // bp
+    unsigned __int16 v70; // bx
+    int *v71; // ecx
+    int *v72; // ecx
+    wchar_t *v73; // eax
+    int v74; // eax
+    __int16 v75; // esp^2
+    int *v76; // ecx
+    int *v77; // ecx
+    __int16 v78; // ax
+    unsigned __int16 v79; // bx
+    unsigned __int16 v80; // di
+    int *v81; // ecx
+    int *v82; // ecx
+    wchar_t *v83; // [esp-24h] [ebp-50h] BYREF
+    int v84; // [esp-20h] [ebp-4Ch] BYREF
+    agitated_keldysh_0xF0 *v85; // [esp-1Ch] [ebp-48h] BYREF
+    int v86; // [esp-18h] [ebp-44h]
+    int v87; // [esp-14h] [ebp-40h] BYREF
+    int fp_300; // [esp-10h] [ebp-3Ch] BYREF
+    int *fp_460; // [esp-Ch] [ebp-38h] BYREF
+    int v90; // [esp-8h] [ebp-34h]
+    int v91; // [esp-4h] [ebp-30h]
+    wchar_t *field_6_wstr_buf; // [esp+10h] [ebp-1Ch] BYREF
+    int v93; // [esp+14h] [ebp-18h]
+    int *v94; // [esp+18h] [ebp-14h]
+    int v95; // [esp+1Ch] [ebp-10h] BYREF
+    int v96; // [esp+20h] [ebp-Ch]
+    int v97; // [esp+24h] [ebp-8h] BYREF
+    int v98; // [esp+28h] [ebp-4h] BYREF
+
+    field_132_f136_idx = this->field_132_f136_idx;
+    v98 = gText_0x14_704DFC->field_10_lang_code != 'j' ? 14 : 16;
+    v5 = field_132_f136_idx;
+    //v6 = 0x5E5 * field_132_f136_idx;
+    v7 = &this->field_136[field_132_f136_idx];
+    if (!field_132_f136_idx)
+    {
+        swprintf(tmpBuff_67BD9C, L"GTA2 V%d.%d", gGTA2VersionMajor_708280, gGTA2VersionMajor_708284);
+        //HIWORD(v9) = v8;
+        //LOWORD(v9) = word_703C14;
+        //v90 = v9;
+        //fp_460 = (int *)v10;
+        Fix16 fp_460;
+        fp_460.FromInt_4369F0(460);
+        //fp_300 = (int)v11;
+        Fix16 fp_300;
+        fp_300.FromInt_4369F0(300);
+
+        Fix16 tmp;
+        tmp.mValue = 0x4000;
+
+        /*v6 =*/ DrawText_4B87A0(tmpBuff_67BD9C, fp_300, fp_460, &word_703C14, tmp);
+    }
+
+    if (this->field_132_f136_idx == 1)
+    {
+        if (this->field_110_state == 3)
+        {
+            /*
+            v7->field_518[8].field_1 = 0;
+            v7->field_518[9].field_1 = 0;
+            LOWORD(v5) = this->field_124;
+            v12 = sub_4B7E10(2, 0x12Cu, 0x1B8u, (void *)v5, 0xFFFF);
+            LOWORD(v13) = this->field_124;
+            v14 = (void *)sub_4B7E10(11, v12 + 300, 0x1B8u, v13, 0xFFFF);
+            LOWORD(v14) = this->field_124;
+            v15 = sub_4B7E10(3, 0x12Cu, 0x1CCu, v14, 0xFFFF);
+            LOWORD(v16) = this->field_124;
+            sub_4B7E10(10, v15 + 300, 0x1CCu, v16, 0xFFFF);
+            */
+        }
+        else
+        {
+            /*
+            LOWORD(v6) = v7->field_4[0].field_6E_count;
+            v17 = this->field_11C;
+            v97 = v6;
+            v18 = laughing_blackwell_0x1EB54::sub_5D8990(
+                (__int16 *)gJolly_poitras_0x2BC0_6FEAC0->field_26A0[(unsigned __int16)v6].field_90_str,
+                v17)
+                + 10;
+            if (v18 == 10)
+                v18 = laughing_blackwell_0x1EB54::sub_5D8990((__int16 *)v7->field_4[0].field_6_wstr_buf, this->field_11C) + 40;
+            v7->field_518[9].field_2 = v18 + v7->field_4[0].field_2;
+            */
+        }
+    }
+    if (this->field_132_f136_idx == 5)
+    {
+        /*
+        v19 = this->field_EE0D;
+        if (v19 < 3u)
+        {
+            LOWORD(v1) = this->field_12A;
+            v91 = 2;
+            v90 = 0xFFFF;
+            fp_460 = (int *)v1;
+            fp_300 = 5;
+            v87 = 250;
+            v86 = 300;
+            v85 = gJolly_poitras_0x2BC0_6FEAC0->field_1890[v19];
+            goto LABEL_18;
+        }
+
+        if (v19 >= 6u)
+        {
+            v91 = 2;
+            v90 = 0xFFFF;
+            if (v19 < 9u)
+            {
+                LOWORD(v1) = this->field_12A;
+                fp_460 = (int *)v1;
+                fp_300 = 5;
+                v87 = 250;
+                v86 = 300;
+                v85 = (agitated_keldysh_0xF0 *)(&gJolly_poitras_0x2BC0_6FEAC0->field_17A0 + 60 * v19);
+                goto LABEL_18;
+            }
+            LOWORD(v5) = this->field_12A;
+            fp_460 = (int *)v5;
+            fp_300 = 5;
+            v87 = 250;
+            v86 = 300;
+            v20 = (wchar_t *)&gJolly_poitras_0x2BC0_6FEAC0->field_1890[0][v19];
+        }
+        else
+        {
+            LOWORD(v5) = this->field_12A;
+            v91 = 2;
+            v90 = 0xFFFF;
+            fp_460 = (int *)v5;
+            fp_300 = 5;
+            v87 = 250;
+            v86 = 300;
+            v20 = (wchar_t *)(&gJolly_poitras_0x2BC0_6FEAC0->field_16B0 + 0x3C * v19);
+        }
+        */
+
+        /*
+        v85 = (agitated_keldysh_0xF0 *)v20;
+    LABEL_18:
+        sub_4B5430(this, (wchar_t *)v85, v86, v87, fp_300, (int)fp_460, v90, v91);
+        if (!byte_67DA80)
+        {
+            if (this->field_EE0D)
+                v7->field_518[2].field_1 = 1;
+            else
+                v7->field_518[2].field_1 = 0;
+            v7->field_518[3].field_1 = this->field_EE0D != 11;
+        }*/
+    }
+
+    v21 = this->field_132_f136_idx;
+    if (v21 == 2 || v21 == 3 || v21 == 6 || v21 == 11)
+    {
+        /*
+        if (lucid_hamilton::sub_4C59A0(&gLucid_hamilton_67E8E0))
+        {
+            v23 = lucid_hamilton::sub_4C5990(&gLucid_hamilton_67E8E0);
+            LOBYTE(v96) = v23 >> 4;
+            LOBYTE(v95) = v23 & 0xF;
+        }
+        else
+        {
+            LOBYTE(v96) = lucid_hamilton::sub_4C5980(&gLucid_hamilton_67E8E0);
+            LOBYTE(v95) = 0;
+        }
+        v24 = v96;
+        v25 = v95;
+        if (this->field_132_f136_idx == 6)
+        {
+            v91 = 3 * (unsigned __int8)v96 + (unsigned __int8)v95 + 64;
+            _5B5F90 = text_0x14::Find_5B5F90(gText_0x14_704DFC, "bonslev");
+            swprintf(tmpBuff_67BD9C, L"%s %c", _5B5F90, v91);
+            wcsncpy(v7->field_518[0].field_6_wstr_buf, tmpBuff_67BD9C, 0x32u);
+            sub_4B7D60((int)this, this);
+        }
+        LOWORD(v22) = this->field_12A;
+        v2 = v25 + 4 * v24;
+        sub_4B5430(this, (wchar_t *)&gJolly_poitras_0x2BC0_6FEAC0->field_1890[0][v2], 170, 155, 3, v22, 0xFFFF, 2);
+        v27 = this->field_132_f136_idx;
+        if (v27 == 2 || v27 == 3 || v27 == 11)
+            sub_4B57B0((int)this, this, 10, (text_0x14 *)0xE1);
+            */
+    }
+
+    if (this->field_132_f136_idx == 7)
+    {
+        //laughing_blackwell_0x1EB54::sub_4B55F0(this);
+    }
+
+    /*
+    v28 = v7->field_0 == 0;
+    v96 = -1;
+    v94 = 0;
+    if (v28)
+        goto LABEL_92;
+    do
+    {
+        v29 = v94;
+        v30 = (unsigned __int16)v94;
+        v31 = (int)&v7->field_4[(unsigned __int16)v94];
+        if (!v7->field_4[(unsigned __int16)v94].field_1)
+        {
+            v44 = this->field_132_f136_idx;
+            v45 = 0;
+            if ((v44 == 1 || v44 == 3) && (_WORD)v94 == 1)
+                v45 = 1;
+            if (v44 != 11 && v44 != 2 || (_WORD)v94)
+            {
+                if (!v45)
+                    goto LABEL_87;
+                v29 = v94;
+            }
+            if (*(_BYTE *)v31 == 2)
+                sub_4B3AF0((int)this, v44, (unsigned __int16)v29, &field_6_wstr_buf);
+            else
+                field_6_wstr_buf = v7->field_4[(unsigned __int16)v94].field_6_wstr_buf;
+            LOWORD(v29) = *(_WORD *)(v31 + 4);
+            v28 = *(_WORD *)(v31 + 106) == 0xFFFF;
+            LOWORD(v2) = *(_WORD *)(v31 + 2);
+            LOWORD(v93) = (_WORD)v29;
+            if (!v28)
+            {
+                v91 = 0;
+                v90 = 0;
+                v95 = 8;
+                fp_460 = (int *)8;
+            LABEL_83:
+                fp_300 = (int)&v95;
+                v87 = (int)v29;
+                v46 = FP::FromInt_4369F0(&v87, 1);
+                LOWORD(v46) = *(_WORD *)(v31 + 106);
+                v86 = (int)v46;
+                v85 = (agitated_keldysh_0xF0 *)v47;
+                FP::sub_4AE970(&v85, v93);
+                v84 = v48;
+                FP::sub_4AE970(&v84, v2);
+                v83 = field_6_wstr_buf;
+            LABEL_86:
+                DrawText_5D8A10(v83, v84, (int)v85, (void *)v86, v87, (int *)fp_300, (int)fp_460, v90, v91);
+                goto LABEL_87;
+            }
+            v91 = 0;
+            v90 = 0;
+            v95 = 8;
+            fp_460 = (int *)8;
+        LABEL_85:
+            fp_300 = (int)&v95;
+            v87 = (int)&v95;
+            FP::FromInt_4369F0(&v87, 1);
+            LOWORD(v49) = this->field_11C;
+            v86 = v49;
+            v85 = (agitated_keldysh_0xF0 *)v50;
+            FP::sub_4AE970(&v85, v93);
+            v84 = v51;
+            FP::sub_4AE970(&v84, v2);
+            v83 = field_6_wstr_buf;
+            goto LABEL_86;
+        }
+        if (*(_BYTE *)v31 == 2)
+        {
+            v30 = (int)sub_4B3AF0((int)this, this->field_132_f136_idx, (unsigned __int16)v94, &field_6_wstr_buf);
+        }
+        else
+        {
+            v32 = v7->field_4[(unsigned __int16)v94].field_6_wstr_buf;
+            field_6_wstr_buf = v32;
+        }
+        LOWORD(v29) = (_WORD)v94;
+        v28 = (_WORD)v94 == v7->field_BC6_nifty_idx;
+        LOWORD(v2) = *(_WORD *)(v31 + 2);
+        LOWORD(v93) = *(_WORD *)(v31 + 4);
+        if (!v28)
+        {
+            if (*(_WORD *)(v31 + 106) != 0xFFFF)
+            {
+                LOWORD(v30) = *(_WORD *)(v31 + 108);
+                if ((_WORD)v30 == 0xFFFF)
+                {
+                    v91 = 0x4000;
+                    LOWORD(v32) = *(_WORD *)(v31 + 106);
+                    v90 = (int)v32;
+                    fp_460 = v29;
+                    FP::sub_4AE970(&fp_460, v93);
+                    fp_300 = (int)v42;
+                    FP::sub_4AE970(&fp_300, v2);
+                    DrawText_4B87A0(field_6_wstr_buf, fp_300, (int)fp_460, (void *)v90, v91);
+                    goto LABEL_87;
+                }
+                v91 = 0;
+                v90 = 0;
+                v95 = 8;
+                fp_460 = (int *)v30;
+                goto LABEL_83;
+            }
+            LOWORD(v31) = *(_WORD *)(v31 + 108);
+            if ((_WORD)v31 == 0xFFFF)
+            {
+                v91 = 0x4000;
+                LOWORD(v29) = this->field_11C;
+                v90 = (int)v29;
+                fp_460 = v29;
+                FP::sub_4AE970(&fp_460, v93);
+                fp_300 = (int)v43;
+                FP::sub_4AE970(&fp_300, v2);
+                DrawText_4B87A0(field_6_wstr_buf, fp_300, (int)fp_460, (void *)v90, v91);
+                goto LABEL_87;
+            }
+            v91 = 0;
+            v90 = 0;
+            v95 = 8;
+            fp_460 = (int *)v31;
+            goto LABEL_85;
+        }
+        v91 = 0x4000;
+        LOWORD(v32) = this->field_120;
+        v90 = (int)v32;
+        fp_460 = v29;
+        FP::sub_4AE970(&fp_460, v93);
+        fp_300 = (int)v33;
+        FP::sub_4AE970(&fp_300, v2);
+        DrawText_4B87A0(field_6_wstr_buf, fp_300, (int)fp_460, (void *)v90, v91);
+        v34 = this->field_132_f136_idx;
+        HIWORD(v2) = 0;
+        if (v34 == 1)
+        {
+            v35 = v94;
+            v28 = (_WORD)v94 == 3;
+            v7->field_518[4].field_1 = 0;
+            v7->field_518[5].field_1 = 0;
+            v7->field_518[6].field_1 = 0;
+            v7->field_518[7].field_1 = 0;
+            v7->field_518[8].field_1 = 0;
+            v7->field_518[9].field_1 = 0;
+            if (v28)
+            {
+                v96 = 3;
+                v7->field_518[4].field_6_wstr_buf[0] = 1;
+                v7->field_518[5].field_6_wstr_buf[0] = 2;
+                v7->field_518[4].field_1 = this->field_1EB4C != 0;
+                v7->field_518[5].field_1 = this->field_1EB4D != 0;
+            }
+            else if ((_WORD)v35 == 4)
+            {
+                v7->field_518[6].field_6_wstr_buf[0] = 1;
+                v7->field_518[7].field_6_wstr_buf[0] = 2;
+                v36 = this->field_1EB4E;
+                v96 = 4;
+                v7->field_518[6].field_1 = v36 != 0;
+                v7->field_518[7].field_1 = this->field_1EB4F != 0;
+            }
+            else if (!(_WORD)v35)
+            {
+                v7->field_518[8].field_6_wstr_buf[0] = 1;
+                v7->field_518[9].field_6_wstr_buf[0] = 2;
+                if (this->field_110_state != 3)
+                {
+                    v7->field_518[8].field_1 = 1;
+                    v7->field_518[9].field_1 = 1;
+                    this->field_1EB4A = 1;
+                    this->field_1EB4B = 1;
+                    if (!byte_67DA80)
+                    {
+                        v35 = (void *)v97;
+                        if ((_WORD)v97)
+                        {
+                            if ((_WORD)v97 == v7->field_4[0].field_7E)
+                            {
+                                v7->field_518[9].field_1 = 0;
+                                this->field_1EB4B = 0;
+                            }
+                        }
+                        else
+                        {
+                            v7->field_518[8].field_1 = 0;
+                            this->field_1EB4A = (char)v35;
+                        }
+                    }
+                    LOWORD(v35) = this->field_124;
+                    v37 = sub_4B7E10(2, 0x12Cu, 0x1B8u, v35, 0xFFFF);
+                    LOWORD(v38) = this->field_124;
+                    sub_4B7E10(8, v37 + 300, 0x1B8u, v38, 0xFFFF);
+                    LOWORD(v39) = this->field_124;
+                    v40 = sub_4B7E10(1, 0x12Cu, 0x1CCu, v39, 0xFFFF);
+                    LOWORD(v41) = this->field_124;
+                    sub_4B7E10(9, v40 + 300, 0x1CCu, v41, 0xFFFF);
+                }
+            }
+        }
+        else if (v34 == 5)
+        {
+            v28 = (_WORD)v94 == 0;
+            v7->field_518[2].field_6_wstr_buf[0] = 3;
+            v7->field_518[3].field_6_wstr_buf[0] = 4;
+            if (v28)
+            {
+                v7->field_518[2].field_6_wstr_buf[0] = 1;
+                v7->field_518[3].field_6_wstr_buf[0] = 2;
+            }
+        }
+    LABEL_87:
+        v52 = (unsigned __int16)((_WORD)v94 + 1) < v7->field_0;
+        v94 = (int *)((char *)v94 + 1);
+    } while (v52);
+    if (v96 == 3)
+    {
+        LOBYTE(v96) = lucid_hamilton::sub_4C5980(&gLucid_hamilton_67E8E0);
+        LOBYTE(v95) = 0;
+    LABEL_91:
+        LOWORD(v53) = this->field_128;
+        sub_4B5430(
+            this,
+            (wchar_t *)&gJolly_poitras_0x2BC0_6FEAC0->field_1890[(unsigned __int8)v96][(unsigned __int8)v95],
+            300,
+            v98,
+            1,
+            v53,
+            0xFFFF,
+            2);
+    }
+    else if (v96 == 4)
+    {
+        LOBYTE(v53) = lucid_hamilton::sub_4C5990(&gLucid_hamilton_67E8E0);
+        LOBYTE(v96) = (unsigned __int8)v53 >> 4;
+        LOBYTE(v95) = v53 & 0xF;
+        goto LABEL_91;
+    }
+
+LABEL_92:
+    v54 = 0;
+    v28 = v7->field_2 == 0;
+    v94 = 0;
+
+    if (!v28)
+    {
+        do
+        {
+            v55 = v54;
+            v56 = (int)&v7->field_518[v55];
+            if (v7->field_518[v55].field_1)
+            {
+                if (*(_BYTE *)v56 == 1)
+                {
+                    LOWORD(v2) = v7->field_518[v55].field_6A;
+                    v61 = v7->field_518[v55].field_4;
+                    LOWORD(v96) = *(_WORD *)(v56 + 2);
+                    LOWORD(v93) = v61;
+                    if ((_WORD)v2 == 0xFFFF)
+                        LOWORD(v2) = this->field_11C;
+                    sub_4B3CC0((int)this, this->field_132_f136_idx, (unsigned __int16)v94, (wchar_t *)&field_6_wstr_buf);
+                    v63 = this->field_132_f136_idx;
+                    HIWORD(v64) = HIWORD(v94);
+                    if (v63 == 1 && ((_WORD)v94 == 2 || (_WORD)v94 == 3))
+                    {
+                        LOWORD(v64) = *(_WORD *)(v56 + 108);
+                        sub_4B78B0(field_6_wstr_buf, v96, v93, v2, v64, 1u, 0x15u, 1);
+                    }
+                    else if (v63 == 5 && (_WORD)v94 == 1)
+                    {
+                        LOWORD(v62) = *(_WORD *)(v56 + 108);
+                        sub_4B78B0(field_6_wstr_buf, v96, v93, v2, v62, 1u, 0x15u, 1);
+                    }
+                    else
+                    {
+                        LOWORD(v56) = *(_WORD *)(v56 + 108);
+                        if ((_WORD)v56 == 0xFFFF)
+                        {
+                            v90 = v2;
+                            fp_460 = v94;
+                            v91 = 0x4000;
+                            FP::sub_4AE970(&fp_460, v93);
+                            fp_300 = (int)v65;
+                            FP::sub_4AE970(&fp_300, v96);
+                            DrawText_4B87A0(field_6_wstr_buf, fp_300, (int)fp_460, (void *)v90, v91);
+                        }
+                        else
+                        {
+                            v91 = 0;
+                            v90 = 0;
+                            fp_460 = (int *)v56;
+                            fp_300 = (int)&v97;
+                            v87 = (int)&v97;
+                            v97 = 8;
+                            FP::FromInt_4369F0(&v87, 1);
+                            v86 = v2;
+                            v85 = (agitated_keldysh_0xF0 *)v66;
+                            FP::sub_4AE970(&v85, v93);
+                            v84 = v67;
+                            FP::sub_4AE970(&v84, v96);
+                            DrawText_5D8A10(field_6_wstr_buf, v84, (int)v85, (void *)v86, v87, (int *)fp_300, (int)fp_460, v90, v91);
+                        }
+                    }
+                }
+                else if (*(BYTE *)v56 == 3)
+                {
+                    v57 = v7->field_518[v55].field_2;
+                    v58 = v7->field_518[v55].field_4;
+                    switch (v7->field_518[v55].field_6_wstr_buf[0])
+                    {
+                    case 0u:
+                        v95 = 2;
+                        break;
+                    case 1u:
+                        v95 = 37;
+                        break;
+                    case 2u:
+                        v95 = 38;
+                        break;
+                    case 3u:
+                        v95 = 40;
+                        break;
+                    case 4u:
+                        v95 = 41;
+                        break;
+                    default:
+                        break;
+                    }
+                    v91 = 0;
+                    v90 = 0;
+                    fp_460 = 0;
+                    v59 = &v98;
+                    v98 = 2;
+                    fp_300 = 0;
+                    v87 = (int)&v98;
+                    LOWORD(v59) = HIWORD(dword_67DA6E);
+                    v86 = dword_67D934;
+                    v85 = (agitated_keldysh_0xF0 *)v59;
+                    v84 = dword_67D934;
+                    FP::sub_4AE970(&v84, v58);
+                    v83 = v60;
+                    FP::sub_4AE970(&v83, v57);
+                    sub_5D7EC0(6, v95, (int)v83, v84, (int)v85, v86, (int *)v87, fp_300, (int)fp_460, v90, v91);
+                }
+            }
+            v54 = (_WORD)v94 + 1;
+            v52 = (unsigned __int16)((_WORD)v94 + 1) < (unsigned int)v7->field_2;
+            v94 = (int *)((char *)v94 + 1);
+        } while (v52);
+    }
+    */
+
+    if (this->field_110_state == 3)
+    {
+        if (this->field_114)
+        {
+            /*
+            v68 = laughing_blackwell_0x1EB54::sub_5D8990((__int16 *)this->field_C9A0, this->field_11C);
+            v69 = v7->field_4[0].field_4;
+            v70 = v7->field_4[0].field_2 + v68;
+            swprintf(tmpBuff_67BD9C, asc_62017C);
+            v91 = 0x4000;
+            LOWORD(v71) = this->field_11C;
+            v90 = (int)v71;
+            fp_460 = v71;
+            FP::sub_4AE970(&fp_460, v69);
+            fp_300 = (int)v72;
+            FP::sub_4AE970(&fp_300, v70);
+            DrawText_4B87A0(tmpBuff_67BD9C, fp_300, (int)fp_460, (void *)v90, v91);
+            */
+        }
+
+        /*
+        v73 = text_0x14::Find_5B5F90(gText_0x14_704DFC, aEntrnam);
+        wcscpy(tmpBuff_67BD9C, v73);
+        v74 = -(gText_0x14_704DFC->field_10_lang_code != 106);
+        HIWORD(v76) = v75;
+        LOBYTE(v74) = v74 & 0xFC;
+        v91 = 0x4000;
+        LOWORD(v76) = this->field_126;
+        v90 = (int)v76;
+        fp_460 = v76;
+        FP::sub_4AE970(&fp_460, v74 + 16);
+        fp_300 = (int)v77;
+        FP::sub_4AE970(&fp_300, 0x15Eu);
+        DrawText_4B87A0(tmpBuff_67BD9C, fp_300, (int)fp_460, (void *)v90, v91);
+        */
+    }
+
+    if (this->field_110_state == 5)
+    {
+        if (this->field_114)
+        {
+            /*
+            v78 = laughing_blackwell_0x1EB54::sub_5D8990((__int16 *)this->field_C9B8, this->field_11C);
+            v91 = (int)asc_62017C;
+            v79 = v7->field_518[4].field_2 + v78;
+            v80 = v7->field_518[4].field_4;
+            swprintf(tmpBuff_67BD9C, asc_62017C);
+            v91 = 0x4000;
+            LOWORD(v81) = this->field_11C;
+            v90 = (int)v81;
+            fp_460 = v81;
+            FP::sub_4AE970(&fp_460, v80);
+            fp_300 = (int)v82;
+            FP::sub_4AE970(&fp_300, v79);
+            DrawText_4B87A0(tmpBuff_67BD9C, fp_300, (int)fp_460, (void *)v90, v91);
+            */
+        }
+    }
 }
 
 // stub
@@ -3762,10 +4438,10 @@ void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
 // stub
 const wchar_t *__stdcall DrawText_5D8A10(
     const wchar_t *pBuffer,
-    int xpos_fp,
-    int ypos_fp,
-    void *fp3,
-    int fp4,
+    Fix16 xpos_fp,
+    Fix16 ypos_fp,
+    short* fp3,
+    Fix16 fp4,
     int *pUnknown,
     int a7,
     int mode,
@@ -3775,7 +4451,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
 }
 
 // match
-const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, int xpos_fp, int ypos_fp, void *fp3, int fp4)
+const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, short* fp3, Fix16 fp4)
 {
     int local; // [esp+0h] [ebp-4h] BYREF
 

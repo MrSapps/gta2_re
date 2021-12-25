@@ -1,5 +1,6 @@
 #include "error.hpp"
 #include "winmain.hpp"
+#include "fix16.hpp"
 #include <windows.h>
 #include <stdio.h>
 #include <fstream>
@@ -88,36 +89,17 @@ const char* __stdcall SourceFileNameFromPath_4A07A0(const char *pPath)
     return result;
 }
 
-struct FP
-{
-    FP() : mValue(0) { }
-
-    FP& operator = (int value)
-    {
-        mValue = value;
-        return *this;
-    }
-
-    float AsFloat() const 
-    {
-        return mValue / 16384.0f;
-    }
-
-public:
-    int mValue;
-};
-
 struct Coord
 {
-    FP x;
-    FP y;
-    FP z;
+    Fix16 x;
+    Fix16 y;
+    Fix16 z;
 };
 
 struct Coord2
 {
-    FP x;
-    FP y;
+    Fix16 x;
+    Fix16 y;
 };
 
 #define err_a1_int(msg, arg) sprintf(gTmpBuffer_67C598, msg, va_1);

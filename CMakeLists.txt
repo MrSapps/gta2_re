@@ -22,6 +22,8 @@ add_library (Source
     Source/3rdParty/mss.h
     Source/types.hpp
     Source/winmain.cpp
+    Source/fix16.hpp
+    Source/fix16.cpp
     Source/error.hpp
     Source/error.cpp
     Source/memory.hpp
