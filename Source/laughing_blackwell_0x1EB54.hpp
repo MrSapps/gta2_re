@@ -76,6 +76,10 @@ public:
 
     ~nifty_maxwell_0x82();
 
+    bool sub_4B6330();
+
+    unsigned __int16 get_field_6E_count() const { return field_6E_count; }
+
     char field_0;
     char field_1;
     __int16 field_2;
@@ -88,7 +92,7 @@ public:
     char field_72[4];
     int field_76;
     int field_7A;
-    __int16 field_7E;
+    unsigned __int16 field_7E;
     __int16 field_80;
 };
 #pragma pack(pop)

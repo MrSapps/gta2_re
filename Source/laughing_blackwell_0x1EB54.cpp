@@ -1044,6 +1044,41 @@ nifty_maxwell_0x82::~nifty_maxwell_0x82()
     field_80 = 0;
 }
 
+BYTE byte_67DA80;
+
+bool nifty_maxwell_0x82::sub_4B6330()
+{
+    BYTE tmp = byte_67DA80;
+    unsigned __int16 old_count = field_6E_count;
+    unsigned __int16 new_count = old_count;
+    char bFound = 0;
+    do
+    {
+        new_count++;
+        if (new_count > field_7E)
+        {
+            if (tmp)
+            {
+                new_count = 0;
+            }
+            else
+            {
+                new_count += 0xFFFF;
+            }
+        }
+
+        if (field_72[new_count])
+        {
+            bFound = 1;
+        }
+
+    } while (new_count != get_field_6E_count() && !bFound); // note: field_6E_count being reg cached instead of re-read from this
+    
+    field_6E_count = new_count;
+
+    return old_count != new_count ? true : false;
+}
+
 kind_beaver_6::kind_beaver_6()
 {
     field_0 = 0;
