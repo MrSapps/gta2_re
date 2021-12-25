@@ -63,7 +63,7 @@ struct nifty_maxwell_0x82
     wchar_t field_6_wstr_buf[50];
     __int16 field_6A;
     __int16 field_6C;
-    __int16 field_6E_count;
+    unsigned __int16 field_6E_count;
     __int16 field_70;
     char field_72[4];
     int field_76;
@@ -2525,6 +2525,8 @@ struct laughing_blackwell_0x1EB54
     void sub_4B4230();
 
     void HandleCheatCode_4B3DD0(const wchar_t *String);
+
+    void sub_4B4280();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

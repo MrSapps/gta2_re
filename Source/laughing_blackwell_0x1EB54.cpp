@@ -201,3 +201,12 @@ void laughing_blackwell_0x1EB54::HandleCheatCode_4B3DD0(const wchar_t *String)
 {
     // todo
 }
+
+// match
+void laughing_blackwell_0x1EB54::sub_4B4280()
+{
+    wcsncpy(
+        field_C9A0,
+        gJolly_poitras_0x2BC0_6FEAC0->field_26A0[field_136[1].field_4[0].field_6E_count].field_90_str,
+        9u);
+}
