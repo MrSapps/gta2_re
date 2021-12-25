@@ -34,6 +34,7 @@ struct root_sound
 
     void SetSfxVol_40F0B0(unsigned __int8 cdVol);
     
+    void sub_40EFA0();
 };
 
 

@@ -377,7 +377,7 @@ LABEL_23:
         }
 
         sub_4ACFA0();
-        gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(state);
+        gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170();
 
     LABEL_27:
         UpdateWinXY_5D8E70();

@@ -2488,13 +2488,33 @@ struct laughing_blackwell_0x1EB54
 
     // todo: ordering
 
-    char sub_4B3170(unsigned __int16 arg0);
+    void sub_4B3170();
 
     int sub_4AEDB0();
 
     const char* intro_bik_4B5E50();
 
     static bool intro_bik_exists_4B5FF0();
+
+    void sub_4AEC00();
+
+    void sub_4AFEB0();
+
+    void sub_4B6780();
+
+    void sub_4B7A10();
+
+    void sub_4AE2D0();
+
+    void sub_4AE990();
+
+    void sub_4B2F60();
+
+    void sub_4AE9A0();
+
+    void sub_4B8280();
 };
+
+int __stdcall SetGamma_5D9910(int gamma);
 
 extern laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
