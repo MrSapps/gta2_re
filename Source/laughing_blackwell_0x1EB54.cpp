@@ -568,13 +568,7 @@ void laughing_blackwell_0x1EB54::sub_4AFEB0()
 
 void laughing_blackwell_0x1EB54::sub_4B6780()
 {
-    unsigned __int16 field_132_f136_idx; // dx
-    loving_borg_0xBCA *v3; // ecx
-    int field_BC6_nifty_idx; // eax
-    int v5; // eax
-
-    field_132_f136_idx = this->field_132_f136_idx;
-    v3 = &this->field_136[field_132_f136_idx];
+    loving_borg_0xBCA* pBorg = &field_136[field_132_f136_idx];
     if (this->field_110_state != 2)
     {
         if (field_132_f136_idx)
@@ -582,7 +576,7 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
             switch (field_132_f136_idx)
             {
             case 1u:
-                switch (v3->field_BC6_nifty_idx)
+                switch (pBorg->field_BC6_nifty_idx)
                 {
                 case 0u:
                     this->field_EE08 = 10;
@@ -630,24 +624,39 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
         }
         else
         {
-            field_BC6_nifty_idx = v3->field_BC6_nifty_idx;
+            switch (pBorg->field_BC6_nifty_idx)
+            {
+            case 0:
+                this->field_EE08 = 1;
+                break;
+
+            case 1:
+                this->field_EE08 = 0; // case 1
+                break;
+
+            case 2:
+                this->field_EE08 = 2;
+                break;
+            }
+            /*
             if ((WORD)field_BC6_nifty_idx)
             {
+                // >= 1
                 v5 = field_BC6_nifty_idx - 1;
-                if (v5)
+                if (v5) // >= 2
                 {
-                    if (v5 == 1)
+                    if (v5 == 1) // case 2
                         this->field_EE08 = 2;
                 }
-                else
+                else // 1-1 = 0
                 {
-                    this->field_EE08 = 0;
+                    this->field_EE08 = 0; // case 1
                 }
             }
             else
             {
-                this->field_EE08 = 1;
-            }
+                this->field_EE08 = 1; // case 0
+            }*/
         }
     }
 }
