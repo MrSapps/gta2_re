@@ -948,6 +948,7 @@ void laughing_blackwell_0x1EB54::Load_tgas_4B66B0()
     }
 }
 
+// match
 void laughing_blackwell_0x1EB54::GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr)
 {
     char Buffer[8];
@@ -957,14 +958,14 @@ void laughing_blackwell_0x1EB54::GetPlySlotSvgName_4B51D0(unsigned __int8 idx, c
     strcat(pStr, ".svg");
 }
 
+// match
 char laughing_blackwell_0x1EB54::PlySlotSvgExists_4B5370(int idx)
 {
-    long hFind; // eax
-    CHAR FileName[256]; // [esp+0h] [ebp-218h] BYREF
-    _finddata_t v4; // [esp+100h] [ebp-118h] BYREF
-
+    char FileName[256];
     GetPlySlotSvgName_4B51D0(idx, FileName);
-    hFind = _findfirst(FileName, &v4);
+    
+    _finddata_t findData;
+    long hFind = _findfirst(FileName, &findData);
     if (hFind == -1)
     {
         return 0;
