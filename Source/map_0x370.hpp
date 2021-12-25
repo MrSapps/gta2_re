@@ -323,11 +323,34 @@ public:
 
     void set_nav_unknown_f0_4DF9D0(unsigned __int16 a2, __int16 a3);
 
-    gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
+    void set_nav_unknown_f2_4DF9F0(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f4_4DFA10(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f6_4DFA30(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f8_4DFA50(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_fA_4DFA70(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_fC_4DFA90(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_fE_4DFAB0(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f10_4DFAD0(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f12_4DFAF0(unsigned __int16 a2, __int16 a3);
+
+    void set_nav_unknown_f14_4DFB10(unsigned __int16 a2, __int16 a3);
+
+    gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
+
 
     // todo: other funcs between
 
-    gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
+    gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
+
+
 public:
     gmp_compressed_map_32 *field_0_pDmap;
     Map_sub field_4_obj;

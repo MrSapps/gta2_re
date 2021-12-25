@@ -242,6 +242,72 @@ void Map_0x370::set_nav_unknown_f0_4DF9D0(unsigned __int16 a2, __int16 a3)
     get_zone_unknown_4DF9A0(a2)->field_0 = a3;
 }
 
+// match
+void Map_0x370::set_nav_unknown_f2_4DF9F0(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_2 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f4_4DFA10(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_4 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f6_4DFA30(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_6 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f8_4DFA50(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_8 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_fA_4DFA70(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_A = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_fC_4DFA90(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_C = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_fE_4DFAB0(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_E = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f10_4DFAD0(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_10 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f12_4DFAF0(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_12 = a3;
+}
+
+// match
+void Map_0x370::set_nav_unknown_f14_4DFB10(unsigned __int16 a2, __int16 a3)
+{
+    get_zone_unknown_4DF9A0(a2)->field_14 = a3;
+}
+
+// match
+gmp_map_zone* Map_0x370::get_zone_4DFB30(unsigned __int16 zone_idx)
+{
+    return field_32C_pZones[zone_idx + 1];
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
@@ -280,10 +346,4 @@ gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
         }
     }
     return pZone;
-}
-
-// match
-gmp_map_zone* Map_0x370::get_zone_4DFB30(unsigned __int16 zone_idx)
-{
-    return field_32C_pZones[zone_idx + 1];
 }
