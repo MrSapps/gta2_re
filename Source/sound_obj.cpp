@@ -10,7 +10,7 @@ void sound_obj::ClearRequestedQueue_41B700()
         field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i] = field_10_nActiveSamples;
     }
 
-    field_DBC_nRequestedCount[field_98_nActiveQueue] = 0;
+    field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue] = 0;
 }
 
 void sound_obj::sub_41B7A0()
