@@ -7,6 +7,7 @@ jolly_poitras_0x2BC0* gJolly_poitras_0x2BC0_6FEAC0;
 
 wchar_t word_67DC8C[50];
 
+// todo 0x56B6E0
 jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
 {
     // todo
@@ -55,6 +56,7 @@ jolly_poitras_0x2BC0::jolly_poitras_0x2BC0()
     sub_56BD20();
 }
 
+// todo 56B810
 jolly_poitras_0x2BC0::~jolly_poitras_0x2BC0()
 {
 
@@ -83,11 +85,13 @@ void jolly_poitras_0x2BC0::destroy_56C340()
     }
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56BB10(angry_lewin_0x85C *a2)
 {
     // todo
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56C010()
 {
     // todo
@@ -181,6 +185,7 @@ char jolly_poitras_0x2BC0::HiScoreHscExists_56BCA0()
     File::Global_Close_4A70C0();
 */
 
+// todo
 void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
 {
 
@@ -221,6 +226,7 @@ void jolly_poitras_0x2BC0::sub_56B990(int slotIdx)
     File::Global_Close_4A70C0();
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56BA60(__int16 a2)
 {
     // todo
@@ -291,11 +297,13 @@ void jolly_poitras_0x2BC0::sub_56BE50()
     File::Global_Close_4A70C0();
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56C1D0()
 {
     // todo
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56BF20()
 {
     // todo
@@ -326,16 +334,19 @@ void jolly_poitras_0x2BC0::sub_56BD20()
     this->field_24C0.field_0[9].field_14_score = 10000;
 }
 
+// stub
 void jolly_poitras_0x2BC0::sub_56BBD0(unsigned __int8 a2, unsigned __int8 a3)
 {
     // todo
 }
 
+// todo 0x56B500
 agitated_keldysh_0xF0::agitated_keldysh_0xF0()
 {
     Init_56B520();
 }
 
+// todo 0x56B510
 agitated_keldysh_0xF0::~agitated_keldysh_0xF0()
 {
 
@@ -351,6 +362,7 @@ void agitated_keldysh_0xF0::Init_56B520()
     }
 }
 
+// todo
 char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
 {
     unsigned __int16 startIdx = 10;
@@ -398,11 +410,13 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
     return 0;
 }
 
+// todo 0x56B610
 dreamy_clarke_0xA4::dreamy_clarke_0xA4()
 {
     sub_56B630();
 }
 
+// todo 0x56B620
 dreamy_clarke_0xA4::~dreamy_clarke_0xA4()
 {
 

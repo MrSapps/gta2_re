@@ -2,6 +2,7 @@
 
 magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;
 
+// todo 0x4D2C80
 magical_germain_0x8EC::magical_germain_0x8EC()
 {
     field_8E8 = -2;
@@ -13,6 +14,7 @@ magical_germain_0x8EC::magical_germain_0x8EC()
     sub_4D2090();
 }
 
+// todo 0x4D2CC0
 magical_germain_0x8EC::~magical_germain_0x8EC()
 {
     if (field_8C8_pKBIT)
@@ -28,11 +30,13 @@ magical_germain_0x8EC::~magical_germain_0x8EC()
     field_8CC = 0;
 }
 
+// stub
 void magical_germain_0x8EC::sub_4D2B40()
 {
     // todo
 }
 
+// stub
 void magical_germain_0x8EC::sub_4D2090()
 {
     // todo

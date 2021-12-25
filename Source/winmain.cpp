@@ -813,7 +813,7 @@ char *__stdcall sub_4DA3F0(char *pStr)
 }
 
 // todo move to another file for ordering
-// MATCH
+// match
 void __stdcall ParseCommandLine_4DA320(char *pCommandLine)
 {
     char* pIter = pCommandLine;
@@ -919,7 +919,7 @@ void __stdcall sub_5D9250()
     // todo
 }
 
-
+// todo
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
     switch (Msg)
@@ -1154,6 +1154,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
     return DefWindowProcA(hWnd, Msg, wParam, lParam);
 }
 
+// todo
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
     //hInstance_ = hInstance;
@@ -1438,9 +1439,9 @@ LABEL_23:
     return 0;
 }
 
+// todo
 char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance)
 {
-    // todo
     return 1;
 }
 

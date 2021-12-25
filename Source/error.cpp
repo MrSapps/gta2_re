@@ -59,6 +59,7 @@ const char *gListTypes_61AB70[30] =
   "audio_info_space"
 };
 
+// stub
 void sub_4DA740()
 {
 
@@ -121,6 +122,7 @@ struct Coord2
 
 #define err_a1_int(msg, arg) sprintf(gTmpBuffer_67C598, msg, va_1);
 
+// todo
 void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
 {
     va_list va; // [esp+94h] [ebp+34h] BYREF

@@ -359,6 +359,7 @@ int Registry::Get_Screen_Setting_5870D0(const char *lpValueName, int a2)
     return Data;
 }
 
+// todo 0x587290
 Registry::Registry()
 {
 
@@ -580,6 +581,7 @@ void Registry::Set_Screen_Setting_587170(const char* lpValueName, int Data)
     }
 }
 
+// todo
 void Registry::Set_Screen_Setting_5871E0(const char *lpValueName, BYTE *lpData, unsigned __int16 maxLen)
 {
     HKEY hKey; // [esp+8h] [ebp-8h] BYREF

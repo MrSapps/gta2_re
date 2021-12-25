@@ -15,7 +15,7 @@ void serene_brattain::sub_419DF0()
 
 }
 
-// 0x419CD0 match
+// match 0x419CD0
 sound_obj::sound_obj()
 {
     sound_0x68 * pIter = &field_9C_asSamples[0][0];
@@ -367,19 +367,21 @@ void sound_obj::ServiceSoundEffects_41A3A0()
     }
 }
 
+// todo
 void sound_obj::InterrogateAudioEntities_41A730()
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::AddReleasingSounds_41A9D0()
 {
-    // todo
 }
 
+// todo
 void sound_obj::ProcessActiveQueues_41AB80()
 {
-    // todo
+
 }
 
 // match
@@ -394,9 +396,9 @@ void sound_obj::sub_41A6F0()
     }
 }
 
+// todo
 char sound_obj::CalcVolume_41A3F0(unsigned __int8 a1, int a2, int a3)
 {
-    // todo
     return 0;
 }
 
@@ -590,14 +592,16 @@ void sound_obj::ResetEntry_41A6C0(int idx)
     field_147C[idx].field_8_pAlloc = 0;
 }
 
+// match
 void sound_obj::null_412240()
 {
 
 }
 
+// todo
 void sound_obj::sub_418C20()
 {
-    // todo
+
 }
 
 // match
@@ -628,6 +632,7 @@ char sound_obj::LoadStyle_41A1B0(const char *pStyleName)
 
 char byte_674E28[80];
 
+// todo
 const char* sound_obj::GetFileName_41A1E0(const char *pStr)
 {
     const char *pSlashStr; // eax
@@ -700,7 +705,7 @@ struct brave_archimedes_0x3C
     char field_3B;
 };
 
-// todo
+// match
 int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
 {
     unsigned int idx = 1;
@@ -840,19 +845,22 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
     }
 }
 
+// match
 void sound_obj::Release_41A290()
 {
     gSampManager_6FFF00.Release_58E290();
 }
 
+// match
 unsigned __int8 sound_obj::GetCDVol_41A280()
 {
     return field_25_cdVol;
 }
 
+// todo
 void sound_obj::sub_57EA10()
 {
-    // todo
+
 }
 
 // match
@@ -945,34 +953,40 @@ void sound_obj::ProcessEntity_4123A0(int id)
     }
 }
 
+// todo
 void sound_obj::ProcessType3_57DD50()
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::ProcessType1_412740(int a2)
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::ProcessType6_413760(int a2)
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::ProcessType7_42A500(int a2)
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::ProcessType8_412820(int a2)
 {
-    // todo
+
 }
 
+// todo
 void sound_obj::ProcessType9_412A60(int a2)
 {
-    // todo
+
 }
 
 // match
@@ -1398,66 +1412,67 @@ char sound_obj::sub_412260(sound_0x68 *pObj)
     return gLaughing_blackwell_0x1EB54_67DC84 && pObj->field_58_type == 20 ? true : false;
 }
 
+// todo
 char sound_obj::sub_416260(sound_0x68 *a1)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_4174C0(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_417A00(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_415730(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_418940(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_414EE0(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_414C90(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_415100(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_414320(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_414690(sound_0x68 *a2)
 {
-    // todo
     return 0;
 }
 
+// todo
 char sound_obj::sub_4149D0(sound_0x68 *a2)
 {
     // todo

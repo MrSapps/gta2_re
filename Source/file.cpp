@@ -53,7 +53,7 @@ bool __stdcall File::IsCdRomDrive_4A6BB0(char driveLetter)
     return false;
 }
 
-// stack wrong
+// todo stack wrong
 void *__stdcall File::ReadFileToBuffer_4A6C80(const char *FileName, size_t *pAllocatedBufferSize)
 {
     FILE *hFileRead1; // eax

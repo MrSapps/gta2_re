@@ -52,6 +52,7 @@ public:
     static char sub_4AE1F0(unsigned __int8 a1);
 };
 
+// stub
 char FreeLoader::sub_4AE1F0(unsigned __int8 a1)
 {
     // todo
@@ -426,7 +427,7 @@ struc_61F0C8 tgaArray_61F0C8[25] =
   { "data\\frontend\\DemoInfo.tga", 614939, 0 }
 };
 
-
+// stub
 int __stdcall SetGamma_5D9910(int gamma)
 {
     // todo
@@ -478,6 +479,7 @@ void __stdcall laughing_blackwell_0x1EB54::destroy_4AD070()
     Bink::Close2_513390();
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 {
     unsigned __int16 v3; // bp
@@ -943,6 +945,7 @@ LABEL_116:
     sub_4B6780();
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B8680()
 {
     if (!bSkip_audio_67D6BE)
@@ -951,7 +954,7 @@ void laughing_blackwell_0x1EB54::sub_4B8680()
     }
 }
 
-
+// todo
 int laughing_blackwell_0x1EB54::sub_4AEDB0()
 {
     unsigned int Time; // eax
@@ -1059,11 +1062,13 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
     }
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4AD140()
 {
     // todo
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B7AE0()
 {
     // todo
@@ -1077,6 +1082,7 @@ void laughing_blackwell_0x1EB54::sub_4B7AE0()
     }
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B8650()
 {
     if (!bSkip_audio_67D6BE)
@@ -1089,6 +1095,7 @@ void laughing_blackwell_0x1EB54::sub_4B8650()
     }
 }
 
+// todo
 char laughing_blackwell_0x1EB54::pre_intro_bik_exists_4B6030()
 {
     char *v0; // eax
@@ -1103,12 +1110,14 @@ char laughing_blackwell_0x1EB54::pre_intro_bik_exists_4B6030()
     return 1;
 }
 
+// stub
 char * laughing_blackwell_0x1EB54::pre_intro_bik_4B5F20()
 {
     // todo
     return "";
 }
 
+// stub
 const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
 {
     // todo
@@ -1204,11 +1213,13 @@ void laughing_blackwell_0x1EB54::sub_4AEC00()
     }
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4AFEB0()
 {
     // todo
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B6780()
 {
     loving_borg_0xBCA* pBorg = &field_136[field_132_f136_idx];
@@ -1285,7 +1296,7 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
     }
 }
 
-
+// stub
 void laughing_blackwell_0x1EB54::sub_4B7A10()
 {
     char v2; // cl
@@ -1340,6 +1351,7 @@ void laughing_blackwell_0x1EB54::sub_4B7A10()
     }
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4AE2D0()
 {
     loving_borg_0xBCA *pBorg; // ebx
@@ -1643,16 +1655,19 @@ LABEL_60:
     }
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4AE990()
 {
     field_108 = 3;
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B2F60()
 {
     // todo
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4AE9A0()
 {
     __int16 v2; // ax
@@ -1734,6 +1749,7 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
     }
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B8280()
 {
     // todo
@@ -1755,6 +1771,7 @@ dreamy_clarke_0xA4* laughing_blackwell_0x1EB54::sub_4B43E0()
     return &gJolly_poitras_0x2BC0_6FEAC0->field_26A0[idx];
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B42E0()
 {
     // todo
@@ -1770,6 +1787,7 @@ void laughing_blackwell_0x1EB54::sub_4B4230()
     gJolly_poitras_0x2BC0_6FEAC0->sub_56BA60(count);
 }
 
+// stub
 void laughing_blackwell_0x1EB54::HandleCheatCode_4B3DD0(const wchar_t *String)
 {
     // todo
@@ -1784,6 +1802,7 @@ void laughing_blackwell_0x1EB54::sub_4B4280()
         9u);
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B8530()
 {
     short total = field_C9CA;
@@ -1836,6 +1855,7 @@ void laughing_blackwell_0x1EB54::sub_4B8560()
     }
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B8020()
 {
     dreamy_clarke_0xA4* pClarke = sub_4B43E0();
@@ -1867,6 +1887,7 @@ void laughing_blackwell_0x1EB54::sub_4B8020()
     }
 }
 
+// todo
 char laughing_blackwell_0x1EB54::sub_4B7FB0()
 {
     dreamy_clarke_0xA4 *v2; // eax
@@ -1894,11 +1915,13 @@ char laughing_blackwell_0x1EB54::sub_4B7FB0()
     return 0;
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsigned __int8 bonusBlockIdx)
 {
     // todo
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4ADF50() // int bQuit ??
 {
     // todo
@@ -2055,6 +2078,7 @@ void laughing_blackwell_0x1EB54::sub_4ADF50() // int bQuit ??
     }
 }
 
+// todo
 void __stdcall sub_5D7D30()
 {
     Vid_GetSurface(gVidSys_7071D0);
@@ -2077,11 +2101,13 @@ void __stdcall sub_5D7D30()
     gbh_SetWindow(0, 0, dword_70675C, dword_70679C);
 }
 
+// todo
 void __cdecl FreeSurface_5D7DC0()
 {
     Vid_FreeSurface(gVidSys_7071D0);
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4ADFB0()
 {
     sub_5D7D30();
@@ -2106,6 +2132,7 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0()
         gVidSys_7071D0->field_4C_rect_bottom);
 }
 
+// todo
 void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
 {
     // todo
@@ -2285,12 +2312,13 @@ void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
 
 }
 
-// todo: move me
+// stub
 void __stdcall sub_5D7CB0()
 {
-    // todo
+    // todo: move me
 }
 
+// todo 0x4AF2A0
 laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
 {
     field_10D = 1;
@@ -2431,6 +2459,7 @@ laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
     */
 }
 
+// todo 0x4AF970
 laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()
 {
     FreeKeyBoardDevice_4AFD00();
@@ -2462,6 +2491,7 @@ laughing_blackwell_0x1EB54::~laughing_blackwell_0x1EB54()
     FreeImageTable_4B6750();
 }
 
+// todo
 void laughing_blackwell_0x1EB54::AcquireKeyBoard_4AFD70()
 {
     LPDIRECTINPUTDEVICEA field_4_pKeyboardDevice; // eax
@@ -2535,11 +2565,13 @@ void laughing_blackwell_0x1EB54::InitKeyBoardDevice_4AFBE0()
     AcquireKeyBoard_4AFD70();
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4AF0E0()
 {
     // todo
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B0220()
 {
     __int16 v30; // ax
@@ -3046,11 +3078,13 @@ void laughing_blackwell_0x1EB54::sub_4B0220()
     field_EE0E_unk.sub_483F20();
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B4440()
 {
     // todo
 }
 
+// todo
 void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
 {
     char FileName[256];
@@ -3113,6 +3147,7 @@ char laughing_blackwell_0x1EB54::PlySlotSvgExists_4B5370(int idx)
 extern BYTE byte_6F4BF4;
 extern bool bDoFrontEnd_626B68;
 
+// todo
 void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
 {
     if (bDoFrontEnd_626B68)
@@ -3128,6 +3163,7 @@ void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
     }
 }
 
+// todo
 int laughing_blackwell_0x1EB54::sub_5D8990(wchar_t *pStr, WORD a2)
 {
     wchar_t *pStrIter = pStr;
@@ -3166,6 +3202,7 @@ int laughing_blackwell_0x1EB54::sub_5D8990(wchar_t *pStr, WORD a2)
     return biggestLine;
 }
 
+// stub
 int laughing_blackwell_0x1EB54::sub_4B0190(wchar_t* a2, __int16 a3, int a4)
 {
     // todo
@@ -3184,6 +3221,7 @@ int laughing_blackwell_0x1EB54::sub_4B0190(wchar_t* a2, __int16 a3, int a4)
     return 0;
 }
 
+// todo
 unsigned __int8 laughing_blackwell_0x1EB54::sub_4B7060(unsigned __int8 a2)
 {
     dreamy_clarke_0xA4 *v2; // edx
@@ -3210,6 +3248,7 @@ unsigned __int8 laughing_blackwell_0x1EB54::sub_4B7060(unsigned __int8 a2)
     return result;
 }
 
+// todo
 unsigned __int8 laughing_blackwell_0x1EB54::sub_4B7270(char a2)
 {
     dreamy_clarke_0xA4 *v2; // esi
@@ -3245,18 +3284,21 @@ unsigned __int8 laughing_blackwell_0x1EB54::sub_4B7270(char a2)
     return result;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B7490()
 {
     unsigned __int8  v2 = gLucid_hamilton_67E8E0.sub_4C5980();
     return sub_4B7060(v2) != v2;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B74C0()
 {
     char v2 = gLucid_hamilton_67E8E0.sub_4C5980();
     return sub_4B7270(v2) != v2;
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B7550()
 {
     loving_borg_0xBCA *pBorg; // edi
@@ -3290,6 +3332,7 @@ void laughing_blackwell_0x1EB54::sub_4B7550()
     }
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B6FF0()
 {
     unsigned __int8  v3 = gLucid_hamilton_67E8E0.sub_4C5980();
@@ -3300,6 +3343,7 @@ bool laughing_blackwell_0x1EB54::sub_4B6FF0()
     return v3 != a2;
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B42B0()
 {
     int v1; // eax
@@ -3322,12 +3366,14 @@ void laughing_blackwell_0x1EB54::sub_4B42B0()
     }
 }
 
+// stub
 char laughing_blackwell_0x1EB54::sub_4B7120(char a2)
 {
     // todo
     return 0;
 }
 
+// todo
 void laughing_blackwell_0x1EB54::sub_4B7610()
 {
     loving_borg_0xBCA *pItem; // esi
@@ -3383,6 +3429,7 @@ void laughing_blackwell_0x1EB54::sub_4B7610()
     }
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B70B0()
 {
     char v3; // [esp+Bh] [ebp-5h]
@@ -3396,6 +3443,7 @@ bool laughing_blackwell_0x1EB54::sub_4B70B0()
     return v3 != a2;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B74F0()
 {
     char v2; // bl
@@ -3404,12 +3452,14 @@ bool laughing_blackwell_0x1EB54::sub_4B74F0()
     return sub_4B7120(v2) != v2;
 }
 
+// stub
 char laughing_blackwell_0x1EB54::sub_4B7360(char a2)
 {
     // todo
     return 0;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B7520()
 {
     char v2; // bl
@@ -3418,6 +3468,7 @@ bool laughing_blackwell_0x1EB54::sub_4B7520()
     return sub_4B7360(v2) != v2;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B72F0()
 {
     char v3; // [esp+Bh] [ebp-5h]
@@ -3431,6 +3482,7 @@ bool laughing_blackwell_0x1EB54::sub_4B72F0()
     return v3 != a2;
 }
 
+// todo
 bool laughing_blackwell_0x1EB54::sub_4B7200()
 {
     char v3; // [esp+Bh] [ebp-5h]
@@ -3444,11 +3496,13 @@ bool laughing_blackwell_0x1EB54::sub_4B7200()
     return v3 != (char)a2;
 }
 
+// stub
 void laughing_blackwell_0x1EB54::sub_4B4EC0()
 {
     // todo
 }
 
+// todo 0x4B6070
 loving_borg_0xBCA::loving_borg_0xBCA()
 {
     field_0 = 0;
@@ -3457,6 +3511,7 @@ loving_borg_0xBCA::loving_borg_0xBCA()
     field_BC8 = 0;
 }
 
+// todo 0x4B6110
 loving_borg_0xBCA::~loving_borg_0xBCA()
 {
     field_0 = 0;
@@ -3465,6 +3520,7 @@ loving_borg_0xBCA::~loving_borg_0xBCA()
     field_BC8 = 0;
 }
 
+// todo
 bool loving_borg_0xBCA::sub_4B61B0()
 {
     unsigned __int16 oldIdx = field_BC6_nifty_idx;
@@ -3482,6 +3538,7 @@ bool loving_borg_0xBCA::sub_4B61B0()
     return oldIdx != field_BC6_nifty_idx ? true : false;
 }
 
+// todo
 bool loving_borg_0xBCA::sub_4B6200()
 {
     unsigned __int16 oldIdx = field_BC6_nifty_idx;
@@ -3499,6 +3556,7 @@ bool loving_borg_0xBCA::sub_4B6200()
     return oldIdx != field_BC6_nifty_idx ? true : false;
 }
 
+// todo 0x4B63E0
 competent_noyce_0x6E::competent_noyce_0x6E()
 {
     field_0 = 0;
@@ -3510,6 +3568,7 @@ competent_noyce_0x6E::competent_noyce_0x6E()
     field_6C = -1;
 }
 
+// todo 0x4B6420
 competent_noyce_0x6E::~competent_noyce_0x6E()
 {
     field_1 = 1;
@@ -3520,6 +3579,7 @@ competent_noyce_0x6E::~competent_noyce_0x6E()
     field_6C = -1;
 }
 
+// todo 0x4B6290
 nifty_maxwell_0x82::nifty_maxwell_0x82()
 {
     field_6A = -1;
@@ -3538,6 +3598,7 @@ nifty_maxwell_0x82::nifty_maxwell_0x82()
     field_80 = 0;
 }
 
+// todo 0x4B62F0
 nifty_maxwell_0x82::~nifty_maxwell_0x82()
 {
     field_0 = 0;
@@ -3552,6 +3613,7 @@ nifty_maxwell_0x82::~nifty_maxwell_0x82()
     field_80 = 0;
 }
 
+// todo
 bool nifty_maxwell_0x82::sub_4B6330()
 {
     BYTE tmp = byte_67DA80;
@@ -3585,6 +3647,7 @@ bool nifty_maxwell_0x82::sub_4B6330()
     return old_count != new_count ? true : false;
 }
 
+// todo
 bool nifty_maxwell_0x82::sub_4B6390()
 {
     unsigned __int16 oldCount = this->field_6E_count;
@@ -3619,6 +3682,7 @@ bool nifty_maxwell_0x82::sub_4B6390()
     return oldCount != new_count ? true : false;
 }
 
+// todo 0x4B6260
 kind_beaver_6::kind_beaver_6()
 {
     field_0 = 0;
@@ -3626,6 +3690,7 @@ kind_beaver_6::kind_beaver_6()
     field_4 = 1;
 }
 
+// todo 0x4B6280
 kind_beaver_6::~kind_beaver_6()
 {
     field_0 = 0;
@@ -3633,16 +3698,19 @@ kind_beaver_6::~kind_beaver_6()
     field_4 = 1;
 }
 
+// todo 0x483E70
 xenodochial_morse::xenodochial_morse()
 {
     field_0 = 0;
 }
 
+// stub
 void xenodochial_morse::sub_483F20()
 {
     // todo
 }
 
+// todo 0x483E30
 sleepy_stonebraker_0x6C::sleepy_stonebraker_0x6C()
 {
     field_0 = 0;
@@ -3652,11 +3720,13 @@ sleepy_stonebraker_0x6C::sleepy_stonebraker_0x6C()
     memset(field_8_strBuf, 0u, sizeof(field_8_strBuf));
 }
 
+// todo 0x483E60
 sleepy_stonebraker_0x6C::~sleepy_stonebraker_0x6C()
 {
 
 }
 
+// todo 0x4B6440
 admiring_euler_4::admiring_euler_4()
 {
     field_0 = 0;
@@ -3664,6 +3734,7 @@ admiring_euler_4::admiring_euler_4()
     field_2 = 0;
 }
 
+// todo 0x4B6450
 admiring_euler_4::~admiring_euler_4()
 {
     field_0 = 0;
@@ -3687,6 +3758,8 @@ void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
     field_2 = svg.field_4C;
     field_3 = svg.field_4D;
 }
+
+// stub
 const wchar_t *__stdcall sub_5D8A10(
     const wchar_t *pBuffer,
     int xpos_fp,
