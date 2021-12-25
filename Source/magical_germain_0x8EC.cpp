@@ -45,17 +45,17 @@ magical_germain_0x8EC::magical_germain_0x8EC()
     sub_4D2090();
 }
 
-// nomatch 0x4D2CC0
+// match 0x4D2CC0
 magical_germain_0x8EC::~magical_germain_0x8EC()
 {
     if (field_8C8_pKBIT)
     {
-        delete field_8C8_pKBIT;
+        delete[] field_8C8_pKBIT;
     }
 
     if (field_8C4_pKidX)
     {
-        delete field_8C4_pKidX;
+        delete[] field_8C4_pKidX;
     }
 
     field_8CC_kidx_size_words = 0;
