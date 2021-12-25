@@ -5,29 +5,12 @@ sound_obj gSound_obj_66F680;
 
 void sound_obj::ClearRequestedQueue_41B700()
 {
-    unsigned __int8 count; // al
-    unsigned int i; // esi
-    unsigned int v3; // edx
-
-    count = this->field_10_nActiveSamples;
-    i = 0;
-    while ( i < count )
+    for (unsigned int i = 0; i < field_10_nActiveSamples; i++)
     {
-        v3 = i + 0x10 * this->field_98_nActiveQueue;
-        ++i;
-        this->field_D9C[0][v3] = count;
-        count = this->field_10_nActiveSamples;
-    }
-    this->field_DBC_nRequestedCount[this->field_98_nActiveQueue] = 0;
-
-    /*
-    for (unsigned __int8 i = 0; i < field_10_nActiveSamples; i++)
-    {
-        field_D9C[field_98_nActiveQueue][i] = field_10_nActiveSamples;
+        this->field_D9C[field_98_nActiveQueue][i] = field_10_nActiveSamples;
     }
 
     field_DBC_nRequestedCount[field_98_nActiveQueue] = 0;
-    */
 }
 
 void sound_obj::sub_41B7A0()
