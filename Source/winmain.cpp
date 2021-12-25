@@ -107,15 +107,10 @@ void __stdcall ShowCursor_5D9660()
 // todo: move
 char sub_5D9510()
 {
-    // todo
-    char result; // al
-    SVideo *pVidSys; // eax
-    DWORD field_4_flags; // ecx
     struct tagRECT clientRect; // [esp+8h] [ebp-20h] BYREF
     struct tagRECT windowRect; // [esp+18h] [ebp-10h] BYREF
 
-    result = sub_5D92C0();
-    if (!result)
+    if (!sub_5D92C0())
     {
         return 0;
     }
@@ -142,17 +137,14 @@ char sub_5D9510()
 
     UpdateWindow(gHwnd_707F04);
     ShowWindow(gHwnd_707F04, 5);
-    pVidSys = gVidSys_7071D0;
     if (gVidSys_7071D0)
     {
-        field_4_flags = gVidSys_7071D0->field_4_flags;
-        // BYTE1(field_4_flags) |= 1u;
-        field_4_flags |= 1u;
-        gVidSys_7071D0->field_4_flags = field_4_flags;
-        pVidSys = gVidSys_7071D0;
+        //BYTE field_4_flags = gVidSys_7071D0->field_4_flags;
+        //field_4_flags |= 1u;
+        gVidSys_7071D0->field_4_flags |= 1u;
     }
 
-    if (Vid_SetMode(pVidSys, gHwnd_707F04, -2) == 1)
+    if (Vid_SetMode(gVidSys_7071D0, gHwnd_707F04, -2) == 1)
     {
         return 0;
     }
