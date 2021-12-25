@@ -515,8 +515,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
             {
                 Bink::sub_5137A0(2);
                 field_0_hDriver = gWizardly_margulis_6FFF00.field_0_hDriver;
-                v5 = gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50();
-                Bink::sub_5133E0(v5, field_0_hDriver);
+                Bink::sub_5133E0(gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50(), field_0_hDriver);
                 Bink::Close1_513340();
                 Bink::sub_5137A0(2);
                 Bink::sub_5137B0(2);
