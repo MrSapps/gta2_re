@@ -298,15 +298,10 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 
 void wizardly_margulis::Enum3DProviders_58E1F0()
 {
-    int prov_counter; // ebx
-    char **_field_22B4_str; // ebp
-    HPROENUM hEnum; // [esp+14h] [ebp-8h] BYREF
-    HPROVIDER* provIter;
-
-    prov_counter = 0;
-    hEnum = 0;
-    _field_22B4_str = this->field_22B4_str;
-    provIter = field_1EB4_h3dProvider;
+    HPROENUM hEnum = 0; // [esp+14h] [ebp-8h] BYREF
+    int prov_counter = 0;
+    char ** _field_22B4_str = this->field_22B4_str;
+    HPROVIDER* provIter = field_1EB4_h3dProvider;
     while(prov_counter< 256)
     {
         char *pName; // [esp+18h] [ebp-4h] BYREF
