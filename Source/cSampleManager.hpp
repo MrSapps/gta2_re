@@ -12,10 +12,10 @@ struct serene_proskuriakova_0x18
     int field_14;
 };
 
-class wizardly_margulis
+class cSampleManager
 {
 public:
-    wizardly_margulis();
+    cSampleManager();
 
     char sub_58D620();
 
@@ -177,4 +177,4 @@ public:
     char field_2717_pad;
 };
 
-extern wizardly_margulis gWizardly_margulis_6FFF00;
+extern cSampleManager gWizardly_margulis_6FFF00;

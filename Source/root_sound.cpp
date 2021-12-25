@@ -1,6 +1,6 @@
 #include "root_sound.hpp"
 #include "sound_obj.hpp"
-#include "wizardly_margulis.hpp"
+#include "cSampleManager.hpp"
 
 root_sound gRoot_sound_66B038;
 

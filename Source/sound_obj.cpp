@@ -1,5 +1,5 @@
 #include "sound_obj.hpp"
-#include "wizardly_margulis.hpp"
+#include "cSampleManager.hpp"
 
 sound_obj gSound_obj_66F680;
 

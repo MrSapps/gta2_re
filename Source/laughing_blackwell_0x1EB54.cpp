@@ -13,7 +13,7 @@
 #include "magical_germain_0x8EC.hpp"
 #include "file.hpp"
 #include "dma_video.hpp"
-#include "wizardly_margulis.hpp"
+#include "cSampleManager.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>

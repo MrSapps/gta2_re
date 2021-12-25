@@ -31,8 +31,8 @@ add_library (Source
     Source/keybrd_0x204.cpp
     Source/debug.hpp
     Source/debug.cpp
-    Source/wizardly_margulis.hpp
-    Source/wizardly_margulis.cpp
+    Source/cSampleManager.hpp
+    Source/cSampleManager.cpp
     Source/sound_obj.hpp
     Source/sound_obj.cpp
     Source/dma_video.hpp

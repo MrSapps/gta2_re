@@ -1,7 +1,7 @@
-#include "wizardly_margulis.hpp"
+#include "cSampleManager.hpp"
 #include <stdio.h>
 
-wizardly_margulis gWizardly_margulis_6FFF00;
+cSampleManager gWizardly_margulis_6FFF00;
 
 struct voc_name
 {
@@ -113,7 +113,7 @@ const voc_name gVocNames_5FEA5C[98] =
 
 
 // 0x58D400
-wizardly_margulis::wizardly_margulis()
+cSampleManager::cSampleManager()
 {
     field_1EA8_pAudioBuffer1 = 0;
     field_1EAC_pAudioBuffer2 = 0;
@@ -185,7 +185,7 @@ wizardly_margulis::wizardly_margulis()
 }
 
 // todo
-char wizardly_margulis::sub_58D620()
+char cSampleManager::sub_58D620()
 {
     // todo
     return 0;
@@ -212,7 +212,7 @@ char wizardly_margulis::sub_58D620()
 }
 
 // match
-char wizardly_margulis::SoundInit_58D6C0(int *a2)
+char cSampleManager::SoundInit_58D6C0(int *a2)
 {
     AIL_startup();
 
@@ -235,7 +235,7 @@ char wizardly_margulis::SoundInit_58D6C0(int *a2)
 }
 
 // match
-char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
+char cSampleManager::sub_58D720(char a2, char a3, int sampleRate)
 {
     struct lol
     {
@@ -298,7 +298,7 @@ char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
 }
 
 // match
-void wizardly_margulis::Enum3DProviders_58E1F0()
+void cSampleManager::Enum3DProviders_58E1F0()
 {
     HPROENUM hEnum = 0;
     unsigned int prov_counter = 0;
@@ -319,7 +319,7 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 }
 
 // match
-bool wizardly_margulis::StreamStatus_58E2C0()
+bool cSampleManager::StreamStatus_58E2C0()
 {
     if (field_55_bMusicLoaded)
     {
@@ -340,7 +340,7 @@ bool wizardly_margulis::StreamStatus_58E2C0()
 }
 
 // match
-char wizardly_margulis::AllocSamples_58D9F0(int a2)
+char cSampleManager::AllocSamples_58D9F0(int a2)
 {
     Terminate_58DAE0();
     Reset3DSamples_58D960();
@@ -366,7 +366,7 @@ char wizardly_margulis::AllocSamples_58D9F0(int a2)
 }
 
 // match
-void wizardly_margulis::Terminate_58DAE0()
+void cSampleManager::Terminate_58DAE0()
 {
     for (unsigned __int8 i = 0; i < field_1EB0_count_samples; i++)
     {
@@ -376,7 +376,7 @@ void wizardly_margulis::Terminate_58DAE0()
 }
 
 // match
-void wizardly_margulis::Shutdown_58DB30()
+void cSampleManager::Shutdown_58DB30()
 {
     for (unsigned int i = 0; i < 2; ++i)
     {
@@ -422,7 +422,7 @@ void wizardly_margulis::Shutdown_58DB30()
 }
 
 // match
-int wizardly_margulis::GetPlayBackRateIdx_58DBF0(int idx)
+int cSampleManager::GetPlayBackRateIdx_58DBF0(int idx)
 {
     const int playBackRate = this->field_A8_sdt_entries[idx].field_8_playBackRate;
     if (playBackRate == 0)
@@ -433,13 +433,13 @@ int wizardly_margulis::GetPlayBackRateIdx_58DBF0(int idx)
 }
 
 // match
-int wizardly_margulis::sub_58DC10(int idx)
+int cSampleManager::sub_58DC10(int idx)
 {
     return field_A8_sdt_entries[idx].field_C;
 }
 
 // match
-void wizardly_margulis::Reset3DSamples_58D960()
+void cSampleManager::Reset3DSamples_58D960()
 {
     for (unsigned int i = 0; i < field_1EB2_3d_samp_count; i++)
     {
@@ -464,25 +464,25 @@ void wizardly_margulis::Reset3DSamples_58D960()
 }
 
 // match
-int wizardly_margulis::sub_58DC30(int a2)
+int cSampleManager::sub_58DC30(int a2)
 {
     return field_A8_sdt_entries[a2].field_10;
 }
 
 // match
-int wizardly_margulis::sub_58DC50(int a2)
+int cSampleManager::sub_58DC50(int a2)
 {
     return field_A8_sdt_entries[a2].field_14;
 }
 
 // match
-int wizardly_margulis::GetSampleLength_maybe_58DC70(int a2)
+int cSampleManager::GetSampleLength_maybe_58DC70(int a2)
 {
     return field_A8_sdt_entries[a2].field_4_sample_length;
 }
 
 // match
-void wizardly_margulis::sub_58DC90(int channel, int a3)
+void cSampleManager::sub_58DC90(int channel, int a3)
 {
     if (field_58_hSamples[channel])
     {
@@ -497,7 +497,7 @@ void wizardly_margulis::sub_58DC90(int channel, int a3)
 }
 
 // match
-void wizardly_margulis::SetChannelVolume_58DCE0(int channel , int volume)
+void cSampleManager::SetChannelVolume_58DCE0(int channel , int volume)
 {
     if (field_58_hSamples[channel])
     {
@@ -506,7 +506,7 @@ void wizardly_margulis::SetChannelVolume_58DCE0(int channel , int volume)
 }
 
 // match
-void wizardly_margulis::SetChannelPan_58DD00(int channel, int pan)
+void cSampleManager::SetChannelPan_58DD00(int channel, int pan)
 {
     if (field_58_hSamples[channel])
     {
@@ -515,7 +515,7 @@ void wizardly_margulis::SetChannelPan_58DD00(int channel, int pan)
 }
 
 // match
-void wizardly_margulis::SetChannelFrequency_58DD20(int channel, int frequency)
+void cSampleManager::SetChannelFrequency_58DD20(int channel, int frequency)
 {
     if (field_58_hSamples[channel])
     {
@@ -524,7 +524,7 @@ void wizardly_margulis::SetChannelFrequency_58DD20(int channel, int frequency)
 }
 
 // match
-void wizardly_margulis::SetChannelLoopPoints_58DD40(int channel, int startOffset, int endOffset)
+void cSampleManager::SetChannelLoopPoints_58DD40(int channel, int startOffset, int endOffset)
 {
     if (field_58_hSamples[channel])
     {
@@ -533,7 +533,7 @@ void wizardly_margulis::SetChannelLoopPoints_58DD40(int channel, int startOffset
 }
 
 // match
-void wizardly_margulis::SetChannelLoopCount_58DD60(int channel, int loopCount)
+void cSampleManager::SetChannelLoopCount_58DD60(int channel, int loopCount)
 {
     if (field_58_hSamples[channel])
     {
@@ -542,7 +542,7 @@ void wizardly_margulis::SetChannelLoopCount_58DD60(int channel, int loopCount)
 }
 
 // match
-bool wizardly_margulis::GetChannelUsedFlag_58DD80(int channel)
+bool cSampleManager::GetChannelUsedFlag_58DD80(int channel)
 {
     if (field_58_hSamples[channel])
     {
@@ -553,7 +553,7 @@ bool wizardly_margulis::GetChannelUsedFlag_58DD80(int channel)
 }
 
 // match
-void wizardly_margulis::StartChannel_58DDB0(int channel)
+void cSampleManager::StartChannel_58DDB0(int channel)
 {
     if (field_58_hSamples[channel])
     {
@@ -562,7 +562,7 @@ void wizardly_margulis::StartChannel_58DDB0(int channel)
 }
 
 // match
-void wizardly_margulis::StopChannel_58DDD0(int channel)
+void cSampleManager::StopChannel_58DDD0(int channel)
 {
     if (field_58_hSamples[channel])
     {
@@ -571,7 +571,7 @@ void wizardly_margulis::StopChannel_58DDD0(int channel)
 }
 
 // match
-bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
+bool cSampleManager::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
 {
     if (field_26C4_3d_sample[channel] && this->field_A4_bLoaded)
     {
@@ -592,7 +592,7 @@ bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int ra
 }
 
 // match
-void wizardly_margulis::SetChannel3DVolume_58DE80(int idx, int vol)
+void cSampleManager::SetChannel3DVolume_58DE80(int idx, int vol)
 {
     if (field_26C4_3d_sample[idx])
     {
@@ -601,7 +601,7 @@ void wizardly_margulis::SetChannel3DVolume_58DE80(int idx, int vol)
 }
 
 // match
-void wizardly_margulis::SetChannel3DPosition_58DEA0(int channel, float x, float y, float z)
+void cSampleManager::SetChannel3DPosition_58DEA0(int channel, float x, float y, float z)
 {
     if (field_26C4_3d_sample[channel])
     {
@@ -610,7 +610,7 @@ void wizardly_margulis::SetChannel3DPosition_58DEA0(int channel, float x, float 
 }
 
 // match
-void wizardly_margulis::SetChannel3DDistances_58DED0(int channel, float maxDist, float minDist)
+void cSampleManager::SetChannel3DDistances_58DED0(int channel, float maxDist, float minDist)
 {
     if (field_26C4_3d_sample[channel])
     {
@@ -619,7 +619,7 @@ void wizardly_margulis::SetChannel3DDistances_58DED0(int channel, float maxDist,
 }
 
 // match
-void wizardly_margulis::SetChannel3DFrequency_58DF00(int channel, int freq)
+void cSampleManager::SetChannel3DFrequency_58DF00(int channel, int freq)
 {
     if (field_26C4_3d_sample[channel])
     {
@@ -628,7 +628,7 @@ void wizardly_margulis::SetChannel3DFrequency_58DF00(int channel, int freq)
 }
 
 // match
-void wizardly_margulis::SetChannel3DLoopPoints_58DF20(int channel, int a3, int a4)
+void cSampleManager::SetChannel3DLoopPoints_58DF20(int channel, int a3, int a4)
 {
     if (field_26C4_3d_sample[channel])
     {
@@ -637,7 +637,7 @@ void wizardly_margulis::SetChannel3DLoopPoints_58DF20(int channel, int a3, int a
 }
 
 // match
-void wizardly_margulis::SetChannel3DLoopCount_58DF50(int channel, int a3)
+void cSampleManager::SetChannel3DLoopCount_58DF50(int channel, int a3)
 {
     if (field_26C4_3d_sample[channel])
     {
@@ -646,7 +646,7 @@ void wizardly_margulis::SetChannel3DLoopCount_58DF50(int channel, int a3)
 }
 
 // match
-bool wizardly_margulis::GetChannel3DUsedFlag_58DF70(int a2)
+bool cSampleManager::GetChannel3DUsedFlag_58DF70(int a2)
 {
     if (field_26C4_3d_sample[a2])
     {
@@ -657,7 +657,7 @@ bool wizardly_margulis::GetChannel3DUsedFlag_58DF70(int a2)
 }
 
 // match
-void wizardly_margulis::StartChannel3D_58DFA0(int samp_idx)
+void cSampleManager::StartChannel3D_58DFA0(int samp_idx)
 {
     if (field_26C4_3d_sample[samp_idx])
     {
@@ -666,7 +666,7 @@ void wizardly_margulis::StartChannel3D_58DFA0(int samp_idx)
 }
 
 // match
-void wizardly_margulis::StopChannel3D_58DFC0(int samp_idx)
+void cSampleManager::StopChannel3D_58DFC0(int samp_idx)
 {
     if (field_26C4_3d_sample[samp_idx])
     {
@@ -678,7 +678,7 @@ void wizardly_margulis::StopChannel3D_58DFC0(int samp_idx)
 }
 
 // match
-void wizardly_margulis::sub_58E010(int a2)
+void cSampleManager::sub_58E010(int a2)
 {
     if (field_26C0_3d_provider && field_26B8_bEaxSupported && a2 < 26)
     {
@@ -688,7 +688,7 @@ void wizardly_margulis::sub_58E010(int a2)
 }
 
 // match
-char wizardly_margulis::sub_58E140(int envIdx)
+char cSampleManager::sub_58E140(int envIdx)
 {
     field_26B4_env_idx = envIdx;
     if (envIdx != -1)
@@ -714,7 +714,7 @@ char wizardly_margulis::sub_58E140(int envIdx)
 }
 
 // match
-void wizardly_margulis::Close3DProvider_58E1C0()
+void cSampleManager::Close3DProvider_58E1C0()
 {
     if (field_26C0_3d_provider)
     {
@@ -725,7 +725,7 @@ void wizardly_margulis::Close3DProvider_58E1C0()
 }
 
 // match
-void wizardly_margulis::AllocSample_58DA80()
+void cSampleManager::AllocSample_58DA80()
 {
     if (!field_98_hSample)
     {
@@ -736,7 +736,7 @@ void wizardly_margulis::AllocSample_58DA80()
 }
 
 // match
-void wizardly_margulis::ReleaseSample_58DAC0()
+void cSampleManager::ReleaseSample_58DAC0()
 {
     if (field_98_hSample)
     {
@@ -746,7 +746,7 @@ void wizardly_margulis::ReleaseSample_58DAC0()
 }
 
 // todo
-void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
+void cSampleManager::sub_58E8C0(unsigned int idx, unsigned int a3)
 {
     if (idx < a3 && this->field_98_hSample && !SampleNotDone_58E880())
     {
@@ -772,7 +772,7 @@ void wizardly_margulis::sub_58E8C0(unsigned int idx, unsigned int a3)
 }
 
 // match
-void wizardly_margulis::StreamSetVolume_58E2F0(unsigned __int8 vol)
+void cSampleManager::StreamSetVolume_58E2F0(unsigned __int8 vol)
 {
     if (field_55_bMusicLoaded)
     {
@@ -786,7 +786,7 @@ void wizardly_margulis::StreamSetVolume_58E2F0(unsigned __int8 vol)
 const char dma_wav_5FF5D8[3][6] = { "d.wav", "m.wav", "a.wav" };
 
 // match
-void wizardly_margulis::OpenStream_58E320(unsigned int a2)
+void cSampleManager::OpenStream_58E320(unsigned int a2)
 {
     char wavPath[80];
     if (field_55_bMusicLoaded)
@@ -820,7 +820,7 @@ void wizardly_margulis::OpenStream_58E320(unsigned int a2)
 }
 
 // match
-void wizardly_margulis::CloseStream_58E460()
+void cSampleManager::CloseStream_58E460()
 {
     if (field_55_bMusicLoaded)
     {
@@ -833,7 +833,7 @@ void wizardly_margulis::CloseStream_58E460()
 }
 
 // match
-void wizardly_margulis::FadeOut_58E490()
+void cSampleManager::FadeOut_58E490()
 {
     if (field_55_bMusicLoaded && field_9C_hStreams[0])
     {
@@ -856,13 +856,13 @@ void wizardly_margulis::FadeOut_58E490()
 }
 
 // match
-char wizardly_margulis::MusicFileExists_58E500()
+char cSampleManager::MusicFileExists_58E500()
 {
     return field_55_bMusicLoaded;
 }
 
 // match
-void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
+void cSampleManager::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
 {
     if (stream_idx || field_55_bMusicLoaded)
     {
@@ -910,7 +910,7 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
 }
 
 // match
-void wizardly_margulis::CloseVocalStream_58E6A0(int stream_idx)
+void cSampleManager::CloseVocalStream_58E6A0(int stream_idx)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -920,7 +920,7 @@ void wizardly_margulis::CloseVocalStream_58E6A0(int stream_idx)
 }
 
 // match
-void wizardly_margulis::SetVocalVolume_58E6D0(int stream_idx, unsigned __int8 vol)
+void cSampleManager::SetVocalVolume_58E6D0(int stream_idx, unsigned __int8 vol)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -929,7 +929,7 @@ void wizardly_margulis::SetVocalVolume_58E6D0(int stream_idx, unsigned __int8 vo
 }
 
 // match
-void wizardly_margulis::SetVocalSpeed_58E700(int stream_idx, int playbackRate)
+void cSampleManager::SetVocalSpeed_58E700(int stream_idx, int playbackRate)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -938,7 +938,7 @@ void wizardly_margulis::SetVocalSpeed_58E700(int stream_idx, int playbackRate)
 }
 
 // match
-int wizardly_margulis::GetVocalSpeed_58E720(int stream_idx)
+int cSampleManager::GetVocalSpeed_58E720(int stream_idx)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -951,7 +951,7 @@ int wizardly_margulis::GetVocalSpeed_58E720(int stream_idx)
 }
 
 // match
-void wizardly_margulis::SetVocalPosMs_58E750(int stream_idx, int ms_pos)
+void cSampleManager::SetVocalPosMs_58E750(int stream_idx, int ms_pos)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -960,7 +960,7 @@ void wizardly_margulis::SetVocalPosMs_58E750(int stream_idx, int ms_pos)
 }
 
 // match
-int wizardly_margulis::GetVocalPosMs_58E770(long stream_idx)
+int cSampleManager::GetVocalPosMs_58E770(long stream_idx)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -971,7 +971,7 @@ int wizardly_margulis::GetVocalPosMs_58E770(long stream_idx)
 }
 
 // match
-int wizardly_margulis::GetVocalLengthMs_58E7A0(long stream_idx)
+int cSampleManager::GetVocalLengthMs_58E7A0(long stream_idx)
 {
     if (field_9C_hStreams[stream_idx])
     {
@@ -982,7 +982,7 @@ int wizardly_margulis::GetVocalLengthMs_58E7A0(long stream_idx)
 }
 
 // match
-void wizardly_margulis::SetSampleVol_58E7D0(unsigned __int8 vol)
+void cSampleManager::SetSampleVol_58E7D0(unsigned __int8 vol)
 {
     if (field_98_hSample)
     {
@@ -991,7 +991,7 @@ void wizardly_margulis::SetSampleVol_58E7D0(unsigned __int8 vol)
 }
 
 // match
-void wizardly_margulis::PlayAtIdx_58E7F0(int idx)
+void cSampleManager::PlayAtIdx_58E7F0(int idx)
 {
     if (field_98_hSample)
     {
@@ -1010,13 +1010,13 @@ void wizardly_margulis::PlayAtIdx_58E7F0(int idx)
 }
 
 // match
-bool wizardly_margulis::SampleNotDone_58E880()
+bool cSampleManager::SampleNotDone_58E880()
 {
     return AIL_sample_status(field_98_hSample) != SMP_DONE ? true : false;
 }
 
 // match
-void wizardly_margulis::EndSample_58E960()
+void cSampleManager::EndSample_58E960()
 {
     if (field_98_hSample)
     {
@@ -1025,7 +1025,7 @@ void wizardly_margulis::EndSample_58E960()
 }
 
 // match
-char wizardly_margulis::LoadWavSdtData_58E980(const char *pRawOrSdtName)
+char cSampleManager::LoadWavSdtData_58E980(const char *pRawOrSdtName)
 {
     FILE *hRawFile; // eax
     FILE *hRawFile_; // esi
@@ -1073,14 +1073,14 @@ char wizardly_margulis::LoadWavSdtData_58E980(const char *pRawOrSdtName)
 }
 
 // match
-BYTE wizardly_margulis::sub_58E2A0()
+BYTE cSampleManager::sub_58E2A0()
 {
     BYTE ret = field_0_hDriver && AIL_digital_handle_reacquire(field_0_hDriver) ? 1 : 0;
     return ret;
 }
 
 // match
-char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
+char cSampleManager::sub_58D820(BYTE *pMaxSamples)
 {
     Terminate_58DAE0();
     Reset3DSamples_58D960();

@@ -10,7 +10,7 @@
 #include "Source/gbh_graphics.hpp"
 #include "Source/distracted_einstein_0xC.hpp"
 #include "Source/sharp_bose_0x54.hpp"
-#include "Source/wizardly_margulis.hpp"
+#include "Source/cSampleManager.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
