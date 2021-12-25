@@ -393,3 +393,66 @@ gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
     }
     return pZone;
 }
+
+// match 0x4E9770
+Map_0x370::~Map_0x370()
+{
+    if (field_33C_pLightData)
+    {
+        free(field_33C_pLightData);
+    }
+    this->field_33C_pLightData = 0;
+
+    if (field_328_pZoneData)
+    {
+        free(field_328_pZoneData);
+    }
+    field_328_pZoneData = 0;
+
+    if (field_32C_pZones)
+    {
+        free(field_32C_pZones);
+    }
+    field_32C_pZones = 0;
+
+    if (field_338_pMapObjects)
+    {
+        free(field_338_pMapObjects);
+    }
+    field_338_pMapObjects = 0;
+
+    if (field_0_pDmap)
+    {
+        if (field_0_pDmap->field_40008_pColumn)
+        {
+            free(field_0_pDmap->field_40008_pColumn);
+        }
+        field_0_pDmap->field_40008_pColumn = 0;
+        
+        if (field_0_pDmap->field_4000C_block)
+        {
+            free(field_0_pDmap->field_4000C_block);
+        }
+        field_0_pDmap->field_4000C_block = 0;
+
+        delete field_0_pDmap;
+    }
+
+    if (field_330_pZoneArray)
+    {
+        free(field_330_pZoneArray);
+    }
+    field_330_pZoneArray = 0;
+
+    if (field_334_pUnknownZoneData)
+    {
+        free(field_334_pUnknownZoneData);
+    }
+    field_334_pUnknownZoneData = 0;
+
+    if (field_340_pTileAnimData)
+    {
+        free(field_340_pTileAnimData);
+    }
+    field_340_pTileAnimData = 0;
+}

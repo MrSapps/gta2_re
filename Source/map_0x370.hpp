@@ -358,7 +358,7 @@ public:
 
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
-
+    ~Map_0x370();
 public:
     gmp_compressed_map_32 *field_0_pDmap;
     Map_sub field_4_obj;
@@ -368,7 +368,7 @@ public:
     gmp_zone_unknown *field_334_pUnknownZoneData;
     gmp_map_object *field_338_pMapObjects;
     gmp_map_light *field_33C_pLightData;
-    int field_340_pTileAnimData;
+    void* field_340_pTileAnimData;
     int field_344_map_object_count;
     int field_348_num_lights;
     int field_34C_num_blocks;
