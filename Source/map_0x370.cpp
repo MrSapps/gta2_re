@@ -343,24 +343,19 @@ DWORD Map_0x370::sub_4DFF60(int a2, int a3, int a4)
         }
         return result;
     }
-    else
+
+    gmp_block_info *pBlock2 = get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
+    if (pBlock2 && pBlock2->field_0_left != 0)
     {
-        gmp_block_info *pBlock2 = get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
-        if (pBlock2 && pBlock2->field_0_left != 0)
+        DWORD result = gGtx_0x106C_703DD4->field_6C_spec[pBlock2->field_0_left & 0x3FF];
+        if (result == 3)
         {
-            DWORD result = gGtx_0x106C_703DD4->field_6C_spec[pBlock2->field_0_left & 0x3FF];
-            if (result == 3)
-            {
-                return 1;
-            }
-            return result;
+            return 1;
         }
-        else
-        {
-            return 0;
-        }
+        return result;
     }
-   // return result;
+
+    return 0;
 }
 
 // nomatch
