@@ -7,7 +7,7 @@ void sound_obj::ClearRequestedQueue_41B700()
 {
     for (unsigned int i = 0; i < field_10_nActiveSamples; i++)
     {
-        this->field_D9C[field_98_nActiveQueue][i] = field_10_nActiveSamples;
+        field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i] = field_10_nActiveSamples;
     }
 
     field_DBC_nRequestedCount[field_98_nActiveQueue] = 0;

@@ -986,7 +986,7 @@ struct sound_obj
     int field_D90;
     int field_D94;
     int field_D98;
-    BYTE field_D9C[2][16];
+    BYTE field_D9C_abSampleQueueIndexTable[2][16];
     BYTE field_DBC_nRequestedCount[2];
     __int16 field_DBE;
     sound_0x68 field_DC0[16];
