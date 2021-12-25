@@ -305,6 +305,20 @@ public:
 
     gmp_zone_unknown* get_nav_zone_unknown_4DF890(int zone_x, int zone_y);
 
+    void set_nav_unknown_data_4DF8C0(
+        int zone_idx,
+        __int16 a3,
+        __int16 a4,
+        __int16 a5,
+        __int16 a6,
+        __int16 a7,
+        __int16 a8,
+        __int16 a9,
+        __int16 a10,
+        __int16 a11,
+        __int16 a12,
+        __int16 a13);
+
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
     // todo: other funcs between

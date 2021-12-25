@@ -169,6 +169,67 @@ gmp_zone_unknown* Map_0x370::get_nav_zone_unknown_4DF890(int zone_x, int zone_y)
     }
 }
 
+// match
+void Map_0x370::set_nav_unknown_data_4DF8C0(int zone_idx, __int16 a3, __int16 a4, __int16 a5, __int16 a6, __int16 a7, __int16 a8, __int16 a9, __int16 a10, __int16 a11, __int16 a12, __int16 a13)
+{
+    get_zone_4DFB30(zone_idx);
+    gmp_zone_unknown *pZoneUnknown = &field_334_pUnknownZoneData[field_330_pZoneArray[zone_idx]];
+    if (a3 != -1)
+    {
+        pZoneUnknown->field_0 = a3;
+    }
+
+    if (a4 != -1)
+    {
+        pZoneUnknown->field_2 = a4;
+    }
+
+    if (a5 != -1)
+    {
+        pZoneUnknown->field_4 = a5;
+    }
+
+    if (a6 != -1)
+    {
+        pZoneUnknown->field_6 = a6;
+    }
+
+    if (a7 != -1)
+    {
+        pZoneUnknown->field_8 = a7;
+    }
+
+    if (a8 != -1)
+    {
+        pZoneUnknown->field_A = a8;
+    }
+
+    if (a9 != -1)
+    {
+        pZoneUnknown->field_C = a9;
+    }
+
+    if (a10 != -1)
+    {
+        pZoneUnknown->field_E = a10;
+    }
+
+    if (a11 != -1)
+    {
+        pZoneUnknown->field_10 = a11;
+    }
+
+    if (a12 != -1)
+    {
+        pZoneUnknown->field_12 = a12;
+    }
+
+    if (a13 != -1)
+    {
+        pZoneUnknown->field_14 = a13;
+    }
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {
