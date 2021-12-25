@@ -152,9 +152,9 @@ void sound_obj::sub_41B540()
             {
                 array_off = 0x10 * field_98_nActiveQueue + this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx];
                 v5 = &this->field_9C[0][array_off];
-                if (!this->field_9C[0][array_off].field_18)
+                if (!v5->field_18)
                 {
-                    sub_41B520(this->field_9C[0][array_off].field_28, &f28_conv);
+                    sub_41B520(v5->field_28, &f28_conv);
                     v5->field_60 = sub_41B660(v5->field_60, v5->field_64, (__int64)f28_conv);
                 }
                 field_98_nActiveQueue = this->field_98_nActiveQueue;
