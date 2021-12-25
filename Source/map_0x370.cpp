@@ -59,26 +59,19 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
 {
     static short sLastIdx_6F626C;
 
-    gmp_map_zone **field_32C_pZones; // ecx
     unsigned __int16 idx; // di
     int idx_; // ecx
     __int16 v6; // ax
     __int16 local_array[40]; // [esp+8h] [ebp-50h]
 
-    if (!this->field_328_pZoneData)
+    if (this->field_328_pZoneData)
     {
-        return 0;
-    }
+        idx = 0;
+        this->field_36C_bUnknown = 0;
+        this->field_368_zone_type = zone_type;
+        this->field_364_cur_zone_idx = 0;
 
-    field_32C_pZones = this->field_32C_pZones;
-    idx = 0;
-    this->field_36C_bUnknown = 0;
-    this->field_368_zone_type = zone_type;
-    this->field_364_cur_zone_idx = 0;
-
-    if (*(WORD *)field_32C_pZones)
-    {
-        do
+        for (field_364_cur_zone_idx = 0; field_364_cur_zone_idx < *(WORD *)field_32C_pZones; field_364_cur_zone_idx++)
         {
             if (Map_0x370::get_zone_4DFB30(this->field_364_cur_zone_idx)->field_0_zone_type == this->field_368_zone_type)
             {
@@ -89,8 +82,7 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
                     break;
                 }
             }
-            ++this->field_364_cur_zone_idx;
-        } while (this->field_364_cur_zone_idx < *(WORD *)this->field_32C_pZones);
+        }
 
         if (!idx)
         {
@@ -106,6 +98,7 @@ gmp_map_zone* Map_0x370::zone_by_type_bounded_4DF0F0(char zone_type)
 
         return get_zone_4DFB30(local_array[v6]);
     }
+
     return 0;
 }
 
