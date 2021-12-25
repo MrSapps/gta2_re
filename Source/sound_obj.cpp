@@ -678,62 +678,63 @@ int sound_obj::sub_419FA0(infallible_turing* pTuring)
     {
         if (!pMaxwellIter->field_0)
         {
-            break;
+            if (pTuring->field_0 == 5)
+            {
+                if (!this->field_1478)
+                {
+                    this->field_1478 = idx;
+                    //          goto LABEL_10;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+
+            //LABEL_10:
+            sub_41A6C0(idx);
+
+            field_147C[idx].field_4_pObj = pTuring;
+            field_147C[idx].field_0 = 1;
+            field_147C[idx].field_1 = 1;
+            this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
+
+            switch (pTuring->field_0)
+            {
+            case 1:
+            {
+                v7 = field_147C[idx].field_4_pObj->field_C;
+                if (v7)
+                {
+                    if (v7[3].field_0 == 2)
+                    {
+                        pNewObj = new sound_unknown_0xC(); // (sound_unknown_0xC *)operator new(0xCu);
+                        field_147C[idx].field_8_pAlloc = pNewObj;
+                        pNewObj->field_0 = dword_674CD8;
+                        pNewObj->field_8 = 0;
+                        pNewObj->field_A = 0;
+                    }
+                }
+                break;
+            }
+
+            case 2:
+            {
+                sub_57EA10();
+                break;
+            }
+            }
+
+            return idx;
         }
         idx++;
+       
         ++pMaxwellIter;
     }
-    /*
-    if (idx >= 1020)
-    {
-        return 0;
-    }*/
 
-    if (pTuring->field_0 == 5)
-    {
-        if (!this->field_1478)
-        {
-            this->field_1478 = idx;
-            goto LABEL_10;
-        }
-        return 0;
-    }
+    return 0;
 
-LABEL_10:
-    sub_41A6C0(idx);
     
-    field_147C[idx].field_4_pObj = pTuring;
-    field_147C[idx].field_0 = 1;
-    field_147C[idx].field_1 = 1;
-    this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
-
-    switch (pTuring->field_0)
-    {
-    case 1:
-    {
-        v7 = field_147C[idx].field_4_pObj->field_C;
-        if (v7)
-        {
-            if (v7[3].field_0 == 2)
-            {
-                pNewObj = new sound_unknown_0xC(); // (sound_unknown_0xC *)operator new(0xCu);
-                field_147C[idx].field_8_pAlloc = pNewObj;
-                pNewObj->field_0 = dword_674CD8;
-                pNewObj->field_8 = 0;
-                pNewObj->field_A = 0;
-            }
-        }
-        break;
-    }
-
-    case 2:
-    {
-        sub_57EA10();
-        break;
-    }
-    }
-
-    return idx;
 }
 
 void sound_obj::sub_41A090(int a2)
