@@ -3,11 +3,7 @@
 
 wizardly_margulis gWizardly_margulis_6FFF00;
 
-S32 AILCALL AIL_digital_handle_reacquire(HDIGDRIVER drvr)
-{
-    // stub
-    return 0;
-}
+#pragma comment(lib, "C:\\Program Files (x86)\\freeloader.com\\GTA2\\mss32.lib")
 
 // 0x58D400
 wizardly_margulis::wizardly_margulis()
@@ -53,21 +49,21 @@ wizardly_margulis::wizardly_margulis()
 
     field_4_gtaAudioDriveLetter = 0;
 
-    char FileName[80];
     field_5_str[80] = 0;
 
     unsigned int driveLetter = 'C';
-
-    char driveStr[2];
-    driveStr[1] = 0;
-
     while (driveLetter <= 'Z')
     {
+        char driveStr[2];
         driveStr[0] = driveLetter;
+        driveStr[1] = 0;
         strcpy(field_5_str, driveStr);
         strcat(field_5_str, ":\\GTAUDIO\\");
+
+        char FileName[80];
         strcpy(FileName, field_5_str);
         strcat(FileName, "1.wav");
+
         FILE* hFile = fopen(FileName, "rb");
         if (hFile)
         {
@@ -105,6 +101,47 @@ char wizardly_margulis::sub_58D620()
     RegCloseKey(phkResult);
     return v1;
     */
+}
+
+// match
+char wizardly_margulis::SoundInit_58D6C0(int *a2)
+{
+    HDIGDRIVER  field_0_hDriver; // esi
+
+    AIL_startup();
+
+    if (!sub_58D720(1, this->field_2714_bUnknown, 22050))
+    {
+        AIL_shutdown();
+        return 0;
+    }
+
+    Enum3DProviders_58E1F0();
+    this->field_1EB0_count_samples = 16;
+    AllocSamples_58D9F0(1);
+    field_0_hDriver = this->field_0_hDriver;
+    if (field_0_hDriver)
+    {
+        AIL_set_digital_master_volume(field_0_hDriver, 127);
+    }
+    return 1;
+}
+
+char wizardly_margulis::sub_58D720(char a2, char a3, int sampleRate)
+{
+    // todo
+    return 0;
+}
+
+void wizardly_margulis::Enum3DProviders_58E1F0()
+{
+    // todo
+}
+
+char wizardly_margulis::AllocSamples_58D9F0(int a2)
+{
+    // todo
+    return 0;
 }
 
 // match

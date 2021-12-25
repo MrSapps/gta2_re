@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "3rdParty/mss.h"
 
 struct serene_proskuriakova_0x18
@@ -19,6 +18,15 @@ public:
     wizardly_margulis();
 
     char sub_58D620();
+
+    char SoundInit_58D6C0(int *a2);
+
+    char sub_58D720(char a2, char a3, int sampleRate);
+
+    // todo: order
+    void Enum3DProviders_58E1F0();
+
+    char AllocSamples_58D9F0(int a2);
 
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;

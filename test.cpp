@@ -10,6 +10,7 @@
 #include "Source/gbh_graphics.hpp"
 #include "Source/distracted_einstein_0xC.hpp"
 #include "Source/sharp_bose_0x54.hpp"
+#include "Source/wizardly_margulis.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -128,6 +129,11 @@ void test_sharp_bose_0x54()
     t.sub_5BECF0(0, 0);
 }
 
+void test_wizardly_margulis()
+{
+    gWizardly_margulis_6FFF00.SoundInit_58D6C0(0);
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
@@ -144,6 +150,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
         test_gtx_0x106C();
         test_lucid_hamilton();
         test_winmain();
+        test_wizardly_margulis();
     }
 
     WinMain_5E53F0(hInstance, hPrevInstance, lpCmdLine, nCmdShow);

@@ -73,7 +73,7 @@ add_executable (decomp_main WIN32 Source
 
 # NOICF is required because skip_ovly_5AAE20 and skip_psxt_5AAE30 have identical bodies and the linker will make them one and the same
 # however the real binary does have 2 copies. NOREF keeps functions that are not yet called so we can diff the content against the original.
-set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map /OPT:NOICF,NOREF" )
+set (CMAKE_EXE_LINKER_FLAGS "/MAP:output.map /OPT:NOICF,NOREF /SAFESEH:NO" )
 set (CMAKE_SHARED_LINKER_FLAGS "/OPT:NOICF,NOREF")
 
 set(CompilerFlags
@@ -95,7 +95,6 @@ endforeach()
 foreach(CompilerFlag ${CompilerFlags})
   string(REPLACE "/GR" "/EHsc" ${CompilerFlag} "${${CompilerFlag}}")
 endforeach()
-
 
 target_link_libraries (decomp_main Source)
 
