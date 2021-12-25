@@ -6,6 +6,85 @@ sound_obj gSound_obj_66F680;
 
 int dword_674CD8;
 
+// 0x419DF0 match
+serene_brattain::serene_brattain()
+{
+
+}
+
+// 0x419CD0
+sound_obj::sound_obj()
+{
+    int v2; // ebx
+    serene_brattain *p_field_8_obj; // edi
+    serene_brattain *v4; // edi
+    int v5; // ebx
+    vigilant_maxwell *v7; // eax
+    int v8; // edx
+    /*
+    v2 = 32;
+    p_field_8_obj = (serene_brattain *)&this->field_9C_asSamples[0][0].field_8_obj;
+    do
+    {
+        serene_brattain::sub_419DF0(p_field_8_obj++);
+        --v2;
+    } while (v2);
+
+    v4 = (serene_brattain *)&this->field_DC0[0].field_8_obj;
+    v5 = 16;
+    do
+    {
+        serene_brattain::sub_419DF0(v4++);
+        --v5;
+    } while (v5);
+    */
+
+    this->field_1474 = 0;
+    this->field_0 = 0;
+    this->field_4 = 81920;
+    this->field_8 = 30;
+    this->field_C = 491520;
+    this->field_2 = 1;
+    this->field_24_sfx_vol = 127;
+    this->field_25_cdVol = 127;
+    this->field_28 = dword_674CD8;
+    this->field_2C = 0;
+    this->field_98_nActiveSampleQueue = 1;
+    ClearRequestedQueue_41B700();
+    this->field_98_nActiveSampleQueue = 0;
+    ClearRequestedQueue_41B700();
+    ClearActivateSamples_41B7A0();
+    this->field_1450 = 0;
+    this->field_1468_v1 = 0;
+    this->field_146C_v2 = 0;
+    this->field_1470_v3 = 0;
+    GenerateIntegerRandomNumberTable_41BA90();
+    this->field_1478 = 0;
+    this->field_1B = 0;
+    this->field_1C_samp_count = 0;
+    this->field_10_nActiveSamples = 0;
+    this->field_5444 = 0;
+    this->field_5440 = 0;
+    this->field_1D_b3d_sound = 0;
+    this->field_14_sample_rate = 22050;
+    this->field_18 = 1;
+    this->field_19 = 1;
+    this->field_1 = 0;
+    this->field_1A = 1;
+
+    for (int i = 0; i < 1020; i++)
+    {
+        field_147C[i].field_0 = 0;
+        field_444C_pEntities[i] = 0;
+    }
+
+    this->field_543C_444C_max_idx = 0;
+    this->field_5448_m_FrameCounter = 0;
+    this->field_544C[0].field_0 = 0; // todo: type check
+    this->field_544C[0].field_18 = 0; // todo: type check
+    this->field_3 = 1;
+}
+
 // match
 void sound_obj::ClearRequestedQueue_41B700()
 {
@@ -25,9 +104,9 @@ void sound_obj::ClearActivateSamples_41B7A0()
         field_DC0[i].field_0 = 0;
         field_DC0[i].field_4 = 0;
         field_DC0[i].field_14_samp_idx = 321;
-        field_DC0[i].field_8_obj = dword_674CD8; // vec3 type ?
-        field_DC0[i].field_C = dword_674CD8;
-        field_DC0[i].field_10 = dword_674CD8;
+        field_DC0[i].field_8_obj.field_0 = dword_674CD8; // vec3 type ?
+        field_DC0[i].field_8_obj.field_4 = dword_674CD8;
+        field_DC0[i].field_8_obj.field_8 = dword_674CD8;
         field_DC0[i].field_18 = 0;
         field_DC0[i].field_1C_ReleasingVolumeModificator = 4;
         field_DC0[i].field_20_rate = 22050;

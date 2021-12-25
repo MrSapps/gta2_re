@@ -3,37 +3,12 @@
 #include <windows.h>
 #include "root_sound.hpp" // for infallible_turing
 
-struct serene_brattain // same as sound_68 ?
+struct serene_brattain 
 {
+    serene_brattain();
     int field_0;
     int field_4;
     int field_8;
-    int field_C;
-    int field_10;
-    int field_14;
-    int field_18;
-    int field_1C;
-    int field_20;
-    char field_24;
-    char field_25;
-    char field_26;
-    char field_27;
-    int field_28;
-    int field_2C;
-    int field_30;
-    int field_34;
-    int field_38;
-    int field_3C;
-    int field_40;
-    int field_44;
-    int field_48;
-    int field_4C;
-    int field_50;
-    int field_54;
-    int field_58;
-    int field_5C;
-    int field_60;
-    int field_64;
 };
 
 struct vigilant_maxwell
@@ -64,9 +39,7 @@ struct sound_0x68
     char field_5;
     char field_6;
     char field_7;
-    int field_8_obj;
-    int field_C;
-    int field_10;
+    serene_brattain field_8_obj;
     int field_14_samp_idx;
     char field_18;
     char field_19;
@@ -230,6 +203,8 @@ public:
     __int16 field_5570;
     __int16 field_5572;
     int field_5574;
+
+    sound_obj();
 
     void ClearRequestedQueue_41B700();
 
