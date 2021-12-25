@@ -784,7 +784,7 @@ void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
                 {
                     v48 = gText_0x14_704DFC->Find_5B5F90("mult_q");
                     v28 = gLucid_hamilton_67E8E0.sub_4C5C60(v25);
-                    swprintf(Buffer, L"%s (%s)", v28, v48);
+                    swprintf(Buffer, L"%s (%s)", v28->field_0_str, v48);
                     wcscpy(Destination, Buffer);
                 }
                 else
@@ -1194,6 +1194,12 @@ void laughing_blackwell_0x1EB54::sub_4AD140()
         tmp.mValue = 0x4000;
 
         /*v6 =*/ DrawText_4B87A0(tmpBuff_67BD9C, fp_300, fp_460, word_703C14, tmp);
+        
+        tmp.mValue = 0x4000;
+
+        Fix16 fp_0;
+        fp_0.FromInt_4369F0(0);
+        DrawText_4B87A0(L"1111", fp_0, fp_0, word_703C14, tmp);
     }
 
     if (this->field_132_f136_idx == 1)
@@ -4546,7 +4552,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
   //  pTmpIter = (WORD *)*pUnknown;
     mode = a7;
 
-    kind = (int)*pUnknown;
+    kind = *pUnknown;
     if (v11.mValue == dword_706A6C.mValue)
     {
         drawFlags = new_Flags | 0x10000;
@@ -4566,9 +4572,10 @@ const wchar_t *__stdcall DrawText_5D8A10(
         v15 = spaceWidth;
     }
 
-    if (*pText)
+    //if (*pText)
+    for (text_char = *pTextIter; *pTextIter; pTextIter++)
     {
-        do
+        //do
         {
             // HIWORD(v16) =
             //HIWORD(v16) = HIWORD(pTextIter);
@@ -4629,30 +4636,31 @@ const wchar_t *__stdcall DrawText_5D8A10(
                     else
                     {
                         sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8E0;
-                        //pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0(v16);
+                        pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D27D0((unsigned int *)pTextIter);
                     }
                 }
                 else
                 {
                     sprite_index_5AA440 = gMagical_germain_0x8EC_6F5168->field_8D4;
-                    //pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710(v16);
+                    pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710((unsigned int *)pTextIter);
                 }
                 pTexture = pTextureToUse;
-                
+
                 //v25 = v11.mValue;
                 //v26 = v11.mValue >> 31;
 
-                int sprite_xoff = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
+                Fix16 sprite_xoff;
+                sprite_xoff.mValue = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
                 v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
                 gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
-                v28 = (int)sprite_xoff + cur_xpos.mValue;
+                v28 = sprite_xoff.mValue + cur_xpos.mValue;
                 gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
 
                 gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)cur_xpos.mValue * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
-                v_1_2_x = (double)((int)sprite_xoff + cur_xpos.mValue) * 0.000061035156;
+                v_1_2_x = (double)(sprite_xoff.mValue + cur_xpos.mValue) * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
                 gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
                 gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
@@ -4678,13 +4686,14 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 v11 = v2_v;
                 fp4 = v28;
                 //v13 = v29;
-                
+
             }
-            pTmpIter = pTextIter + 1;
-            pTextIter = pTmpIter;
-        } while (*pTmpIter);
+            //pTmpIter = pTextIter + 1;
+            //pTextIter = pTmpIter;
+        //} while (*pTmpIter);
+        }
     }
-    return (const wchar_t*)pTmpIter;
+    return (const wchar_t*)pTextIter;
 }
 
 // match

@@ -591,6 +591,11 @@ struct magical_germain_0x8EC
     int sub_4D29D0(unsigned __int16 a2);
 
     int sub_4D28A0(unsigned __int16 a2);
+
+
+    STexture * sub_4D27D0(unsigned int *a2);
+
+    STexture * sub_4D2710(unsigned int *a2);
 };
 
 extern magical_germain_0x8EC *gMagical_germain_0x8EC_6F5168;

@@ -53,3 +53,15 @@ int magical_germain_0x8EC::sub_4D28A0(unsigned __int16 a2)
 {
     return 0;
 }
+
+// stub
+STexture * magical_germain_0x8EC::sub_4D27D0(unsigned int *a2)
+{
+    return 0;
+}
+
+// stub
+STexture * magical_germain_0x8EC::sub_4D2710(unsigned int *a2)
+{
+    return 0;
+}
