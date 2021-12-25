@@ -68,17 +68,19 @@ void __stdcall GBH_Graphis_DMA_Video_Free_5D9830()
 
 }
 
-int __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
+// match
+void __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
 {
-    return MessageBoxA(gHwnd_707F04, lpText, "Error!", 0);
+    MessageBoxA(gHwnd_707F04, lpText, "Error!", 0);
 }
 
+// match
 void __stdcall Error_SetName_4A0770(const char *pFileName)
 {
     strcpy(gGlobalFileName_67C6AC, pFileName);
 }
 
-// MATCH
+// match
 const char* __stdcall SourceFileNameFromPath_4A07A0(const char *pPath)
 {
     // ecx was swapped with edx without using the local pIter

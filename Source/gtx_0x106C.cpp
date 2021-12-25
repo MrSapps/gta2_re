@@ -26,9 +26,9 @@ void gtx_0x106C::LoadSty_5AB750(const char *pStyFileName)
     //char Buffer[4]; // [esp+Ch] [ebp-8h] BYREF
     //int chunk_size; // [esp+10h] [ebp-4h]
 
-    File::File_Global_Open_4A7060(pStyFileName);
+    File::Global_Open_4A7060(pStyFileName);
     DWORD len = 6;
-    File::File_Global_Read_4A71C0(header.field_0_type, &len);
+    File::Global_Read_4A71C0(header.field_0_type, &len);
 
     if (strncmp("GBST", header.field_0_type, 4u))
     {
@@ -48,7 +48,7 @@ void gtx_0x106C::LoadSty_5AB750(const char *pStyFileName)
         }
 
     }
-    File::File_Global_Close_4A70C0();
+    File::Global_Close_4A70C0();
 
     sub_5AB720();
 }
