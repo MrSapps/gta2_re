@@ -21,7 +21,7 @@
 
 #pragma comment(lib, "dxguid.lib")
 
-const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4);
+void __stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4);
 
 void Start_GTA2Manager_5E4DE0();
 
@@ -4499,7 +4499,7 @@ int __stdcall CalcQuadFlags_5D83E0(int mode, unsigned __int8 a2)
 Fix16 dword_706A6C;
 
 // stub
-const wchar_t *__stdcall DrawText_5D8A10(
+void __stdcall DrawText_5D8A10(
     const wchar_t *pText,
     Fix16 xpos_fp,
     Fix16 ypos_fp,
@@ -4623,16 +4623,21 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 pSprIdx = gMagical_germain_0x8EC_6F5168->field_8D4_sprite_index;
                 pTextureToUse = gMagical_germain_0x8EC_6F5168->sub_4D2710(text_char);
             }
+
+            __asm {nop};
+            __asm {nop};
+            __asm {nop};
+
             STexture* pTexture = pTextureToUse;
 
             //v25 = v11.mValue;
             //v26 = v11.mValue >> 31;
 
             Fix16 sprite_xoff;
-            sprite_xoff.mValue = (pSprIdx->field_4_width << 14) *  (v11.mValue >> 14);
+            sprite_xoff.mValue = (__int64)(pSprIdx->field_4_width << 14) *  (__int64)(v11.mValue >> 14);
             
             Fix16 sprite_yoff;
-            sprite_yoff.mValue = (pSprIdx->field_5_height << 14) * (v11.mValue >> 14);
+            sprite_yoff.mValue = (__int64)(pSprIdx->field_5_height << 14) * (__int64)(v11.mValue >> 14);
 
             gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
             gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
@@ -4642,22 +4647,27 @@ const wchar_t *__stdcall DrawText_5D8A10(
 
             gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)cur_xpos.mValue * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
+
             float v_1_2_x = (double)(sprite_xoff.mValue + cur_xpos.mValue) * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
             gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
             gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
+
             float v2_3_y = (double)(ypos_fp.mValue + sprite_yoff.mValue) * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[2].field_4_y = v2_3_y;
             gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
             gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
-            float v1_u = (((double)pSprIdx->field_4_width - 0.000099999997) * 16384.0);
-            float v2_v = (((double)pSprIdx->field_5_height - 0.000099999997) * 16384.0);
+         
             gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
             gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
             gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
             gQuadVerts_706B88.field_0_verts[3].field_18_u = 0.0;
+
+            float v1_u = (((double)pSprIdx->field_4_width - 0.000099999997) * 16384.0);
             gQuadVerts_706B88.field_0_verts[1].field_18_u = (double)v1_u * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[2].field_18_u = gQuadVerts_706B88.field_0_verts[1].field_18_u;
+
+            float v2_v = (((double)pSprIdx->field_5_height - 0.000099999997) * 16384.0);
             gQuadVerts_706B88.field_0_verts[2].field_1C_v = (double)v2_v * 0.000061035156;
             gQuadVerts_706B88.field_0_verts[3].field_1C_v = gQuadVerts_706B88.field_0_verts[2].field_1C_v;
 
@@ -4671,14 +4681,14 @@ const wchar_t *__stdcall DrawText_5D8A10(
 
         }
     }
-    return (const wchar_t*)pTextIter;
+   // return (const wchar_t*)pTextIter;
 }
 
 // match
-const wchar_t *__stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4)
+void __stdcall DrawText_4B87A0(const wchar_t *pBuffer, Fix16 xpos_fp, Fix16 ypos_fp, __int16 spaceWidth, Fix16 fp4)
 {
     int local; // [esp+0h] [ebp-4h] BYREF
 
     local = 2;
-    return DrawText_5D8A10(pBuffer, xpos_fp, ypos_fp, spaceWidth, fp4, &local, 0, 0, 0);
+    DrawText_5D8A10(pBuffer, xpos_fp, ypos_fp, spaceWidth, fp4, &local, 0, 0, 0);
 }
