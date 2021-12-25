@@ -44,7 +44,7 @@ include_directories(${decomp_SOURCE_DIR})
 add_executable (decomp_main WIN32 Source
     test.cpp
     StdAfx.cpp
-    test.rc)
+    resources.rc)
 
 #set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS")
 

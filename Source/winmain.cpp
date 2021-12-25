@@ -513,7 +513,23 @@ char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance)
     return 1;
 }
 
+#pragma comment(lib ,"Version.lib")
+
+// match
 void __stdcall GetGTA2Version_5E5D60(int *pVerMinor, int *pVerMajor)
 {
-    // todo
+    DWORD dwHandle;
+    DWORD dwSize = GetFileVersionInfoSizeA("GTA2.EXE", &dwHandle);
+    BYTE* pAlloc = new BYTE[dwSize];
+
+    VS_FIXEDFILEINFO* pFileInfo;
+    unsigned int puLen;
+    if (pAlloc
+        && GetFileVersionInfoA("GTA2.EXE", 0, dwSize, pAlloc)
+        && VerQueryValueA(pAlloc, "\\", reinterpret_cast<LPVOID*>(&pFileInfo), &puLen))
+    {
+        *pVerMinor = (pFileInfo->dwProductVersionMS >> 16);
+        *pVerMajor = pFileInfo->dwProductVersionMS & 0xFFFF;
+    }
+    delete[] pAlloc;
 }
