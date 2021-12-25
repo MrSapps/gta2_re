@@ -679,30 +679,30 @@ void wizardly_margulis::sub_58E010(int a2)
     }
 }
 
-char wizardly_margulis::sub_58E140(int a2)
+char wizardly_margulis::sub_58E140(int envIdx)
 {
-    int v2; // edi
-    bool v4; // zf
+    int ogEnvIdx; // edi
+    bool ogEnvIdxM1; // zf
     int pProvider; // [esp-Ch] [ebp-14h]
 
-    v2 = a2;
-    v4 = a2 == -1;
-    this->field_26B4_env_idx = a2;
-    if (!v4)
+    ogEnvIdx = envIdx;
+    ogEnvIdxM1 = envIdx == -1;
+    field_26B4_env_idx = envIdx;
+    if (!ogEnvIdxM1)
     {
-        a2 = AIL_open_3D_provider(this->field_1EB4_h3dProvider[v2]);
-        if (a2)
+        envIdx = AIL_open_3D_provider(field_1EB4_h3dProvider[ogEnvIdx]);
+        if (envIdx)
         {
-            this->field_26B4_env_idx = -1;
+            field_26B4_env_idx = -1;
             return 0;
         }
 
-        pProvider = this->field_1EB4_h3dProvider[v2];
-        this->field_26C0_3d_provider = pProvider;
-        AIL_3D_provider_attribute(pProvider, "EAX environment selection", &a2);
-        if (a2 != -1)
+        pProvider = field_1EB4_h3dProvider[ogEnvIdx];
+        field_26C0_3d_provider = pProvider;
+        AIL_3D_provider_attribute(pProvider, "EAX environment selection", &envIdx);
+        if (envIdx != -1)
         {
-            this->field_26B8_bHave_env = 1;
+            field_26B8_bHave_env = 1;
             sub_58E010(17);
         }
         return 1;
