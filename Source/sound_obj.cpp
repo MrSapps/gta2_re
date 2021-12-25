@@ -330,3 +330,14 @@ char sound_obj::sub_419020(int a2)
     }
     return 0;
 }
+
+// match
+char sound_obj::sub_4186D0(sound_0x68 *pObj)
+{
+    pObj->field_3C = 600;
+    pObj->field_30 = 1;
+    pObj->field_34 = 0;
+    pObj->field_38 = -1;
+    pObj->field_20_rate = RandomDisplacement_41A650(pObj->field_14_samp_idx) + gSampManager_6FFF00.GetPlayBackRateIdx_58DBF0(pObj->field_14_samp_idx);
+    return 1;
+}
