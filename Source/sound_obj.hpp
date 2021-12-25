@@ -259,6 +259,16 @@ struct sound_obj
     void AddSampleToRequestedQueue_41A850();
 
     int RandomDisplacement_41A650(unsigned int seed);
+
+    void ServiceSoundEffects_41A3A0();
+
+    void InterrogateAudioEntities_41A730();
+
+    void AddReleasingSounds_41A9D0();
+
+    void ProcessActiveQueues_41AB80();
+
+    void sub_41A6F0();
 };
 
 extern sound_obj gSound_obj_66F680;

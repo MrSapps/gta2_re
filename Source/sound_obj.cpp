@@ -255,3 +255,38 @@ int sound_obj::RandomDisplacement_41A650(unsigned int seed)
 
     return value;
 }
+
+// match
+void sound_obj::ServiceSoundEffects_41A3A0()
+{
+    if (field_2)
+    {
+        field_98_nActiveSampleQueue = field_98_nActiveSampleQueue != 1;
+        ClearRequestedQueue_41B700();
+        InterrogateAudioEntities_41A730();
+        AddReleasingSounds_41A9D0();
+        sub_41B540();
+        ProcessActiveQueues_41AB80();
+        sub_41A6F0();
+    }
+}
+
+void sound_obj::InterrogateAudioEntities_41A730()
+{
+    // todo
+}
+
+void sound_obj::AddReleasingSounds_41A9D0()
+{
+    // todo
+}
+
+void sound_obj::ProcessActiveQueues_41AB80()
+{
+    // todo
+}
+
+void sound_obj::sub_41A6F0()
+{
+    // todo
+}
