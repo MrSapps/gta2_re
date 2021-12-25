@@ -889,19 +889,18 @@ void sound_obj::Service_419EF0()
 // match
 void sound_obj::ProcessEntity_4123A0(int id)
 {
-    infallible_turing **pAny = &field_147C[id].field_4_pObj;
-    if (!(*pAny)->field_4)
+    if (!field_147C[id].field_4_pObj->field_4)
     {
         if (gGame_0x40_67E008 && field_1478_type5Idx)
         {
-            if ((*pAny)->field_0_object_type == 3)
+            if (field_147C[id].field_4_pObj->field_0_object_type == 3)
             {
                 sub_57DD50();
             }
 
-            if (!this->field_1)
+            if (!field_1)
             {
-                switch ((*pAny)->field_0_object_type)
+                switch (field_147C[id].field_4_pObj->field_0_object_type)
                 {
                 case 1:
                     sub_412740(id);
@@ -930,7 +929,7 @@ void sound_obj::ProcessEntity_4123A0(int id)
             }
         }
 
-        if ((*pAny)->field_0_object_type == 2)
+        if (field_147C[id].field_4_pObj->field_0_object_type == 2)
         {
             sub_412490(id);
         }
