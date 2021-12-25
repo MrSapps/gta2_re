@@ -246,6 +246,9 @@ struct sound_obj
 
     char Set3DSound_41A2F0(char b3dSound);
 
+    char Get3dSound_41A390();
+
+
     void Init_15_Array_427180();
 
     void GenerateIntegerRandomNumberTable_41BA90();

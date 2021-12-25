@@ -11,10 +11,10 @@ char root_sound::Set3DSound_40F160(char b3dSound)
     return gSound_obj_66F680.Set3DSound_41A2F0(b3dSound);
 }
 
+// match
 char root_sound::Get3DSound_40F180()
 {
-    // todo
-    return 0;
+    return gSound_obj_66F680.Get3dSound_41A390();
 }
 
 void root_sound::sub_40EF80()

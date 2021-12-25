@@ -122,6 +122,19 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
 }
 
 // match
+char sound_obj::Get3dSound_41A390()
+{
+    if (field_0)
+    {
+        return field_1D_b3d_sound;
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+// match
 void sound_obj::Init_15_Array_427180()
 {
     for (int i = 0; i < 15; i++)
