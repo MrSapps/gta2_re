@@ -27,7 +27,7 @@ struct dreamy_clarke_0xA4
 struct small_string
 {
     wchar_t field_0_str[10];
-    int field_14_score;
+    unsigned int field_14_score;
 };
 
 // todo: move

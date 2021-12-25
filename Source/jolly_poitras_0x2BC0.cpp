@@ -146,14 +146,12 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
     unsigned __int16 startIdx = 10;
     for (__int16 i = 9; i != -1; --i)
     {
-        //newScore = findScore;
-        const unsigned int curScore = field_0[i].field_14_score;
-        if (findScore > curScore)
+        if (findScore > field_0[i].field_14_score)
         {
             startIdx = i;
         }
 
-        if (findScore == curScore &&
+        if (findScore == field_0[i].field_14_score &&
             wcscmp(pFindStr, field_0[i].field_0_str) == 0)
         {
             return 0;
@@ -166,7 +164,7 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
         if (startIdx < 9u)
         {
             // ??????
-            small_string* pIter = &field_0[9 - 1];// .field_14_score;
+            small_string* pIter = &field_0[8];// .field_14_score;
           //  int* pIter = &field_0[9 - 1].field_14_score;
 
             int remainderCount = 9 - startIdx;
