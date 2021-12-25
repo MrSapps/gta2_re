@@ -87,6 +87,7 @@ bool gDo_show_counter_67D6E6;
 bool bShow_all_arrows_67D6E7;
 bool bDo_kill_phones_on_answer_67D6E8;
 
+// match
 void Debug::Init_4ABBD0()
 {
     bPlay_replay_67D4F4 = gRegistry_6FF968.Get_Debug_Setting_586E20("play_replay");
@@ -172,65 +173,56 @@ void Debug::Init_4ABBD0()
 
 bool Debug::HaveOnlyFrenchGtx_4AC200()
 {
-    char bEGtxExists; // bl
-    FILE *v2; // eax
-    FILE *v3; // eax
-    FILE *v4; // eax
-    FILE *v5; // eax
-    FILE *v6; // eax
-    FILE *v7; // eax
-    char bSGtxExists; // al
-    char bFgxtExists; // [esp+7h] [ebp-5h]
-    char bGGtxExists; // [esp+8h] [ebp-4h]
-    char bIGtxExists; // [esp+9h] [ebp-3h]
-    char bJGtxExists; // [esp+Ah] [ebp-2h]
+    char bEGtxExists = 0;
+    char bFgxtExists = 0;
+    char bGGtxExists = 0;
+    char bIGtxExists = 0;
+    char bJGtxExists = 0;
+    char bSGtxExists = 0;
 
-    bEGtxExists = 0;
-    bFgxtExists = 0;
-    bGGtxExists = 0;
-    bIGtxExists = 0;
-    bJGtxExists = 0;
-    v2 = fopen("data\\e.gxt", "rb");
+    FILE* v2 = fopen("data\\e.gxt", "rb");
     if (v2)
     {
         fclose(v2);
         bEGtxExists = 1;
     }
-    v3 = fopen("data\\f.gxt", "rb");
+
+    FILE* v3 = fopen("data\\f.gxt", "rb");
     if (v3)
     {
         fclose(v3);
         bFgxtExists = 1;
     }
-    v4 = fopen("data\\g.gxt", "rb");
+
+    FILE* v4 = fopen("data\\g.gxt", "rb");
     if (v4)
     {
         fclose(v4);
         bGGtxExists = 1;
     }
-    v5 = fopen("data\\i.gxt", "rb");
+
+    FILE*v5 = fopen("data\\i.gxt", "rb");
     if (v5)
     {
         fclose(v5);
         bIGtxExists = 1;
     }
-    v6 = fopen("data\\j.gxt", "rb");
+
+    FILE* v6 = fopen("data\\j.gxt", "rb");
     if (v6)
     {
         fclose(v6);
         bJGtxExists = 1;
     }
-    v7 = fopen("data\\s.gxt", "rb");
+
+    FILE* v7 = fopen("data\\s.gxt", "rb");
     if (v7)
     {
         fclose(v7);
         bSGtxExists = 1;
     }
-    else
-    {
-        bSGtxExists = 0;
-    }
-    return !bEGtxExists && bFgxtExists == 1 && !bGGtxExists && !bIGtxExists && !bJGtxExists && !bSGtxExists;
+
+    return (!bEGtxExists && bFgxtExists && !bGGtxExists && !bIGtxExists && !bJGtxExists && !bSGtxExists);
 }
 
 Debug gDebug_67D52C;
