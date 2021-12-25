@@ -71,7 +71,6 @@ void __stdcall DMA_Video_Unload_5EB8C0(SVideo *pVidSys)
 
 int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
 {
-    HMODULE hDll;
     CHAR Text[120];
     CHAR Buffer[128];
 
@@ -98,16 +97,14 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
     gVidFuncs_708600.pVid_WindowProc = Vid_WindowProc;
     gVidFuncs_708600.pVid_InitDLL = Vid_InitDLL;
 
-    hDll = LoadLibraryA(lpLibFileName);
-    hDmaVideoDll_7085E8 = hDll;
-    if (hDll)
+    hDmaVideoDll_7085E8 = LoadLibraryA(lpLibFileName);
+    if (hDmaVideoDll_7085E8)
     {
-        Vid_GetVersion = (T_Vid_GetVersion)GetProcAddress(hDll, "Vid_GetVersion");
+        Vid_GetVersion = (T_Vid_GetVersion)GetProcAddress(hDmaVideoDll_7085E8, "Vid_GetVersion");
         if (!Vid_GetVersion)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_GetVersion");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-        exit_fn:
             FreeLibrary(hDmaVideoDll_7085E8);
             return -1;
         }
@@ -117,7 +114,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_Init_SYS");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_CheckMode = (T_Vid_CheckMode)GetProcAddress(hDmaVideoDll_7085E8, "Vid_CheckMode");
@@ -125,7 +123,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_CheckMode");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FindMode = (T_Vid_FindMode)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FindMode");
@@ -133,7 +132,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FindMode");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FindFirstMode = (T_Vid_FindFirstMode)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FindFirstMode");
@@ -141,7 +141,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FindFirstMode");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FindNextMode = (T_Vid_FindNextMode)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FindNextMode");
@@ -149,7 +150,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FindNextMode");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_CloseScreen = (T_Vid_CloseScreen)GetProcAddress(hDmaVideoDll_7085E8, "Vid_CloseScreen");
@@ -157,7 +159,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_CloseScreen");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_SetMode = (T_Vid_SetMode)GetProcAddress(hDmaVideoDll_7085E8, "Vid_SetMode");
@@ -165,7 +168,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_SetMode");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FlipBuffers = (T_Vid_FlipBuffers)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FlipBuffers");
@@ -173,7 +177,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FlipBuffers");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_ReleaseSurface = (T_Vid_ReleaseSurface)GetProcAddress(hDmaVideoDll_7085E8, "Vid_ReleaseSurface");
@@ -181,7 +186,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_ReleaseSurface");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_GrabSurface = (T_Vid_GrabSurface)GetProcAddress(hDmaVideoDll_7085E8, "Vid_GrabSurface");
@@ -189,7 +195,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_GrabSurface");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_ShutDown_SYS = (T_Vid_ShutDown_SYS)GetProcAddress(hDmaVideoDll_7085E8, "Vid_ShutDown_SYS");
@@ -197,7 +204,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_ShutDown_SYS");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_EnableWrites = (T_Vid_EnableWrites)GetProcAddress(hDmaVideoDll_7085E8, "Vid_EnableWrites");
@@ -205,7 +213,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_EnableWrites");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_DisableWrites = (T_Vid_DisableWrites)GetProcAddress(hDmaVideoDll_7085E8, "Vid_DisableWrites");
@@ -213,7 +222,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_DisableWrites");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_GetSurface = (T_Vid_GetSurface)GetProcAddress(hDmaVideoDll_7085E8, "Vid_GetSurface");
@@ -221,7 +231,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_GetSurface");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FreeSurface = (T_Vid_FreeSurface)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FreeSurface");
@@ -229,7 +240,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FreeSurface");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_ClearScreen = (T_Vid_ClearScreen)GetProcAddress(hDmaVideoDll_7085E8, "Vid_ClearScreen");
@@ -237,7 +249,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_ClearScreen");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_InitDLL = (T_Vid_InitDLL)GetProcAddress(hDmaVideoDll_7085E8, "Vid_InitDLL");
@@ -245,7 +258,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_InitDLL");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_FindDevice = (T_Vid_FindDevice)GetProcAddress(hDmaVideoDll_7085E8, "Vid_FindDevice");
@@ -253,7 +267,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_FindDevice");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_SetDevice = (T_Vid_SetDevice)GetProcAddress(hDmaVideoDll_7085E8, "Vid_SetDevice");
@@ -261,7 +276,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_SetDevice");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_WindowProc = (T_Vid_WindowProc)GetProcAddress(hDmaVideoDll_7085E8, "Vid_WindowProc");
@@ -269,7 +285,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_WindowProc");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_SetGamma = (T_Vid_SetGamma)GetProcAddress(hDmaVideoDll_7085E8, "Vid_SetGamma");
@@ -277,7 +294,8 @@ int __stdcall DMA_Video_LoadDll_5EB970(const char* lpLibFileName)
         {
             sprintf(Text, "Can't Find Function Called %s", "Vid_SetGamma");
             MessageBoxA(0, Text, "Error Patching DLL Function", 0);
-            goto exit_fn;
+            FreeLibrary(hDmaVideoDll_7085E8);
+            return -1;
         }
 
         Vid_InitDLL(hDmaVideoDll_7085E8, &gVidFuncs_708600);
