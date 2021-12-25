@@ -5,6 +5,7 @@
 #include "root_sound.hpp"
 #include "jolly_poitras_0x2BC0.hpp"
 #include "lucid_hamilton.hpp"
+#include "text_0x14.hpp"
 #include <io.h>
 
 int __stdcall SetGamma_5D9910(int gamma)
@@ -15,7 +16,7 @@ int __stdcall SetGamma_5D9910(int gamma)
 
 laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
 
-void laughing_blackwell_0x1EB54::sub_4B3170()
+void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 {
     // todo
 
@@ -209,4 +210,42 @@ void laughing_blackwell_0x1EB54::sub_4B4280()
         field_C9A0,
         gJolly_poitras_0x2BC0_6FEAC0->field_26A0[field_136[1].field_4[0].field_6E_count].field_90_str,
         9u);
+}
+
+void laughing_blackwell_0x1EB54::sub_4B8530()
+{
+    // todo
+}
+
+void laughing_blackwell_0x1EB54::sub_4B8560()
+{
+    if (!wcscmp(field_C9B8, L"WFUSDFCF")) // french bonus mission unlocks?
+    {
+        if (intro_bik_exists_4B5FF0()
+            && gRegistry_6FF968.Get_Screen_Setting_5870D0("do_play_movie", 1) == 1)
+        {
+            sub_4B3170(8u);
+        }
+        else
+        {
+            sub_4B3170(0);
+        }
+    }
+    else
+    {
+        field_110_state = 5;
+        field_C9CA = 0;
+
+        sub_4B8530();
+
+        field_C9B3 = 1;
+        field_C9B4 = 28;
+        field_C9B6 = 5;
+
+        wcsncpy(field_136[14].field_518[0].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("fr_rnt1"), 0x32u);
+        wcsncpy(field_136[14].field_518[1].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("fr_rnt2"), 0x32u);
+        wcsncpy(field_136[14].field_518[2].field_6_wstr_buf, gText_0x14_704DFC->Find_5B5F90("fr_rnt3"), 0x32u);
+        
+        field_C9CB = 1;
+    }
 }

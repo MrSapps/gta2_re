@@ -73,3 +73,5 @@ public:
     // 0x5B6050
     ~text_0x14();
 };
+
+extern text_0x14* gText_0x14_704DFC;

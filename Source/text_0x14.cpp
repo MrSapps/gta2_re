@@ -4,6 +4,8 @@
 #include "error.hpp"
 #include "chunk.hpp"
 
+text_0x14* gText_0x14_704DFC;
+
 extern char gTmpBuffer_67C598[256];
 
 wchar_t tmpAscii2WideStr_70488C[640];

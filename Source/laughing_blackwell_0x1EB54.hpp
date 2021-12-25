@@ -128,7 +128,7 @@ struct laughing_blackwell_0x1EB54
     char field_C9B3;
     __int16 field_C9B4;
     __int16 field_C9B6;
-    WORD field_C9B8[8];
+    wchar_t field_C9B8[8];
     char field_C9C8;
     char field_C9C9;
     unsigned __int8 field_C9CA;
@@ -2490,7 +2490,7 @@ struct laughing_blackwell_0x1EB54
 
     // todo: ordering
 
-    void sub_4B3170();
+    void sub_4B3170(unsigned __int16 arg0);
 
     int sub_4AEDB0();
 
@@ -2527,6 +2527,10 @@ struct laughing_blackwell_0x1EB54
     void HandleCheatCode_4B3DD0(const wchar_t *String);
 
     void sub_4B4280();
+
+    void sub_4B8530();
+
+    void sub_4B8560();
 };
 
 int __stdcall SetGamma_5D9910(int gamma);
