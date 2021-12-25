@@ -200,41 +200,36 @@ void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
 
 void sound_obj::AddSampleToRequestedQueue_41A850()
 {
-    int field_98_nActiveSampleQueue; // esi
-    unsigned int v3; // edi
-    unsigned __int8 requested_count; // dl
-    unsigned __int8 new_requested_count; // dl
-    int v6; // esi
-    int v7; // ecx
-    unsigned __int8 old_requested_count; // [esp+8h] [ebp-4h]
+    unsigned int newVol = this->field_30_sQueueSample.field_1C * (127 - this->field_30_sQueueSample.field_24);
 
-    field_98_nActiveSampleQueue = this->field_98_nActiveSampleQueue;
-    v3 = this->field_30_sQueueSample.field_1C * (127 - this->field_30_sQueueSample.field_24);
-    requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
+    unsigned __int8 requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
+
+    unsigned __int8 new_requested_count;
     if (requested_count < this->field_10_nActiveSamples)
     {
-        old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
+        unsigned __int8 old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
         this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] = requested_count + 1;
         new_requested_count = old_requested_count;
     }
     else
     {
-        v6 = field_98_nActiveSampleQueue;
         new_requested_count = *((BYTE *)&this->field_9C_asSamples[1][15].field_64
-            + v6 * 16
-            + this->field_10_nActiveSamples
+            + field_98_nActiveSampleQueue * 16
+            + field_10_nActiveSamples
             + 3);
-        if (this->field_9C_asSamples[v6][new_requested_count].field_48_nCalculatedVolume <= v3)
+        if (this->field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count].field_48_nCalculatedVolume <= newVol)
+        {
             return;
+        }
     }
-    this->field_30_sQueueSample.field_48_nCalculatedVolume = v3;
-    v7 = 0x10 * this->field_98_nActiveSampleQueue;
+
+    this->field_30_sQueueSample.field_48_nCalculatedVolume = newVol;
     this->field_30_sQueueSample.field_2D = 0;
 
     memcpy(
-        (char *)this->field_9C_asSamples + 0x68 * new_requested_count + 0x68 * v7,
+        &this->field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count],
         &this->field_30_sQueueSample,
-        0x68u);
+        sizeof(sound_0x68));
 
     AddDetailsToRequestedOrderList_41A910(new_requested_count);
 }
