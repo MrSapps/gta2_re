@@ -22,6 +22,8 @@ add_library (Source
     Source/3rdParty/mss.h
     Source/types.hpp
     Source/winmain.cpp
+    Source/frosty_pasteur_0xC1EA8.hpp
+    Source/frosty_pasteur_0xC1EA8.cpp
     Source/map_0x370.hpp
     Source/map_0x370.cpp
     Source/nostalgic_ellis_0x28.hpp

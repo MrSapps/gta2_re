@@ -271,7 +271,7 @@ bool __stdcall File::Global_Read_4A7210(void *Buffer, unsigned int *pSize)
 }
 
 // match
-size_t __stdcall File::GetRemainderSize_4A7250(void *Buffer, DWORD *pMaxFileSize)
+size_t __stdcall File::GetRemainderSize_4A7250(void *Buffer, unsigned int *pMaxFileSize)
 {
     if (!gbGlobalFileOpen_67D160)
     {

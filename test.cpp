@@ -12,6 +12,7 @@
 #include "Source/sharp_bose_0x54.hpp"
 #include "Source/cSampleManager.hpp"
 #include "Source/map_0x370.hpp"
+#include "Source/frosty_pasteur_0xC1EA8.hpp"
 
 #pragma comment(lib, "Winmm.lib")
 
@@ -142,6 +143,12 @@ void test_Map_0x370()
     t.get_block_452980(0, 0, 0);
 }
 
+void test_frosty_pasteur_0xC1EA8()
+{
+    frosty_pasteur_0xC1EA8 t;
+    t.Load_512330("lol.scr");
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
@@ -160,6 +167,7 @@ int APIENTRY WinMain(HINSTANCE hInstance,
         test_winmain();
         test_wizardly_margulis();
         test_Map_0x370();
+        test_frosty_pasteur_0xC1EA8();
     }
 
     WinMain_5E53F0(hInstance, hPrevInstance, lpCmdLine, nCmdShow);

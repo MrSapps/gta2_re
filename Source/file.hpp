@@ -38,7 +38,7 @@ public:
 
     EXPORT static bool __stdcall Global_Read_4A7210(void *Buffer, unsigned int *pSize);
 
-    EXPORT static size_t __stdcall GetRemainderSize_4A7250(void *Buffer, DWORD *a2);
+    EXPORT static size_t __stdcall GetRemainderSize_4A7250(void *Buffer, unsigned int *pMaxFileSize);
 
     EXPORT static char __stdcall SkipWhitespace_4A7340(FILE *Stream);
 
