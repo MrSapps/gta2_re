@@ -106,12 +106,15 @@ int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
                      int       nCmdShow)
-{
+ {
+    /*
     test_registry();
     test_file();
     test_gtx_0x106C();
     test_lucid_hamilton();
     test_winmain();
+    */
+    WinMain_5E53F0(hInstance, hPrevInstance, lpCmdLine, nCmdShow);
 
     return 0;
 }

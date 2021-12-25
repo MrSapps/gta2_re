@@ -12,6 +12,7 @@
 #include "laughing_blackwell_0x1EB54.hpp"
 #include <direct.h>
 #include <stdio.h>
+#include "resource.h"
 
 HINSTANCE gHInstance_708220;
 HANDLE gMutex_707078;
@@ -214,7 +215,7 @@ void __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
 LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
     // todo
-    return 0;
+    return DefWindowProc(hWnd, Msg, wParam, lParam);
 }
 
 void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1)
@@ -256,7 +257,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     bDoFrontEnd_626B68 = bSkip_frontend_67D53B == 0;
 
     WNDCLASSA WndClass;
-    WndClass.style = 3;
+    WndClass.style = 3; // CS_VREDRAW | CS_HREDRAW
     WndClass.lpfnWndProc = WindowProc_5E4EE0;
     WndClass.cbClsExtra = 0;
     WndClass.cbWndExtra = 0;
@@ -267,6 +268,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     WndClass.lpszMenuName = "WinMain";
     WndClass.lpszClassName = "WinMain";
     RegisterClassA(&WndClass);
+
     Video_Render_Inits_5D90E0();
     
     _getcwd(gWorkingDir_707F64, 256);
@@ -341,6 +343,8 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
     }
 
+    int bQuit = 0;
+
 LABEL_23:
     while (1)
     {
@@ -349,21 +353,24 @@ LABEL_23:
         {
             break;
         }
+
         sub_4ACFA0();
         gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(state);
+
     LABEL_27:
         UpdateWinXY_5D8E70();
         sub_5D9690();
+
         while (1)
         {
-            int bQuit = 0;
             do
             {
                 while (1)
                 {
-                    MSG msg;
+                    // Message processing
                     do
                     {
+                        MSG msg;
                         while (PeekMessageA(&msg, 0, 0, 0, 1u))
                         {
                             // label here
@@ -371,15 +378,15 @@ LABEL_23:
                             {
                                 Input::DInputRelease_498710();
                                 return msg.wParam;
-                               
+
                             }
-                            else
-                            {
-                                TranslateMessage(&msg);
-                                DispatchMessageA(&msg);
-                            }
+                            TranslateMessage(&msg);
+                            DispatchMessageA(&msg);
+
                         }
                     } while ((BYTE)bQuit || byte_70827C == 2 || byte_706C5D);
+
+
                     if (!bDoFrontEnd_626B68)
                     {
                         break;
@@ -416,7 +423,7 @@ LABEL_23:
             }
 
             DestroyWindow(gHwnd_707F04);
-        }
+        } // loop end
 
         if (bNetworkGame_7081F0)
         {
@@ -503,7 +510,7 @@ LABEL_23:
 char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance)
 {
     // todo
-    return 0;
+    return 1;
 }
 
 void __stdcall GetGTA2Version_5E5D60(int *pVerMinor, int *pVerMajor)

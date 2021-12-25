@@ -18,7 +18,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
 const char* laughing_blackwell_0x1EB54::intro_bik_4B5E50()
 {
     // todo
-    return 0;
+    return "meh.dat";
 }
 
 // match
