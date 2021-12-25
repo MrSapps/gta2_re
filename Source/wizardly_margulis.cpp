@@ -222,12 +222,6 @@ BYTE wizardly_margulis::sub_58E2A0()
     return ret;
 }
 
-char wizardly_margulis::sub_58D9F0(int a2)
-{
-    // todo
-    return 0;
-}
-
 char wizardly_margulis::sub_58D820(BYTE *a2)
 {
     // todo

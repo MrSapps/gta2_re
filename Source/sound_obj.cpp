@@ -58,14 +58,14 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
                 }
                 else
                 {
-                    gWizardly_margulis_6FFF00.sub_58D9F0(1);
+                    gWizardly_margulis_6FFF00.AllocSamples_58D9F0(1);
                     field_1D_b3d_sound = 0;
                     field_10_samp_count2 = 16;
                     return 0;
                 }
             }
 
-            if (gWizardly_margulis_6FFF00.sub_58D9F0(1))
+            if (gWizardly_margulis_6FFF00.AllocSamples_58D9F0(1))
             {
                 field_1D_b3d_sound = 0;
                 field_10_samp_count2 = 16;

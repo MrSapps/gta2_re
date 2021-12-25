@@ -69,8 +69,6 @@ public:
 
     BYTE sub_58E2A0();
 
-    char sub_58D9F0(int a2);
-
     char sub_58D820(BYTE *a2);
 };
 
