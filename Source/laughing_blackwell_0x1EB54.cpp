@@ -264,3 +264,62 @@ void laughing_blackwell_0x1EB54::sub_4B8560()
         field_C9CB = 1;
     }
 }
+
+void laughing_blackwell_0x1EB54::sub_4B8020()
+{
+    dreamy_clarke_0xA4* pClarke = sub_4B43E0();
+    unsigned __int8 idx = gLucid_hamilton_67E8E0.sub_4C5980();
+
+    if (sub_4B7FB0())
+    {
+        sub_4B3170(4);
+    }
+    else if (idx == field_1EB50_idx - 1)
+    {
+        sub_4B3170(10);
+    }
+    else
+    {
+        unsigned __int8 k3Counter = 3;
+        for (unsigned __int8 i = 3; !pClarke->field_0[idx][i].field_0 || k3Counter >= field_1EB51_blocks[idx]; i = k3Counter)
+        {
+            --k3Counter;
+        }
+        sub_4B4D00(idx, i);
+        gLucid_hamilton_67E8E0.sub_4C5AD0(0);
+        field_EE08 = 16;
+        field_110_state = 2;
+    }
+}
+
+char laughing_blackwell_0x1EB54::sub_4B7FB0()
+{
+    dreamy_clarke_0xA4 *v2; // eax
+    unsigned __int16 v3; // bx
+    unsigned __int16 v4; // dx
+
+    v2 = sub_4B43E0();
+    v3 = 0;
+    if (!this->field_1EB50_idx)
+        return 1;
+    while (1)
+    {
+        v4 = 0;
+        if (this->field_1EB51_blocks[v3])
+            break;
+    LABEL_5:
+        if (++v3 >= (unsigned __int8)this->field_1EB50_idx)
+            return 1;
+    }
+    while (v2->field_0[v3][v4].field_0)
+    {
+        if (++v4 >= this->field_1EB51_blocks[v3])
+            goto LABEL_5;
+    }
+    return 0;
+}
+
+void laughing_blackwell_0x1EB54::sub_4B4D00(unsigned __int8 mainBlockIdx, unsigned __int8 bonusBlockIdx)
+{
+    // todo
+}

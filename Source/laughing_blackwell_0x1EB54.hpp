@@ -2483,10 +2483,8 @@ struct laughing_blackwell_0x1EB54
     char field_1EB4D;
     char field_1EB4E;
     char field_1EB4F;
-    char field_1EB50;
-    char field_1EB51;
-    char field_1EB52;
-    char field_1EB53;
+    unsigned char field_1EB50_idx;
+    unsigned char field_1EB51_blocks[3];
 
     // todo: ordering
 
@@ -2531,6 +2529,14 @@ struct laughing_blackwell_0x1EB54
     void sub_4B8530();
 
     void sub_4B8560();
+
+    void sub_4B8020();
+
+    char sub_4B7FB0();
+
+    void sub_4B4D00(
+        unsigned __int8 mainBlockIdx,
+        unsigned __int8 bonusBlockIdx);
 };
 
 int __stdcall SetGamma_5D9910(int gamma);
