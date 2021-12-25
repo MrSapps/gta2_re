@@ -184,9 +184,20 @@ unsigned __int16 gtx_0x106C::get_phys_pal_5AA6F0(unsigned __int16 palId)
 
 unsigned __int16 gtx_0x106C::sub_5AA710(unsigned __int16 a2, __int16 a3)
 {
-    // TODO
-    UNIQUE_FUNC;
-    return 0;
+    font_base* field_1C_font_base = this->field_1C_font_base;
+    unsigned __int16 result = field_1C_font_base->field_2_base[a2] + a3;
+    if (a2 == (unsigned __int16)field_1C_font_base->field_0_font_count - 1)
+    {
+        if (result >= (unsigned int)this->field_2_font_base_total)
+        {
+            return field_1C_font_base->field_2_base[a2];
+        }
+    }
+    else if (result >= (unsigned int)field_1C_font_base->field_2_base[a2 + 1])
+    {
+        return field_1C_font_base->field_2_base[a2];
+    }
+    return result;
 }
 
 __int16 gtx_0x106C::sub_5AA760(WORD *a2, WORD *a3)
@@ -538,8 +549,13 @@ void gtx_0x106C::load_map_object_info_5AAF00(int obji_chunk_len)
 
 void gtx_0x106C::load_sprite_index_5AAF80(int sprx_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    this->field_20_sprite_index = (sprite_index *)malloc(sprx_chunk_size + 8);
+    File::Global_Read_4A71C0(field_20_sprite_index, &sprx_chunk_size);
+    if ((sprx_chunk_size & ~7u) > 524280)
+    {
+        FatalError_4A38C0(1005, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1198, (unsigned int)sprx_chunk_size >> 3);
+    }
+    this->field_4_sprite_index_count = ((unsigned int)sprx_chunk_size >> 3) + 1;
 }
 
 void gtx_0x106C::sub_5AAFE0(unsigned __int16 a1)
