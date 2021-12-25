@@ -16,6 +16,8 @@
 #include <stdio.h>
 #include <wchar.h>
 
+#pragma comment(lib, "dxguid.lib")
+
 laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
 
 DWORD dword_67D6F8;
@@ -29,6 +31,11 @@ int dword_67D930;
 unsigned short gTableSize_61FF20 = 25;
 
 extern wchar_t word_67DC8C[50];
+
+DIDATAFORMAT gKeyboardDataFormat_601A54;
+
+extern LPDIRECTINPUTA gpDInput_67B804;
+extern HWND gHwnd_707F04;
 
 struct struc_61F0C8
 {
@@ -905,9 +912,28 @@ void laughing_blackwell_0x1EB54::FreeImageTable_4B6750()
     gbh_FreeImageTable();
 }
 
+// match
 void laughing_blackwell_0x1EB54::InitKeyBoardDevice_4AFBE0()
 {
-    // todo
+    field_0_pDInput = gpDInput_67B804;
+    field_4_pKeyboardDevice = 0;
+    
+    if (field_0_pDInput->CreateDevice(GUID_SysKeyboard, &field_4_pKeyboardDevice, 0) < 0)
+    {
+        FatalError_4A38C0(31, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2469);
+    }
+
+    if (field_4_pKeyboardDevice->SetDataFormat(&gKeyboardDataFormat_601A54) < 0)
+    {
+        FatalError_4A38C0(9, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2480);
+    }
+
+    if (field_4_pKeyboardDevice->SetCooperativeLevel(gHwnd_707F04, 6) < 0)
+    {
+        FatalError_4A38C0(10, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 2487);
+    }
+
+    AcquireKeyBoard_4AFD70();
 }
 
 void laughing_blackwell_0x1EB54::sub_4AF0E0()
