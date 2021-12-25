@@ -772,33 +772,34 @@ const char dma_wav_5FF5D8[3][6] = { "d.wav", "m.wav", "a.wav" };
 
 void wizardly_margulis::OpenStream_58E320(unsigned int a2)
 {
-    HSTREAM  hStream; // eax
-    char wavPath[80]; // [esp+14h] [ebp-50h] BYREF
-
+    char wavPath[80];
     if (this->field_5_str[80])
     {
         if (!this->field_9C_hStreams[0] && a2 < 3)
         {
             strcpy(wavPath, this->field_5_str);
             strcat(wavPath, dma_wav_5FF5D8[a2]);
-            hStream = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
-            this->field_9C_hStreams[0] = hStream;
-            if (this->field_9C_hStreams[0] == 0)
+            HSTREAM tmp = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
+            field_9C_hStreams[0] = tmp;
+            if (tmp == 0)
             {
                 if (a2 == 1)
                 {
                     strcpy(wavPath, this->field_5_str);
                     strcat(wavPath, dma_wav_5FF5D8[0]);
-                    hStream = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
+                    tmp = AIL_open_stream(this->field_0_hDriver, wavPath, 0);
+                    field_9C_hStreams[0] = tmp;
                 }
 
             }
 
-            if (hStream)
+            if (!tmp)
             {
-                AIL_set_stream_loop_count(hStream, 0);
-                AIL_start_stream(this->field_9C_hStreams[0]);
+                return;
             }
+            AIL_set_stream_loop_count(field_9C_hStreams[0], 0);
+            AIL_start_stream(this->field_9C_hStreams[0]);
+
         }
     }
 }
