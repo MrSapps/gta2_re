@@ -683,17 +683,17 @@ char wizardly_margulis::sub_58E140(int envIdx)
 {
     int ogEnvIdx = envIdx;
     field_26B4_env_idx = envIdx;
-    if (envIdx != -1)
+    if (field_26B4_env_idx != -1)
     {
-        if (AIL_open_3D_provider(envIdx))
+        envIdx = AIL_open_3D_provider(field_26B4_env_idx);
+        if (envIdx)
         {
             field_26B4_env_idx = -1;
             return 0;
         }
 
-        int pProvider = field_1EB4_h3dProvider[ogEnvIdx];
-        field_26C0_3d_provider = pProvider;
-        AIL_3D_provider_attribute(pProvider, "EAX environment selection", &envIdx);
+        field_26C0_3d_provider = field_1EB4_h3dProvider[ogEnvIdx];
+        AIL_3D_provider_attribute(field_26C0_3d_provider, "EAX environment selection", &envIdx);
         if (envIdx != -1)
         {
             field_26B8_bHave_env = 1;
