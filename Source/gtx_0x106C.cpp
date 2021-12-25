@@ -128,6 +128,7 @@ __int16 gtx_0x106C::sub_5AA560(int a2)
     return result;
 }
 
+// match
 __int16 gtx_0x106C::convert_pal_type_5AA5F0(int type, __int16 pal)
 {
     __int16 result; // ax
@@ -170,7 +171,8 @@ int gtx_0x106C::GetPalData_5AA6A0(__int16 a2)
     return this->field_2C_physical_palettes + 4 * ((a2 & 63) + ((a2 & 0xFFC0) << 8));
 }
 
-__int16 gtx_0x106C::get_phys_pal_5AA6F0(unsigned __int16 palId)
+// match
+unsigned __int16 gtx_0x106C::get_phys_pal_5AA6F0(unsigned __int16 palId)
 {
     return this->field_28_palette_index->field_0_phys_palette[palId];
 }
@@ -440,6 +442,8 @@ void gtx_0x106C::sub_5AAB30(unsigned int delx_chunk_size)
     UNIQUE_FUNC;
 }
 
+// match
+// note: param type matters
 sprite_index* gtx_0x106C::get_sprite_index_5AA440(unsigned __int16 idx)
 {
     return &this->field_20_sprite_index[idx];

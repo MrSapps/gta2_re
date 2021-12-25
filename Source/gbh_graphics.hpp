@@ -112,7 +112,7 @@ typedef int(__cdecl *T_gbh_PrintBitmap)(int a1, int a2);
 typedef int(__cdecl *T_gbh_SetColourDepth)(void);
 typedef int(__cdecl *T_gbh_Plot)(int a1, int a2, int a3, int a4);
 typedef int(__cdecl *T_gbh_ConvertColour)(unsigned __int8 a1, unsigned __int8 a2, unsigned __int8 a3);
-typedef STexture*(__stdcall *T_gbh_RegisterTexture)(unsigned __int8 width, unsigned __int8 height, BYTE* pData, int pal_idx, char flag);
+typedef STexture*(__stdcall *T_gbh_RegisterTexture)(int width, int height, BYTE* pData, int pal_idx, char flag);
 typedef int(__cdecl *T_gbh_SetCamera)(float a1, float a2, float a3, float a4);
 typedef int(__cdecl *T_gbh_ResetLights)();
 typedef int(__cdecl *T_gbh_AddLight)(SLight* pLight);

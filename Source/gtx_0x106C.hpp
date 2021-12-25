@@ -46,7 +46,7 @@ struct object_info
 
 struct palette_index
 {
-    __int16 field_0_phys_palette[16384];
+    unsigned __int16 field_0_phys_palette[16384];
 };
 
 struct tile_array
@@ -129,7 +129,7 @@ public:
 
     int GetPalData_5AA6A0(__int16 a2);
 
-    __int16 get_phys_pal_5AA6F0(unsigned __int16 palId);
+    unsigned __int16 get_phys_pal_5AA6F0(unsigned __int16 palId);
 
     unsigned __int16 sub_5AA710(unsigned __int16 a2, __int16 a3);
 

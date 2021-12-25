@@ -251,7 +251,7 @@ void festive_hopper::LoadTextures_5B8F00()
             t2 = gGtx_0x106C_703DD4->get_phys_pal_5AA6F0(tmp);
 
             this->field_0_pAlloc[i++] = gbh_RegisterTexture(
-                pSpriteIndex->field_4_width,
+                pSpriteIndex->field_4_width, // note: missing xor of register due to passing BYTE -> BYTE param instead of BYTE -> int param, xor clears up 24 bits
                 pSpriteIndex->field_5_height,
                 pSpriteIndex->field_0_pData,
                 t2, // pal idx
