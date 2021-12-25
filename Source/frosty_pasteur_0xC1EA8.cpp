@@ -36,35 +36,35 @@ void frosty_pasteur_0xC1EA8::LoadStringTbl_5121E0(unsigned __int16 tableSize)
     unsigned int total_str_length; // edx
     str_table_entry *pStringDataIter1; // ecx
     int str_length; // eax
-    str_table_normalized *pAlloc; // edi
+    //str_table_normalized *pAlloc; // edi
     str_table_entry *pStringDataIter2; // esi
     unsigned int total_str_length_; // ebx
     int offset; // ebp
     int str_length_; // eax
-    unsigned int tableSize_; // [esp+10h] [ebp-8h]
+    //unsigned int tableSize_; // [esp+10h] [ebp-8h]
     //frosty_pasteur_0xC1EA8 *this_; // [esp+14h] [ebp-4h]
     unsigned __int16 str_count; // [esp+1Ch] [ebp+4h]
 
     total_str_length = 0;
-    pStringDataIter1 = (str_table_entry *)this->field_1334C_strings;
-    for (tableSize_ = tableSize;
-        total_str_length < tableSize;
-        pStringDataIter1 = (str_table_entry *)((char *)pStringDataIter1 + str_length))
+    pStringDataIter1 = this->field_1334C_strings;
+
+    while (total_str_length < tableSize)
     {
         str_length = pStringDataIter1->field_8_length + 9;
         total_str_length += str_length;
+        pStringDataIter1 = (str_table_entry *)((char *)pStringDataIter1 + str_length);
     }
 
-    pAlloc =  reinterpret_cast<str_table_normalized*>(Memory::malloc_4FE4D0(sizeof(str_table_normalized)));
-    this->field_13350_pStringTbl = pAlloc;
-    memset(pAlloc, 0, sizeof(str_table_normalized));
+    this->field_13350_pStringTbl = reinterpret_cast<str_table_normalized*>(Memory::malloc_4FE4D0(sizeof(str_table_normalized)));
+    memset(field_13350_pStringTbl, 0, sizeof(str_table_normalized));
 
     pStringDataIter2 = this->field_1334C_strings;
     total_str_length_ = 0;
     str_count = 0;
-    if (tableSize_)
+    if (tableSize)
     {
         offset = 4;
+
         do
         {
             pStringDataIter2->field_2_zone_idx = gMap_0x370_6F6268->zone_idx_by_name_4DF050(
@@ -76,7 +76,8 @@ void frosty_pasteur_0xC1EA8::LoadStringTbl_5121E0(unsigned __int16 tableSize)
             total_str_length_ += str_length_;
             pStringDataIter2 = (str_table_entry *)((char *)pStringDataIter2 + str_length_);
             ++str_count;
-        } while (total_str_length_ < tableSize_);
+        } while (total_str_length_ < tableSize);
+
         field_13350_pStringTbl->field_0_string_count = str_count;
     }
     else
