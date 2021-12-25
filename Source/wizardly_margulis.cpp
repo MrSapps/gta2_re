@@ -848,21 +848,20 @@ char wizardly_margulis::GetAudioFileName_58E500()
 
 void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA)
 {
-    const char *filePart; // edi
-    HSTREAM  hStream; // eax
-    char Buffer[12]; // [esp+8h] [ebp-5Ch] BYREF
-    char fileName[80]; // [esp+14h] [ebp-50h] BYREF
-
-    if (stream_idx || this->field_5_str[80])
+    if (stream_idx || field_5_str[80])
     {
         if (this->field_9C_hStreams[stream_idx])
         {
             CloseVocalStream_58E6A0(stream_idx);
         }
 
+        const char *filePart; // edi
+        char fileName[80]; // [esp+14h] [ebp-50h] BYREF
         if (!stream_idx)
         {
-            strcpy(fileName, this->field_5_str);
+            strcpy(fileName, field_5_str);
+
+            char Buffer[12]; // [esp+8h] [ebp-5Ch] BYREF
             sprintf(Buffer, "%d", voc_idx);
             strcat(fileName, Buffer);
             if (!bAppendA)
@@ -870,20 +869,20 @@ void wizardly_margulis::PlayVocal_58E510(int stream_idx, int voc_idx, char bAppe
                 strcat(fileName, "A");
             }
             filePart = ".WAV";
-
+            strcat(fileName, filePart);
         }
         else
         {
             strcpy(fileName, "data\\audio\\vocals\\");
             filePart = gVocNames_5FEA5C[voc_idx].field_0_str;
+            strcat(fileName, filePart);
         }
-        strcat(fileName, filePart);
-        hStream = AIL_open_stream(this->field_0_hDriver, fileName, 0);
-        this->field_9C_hStreams[stream_idx] = hStream;
-        if (hStream)
+        
+        field_9C_hStreams[stream_idx] = AIL_open_stream(field_0_hDriver, fileName, 0);
+        if (field_9C_hStreams[stream_idx])
         {
-            AIL_set_stream_loop_count(hStream, stream_idx != 0);
-            AIL_start_stream(this->field_9C_hStreams[stream_idx]);
+            AIL_set_stream_loop_count(field_9C_hStreams[stream_idx], stream_idx != 0);
+            AIL_start_stream(field_9C_hStreams[stream_idx]);
         }
     }
 }
