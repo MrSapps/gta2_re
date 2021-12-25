@@ -38,6 +38,8 @@ public:
 
     void ReleaseSample_58DAC0();
 
+    char LoadWavSdtData_58E980(const char *pRawOrSdtName);
+
     HDIGDRIVER field_0_hDriver;
     char field_4_gtaAudioDriveLetter;
     char field_5_str[83];
