@@ -184,6 +184,7 @@ wizardly_margulis::wizardly_margulis()
 
 }
 
+// todo
 char wizardly_margulis::sub_58D620()
 {
     // todo
@@ -540,15 +541,13 @@ void wizardly_margulis::SetChannelLoopCount_58DD60(int channel, int loopCount)
     }
 }
 
-// todo
+// match
 bool wizardly_margulis::GetChannelUsedFlag_58DD80(int channel)
 {
     if (field_58_hSamples[channel])
     {
-        if (AIL_sample_status(field_58_hSamples[channel]) == SMP_PLAYING)
-        {
-            return true;
-        }
+        // note: more setz madness here, ternary, direct return and if/else all change code gen
+        return AIL_sample_status(field_58_hSamples[channel]) == SMP_PLAYING;
     }
     return false;
 }
@@ -571,6 +570,7 @@ void wizardly_margulis::StopChannel_58DDD0(int channel)
     }
 }
 
+// todo
 bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
 {
     if (!field_26C4_3d_sample[channel] || !this->field_A4_bLoaded)
