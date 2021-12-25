@@ -48,7 +48,7 @@ void test_gtx_0x106C()
     c.get_phys_pal_5AA6F0(0);
     c.sub_5AA710(0, 0);
     c.sub_5AA760(0, 0);
-    c.sub_5AA7B0(0);
+    c.space_width_5AA7B0(0);
     c.sub_5AA800(0);
     c.sub_5AA850(0);
     c.sub_5AA870(0);

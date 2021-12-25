@@ -135,7 +135,7 @@ public:
 
     unsigned __int16 sub_5AA760(WORD *a2, wchar_t *a3);
 
-    unsigned __int16 sub_5AA7B0(WORD *a2);
+    unsigned __int16 space_width_5AA7B0(WORD *a2);
 
     __int16 sub_5AA800(WORD *a2);
 
