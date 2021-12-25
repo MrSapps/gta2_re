@@ -25,6 +25,7 @@ int dword_67D818;
 BYTE byte_67D81C;
 unsigned int counter_706C4C;
 int dword_67D930;
+unsigned short gTableSize_61FF20 = 25;
 
 extern wchar_t word_67DC8C[50];
 
@@ -910,9 +911,16 @@ void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
     // todo
 }
 
+// match
 void laughing_blackwell_0x1EB54::Load_tgas_4B66B0()
 {
-    // todo
+    if (gbh_InitImageTable(gTableSize_61FF20) != -1)
+    {
+        for (unsigned short i = 0; i < gTableSize_61FF20; ++i)
+        {
+            Load_tga_4B6520(i);
+        }
+    }
 }
 
 loving_borg_0xBCA::loving_borg_0xBCA()

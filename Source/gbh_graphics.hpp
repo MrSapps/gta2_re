@@ -131,7 +131,7 @@ typedef int(__cdecl *T_gbh_EndLevel)();
 typedef int(__cdecl *T_MakeScreenTable)(int result, int a2, unsigned int a3);
 typedef int(__cdecl *T_ConvertColourBank)(int a1);
 typedef int(__cdecl *T_SetShadeTableA)(int a1, int a2, int a3, int a4, int a5);
-typedef int(__cdecl *T_gbh_InitImageTable)(int tableSize);
+typedef int(__stdcall *T_gbh_InitImageTable)(int tableSize);
 typedef int(__cdecl *T_gbh_FreeImageTable)();
 typedef int(__stdcall *T_gbh_LoadImage)(SImage* pImage);
 typedef int(__stdcall *T_gbh_BlitImage)(int imageIndex, int srcLeft, int srcTop, int srcRight, int srcBottom, int dstX, int dstY);
