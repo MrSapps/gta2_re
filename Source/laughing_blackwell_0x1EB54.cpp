@@ -3022,3 +3022,25 @@ void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
     field_2 = svg.field_4C;
     field_3 = svg.field_4D;
 }
+const wchar_t *__stdcall sub_5D8A10(
+    const wchar_t *pBuffer,
+    int xpos_fp,
+    int ypos_fp,
+    void *fp3,
+    int fp4,
+    int *pUnknown,
+    int a7,
+    int mode,
+    int a9)
+{
+    return pBuffer;
+}
+
+// match
+const wchar_t *__stdcall sub_4B87A0(const wchar_t *pBuffer, int xpos_fp, int ypos_fp, void *fp3, int fp4)
+{
+    int local; // [esp+0h] [ebp-4h] BYREF
+
+    local = 2;
+    return sub_5D8A10(pBuffer, xpos_fp, ypos_fp, fp3, fp4, &local, 0, 0, 0);
+}
