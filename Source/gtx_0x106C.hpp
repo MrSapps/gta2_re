@@ -1,5 +1,7 @@
 #pragma once
 
+#include <windows.h>
+
 struct palette_base
 {
     __int16 field_0_tile;
@@ -30,7 +32,7 @@ struct font_base
 
 struct sprite_index
 {
-    int field_0_pData;
+    BYTE* field_0_pData;
     unsigned __int8 field_4_width;
     unsigned __int8 field_5_height;
     __int16 field_6_pad;
@@ -63,6 +65,12 @@ struct delta_entry
 class gtx_0x106C
 {
 public:
+    int sub_5AA3B0(unsigned __int8 idx);
+
+    void sub_5AABF0();
+
+    void SetSpriteIndexDataPtrs_5AAC40();
+
     void LoadChunk_5AB4B0(const char *Str1, int chunk_len);
 
     void sub_5AB720();
@@ -89,7 +97,7 @@ public:
     palette_index *field_28_palette_index;
     int field_2C_physical_palettes;
     int field_30_physical_palettes_size;
-    void *field_34_sprite_graphics;
+    BYTE *field_34_sprite_graphics;
     int field_38;
     void *field_3C_tiles;
     tile_array *field_40_tile;
@@ -99,7 +107,7 @@ public:
     void *field_50_delta_buffer;
     int field_54_del;
     void *field_58_car_info;
-    int field_5C_cari;
+    int* field_5C_cari;
     int field_60_delta_len;
     unsigned __int8 *field_64_car_recycling_info;
     __int16 field_68_recy_chunk_size;

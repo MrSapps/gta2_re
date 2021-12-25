@@ -17,14 +17,42 @@ struct chunk_header
     int field_4_size;
 };
 
+// match
+int gtx_0x106C::sub_5AA3B0(unsigned __int8 idx)
+{
+    return field_5C_cari[idx];
+}
+
+void gtx_0x106C::sub_5AABF0()
+{
+    // TODO
+}
+
+void gtx_0x106C::SetSpriteIndexDataPtrs_5AAC40()
+{
+    // TODO
+}
+
 void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, int chunk_len)
 {
     // TODO
 }
 
+// match
 void gtx_0x106C::sub_5AB720()
 {
-    // TODO
+    if (field_50_delta_buffer && field_48_delta_store)
+    {
+        sub_5AABF0();
+    }
+
+    if (field_20_sprite_index)
+    {
+        if (field_34_sprite_graphics)
+        {
+            SetSpriteIndexDataPtrs_5AAC40();
+        }
+    }
 }
 
 // match

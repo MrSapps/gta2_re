@@ -9,7 +9,11 @@ add_library (Source
     Source/error.hpp
     Source/error.cpp
     Source/registry.hpp
-    Source/registry.cpp)
+    Source/registry.cpp
+    Source/file.hpp
+    Source/file.cpp
+    Source/gtx_0x106C.hpp
+    Source/gtx_0x106C.cpp)
 
 include_directories(Source)
 include_directories(${decomp_SOURCE_DIR})
