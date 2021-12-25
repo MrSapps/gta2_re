@@ -70,10 +70,11 @@ void __stdcall SetSavedGamma_5D98E0()
 }
 
 // todo: move
-BOOL Vid_FindDevice_5D9290()
+// match
+bool Vid_FindDevice_5D9290()
 {
-    // todo
-    return FALSE;
+    SDevice* pDevice = Vid_FindDevice(gVidSys_7071D0, gVideodevice_70694C);
+    return pDevice && (pDevice->field_4_flags & 1) == 1;
 }
 
 // todo move to another file for ordering
@@ -126,15 +127,18 @@ void sub_5D96C0()
     int iVar2 = GetHwndDCDeviceCaps_5D9800();
     if (iVar2 == 0x10)
     {
-        BOOL cVar1 = Vid_FindDevice_5D9290();
+        bool cVar1 = Vid_FindDevice_5D9290() ? true : false;
         byte_706C5C = 1;
-        if (cVar1 != 0)
+        if (cVar1 == 0)
         {
-            goto LAB_005d9763;
+            byte_706C5C = 0;
         }
     }
-    byte_706C5C = 0;
-LAB_005d9763:
+    else
+    {
+        byte_706C5C = 0;
+    }
+//LAB_005d9763:
 
     sub_5D92D0();
     
