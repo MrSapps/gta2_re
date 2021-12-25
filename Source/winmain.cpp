@@ -84,9 +84,70 @@ void __stdcall Input_ReleaseMouse_5D7C70()
 }
 
 // todo: move
-void __stdcall sub_5D93A0()
+void __stdcall HideCursor_5D94F0()
+{
+    while (ShowCursor(0) >= 0)
+        ;
+}
+
+// todo: move
+char Input_InitMouse_5D7BF0()
 {
     // todo
+    return 0;
+}
+
+// todo: move
+void __stdcall sub_5D93A0()
+{
+    char v0; // bl
+    int bcheckModeRet; // esi
+    SVideo *v2; // eax
+    DWORD field_4_flags; // ecx
+
+    v0 = 0;
+    bcheckModeRet = Vid_CheckMode(gVidSys_7071D0, full_width_706B5C, full_height_706798, 16);
+    if (!bcheckModeRet)
+    {
+        if (full_width_706B5C == 640
+            || (full_width_706B5C = 640,
+                v0 = 1,
+                full_height_706798 = 480,
+                (bcheckModeRet = Vid_CheckMode(gVidSys_7071D0, 640, 480, 16)) == 0))
+        {
+            FatalError_4A38C0(3003, "C:\\Splitting\\Gta2\\Source\\video.cpp", 1359, full_width_706B5C, full_height_706798, 16);
+        }
+    }
+
+    v2 = gVidSys_7071D0;
+    if (gVidSys_7071D0)
+    {
+        field_4_flags = gVidSys_7071D0->field_4_flags;
+        //BYTE1(field_4_flags) |= 1u;
+        field_4_flags |= 1u;
+        gVidSys_7071D0->field_4_flags = field_4_flags;
+        v2 = gVidSys_7071D0;
+    }
+
+    if (Vid_SetMode(v2, gHwnd_707F04, bcheckModeRet))
+    {
+        FatalError_4A38C0(1037, "C:\\Splitting\\Gta2\\Source\\video.cpp", 1365, bcheckModeRet);
+    }
+
+    HideCursor_5D94F0();
+
+    SetWindowLongA(gHwnd_707F04, -16, 0x10000000);
+    SetWindowPos(gHwnd_707F04, 0, 0, 0, 0, 0, 0x63Bu);
+    UpdateWindow(gHwnd_707F04);
+    ShowWindow(gHwnd_707F04, 1);
+
+    Input_InitMouse_5D7BF0();
+
+    if (v0)
+    {
+        gRegistry_6FF968.Set_Screen_Setting_587170("full_width", full_width_706B5C);
+        gRegistry_6FF968.Set_Screen_Setting_587170("full_height", full_height_706798);
+    }
 }
 
 // todo: move
@@ -107,8 +168,6 @@ void __stdcall ShowCursor_5D9660()
 // todo: move
 char sub_5D9510()
 {
-    struct tagRECT clientRect; // [esp+8h] [ebp-20h] BYREF
-    struct tagRECT windowRect; // [esp+18h] [ebp-10h] BYREF
 
     if (!sub_5D92C0())
     {
@@ -120,7 +179,11 @@ char sub_5D9510()
     SetWindowPos(gHwnd_707F04, 0, 0, 0, 0, 0, 0x63Bu);
     UpdateWindow(gHwnd_707F04);
     ShowWindow(gHwnd_707F04, 5);
+
+    struct tagRECT windowRect; // [esp+18h] [ebp-10h] BYREF
     GetWindowRect(gHwnd_707F04, &windowRect);
+
+    struct tagRECT clientRect; // [esp+8h] [ebp-20h] BYREF
     GetClientRect(gHwnd_707F04, &clientRect);
 
     if (!SetWindowPos(
