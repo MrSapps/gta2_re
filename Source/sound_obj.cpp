@@ -84,13 +84,13 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
     return 0;
 }
 
+// match
 void sound_obj::Init_15_Array_427180()
 {
     for (int i = 0; i < 15; i++)
     {
         field_552C_15array[i] = 121;
     }
-    //memset32(this->field_552C_15array, 121, 15u);
-    this->field_5528_idx15_cur = 0;
-    this->field_5529_idx15 = 0;
+    field_5528_idx15_cur = 0;
+    field_5529_idx15 = 0;
 }
