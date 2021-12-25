@@ -969,11 +969,10 @@ void sound_obj::sub_412A60(int a2)
 // match
 void sound_obj::sub_418CA0()
 {
-    int voc_idx; // edx
-
-    if (this->field_544C[0].field_4_fp)
+    int voc_idx;
+    if (field_544C[0].field_4_fp)
     {
-        switch (this->field_544C[0].field_18)
+        switch (field_544C[0].field_18)
         {
         case 9:
             voc_idx = 0;
@@ -990,7 +989,6 @@ void sound_obj::sub_418CA0()
         case 6:
             voc_idx = 4;
             break;
-
         case 8:
             voc_idx = 5;
             break;
@@ -1015,7 +1013,6 @@ void sound_obj::sub_418CA0()
         case 1:
             voc_idx = 14;
             break;
-
         case 22:
             voc_idx = 15;
             break;
@@ -1049,11 +1046,9 @@ void sound_obj::sub_418CA0()
         case 3:
             voc_idx = 25;
             break;
-
         case 30:
             voc_idx = 26;
             break;
-
         case 33:
             voc_idx = 55;
             break;
@@ -1144,28 +1139,24 @@ void sound_obj::sub_418CA0()
         case 62:
             voc_idx = 84;
             break;
-
         case 31:
         case 32:
-            voc_idx = this->field_1454_anRandomTable[0] % 13u + 85;
-            if (voc_idx != 0x63)
+            voc_idx = field_1454_anRandomTable[0] % 13u + 85;
+            if (voc_idx == 99)
             {
-                goto play_it;
+                field_544C[0].field_18 = 0;
+                return;
             }
-            this->field_544C[0].field_18 = 0;
-            return;
-
+            break;
         default:
-            this->field_544C[0].field_18 = 0;
+            field_544C[0].field_18 = 0;
             return;
         }
 
-    play_it:
         gSampManager_6FFF00.PlayVocal_58E510(1, voc_idx, 1);
-        BYTE v = 127 * this->field_24_sfx_vol / 127;
-        gSampManager_6FFF00.SetVocalVolume_58E6D0(1, v);
+        gSampManager_6FFF00.SetVocalVolume_58E6D0(1, 127 * field_24_sfx_vol / 127);
 
-        this->field_544C[0].field_18 = 0;
+        field_544C[0].field_18 = 0;
     }
 }
 
