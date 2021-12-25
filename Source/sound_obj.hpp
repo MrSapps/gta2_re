@@ -257,6 +257,8 @@ struct sound_obj
     void AddDetailsToRequestedOrderList_41A910(unsigned __int8 a2);
 
     void AddSampleToRequestedQueue_41A850();
+
+    int RandomDisplacement_41A650(unsigned int seed);
 };
 
 extern sound_obj gSound_obj_66F680;

@@ -229,3 +229,29 @@ void sound_obj::AddSampleToRequestedQueue_41A850()
 
     AddDetailsToRequestedOrderList_41A910(new_requested_count);
 }
+
+// match
+int sound_obj::RandomDisplacement_41A650(unsigned int seed)
+{
+    static bool bPos_61A6C8 = true;
+
+    int value = gSampManager_6FFF00.sub_58DC10(seed);
+    if (!value)
+    {
+        return 0;
+    }
+
+    value = field_1454_anRandomTable[seed % 5] % static_cast<unsigned int>(value);
+    if (value % 2)
+    {
+        bPos_61A6C8 = bPos_61A6C8 == false;
+    }
+
+    if (!bPos_61A6C8)
+    {
+        return -value;
+    }
+
+
+    return value;
+}
