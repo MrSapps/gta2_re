@@ -55,7 +55,7 @@ public:
 
     int __stdcall sub_5B5BC0(WORD *a1, int a2, int a3, int a4);
 
-    char *__stdcall Wide2PesudoAscii_5B5D10(WORD *a1);
+    char * Wide2PesudoAscii_5B5D10(WORD *a1);
 
     char *__stdcall sub_5B5DF0(BYTE *a1);
 

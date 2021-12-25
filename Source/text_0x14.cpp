@@ -214,23 +214,66 @@ int __stdcall text_0x14::sub_5B5BC0(WORD *a1, int a2, int a3, int a4)
     return 0;
 }
 
-// todo
-char *__stdcall text_0x14::Wide2PesudoAscii_5B5D10(WORD *a1)
-{
-    WORD *v1; // ecx
-    int i; // eax
-
-    v1 = a1;
-    for (i = 0; v1; ++i)
+/*
+WORD * pSrc = a1;
+    // jnb forced to jge by changing unsigned int loop index to int
+    int dstIdx = 0;
+    while (pSrc) // bug: should be *pSrc
     {
-        if (i >= 'O')
+        if (dstIdx < 79)
+        {
+            if (*pSrc >= 0x80u)
+            {
+                byte_70462C[dstIdx] = '#';
+            }
+            else
+            {
+                byte_70462C[dstIdx] = static_cast<char>(*pSrc);
+            }
+            pSrc++;
+            dstIdx++;
+        }
+        else
         {
             break;
         }
-        byte_70462C[i] = *v1 < 128u ? *(BYTE *)v1 : '#';
-        ++v1;
     }
-    byte_70462C[i] = 0;
+
+    // add null terminator
+    byte_70462C[dstIdx] = 0;
+    return byte_70462C;
+*/
+
+// match
+char* text_0x14::Wide2PesudoAscii_5B5D10(WORD *a1)
+{
+    WORD * pSrc = a1;
+    // jnb forced to jge by changing unsigned int loop index to int
+    int dstIdx = 0;
+    while (pSrc) // bug: should be *pSrc
+    {
+        // jnb also used if comparing to sizeof() value instead of
+        // numerical literal! cast to int fixes (sizeof returns unsigned?)
+        if (dstIdx >= static_cast<int>(sizeof(byte_70462C)-1))
+        {
+            break;
+        }
+
+        if (*pSrc >= 0x80u)
+        {
+            byte_70462C[dstIdx] = '#';
+        }
+        else
+        {
+            byte_70462C[dstIdx] = static_cast<char>(*pSrc);
+        }
+
+        pSrc++;
+        dstIdx++;
+    }
+
+    // add null terminator
+    byte_70462C[dstIdx] = 0;
     return byte_70462C;
 }
 
