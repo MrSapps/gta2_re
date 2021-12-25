@@ -2497,14 +2497,14 @@ struct laughing_blackwell_0x1EB54
     __int16 field_1EB30;
     __int16 field_1EB32;
     int field_1EB34;
-    __int16 field_1EB38;
+    __int16 field_1EB38; // -11 bytes ?
     __int16 field_1EB3A;
     int field_1EB3C;
     __int16 field_1EB40;
-    __int16 field_1EB42;
-    int field_1EB44;
-    char field_1EB48;
-    char field_1EB49;
+    __int16 field_1EB42; // 2
+    int field_1EB44; // 4
+    char field_1EB48; // 
+    char field_1EB49; // 8
     char field_1EB4A;
     char field_1EB4B;
     char field_1EB4C;

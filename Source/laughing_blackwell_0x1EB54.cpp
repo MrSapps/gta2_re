@@ -748,8 +748,14 @@ laughing_blackwell_0x1EB54::laughing_blackwell_0x1EB54()
     field_1EB4E = 0;
     field_1EB4F = 0;
 
+
     // todo: fix me
     /*
+    for (int i = 0; i < 8; i++)
+    {
+
+    }
+
     v11 = &this->field_1EB42;
     v12 = 8;
     do
