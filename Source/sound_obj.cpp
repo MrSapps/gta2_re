@@ -763,9 +763,92 @@ int sound_obj::AddSoundObject_419FA0(infallible_turing* pTuring)
     
 }
 
-void sound_obj::FreeSoundEntry_41A090(int a2)
+void sound_obj::FreeSoundEntry_41A090(int idx)
 {
-    // todo
+    vigilant_maxwell *pMaxwell; // ebx
+    infallible_turing *pTuring; // eax
+    vigilant_maxwell *pUnknown; // edi
+    brave_archimedes_0x3C *pAny; // eax
+    unsigned int idx_iter; // eax
+    unsigned int field_543C_444C_max_idx; // ecx
+    int *pEntityIter; // edx
+    int new_max; // eax
+
+    if (!this->field_0)
+    {
+        return;
+    }
+    
+    if (idx >= 1020)
+    {
+        return;
+    }
+
+    pMaxwell = &this->field_147C[idx];
+
+    if (!pMaxwell->field_0_bUsed)
+    {
+        return;
+    }
+
+    pTuring = this->field_147C[idx].field_4_pObj;
+    pUnknown = (vigilant_maxwell *)((char *)this + 0xC * idx);
+    if (pTuring->field_0_object_type != 1)
+    {
+        if (pTuring->field_0_object_type != 2)
+        {
+            goto not_type1_or_2_and_after_fade;
+        }
+    do_fade:
+        this->field_3 = 0;
+        gSampManager_6FFF00.FadeOut_58E490();
+        goto not_type1_or_2_and_after_fade;
+    }
+    
+    pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
+    if (!pAny)
+    {
+        goto do_fade;
+    }
+
+    if (pAny->field_30 == 2 && pUnknown[0x1B5].field_8_pAlloc)// type is 1 or 2
+    {
+        delete (pUnknown[0x1B5].field_8_pAlloc);
+    }
+
+not_type1_or_2_and_after_fade:
+    pMaxwell->field_0_bUsed = 0;
+    idx_iter = 0;
+    pUnknown[437].field_4_pObj->field_C_pObject = 0;
+    pUnknown[437].field_1 = 0;
+    if (pUnknown[437].field_4_pObj->field_0_object_type == 5)
+    {
+        this->field_1478_type5Idx = 0;
+    }
+
+    field_543C_444C_max_idx = this->field_543C_444C_max_idx;
+    if (field_543C_444C_max_idx)
+    {
+        for (pEntityIter = this->field_444C_pEntities; idx != *pEntityIter; ++pEntityIter)
+        {
+            if (++idx_iter >= field_543C_444C_max_idx)
+            {
+                return;
+            }
+        }
+
+        if (idx_iter < 1019)
+        {
+            memcpy(
+                &this->field_444C_pEntities[idx_iter],
+                &this->field_444C_pEntities[idx_iter + 1],
+                4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
+        }
+
+        new_max = this->field_543C_444C_max_idx - 1;
+        this->field_543C_444C_max_idx = new_max;
+        this->field_444C_pEntities[new_max] = 0;
+    }
 }
 
 void sound_obj::Release_41A290()
