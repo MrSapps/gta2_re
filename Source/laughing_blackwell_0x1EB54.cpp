@@ -394,48 +394,44 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
     */
 }
 
+// typedef char(__stdcall *T_gbh_BlitImage)(int imageIndex, int srcLeft, int srcTop, int srcRight, int srcBottom, int dstX, int dstY)
+
 void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
 {
     // todo
-    unsigned __int8 local_EE08; // al
-    int blitRet; // eax
-    unsigned __int8 v4; // [esp+0h] [ebp-58h]
-    unsigned __int8 v5; // [esp+1Ch] [ebp-3Ch]
-    unsigned __int8 v6; // [esp+34h] [ebp-24h]
-    unsigned __int8 v7; // [esp+34h] [ebp-24h]
     BYTE tga_idx; // [esp+50h] [ebp-8h] BYREF
     BYTE not_used; // [esp+54h] [ebp-4h] BYREF
 
-    local_EE08 = this->field_EE08;
-    if (local_EE08 == 13
-        || local_EE08 == 16
-        || local_EE08 == 14
-        || local_EE08 == 15
-        || local_EE08 == 12
-        || local_EE08 == 17)
+    if (field_EE08 == 13
+        || field_EE08 == 16
+        || field_EE08 == 14
+        || field_EE08 == 15
+        || field_EE08 == 12
+        || field_EE08 == 17)
     {
-        sub_4B6B00(local_EE08, &tga_idx, &not_used);
+        sub_4B6B00(field_EE08, &tga_idx, &not_used);
         if (gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0) == -10)
         {
-            Load_tga_4B6520(v7);
-            gbh_BlitImage(tgaArray_61F0C8[v7].field_84_img, 0, 0, 640, 480, 0, 0);
+            // need to reload image
+            Load_tga_4B6520((unsigned __int8)tga_idx);
+            gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0);
         }
     }
     else
     {
-        sub_4B6B00(local_EE08, &tga_idx, &not_used);
+        sub_4B6B00(field_EE08, &tga_idx, &not_used);
 
-        blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
+        int blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         if (blitRet == -10)
         {
-            Load_tga_4B6520(v6);
-            blitRet = gbh_BlitImage(tgaArray_61F0C8[v6].field_84_img, 0, 0, 278, 480, 0, 0);
+            Load_tga_4B6520((unsigned __int8)tga_idx);
+            blitRet = gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 278, 480, 0, 0);
         }
 
-        if (!blitRet && gbh_BlitImage(tgaArray_61F0C8[v5].field_84_img, 0, 0, 362, 480, 278, 0) == -10)
+        if (!blitRet && gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0) == -10)
         {
-            Load_tga_4B6520(v4);
-            gbh_BlitImage(tgaArray_61F0C8[v4].field_84_img, 0, 0, 362, 480, 278, 0);
+            Load_tga_4B6520(not_used);
+            gbh_BlitImage(tgaArray_61F0C8[not_used].field_84_img, 0, 0, 362, 480, 278, 0);
         }
     }
     
