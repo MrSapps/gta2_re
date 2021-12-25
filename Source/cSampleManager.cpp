@@ -1,7 +1,7 @@
 #include "cSampleManager.hpp"
 #include <stdio.h>
 
-cSampleManager gWizardly_margulis_6FFF00;
+cSampleManager gSampManager_6FFF00;
 
 struct voc_name
 {

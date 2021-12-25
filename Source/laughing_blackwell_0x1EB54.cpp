@@ -912,13 +912,13 @@ void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 
         if (pre_intro_bik_exists_4B6030())
         {
-            field_0_hDriver = gWizardly_margulis_6FFF00.field_0_hDriver;
+            field_0_hDriver = gSampManager_6FFF00.field_0_hDriver;
             v44 = gLaughing_blackwell_0x1EB54_67DC84->pre_intro_bik_4B5F20();
             Bink::sub_513560(v44, field_0_hDriver);
         }
         else
         {
-            v50 = gWizardly_margulis_6FFF00.field_0_hDriver;
+            v50 = gSampManager_6FFF00.field_0_hDriver;
             v45 = gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50();
             Bink::sub_5133E0(v45, v50);
         }
@@ -977,7 +977,7 @@ int laughing_blackwell_0x1EB54::sub_4AEDB0()
             if (Bink::sub_513790() == 1)
             {
                 Bink::sub_5137A0(2);
-                field_0_hDriver = gWizardly_margulis_6FFF00.field_0_hDriver;
+                field_0_hDriver = gSampManager_6FFF00.field_0_hDriver;
                 Bink::sub_5133E0(gLaughing_blackwell_0x1EB54_67DC84->intro_bik_4B5E50(), field_0_hDriver);
                 Bink::Close1_513340();
                 Bink::sub_5137A0(2);

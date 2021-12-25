@@ -32,7 +32,7 @@ void sound_obj::sub_41A2A0()
 
     field_1450 = 0;
 
-    gWizardly_margulis_6FFF00.sub_58E2A0();
+    gSampManager_6FFF00.sub_58E2A0();
 }
 
 // match
@@ -50,7 +50,7 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
         {
             if (b3dSound)
             {
-                if (gWizardly_margulis_6FFF00.sub_58D820(&field_1C_samp_count))
+                if (gSampManager_6FFF00.sub_58D820(&field_1C_samp_count))
                 {
                     field_1D_b3d_sound = 1;
                     field_10_samp_count2 = field_1C_samp_count; // note: regswap from redundant local
@@ -58,21 +58,21 @@ char sound_obj::Set3DSound_41A2F0(char b3dSound)
                 }
                 else
                 {
-                    gWizardly_margulis_6FFF00.AllocSamples_58D9F0(1);
+                    gSampManager_6FFF00.AllocSamples_58D9F0(1);
                     field_1D_b3d_sound = 0;
                     field_10_samp_count2 = 16;
                     return 0;
                 }
             }
 
-            if (gWizardly_margulis_6FFF00.AllocSamples_58D9F0(1))
+            if (gSampManager_6FFF00.AllocSamples_58D9F0(1))
             {
                 field_1D_b3d_sound = 0;
                 field_10_samp_count2 = 16;
                 return 1;
             }
 
-            gWizardly_margulis_6FFF00.sub_58D820(&field_1C_samp_count);
+            gSampManager_6FFF00.sub_58D820(&field_1C_samp_count);
             field_1D_b3d_sound = 1;
             field_10_samp_count2 = field_1C_samp_count;
             return 0;

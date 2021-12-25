@@ -131,8 +131,8 @@ void test_sharp_bose_0x54()
 
 void test_wizardly_margulis()
 {
-    gWizardly_margulis_6FFF00.SoundInit_58D6C0(0);
-    gWizardly_margulis_6FFF00.AllocSamples_58D9F0(0);
+    gSampManager_6FFF00.SoundInit_58D6C0(0);
+    gSampManager_6FFF00.AllocSamples_58D9F0(0);
 }
 
 int APIENTRY WinMain(HINSTANCE hInstance,

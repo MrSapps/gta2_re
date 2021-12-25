@@ -177,4 +177,4 @@ public:
     char field_2717_pad;
 };
 
-extern cSampleManager gWizardly_margulis_6FFF00;
+extern cSampleManager gSampManager_6FFF00;
