@@ -351,6 +351,10 @@ public:
 
     // todo
 
+    DWORD sub_4DFF60(int a2, int a3, int a4);
+
+    // todo
+
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
 

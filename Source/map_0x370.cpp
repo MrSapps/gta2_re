@@ -1,4 +1,5 @@
 #include "map_0x370.hpp"
+#include "gtx_0x106C.hpp"
 
 // match
 gmp_block_info* Map_0x370::get_block_452980(unsigned __int8 x_coord, unsigned __int8 y_coord, unsigned __int8 z_coord)
@@ -321,6 +322,41 @@ gmp_block_info* Map_0x370::get_block_4DFE10(int x_coord, int y_coord, int z_coor
         }
     }
     return 0;
+}
+
+int dword_6F6110 = 0x4000;
+
+// nomatch
+DWORD Map_0x370::sub_4DFF60(int a2, int a3, int a4)
+{
+    gmp_block_info *block_4DFE10; // eax
+    __int16 field_2_right; // ax
+    DWORD result; // eax
+    gmp_block_info *v8; // eax
+    __int16 field_0_left; // ax
+
+    block_4DFE10 = get_block_4DFE10((a2 - dword_6F6110) >> 14, a3 >> 14, a4 >> 14);
+    if (block_4DFE10 && (field_2_right = block_4DFE10->field_2_right) != 0)
+    {
+        result = gGtx_0x106C_703DD4->field_6C_spec[field_2_right & 0x3FF];
+        if (result == 3)
+            return 1;
+    }
+    else
+    {
+        v8 = Map_0x370::get_block_4DFE10(a2 >> 14, a3 >> 14, a4 >> 14);
+        if (v8 && (field_0_left = v8->field_0_left) != 0)
+        {
+            result = gGtx_0x106C_703DD4->field_6C_spec[field_0_left & 0x3FF];
+            if (result == 3)
+                return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return result;
 }
 
 // nomatch
