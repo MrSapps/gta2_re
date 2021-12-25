@@ -172,8 +172,8 @@ char agitated_keldysh_0xF0::sub_56B550(const wchar_t *pFindStr, int findScore)
             int remainderCount = 9 - startIdx;
             do
             {
-                wcsncpy(pIter->field_0_str, (pIter+1)->field_0_str, 9u);
-                pIter->field_14_score = (pIter+1)->field_14_score;
+                wcsncpy((pIter+1)->field_0_str, (pIter)->field_0_str, 9u);
+                (pIter+1)->field_14_score = (pIter)->field_14_score;
 
                 pIter--;
 
