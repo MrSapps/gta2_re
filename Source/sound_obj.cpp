@@ -28,10 +28,10 @@ void sound_obj::ClearActivateSamples_41B7A0()
         field_DC0[i].field_C = dword_674CD8;
         field_DC0[i].field_10 = dword_674CD8;
         field_DC0[i].field_18 = 0;
-        field_DC0[i].field_1C = 4;
+        field_DC0[i].field_1C_ReleasingVolumeModificator = 4;
         field_DC0[i].field_20_rate = 22050;
         field_DC0[i].field_58_type = 0;
-        field_DC0[i].field_24 = 0;
+        field_DC0[i].field_24_nVolume = 0;
         field_DC0[i].field_60 = 0;
         field_DC0[i].field_64 = 10;
         field_DC0[i].field_28 = 0;
@@ -201,7 +201,7 @@ void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
 // match
 void sound_obj::AddSampleToRequestedQueue_41A850()
 {
-    unsigned int newVol = field_30_sQueueSample.field_1C * (127 - field_30_sQueueSample.field_24);
+    unsigned int newVol = field_30_sQueueSample.field_1C_ReleasingVolumeModificator * (127 - field_30_sQueueSample.field_24_nVolume);
 
     unsigned __int8 new_requested_count;
     if (field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] < field_10_nActiveSamples)

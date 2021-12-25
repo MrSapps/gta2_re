@@ -77,9 +77,9 @@ struct sound_0x68
     char field_19;
     char field_1A;
     char field_1B;
-    int field_1C;
+    int field_1C_ReleasingVolumeModificator;
     int field_20_rate;
-    unsigned __int8 field_24;
+    unsigned __int8 field_24_nVolume;
     char field_25;
     char field_26;
     char field_27;
