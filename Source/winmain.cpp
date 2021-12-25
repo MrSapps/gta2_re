@@ -63,7 +63,7 @@ char gVideoDllName_706654[256];
 int gVideodevice_70694C;
 int gRenderdevice_706998;
 
-DWORD gDMusicVer_67BD32;
+WORD gDMusicVer_67BD32;
 
 // todo: move
 void __stdcall sub_5D92D0()
@@ -239,11 +239,16 @@ char sub_4DA850()
     return 0;
 }
 
+GUID IID_DirectMusic = { 1667997456u, 3197u, 4561u, { 149u, 178u, 0u, 32u, 175u, 220u, 116u, 33u } };
+GUID IDD_IDirectMusic = { 1698042202u, 31533u, 4562u, { 186u, 24u, 0u, 0u, 248u, 117u, 172u, 18u } };
+
+
+
 // todo move to another file for ordering
+// match
 void __stdcall GetDirectMusicVer_4A0650()
 {
     // todo
-    /*
     HMODULE hDMusic; // esi
     IUnknown *pDMusic; // [esp+4h] [ebp-4h] BYREF
 
@@ -251,14 +256,14 @@ void __stdcall GetDirectMusicVer_4A0650()
     hDMusic = LoadLibraryA("DMUSIC.DLL");
     if (hDMusic)
     {
-        if (CoCreateInstance(IID_DirectMusic, 0, 1u, &IDD_IDirectMusic, (LPVOID *)&pDMusic) >= 0)
+        if (CoCreateInstance(IID_DirectMusic, 0, 1u, IDD_IDirectMusic, (LPVOID *)&pDMusic) >= 0)
         {
             gDMusicVer_67BD32 = 0x601;
             pDMusic->Release();
         }
         FreeLibrary(hDMusic);
     }
-    */
+    
 }
 
 GUID IID_IDirectDrawSurface4_ = { 0x0B2B8630, 0xAD35, 0x11D0, 0x8E, 0xA6, 0x00, 0x60, 0x97, 0x97, 0xEA, 0x5B };
