@@ -133,3 +133,60 @@ void sound_obj::GenerateIntegerRandomNumberTable_41BA90()
         field_1454_anRandomTable[i] = rand();
     }
 }
+
+void sound_obj::sub_41B540()
+{
+    unsigned int idx; // ebx
+    int field_98_nActiveQueue; // eax
+    int array_off; // eax
+    sound_0x68 *v5; // edi
+    float f28_conv; // [esp+8h] [ebp-4h] BYREF
+
+    if (this->field_1D_b3d_sound)
+    {
+        idx = 0;
+        field_98_nActiveQueue = this->field_98_nActiveQueue;
+        if (this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue])
+        {
+            do
+            {
+                array_off = 0x10 * field_98_nActiveQueue + this->field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx];
+                v5 = &this->field_9C[0][array_off];
+                if (!this->field_9C[0][array_off].field_18)
+                {
+                    sub_41B520(this->field_9C[0][array_off].field_28, &f28_conv);
+                    v5->field_60 = sub_41B660(v5->field_60, v5->field_64, (__int64)f28_conv);
+                }
+                field_98_nActiveQueue = this->field_98_nActiveQueue;
+                ++idx;
+            } while (idx < this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]);
+        }
+    }
+}
+
+float* sound_obj::sub_41B520(int a1, float *a2)
+{
+    float *result; // eax
+
+    result = a2;
+    *a2 = (double)a1 * 0.000061035156;
+    return result;
+}
+
+char sound_obj::sub_41B660(unsigned __int8 a1, unsigned int a2, unsigned int a3)
+{
+    unsigned int v3; // eax
+    int v4; // eax
+
+    v3 = a2 - (a2 >> 2);
+    if (a3 <= v3)
+    {
+        //LOBYTE(v4) = a1;
+        v4 = a1;
+    }
+    else
+    {
+        return a1 * ((a2 >> 2) + v3 - a3) / (a2 >> 2);
+    }
+    return v4;
+}
