@@ -11,6 +11,7 @@
 #include "sharp_pare_0x15D8.hpp"
 #include "gtx_0x106C.hpp"
 #include "magical_germain_0x8EC.hpp"
+#include "file.hpp"
 #include <io.h>
 #include <stdio.h>
 #include <wchar.h>
@@ -928,7 +929,7 @@ void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
             pIter->field_0 = 0;
             pIter->field_1 = 3;
             pIter->field_2 = 4;
-            pIter->field_3 = 0;
+            //pIter->field_3 = 0;
         }
         ++k8Counter;
         ++pIter;
@@ -1146,7 +1147,33 @@ sleepy_stonebraker_0x6C::~sleepy_stonebraker_0x6C()
 
 }
 
+admiring_euler_4::admiring_euler_4()
+{
+    field_0 = 0;
+    field_1 = 0;
+    field_2 = 0;
+}
+
+admiring_euler_4::~admiring_euler_4()
+{
+    field_0 = 0;
+    field_1 = 0;
+    field_2 = 0;
+}
+
+// match
 void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
 {
-    // todo
+    File::Global_Open_4A7060(FileName);
+
+    svg_stru svg;
+    int len = sizeof(svg_stru);
+    File::Global_Read_4A71C0(&svg, &len);
+
+    File::Global_Close_4A70C0();
+
+    field_0 = 1;
+    field_1 = svg.field_4B;
+    field_2 = svg.field_4C;
+    field_3 = svg.field_4D;
 }

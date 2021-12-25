@@ -39,6 +39,39 @@ struct xenodochial_morse
 };
 #pragma pack(pop)
 
+#pragma pack(push)
+#pragma pack(1)
+struct svg_stru
+{
+    int field_0;
+    int field_4;
+    int field_8;
+    int field_C;
+    int field_10;
+    int field_14;
+    int field_18;
+    int field_1C;
+    int field_20;
+    int field_24;
+    int field_28;
+    int field_2C;
+    int field_30;
+    int field_34;
+    int field_38;
+    int field_3C;
+    int field_40;
+    int field_44;
+    char field_48;
+    char field_49;
+    char field_4A;
+    char field_4B;
+    char field_4C;
+    char field_4D;
+    short field_4E;
+    __int16 field_50;
+};
+#pragma pack(pop)
+
 // todo: move
 struct admiring_euler_4
 {
@@ -46,6 +79,10 @@ struct admiring_euler_4
     char field_1;
     char field_2;
     char field_3;
+
+    admiring_euler_4();
+
+    ~admiring_euler_4();
 
     void LoadPlySlotSvg_4B6480(const char *FileName);
 };
