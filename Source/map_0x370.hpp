@@ -287,6 +287,11 @@ class Map_0x370
 public:
     gmp_block_info* get_block_452980(unsigned __int8 x_coord, unsigned __int8 y_coord, unsigned __int8 z_coord);
 
+    gmp_map_zone* zone_by_name_4DEFD0(const char *pZoneName);
+
+    // todo: other funcs between
+
+    gmp_map_zone* get_zone_4DFB30(unsigned __int16 zone_idx);
 public:
     gmp_compressed_map_32 *field_0_pDmap;
     Map_sub field_4_obj;

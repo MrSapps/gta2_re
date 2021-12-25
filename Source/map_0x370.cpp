@@ -13,3 +13,33 @@ gmp_block_info* Map_0x370::get_block_452980(unsigned __int8 x_coord, unsigned __
         return &field_0_pDmap->field_4000C_block[pColData->field_4_blockd[z_coord - pColData->field_1_offset]];
     }
 }
+
+gmp_map_zone* Map_0x370::zone_by_name_4DEFD0(const char *pZoneName)
+{
+    unsigned int name_len; // kr04_4
+    gmp_map_zone **field_32C_pZones; // eax
+    gmp_map_zone *pZone; // eax
+
+    name_len = strlen(pZoneName) + 1;
+    if (!this->field_328_pZoneData)
+        return 0;
+    field_32C_pZones = this->field_32C_pZones;
+    this->field_364_cur_zone_idx = 0;
+    if (!*(WORD *)field_32C_pZones)
+        return 0;
+    while (1)
+    {
+        pZone = get_zone_4DFB30(this->field_364_cur_zone_idx);
+        if (pZone->field_5_name_length == name_len - 1 && !memcmp(pZone->field_6_name, pZoneName, name_len - 1))
+            break;
+        if (++this->field_364_cur_zone_idx >= *(WORD *)this->field_32C_pZones)
+            return 0;
+    }
+    return pZone;
+}
+
+// match
+gmp_map_zone* Map_0x370::get_zone_4DFB30(unsigned __int16 zone_idx)
+{
+    return field_32C_pZones[zone_idx + 1];
+}
