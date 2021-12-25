@@ -47,11 +47,11 @@ void frosty_pasteur_0xC1EA8::GetScrFileName_5122D0()
     {
         pfullName = this->field_45C_scr_file_name;
         after_slash_pos = slash_pos + 1;
-        *(DWORD *)pfullName = 0;
-        *((DWORD *)pfullName + 1) = 0;
-        pfullName[8] = 0;
-        total_str_len = strlen(slash_pos + 1) + 1;
-        copyLen = total_str_len - 1;
+
+        memset(field_45C_scr_file_name, 0, sizeof(field_45C_scr_file_name));
+
+        total_str_len = strlen(slash_pos + 1);
+        copyLen = total_str_len;
         if (total_str_len != 1)
         {
             while (after_slash_pos[copyLen] != '.')
