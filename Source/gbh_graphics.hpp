@@ -118,7 +118,7 @@ typedef int(__cdecl *T_gbh_ResetLights)();
 typedef int(__cdecl *T_gbh_AddLight)(SLight* pLight);
 typedef int(__cdecl *T_gbh_SetAmbient)(float a1);
 typedef int(__cdecl *T_gbh_GetUsedCache)(int a1);
-typedef int(__cdecl *T_gbh_FreeTexture)(STexture* pTexture);
+typedef int(__stdcall *T_gbh_FreeTexture)(STexture* pTexture);
 typedef int(__cdecl *T_gbh_RegisterPalette)(int palId, BYTE *pData);
 typedef int(__cdecl *T_gbh_FreePalette)(int a1);
 typedef int(__cdecl *T_gbh_AssignPalette)(STexture* pTexture, int palId);

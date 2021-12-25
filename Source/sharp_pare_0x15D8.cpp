@@ -194,9 +194,19 @@ void sharp_pare_0x15D8::LoadTextures2_5B9180()
     // todo
 }
 
+// match
 void festive_hopper::Free_5B9050()
 {
-    // todo
+    if (field_10_bDoFree && field_0_pAlloc)
+    {
+        for (unsigned short i = 0; i < field_4_item_alloc_count; ++i)
+        {
+            gbh_FreeTexture(field_0_pAlloc[i]);
+        }
+
+        free(field_0_pAlloc);
+        field_0_pAlloc = 0;
+    }
 }
 
 void festive_hopper::Alloc_5B8E90(__int16 a2, __int16 a3, int a4, int a5)

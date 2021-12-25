@@ -14,7 +14,7 @@ struct optimistic_moser
 
 struct festive_hopper
 {
-    DWORD *field_0_pAlloc;
+    STexture **field_0_pAlloc;
     unsigned __int16 field_4_item_alloc_count;
     unsigned __int16 field_6_count;
     int field_8_pal_type;
