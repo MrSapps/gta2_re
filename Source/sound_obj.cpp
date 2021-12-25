@@ -769,59 +769,48 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
         return;
     }
 
-    vigilant_maxwell *pMaxwell = &this->field_147C[idx];
+    vigilant_maxwell *pMaxwell = &field_147C[idx];
     if (!pMaxwell->field_0_bUsed)
     {
         return;
     }
 
-    infallible_turing * pTuring = this->field_147C[idx].field_4_pObj;
+    infallible_turing * pTuring = field_147C[idx].field_4_pObj;
     switch(pTuring->field_0_object_type)
     {
     case 1:
-    {
-        brave_archimedes_0x3C *pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
-        if (pAny)
+        if (pTuring->field_C_pObject)
         {
+            brave_archimedes_0x3C *pAny = (brave_archimedes_0x3C *)pTuring->field_C_pObject;
             switch (pAny->field_30)
             {
             case 2:
-                if (field_147C[idx].field_8_pAlloc)// type is 1 or 2
+                if (field_147C[idx].field_8_pAlloc)
                 {
-                    delete (field_147C[idx].field_8_pAlloc);
+                    delete field_147C[idx].field_8_pAlloc;
                 }
                 break;
             }
-
+            break;
         }
-        else
-        {
-            goto do_fade;
-        }
-    }
-    break;
+        // fall through
 
     case 2:
-    {
-    do_fade:
         this->field_3 = 0;
         gSampManager_6FFF00.FadeOut_58E490();
-        goto not_type1_or_2_and_after_fade;
+        break;
     }
 
-    }
-
-not_type1_or_2_and_after_fade:
     pMaxwell->field_0_bUsed = 0;
-    unsigned int idx_iter = 0;
     field_147C[idx].field_4_pObj->field_C_pObject = 0;
     field_147C[idx].field_1 = 0;
+
     if (field_147C[idx].field_4_pObj->field_0_object_type == 5)
     {
-        this->field_1478_type5Idx = 0;
+        field_1478_type5Idx = 0;
     }
 
-    field_543C_444C_max_idx = this->field_543C_444C_max_idx;
+    unsigned int idx_iter = 0;
     while (idx_iter < field_543C_444C_max_idx)
     {
         if (idx == field_444C_pEntities[idx_iter])
@@ -834,9 +823,7 @@ not_type1_or_2_and_after_fade:
                     4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
             }
 
-            int new_max = this->field_543C_444C_max_idx - 1;
-            this->field_543C_444C_max_idx = new_max;
-            this->field_444C_pEntities[new_max] = 0;
+            field_444C_pEntities[--field_543C_444C_max_idx] = 0;
             break;
         }
         idx_iter++;
