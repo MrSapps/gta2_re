@@ -3,7 +3,6 @@
 #include <windows.h>
 
 // todo: move
-struct infallible_turing;
 struct infallible_turing
 {
     int field_0;
@@ -13,6 +12,8 @@ struct infallible_turing
     char field_7;
     int field_8;
     infallible_turing *field_C;
+
+    void release_40EF20();
 };
 
 struct root_sound

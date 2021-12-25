@@ -129,3 +129,12 @@ int root_sound::sub_40F090(int state)
     //return gSound_obj_66F680.sub_418C80(state);
     return 0;
 }
+
+// match
+void infallible_turing::release_40EF20()
+{
+    if (field_8)
+    {
+        gRoot_sound_66B038.sub_40EFD0(field_8);
+    }
+}
