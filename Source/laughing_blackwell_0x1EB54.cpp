@@ -571,8 +571,26 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
     loving_borg_0xBCA* pBorg = &field_136[field_132_f136_idx];
     if (this->field_110_state != 2)
     {
-        if (field_132_f136_idx)
+        if (!field_132_f136_idx)
         {
+            switch (pBorg->field_BC6_nifty_idx)
+            {
+            case 0:
+                this->field_EE08 = 1;
+                break;
+
+            case 1:
+                this->field_EE08 = 0; // case 1
+                break;
+
+            case 2:
+                this->field_EE08 = 2;
+                break;
+            }
+        }
+        else
+        {
+
             switch (field_132_f136_idx)
             {
             case 1u:
@@ -619,23 +637,6 @@ void laughing_blackwell_0x1EB54::sub_4B6780()
                 break;
             default:
                 this->field_EE08 = 7;
-                break;
-            }
-        }
-        else
-        {
-            switch (pBorg->field_BC6_nifty_idx)
-            {
-            case 0:
-                this->field_EE08 = 1;
-                break;
-
-            case 1:
-                this->field_EE08 = 0; // case 1
-                break;
-
-            case 2:
-                this->field_EE08 = 2;
                 break;
             }
             /*
