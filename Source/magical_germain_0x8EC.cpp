@@ -34,6 +34,7 @@ void magical_germain_0x8EC::LoadChunks_4D1FC0(const char *pChunkId, unsigned int
     }
 }
 
+// match
 void magical_germain_0x8EC::Load_kanji_dat_4D2090()
 {
     File::Global_Open_4A7060("data\\kanji.dat");
