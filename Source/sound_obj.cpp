@@ -892,52 +892,47 @@ void sound_obj::ProcessEntity_4123A0(int id)
     infallible_turing **pAny = &field_147C[id].field_4_pObj;
     if (!(*pAny)->field_4)
     {
-        if (!gGame_0x40_67E008 || !field_1478_type5Idx)
+        if (gGame_0x40_67E008 && field_1478_type5Idx)
         {
-            goto LABEL_15;
-        }
-
-        if ((*pAny)->field_0_object_type == 3)
-        {
-            sub_57DD50();
-        }
-
-        if (!this->field_1)
-        {
-            switch ((*pAny)->field_0_object_type)
+            if ((*pAny)->field_0_object_type == 3)
             {
-            case 1:
-                sub_412740(id);
-                goto LABEL_15;
-            case 6:
-                sub_413760(id);
-                goto LABEL_15;
-            case 7:
-                sub_42A500(id);
-                goto LABEL_15;
-            case 8:
-                sub_412820(id);
-                goto LABEL_15;
-            case 9:
-                sub_412A60(id);
-                goto LABEL_15;
-            case 10:
-                sub_418CA0();
-                goto LABEL_15;
-            case 11:
-                sub_418B60(id);
-                goto LABEL_15;
-            default:
-                return;
+                sub_57DD50();
+            }
+
+            if (!this->field_1)
+            {
+                switch ((*pAny)->field_0_object_type)
+                {
+                case 1:
+                    sub_412740(id);
+                    break;
+                case 6:
+                    sub_413760(id);
+                    break;
+                case 7:
+                    sub_42A500(id);
+                    break;
+                case 8:
+                    sub_412820(id);
+                    break;
+                case 9:
+                    sub_412A60(id);
+                    break;
+                case 10:
+                    sub_418CA0();
+                    break;
+                case 11:
+                    sub_418B60(id);
+                    break;
+                default:
+                    return;
+                }
             }
         }
-        else
+
+        if ((*pAny)->field_0_object_type == 2)
         {
-        LABEL_15:
-            if ((*pAny)->field_0_object_type == 2)
-            {
-                sub_412490(id);
-            }
+            sub_412490(id);
         }
     }
 }
