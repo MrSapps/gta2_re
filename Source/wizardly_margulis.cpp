@@ -374,28 +374,29 @@ void wizardly_margulis::Terminate_58DAE0()
     }
 }
 
+// match
 void wizardly_margulis::Shutdown_58DB30()
 {
     for (unsigned int i = 0; i < 2; ++i)
     {
         if (i == 0)
         {
-            if (this->field_5_str[80])
+            if (field_5_str[80])
             {
-                if (this->field_9C_hStreams[0])
+                if (field_9C_hStreams[0])
                 {
-                    unsigned __int8 v6 = AIL_stream_volume(this->field_9C_hStreams[0]);
-                    if (v6 > 0)
+                    const unsigned __int8 curVol = AIL_stream_volume(field_9C_hStreams[0]);
+                    if (curVol > 0)
                     {
-                        int v3 = v6;
-                        int v4 = v6;
+                        int volL = curVol;
+                        int volR = curVol;
                         do
                         {
-                            AIL_set_stream_volume(this->field_9C_hStreams[0], v3);
+                            AIL_set_stream_volume(field_9C_hStreams[0], volL);
                             AIL_delay(1);
-                            --v3;
-                            --v4;
-                        } while (v4);
+                            --volL;
+                            --volR;
+                        } while (volR);
                     }
                 }
             }
@@ -413,8 +414,8 @@ void wizardly_margulis::Shutdown_58DB30()
     Terminate_58DAE0();
 
     AIL_mem_free_lock(field_1EA8_pAudioBuffer1);
-    this->field_1EA8_pAudioBuffer1 = 0;
-    this->field_1EAC_pAudioBuffer2 = 0;
+    field_1EA8_pAudioBuffer1 = 0;
+    field_1EAC_pAudioBuffer2 = 0;
     AIL_waveOutClose(field_0_hDriver);
     AIL_shutdown();
 }
