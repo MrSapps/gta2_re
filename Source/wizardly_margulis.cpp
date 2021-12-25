@@ -287,6 +287,7 @@ void wizardly_margulis::ReleaseSample_58DAC0()
     }
 }
 
+// match
 char wizardly_margulis::LoadWavSdtData_58E980(const char *pRawOrSdtName)
 {
     FILE *hRawFile; // eax
@@ -305,34 +306,33 @@ char wizardly_margulis::LoadWavSdtData_58E980(const char *pRawOrSdtName)
     strcat(sdtName, ".SDT");
     hRawFile = fopen(rawName, "rb");
     hRawFile_ = hRawFile;
-    if (hRawFile)
+    if (!hRawFile)
     {
         return 0;
     }
 
     fseek(hRawFile, 0, 2);
     rawFileSize = ftell(hRawFile_);
-    if (rawFileSize <= 6100000)
-    {
-        rewind(hRawFile_);
-        fread(this->field_1EA8_pAudioBuffer1, 1u, rawFileSize, hRawFile_);
-        fclose(hRawFile_);
-        hSdtFile = fopen(sdtName, "rb");
-        if (!hSdtFile)
-        {
-            fclose(hRawFile_);
-        }
-
-        fread(this->field_A8_sdt_entries, sizeof(serene_proskuriakova_0x18), 320u, hSdtFile);
-        fclose(hSdtFile);
-        this->field_A4_bLoaded = 1;
-        return 1;
-    }
-    else
+    if (rawFileSize > 6100000)
     {
         fclose(hRawFile_);
         return 0;
+       
     }
+
+    rewind(hRawFile_);
+    fread(this->field_1EA8_pAudioBuffer1, 1u, rawFileSize, hRawFile_);
+    fclose(hRawFile_);
+    hSdtFile = fopen(sdtName, "rb");
+    if (!hSdtFile)
+    {
+        fclose(hRawFile_);
+    }
+
+    fread(this->field_A8_sdt_entries, sizeof(serene_proskuriakova_0x18), 320u, hSdtFile);
+    fclose(hSdtFile);
+    this->field_A4_bLoaded = 1;
+    return 1;
 }
 
 // match
