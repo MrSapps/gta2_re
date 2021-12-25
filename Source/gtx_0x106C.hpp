@@ -133,7 +133,7 @@ public:
 
     unsigned __int16 sub_5AA710(unsigned __int16 a2, __int16 a3);
 
-    __int16 sub_5AA760(WORD *a2, WORD *a3);
+    __int16 sub_5AA760(WORD *a2, wchar_t *a3);
 
     __int16 sub_5AA7B0(WORD *a2);
 

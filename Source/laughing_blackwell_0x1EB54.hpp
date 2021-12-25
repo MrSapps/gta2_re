@@ -2661,6 +2661,8 @@ struct laughing_blackwell_0x1EB54
     // match
     static void __stdcall sub_5E53C0(BYTE *a1);
 
+    int sub_5D8990(wchar_t *pStr, WORD a2);
+
     int sub_4B0190(wchar_t* a2, __int16 a3, int a4);
 
     unsigned __int8 sub_4B7060(unsigned __int8 a2);

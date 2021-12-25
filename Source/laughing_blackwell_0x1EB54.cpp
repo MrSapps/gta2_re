@@ -2463,6 +2463,55 @@ void __stdcall laughing_blackwell_0x1EB54::sub_5E53C0(BYTE *a1)
     }
 }
 
+int laughing_blackwell_0x1EB54::sub_5D8990(wchar_t *pStr, WORD a2)
+{
+    wchar_t *v2; // edi
+    int v3; // esi
+    int v4; // ebp
+    int v5; // ebx
+    __int16 v6; // ax
+    int result; // eax
+
+    v2 = pStr;
+    v3 = 0;
+    v4 = 0;
+    
+    v5 = (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA7B0(&a2);
+    if (!*pStr)
+    {
+        return v4;
+    }
+
+    do
+    {
+        v6 = *v2;
+        if (*v2 == ' ')
+        {
+            v3 += v5;
+        }
+        else if (v6 == '\n')
+        {
+            if (v3 > v4)
+                v4 = v3;
+            v3 = 0;
+        }
+        else if (v6 != '#')
+        {
+            v3 += (unsigned __int16)gGtx_0x106C_703DD4->sub_5AA760(&a2, v2);
+        }
+        ++v2;
+    } while (*v2);
+    
+    result = v3;
+    
+    if (v3 <= v4)
+    {
+        return v4;
+    }
+
+    return result;
+}
+
 int laughing_blackwell_0x1EB54::sub_4B0190(wchar_t* a2, __int16 a3, int a4)
 {
     // todo
