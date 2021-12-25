@@ -167,9 +167,9 @@ __int16 gtx_0x106C::convert_pal_type_5AA5F0(int type, __int16 pal)
     return result;
 }
 
-int gtx_0x106C::GetPalData_5AA6A0(__int16 a2)
+BYTE* gtx_0x106C::GetPalData_5AA6A0(__int16 a2)
 {
-    return (int)this->field_2C_physical_palettes + 4 * ((a2 & 63) + ((a2 & 0xFFC0) << 8));
+    return (BYTE*)this->field_2C_physical_palettes + 4 * ((a2 & 63) + ((a2 & 0xFFC0) << 8));
 }
 
 // match

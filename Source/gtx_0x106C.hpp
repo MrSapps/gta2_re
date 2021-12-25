@@ -127,7 +127,7 @@ public:
 
     __int16 convert_pal_type_5AA5F0(int type, __int16 pal);
 
-    int GetPalData_5AA6A0(__int16 a2);
+    BYTE* GetPalData_5AA6A0(__int16 a2);
 
     unsigned __int16 get_phys_pal_5AA6F0(unsigned __int16 palId);
 
