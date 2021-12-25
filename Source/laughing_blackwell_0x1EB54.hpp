@@ -46,6 +46,8 @@ struct admiring_euler_4
     char field_1;
     char field_2;
     char field_3;
+
+    void LoadPlySlotSvg_4B6480(const char *FileName);
 };
 
 // todo: move
@@ -2598,6 +2600,10 @@ struct laughing_blackwell_0x1EB54
     void LoadPlySlotSvgs_4B53C0();
 
     void Load_tgas_4B66B0();
+
+    void GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr);
+
+    char PlySlotSvgExists_4B5370(int idx);
 };
 
 int __stdcall SetGamma_5D9910(int gamma);

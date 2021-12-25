@@ -669,7 +669,7 @@ void laughing_blackwell_0x1EB54::sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, B
     }
 }
 
-
+// match
 void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
 {
     Error_SetName_4A0770(tgaArray_61F0C8[idx].field_0_tga_name);
@@ -908,7 +908,32 @@ void laughing_blackwell_0x1EB54::sub_4B4440()
 
 void laughing_blackwell_0x1EB54::LoadPlySlotSvgs_4B53C0()
 {
-    // todo
+    unsigned __int8 k8Counter; // bl
+    admiring_euler_4 *pIter; // esi
+    BYTE idx; // [esp+10h] [ebp-104h]
+    char FileName[256]; // [esp+14h] [ebp-100h] BYREF
+
+    k8Counter = 0;
+    idx = 0;
+    pIter = this->field_EDE8_plySlots;
+    do
+    {
+        if (PlySlotSvgExists_4B5370(idx))
+        {
+            GetPlySlotSvgName_4B51D0(idx, FileName);
+            pIter->LoadPlySlotSvg_4B6480(FileName);
+        }
+        else
+        {
+            pIter->field_0 = 0;
+            pIter->field_1 = 3;
+            pIter->field_2 = 4;
+            pIter->field_3 = 0;
+        }
+        ++k8Counter;
+        ++pIter;
+        idx = k8Counter;
+    } while (k8Counter < 8u);
 }
 
 // match
@@ -921,6 +946,32 @@ void laughing_blackwell_0x1EB54::Load_tgas_4B66B0()
             Load_tga_4B6520(i);
         }
     }
+}
+
+void laughing_blackwell_0x1EB54::GetPlySlotSvgName_4B51D0(unsigned __int8 idx, char *pStr)
+{
+    char Buffer[8];
+    _itoa(idx, Buffer, 10);
+    strcpy(pStr, "player\\plyslot");
+    strcat(pStr, Buffer);
+    strcat(pStr, ".svg");
+}
+
+char laughing_blackwell_0x1EB54::PlySlotSvgExists_4B5370(int idx)
+{
+    long hFind; // eax
+    CHAR FileName[256]; // [esp+0h] [ebp-218h] BYREF
+    _finddata_t v4; // [esp+100h] [ebp-118h] BYREF
+
+    GetPlySlotSvgName_4B51D0(idx, FileName);
+    hFind = _findfirst(FileName, &v4);
+    if (hFind == -1)
+    {
+        return 0;
+    }
+
+    _findclose(hFind);
+    return 1;
 }
 
 loving_borg_0xBCA::loving_borg_0xBCA()
@@ -1023,4 +1074,9 @@ sleepy_stonebraker_0x6C::sleepy_stonebraker_0x6C()
 sleepy_stonebraker_0x6C::~sleepy_stonebraker_0x6C()
 {
 
+}
+
+void admiring_euler_4::LoadPlySlotSvg_4B6480(const char *FileName)
+{
+    // todo
 }
