@@ -832,7 +832,7 @@ void sound_obj::FreeSoundEntry_41A090(unsigned int idx)
 
 void sound_obj::Release_41A290()
 {
-    // todo
+    gSampManager_6FFF00.Release_58E290();
 }
 
 unsigned __int8 sound_obj::GetCDVol_41A280()

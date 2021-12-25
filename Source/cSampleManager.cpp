@@ -1080,6 +1080,15 @@ BYTE cSampleManager::sub_58E2A0()
 }
 
 // match
+void cSampleManager::Release_58E290()
+{
+    if (field_0_hDriver)
+    {
+        AIL_digital_handle_release(field_0_hDriver);
+    }
+}
+
+// match
 char cSampleManager::sub_58D820(BYTE *pMaxSamples)
 {
     Terminate_58DAE0();

@@ -175,6 +175,7 @@ public:
     char field_2715_pad;
     char field_2716_pad;
     char field_2717_pad;
+    void Release_58E290();
 };
 
 extern cSampleManager gSampManager_6FFF00;
