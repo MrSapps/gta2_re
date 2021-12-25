@@ -1195,7 +1195,7 @@ void laughing_blackwell_0x1EB54::sub_4AEC00()
 
     if (!bSkip_audio_67D6BE)
     {
-        gRoot_sound_66B038.sub_40EFA0();
+        gRoot_sound_66B038.Service_40EFA0();
     }
 
     if (counter_706C4C > 0)

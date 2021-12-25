@@ -42,7 +42,7 @@ void root_sound::SetSfxVol_40F0B0(unsigned __int8 cdVol)
     // todo
 }
 
-void root_sound::sub_40EFA0()
+void root_sound::Service_40EFA0()
 {
     // todo
 }

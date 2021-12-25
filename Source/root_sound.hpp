@@ -36,7 +36,7 @@ struct root_sound
 
     void SetSfxVol_40F0B0(unsigned __int8 cdVol);
     
-    void sub_40EFA0();
+    void Service_40EFA0();
 
     int sub_40EFB0(infallible_turing* a2);
 
