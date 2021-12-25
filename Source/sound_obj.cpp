@@ -1342,74 +1342,53 @@ void sound_obj::sub_412490(int idx)
     AddSampleToRequestedQueue_41A850();
 }
 
+// match
 char sound_obj::sub_412260(sound_0x68 *pObj)
 {
-    char result;
-
-    if (gGame_0x40_67E008 && this->field_1478_type5Idx && !this->field_1)
+    if (gGame_0x40_67E008 && field_1478_type5Idx && !field_1)
     {
         switch (pObj->field_58_type)
         {
         case 1:
         case 6:
-            result = sub_416260(pObj);
-            break;
+            return sub_416260(pObj);
         case 2:
-            result = sub_4182A0(pObj);
-            break;
+            return sub_4182A0(pObj);
         case 3:
-            result = sub_4174C0(pObj);
-            break;
+            return sub_4174C0(pObj);
         case 4:
-            result = sub_417A00(pObj);
-            break;
+            return sub_417A00(pObj);
         case 5:
-            result = sub_415730(pObj);
-            break;
+            return sub_415730(pObj);
         case 7:
-            result = sub_417EF0(pObj);
-            break;
+            return sub_417EF0(pObj);
         case 8:
-            result = sub_418130(pObj);
-            break;
+            return sub_418130(pObj);
         case 9:
-            result = sub_4186D0(pObj);
-            break;
+            return sub_4186D0(pObj);
         case 10:
-            result = sub_418940(pObj);
-            break;
+            return sub_418940(pObj);
         case 11:
-            result = sub_414EE0(pObj);
-            break;
+            return sub_414EE0(pObj);
         case 12:
-            result = sub_414C90(pObj);
-            break;
+            return sub_414C90(pObj);
         case 13:
-            result = sub_4153F0(pObj);
-            break;
+            return sub_4153F0(pObj);
         case 15:
-            result = sub_415100(pObj);
-            break;
+            return sub_415100(pObj);
         case 16:
-            result = sub_414320(pObj);
-            break;
+            return sub_414320(pObj);
         case 17:
-            result = sub_414690(pObj);
-            break;
+            return sub_414690(pObj);
         case 19:
-            result = sub_4149D0(pObj);
-            break;
+            return sub_4149D0(pObj);
         case 20:
             return 1;
         default:
             return 0;
         }
     }
-    else
-    {
-        return gLaughing_blackwell_0x1EB54_67DC84 && pObj->field_58_type == 20;
-    }
-    return result;
+    return gLaughing_blackwell_0x1EB54_67DC84 && pObj->field_58_type == 20 ? true : false;
 }
 
 char sound_obj::sub_416260(sound_0x68 *a1)
