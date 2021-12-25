@@ -12,6 +12,6 @@ void __stdcall laughing_blackwell_0x1EB54_sub_5E53C0(BYTE *a1);
 
 int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd);
 
-char __stdcall Start_NetworkGame_5E5A30(int hInstance);
+char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance);
 
 void __stdcall GetGTA2Version_5E5D60(int *pVerMinor, int *pVerMajor);

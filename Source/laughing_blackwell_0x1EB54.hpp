@@ -2492,7 +2492,9 @@ struct laughing_blackwell_0x1EB54
 
     int sub_4AEDB0();
 
-    static char intro_bik_exists_4B5FF0();
+    const char* intro_bik_4B5E50();
+
+    static bool intro_bik_exists_4B5FF0();
 };
 
-extern laughing_blackwell_0x1EB54 gLaughing_blackwell_0x1EB54_67DC84;
+extern laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;

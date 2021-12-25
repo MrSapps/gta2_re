@@ -238,9 +238,10 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
 
     gMutex_707078 = CreateMutexA(0, 0, "GBH_COOP_MUTEX");
     GetGTA2Version_5E5D60(&gGTA2VersionMajor_708280, &gGTA2VersionMajor_708284);
+    
+   // DWORD v16;
     DWORD dxVer;
-    DWORD v16;
-    GetDirectXVersion_4C4EC0(&dxVer, &v16);
+    GetDirectXVersion_4C4EC0(&dxVer, &dxVer); // stack hack
 
     if ((unsigned int)dxVer < 0x601)
     {
@@ -271,7 +272,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     _getcwd(gWorkingDir_707F64, 256);
 
     ParseCommandLine_4DA320(lpCmdLine);
-    if (!Start_NetworkGame_5E5A30((int)hInstance))
+    if (!Start_NetworkGame_5E5A30(hInstance))
     {
         ReleaseMutex(gMutex_707078);
         CloseHandle(gMutex_707078);
@@ -318,7 +319,7 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
     j_gbh_init_5D7CA0();
     Init_keybrd_jolly_and_sound_4DA440();
 
-    int state;
+    int state ;
     if (laughing_blackwell_0x1EB54::intro_bik_exists_4B5FF0())
     {
         state = gRegistry_6FF968.Get_Screen_Setting_5870D0("do_play_movie", 1) != 1 ? 0 : 8;
@@ -340,7 +341,6 @@ int __stdcall WinMain_5E53F0(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR
         gRegistry_6FF968.Clear_Or_Delete_Sound_Setting_586BF0("do_3d_sound", gRoot_sound_66B038.Get3DSound_40F180());
     }
 
-    int bQuit = 0;
 LABEL_23:
     while (1)
     {
@@ -350,12 +350,13 @@ LABEL_23:
             break;
         }
         sub_4ACFA0();
-        gLaughing_blackwell_0x1EB54_67DC84.sub_4B3170(state);
+        gLaughing_blackwell_0x1EB54_67DC84->sub_4B3170(state);
     LABEL_27:
         UpdateWinXY_5D8E70();
         sub_5D9690();
         while (1)
         {
+            int bQuit = 0;
             do
             {
                 while (1)
@@ -385,7 +386,7 @@ LABEL_23:
                     }
 
                     // or switch ?
-                    int t = gLaughing_blackwell_0x1EB54_67DC84.sub_4AEDB0();
+                    int t = gLaughing_blackwell_0x1EB54_67DC84->sub_4AEDB0();
                     if (t == 1)
                     {
                         bQuit = 1;
@@ -447,7 +448,7 @@ LABEL_23:
                 v15 = v15 & 0xFB; //lobyte
                 state = v15 + 11; //loword
                 */
-                state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 11;
+                state = gLucid_hamilton_67E8E0.sub_4C59A0() != 0 ? 6 : 1; // 11? prob 1
                 CleanUpInputAndOthers_4DA700();
                 bDoFrontEnd_626B68 = 1;
                 break;
@@ -499,7 +500,7 @@ LABEL_23:
     return 0;
 }
 
-char __stdcall Start_NetworkGame_5E5A30(int hInstance)
+char __stdcall Start_NetworkGame_5E5A30(HINSTANCE hInstance)
 {
     // todo
     return 0;
