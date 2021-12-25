@@ -10,6 +10,8 @@ add_library (Source
     Source/winmain.cpp
     Source/error.hpp
     Source/error.cpp
+    Source/memory.hpp
+    Source/memory.cpp
     Source/chunk.hpp
     Source/keybrd_0x204.hpp
     Source/keybrd_0x204.cpp

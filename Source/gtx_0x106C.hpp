@@ -231,13 +231,13 @@ public:
     sprite_index *field_20_sprite_index;
     object_info *field_24_map_object_info;
     palette_index *field_28_palette_index;
-    int field_2C_physical_palettes;
-    int field_30_physical_palettes_size;
+    void* field_2C_physical_palettes;
+    void* field_30_physical_palettes_size;
     BYTE *field_34_sprite_graphics;
     int field_38;
     void *field_3C_tiles;
     tile_array *field_40_tile;
-    int field_44_aligned_tiles_size;
+    void* field_44_aligned_tiles_size;
     delta_store_entry* field_48_delta_store;
     delta_entry *field_4C_delta_index;
     void *field_50_delta_buffer;

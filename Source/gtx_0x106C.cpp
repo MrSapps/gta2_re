@@ -2,6 +2,7 @@
 #include "error.hpp"
 #include "file.hpp"
 #include "chunk.hpp"
+#include "memory.hpp"
 #include <string.h>
 #include <stdio.h>
 #include <windows.h>
@@ -168,7 +169,7 @@ __int16 gtx_0x106C::convert_pal_type_5AA5F0(int type, __int16 pal)
 
 int gtx_0x106C::GetPalData_5AA6A0(__int16 a2)
 {
-    return this->field_2C_physical_palettes + 4 * ((a2 & 63) + ((a2 & 0xFFC0) << 8));
+    return (int)this->field_2C_physical_palettes + 4 * ((a2 & 63) + ((a2 & 0xFFC0) << 8));
 }
 
 // match
@@ -365,13 +366,13 @@ void gtx_0x106C::create_tile_num_array_5AA950()
 */
 void gtx_0x106C::sub_5AA9A0(int chunk_size)
 {
-    unsigned int total_len = 0;
+    int total_len = 0;
     BYTE total_sprite = 0;
     BYTE last_car_sprite = 0;
     car_info *pCarInfoIter = (car_info *)this->field_58_car_info;
 
     //car_info_container* pInfo = 
-    this->field_5C_cari = new car_info_container();;                  // 257 "dynamic" array ??
+    this->field_5C_cari = new car_info_container();                  // 257 "dynamic" array ??
     if (!this->field_5C_cari)
     {
         FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 821);
@@ -507,10 +508,12 @@ void gtx_0x106C::load_delta_store_5AADD0(int dels_chunk_size)
     UNIQUE_FUNC;
 }
 
+// match
 void gtx_0x106C::load_tiles_5AADF0(int tile_chunk_len)
 {
-    // TODO
-    UNIQUE_FUNC;
+    field_3C_tiles = Memory::Aligned_malloc_4FE510(tile_chunk_len, &field_44_aligned_tiles_size);
+    File::Global_Read_4A71C0(field_3C_tiles, &tile_chunk_len);
+    create_tile_num_array_5AA950();
 }
 
 void gtx_0x106C::skip_ovly_5AAE20(int a1)
@@ -529,10 +532,12 @@ void gtx_0x106C::load_sprite_graphics_5AAE40(int sprg_chunk_len)
     UNIQUE_FUNC;
 }
 
+// match
 void gtx_0x106C::load_physical_palettes_5AAE70(int ppal_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    this->field_2C_physical_palettes = Memory::Aligned_malloc_4FE510(ppal_chunk_size, &this->field_30_physical_palettes_size);
+    File::Global_Read_4A71C0(field_2C_physical_palettes, &ppal_chunk_size);
+    this->field_8_physical_palettes_len = (unsigned int)ppal_chunk_size >> 10;
 }
 
 void gtx_0x106C::load_palette_index_5AAEA0(int palx_chunk_len)
