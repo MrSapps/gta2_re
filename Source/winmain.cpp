@@ -256,7 +256,6 @@ int ReadScreenSettings_5D8F70()
     int trippleBuffer_old; // edi
     int full_height; // eax
     int startMode; // eax
-    int trippleBuffer; // ecx
     DWORD window_width_old; // [esp+10h] [ebp-8h]
     DWORD window_height_old; // [esp+14h] [ebp-4h]
 
@@ -288,19 +287,15 @@ int ReadScreenSettings_5D8F70()
 
     if (gBufferMode_706B34 == 0)
     {
-        trippleBuffer = 1;
         bTrippleBuffer_706C54 = 1;
     }
     else
     {
-        trippleBuffer = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
+        bTrippleBuffer_706C54 = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
         startMode = gStartMode_626A0C;
-        bTrippleBuffer_706C54 = trippleBuffer;
-
-       
     }
 
-    if (startMode == startMode_old && trippleBuffer == trippleBuffer_old)
+    if (startMode == startMode_old && bTrippleBuffer_706C54 == trippleBuffer_old)
     {
         if (startMode == 1)
         {
