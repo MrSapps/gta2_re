@@ -1060,13 +1060,6 @@ BYTE wizardly_margulis::sub_58E2A0()
 // todo
 char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
 {
-    int k256Counter; // edi
-    char **i; // ebx
-    unsigned int sampIdx; // ebp
-    H3DSAMPLE  *field_26C4_3d_sample; // ebx
-    H3DSAMPLE  _3D_sample_handle; // eax
-    int field_26C0_3d_provider; // [esp-Ch] [ebp-1Ch]
-
     Terminate_58DAE0();
     Reset3DSamples_58D960();
     if (this->field_2714_bUnknown)
@@ -1081,8 +1074,9 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
             return 0;
         }
     }
-    k256Counter = 0;
-    for (i = this->field_22B4_str;
+
+    int k256Counter = 0;
+    for (char **i = this->field_22B4_str;
         !*i
         || strncmp(*i, "Microsoft DirectSound3D hardware support", 0x1Eu)
         || !sub_58E140(k256Counter);
@@ -1094,55 +1088,61 @@ char wizardly_margulis::sub_58D820(BYTE *pMaxSamples)
         }
     }
 
-    if (!this->field_26C0_3d_provider)
+    if (this->field_26C0_3d_provider)
     {
-        return 0;
-    }
+        unsigned int sampIdx; // ebp
+        H3DSAMPLE  *field_26C4_3d_sample; // ebx
+        H3DSAMPLE  _3D_sample_handle; // eax
+        int field_26C0_3d_provider; // [esp-Ch] [ebp-1Ch]
 
-    *pMaxSamples = 0;
-    field_26C0_3d_provider = this->field_26C0_3d_provider;
-    this->field_1EB2_3d_samp_count = 0;
-    AIL_3D_provider_attribute(field_26C0_3d_provider, "Maximum supported samples", pMaxSamples);
-    if (*pMaxSamples > 16u)
-    {
-        *pMaxSamples = 16;
-    }
-    if (*pMaxSamples < 8u)
-    {
-        //goto LABEL_16;
+
+
         *pMaxSamples = 0;
-        Close3DProvider_58E1C0();
-        return 0;
-    }
-    sampIdx = 0;
-    if (*pMaxSamples)
-    {
-        field_26C4_3d_sample = this->field_26C4_3d_sample;
-        while (1)
+        field_26C0_3d_provider = this->field_26C0_3d_provider;
+        this->field_1EB2_3d_samp_count = 0;
+        AIL_3D_provider_attribute(field_26C0_3d_provider, "Maximum supported samples", pMaxSamples);
+        if (*pMaxSamples > 16u)
         {
-            _3D_sample_handle = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
-            *field_26C4_3d_sample = _3D_sample_handle;
-            if (!_3D_sample_handle)
+            *pMaxSamples = 16;
+        }
+        if (*pMaxSamples < 8u)
+        {
+            //goto LABEL_16;
+            *pMaxSamples = 0;
+            Close3DProvider_58E1C0();
+            return 0;
+        }
+        sampIdx = 0;
+        if (*pMaxSamples)
+        {
+            field_26C4_3d_sample = this->field_26C4_3d_sample;
+            while (1)
             {
-                break;
+                _3D_sample_handle = AIL_allocate_3D_sample_handle(this->field_26C0_3d_provider);
+                *field_26C4_3d_sample = _3D_sample_handle;
+                if (!_3D_sample_handle)
+                {
+                    break;
+                }
+                ++sampIdx;
+                ++field_26C4_3d_sample;
+                if (sampIdx >= (unsigned __int8)*pMaxSamples)
+                {
+                    //goto LABEL_21;
+                    this->field_1EB2_3d_samp_count = *pMaxSamples;
+                    return 1;
+                }
             }
-            ++sampIdx;
-            ++field_26C4_3d_sample;
-            if (sampIdx >= (unsigned __int8)*pMaxSamples)
-            {
-                //goto LABEL_21;
-                this->field_1EB2_3d_samp_count = *pMaxSamples;
-                return 1;
-            }
+
+            //LABEL_16:
+            *pMaxSamples = 0;
+            Close3DProvider_58E1C0();
+            return 0;
         }
 
-    //LABEL_16:
-        *pMaxSamples = 0;
-        Close3DProvider_58E1C0();
-        return 0;
+        //LABEL_21:
+        this->field_1EB2_3d_samp_count = *pMaxSamples;
+        return 1;
     }
-
-//LABEL_21:
-    this->field_1EB2_3d_samp_count = *pMaxSamples;
-    return 1;
+    return 0;
 }
