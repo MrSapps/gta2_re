@@ -7,6 +7,7 @@ SET(CMAKE_WARN_VS6 CACHE BOOL OFF)
 
 add_library (Source 
     Source/3rdParty/mss.h
+    Source/types.hpp
     Source/winmain.cpp
     Source/error.hpp
     Source/error.cpp

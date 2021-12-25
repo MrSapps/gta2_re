@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Windows.h>
+#include "types.hpp"
 
 struct SVideo
 {
@@ -59,8 +60,83 @@ struct SVideo
 
 extern SVideo *gVidSys_7071D0;
 
-typedef int(__stdcall *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
-typedef int(__stdcall *T_Vid_CloseScreen)(SVideo* pVideo);
+struct SVidVersion
+{
+    DWORD mVersion;
+    char mVersionString[255];
+};
 
-extern T_Vid_WindowProc Vid_WindowProc;
+struct SPtrVideoFunctions;
+
+typedef SVidVersion*(__stdcall *T_Vid_GetVersion)();
+typedef SVideo*(__stdcall *T_Vid_Init_SYS)(s32 param1, u16 param2_flags);
+typedef s32(__stdcall *T_Vid_CheckMode)(SVideo* pVideoDriver, s32 width, s32 height, s32 rgbBitCount);
+typedef SDisplayMode*(__stdcall*T_Vid_FindMode)(SVideo* pVideoDriver, s32 modeId);
+typedef s32(__stdcall*T_Vid_FindFirstMode)(SVideo* pVideoDriver, s32 rgbBitCountFilter);
+typedef s32(__stdcall*T_Vid_FindNextMode)(SVideo* pVideoDriver);
+typedef SDevice*(__stdcall *T_Vid_FindDevice)(SVideo* pVideoDriver, s32 deviceId);
+typedef s32(__stdcall *T_Vid_SetDevice)(SVideo* pVideoDriver, s32 deviceId);
+typedef void(__stdcall *T_Vid_CloseScreen)(SVideo* pVideo);
+typedef s32(__stdcall *T_Vid_SetMode)(SVideo* pVideoDriver, HWND hWnd, s32 modeId);
+typedef void(__stdcall *T_Vid_FlipBuffers)(SVideo* pVideo);
+typedef void(__stdcall*T_Vid_ReleaseSurface)(SVideo* pVideoDriver);
+typedef void(__stdcall*T_Vid_GrabSurface)(SVideo* pVideoDriver);
+typedef void(__stdcall *T_Vid_ShutDown_SYS)(SVideo* pVideoDriver);
+typedef s32(__stdcall*T_Vid_EnableWrites)(SVideo* pVideoDriver);
+typedef s32(__stdcall*T_Vid_DisableWrites)(SVideo* pVideoDriver);
+typedef s32(__stdcall *T_Vid_GetSurface)(SVideo* pVideoDriver);
+typedef s32(__stdcall *T_Vid_FreeSurface)(SVideo* pVideoDriver);
+typedef s32(__stdcall *T_Vid_ClearScreen)(SVideo* pVideoDriver, u8 aR, u8 aG, u8 aB, s32 aLeft, s32 aTop, s32 aRight, s32 aBottom);
+typedef s32(__stdcall *T_Vid_WindowProc)(SVideo* pVideoDriver, HWND hwnd, DWORD uMsg, WPARAM wParam, LPARAM lParam);
+typedef s32(__cdecl *T_Vid_InitDLL)(HINSTANCE hInstance, SPtrVideoFunctions* a2);
+typedef s32(__cdecl *T_Vid_SetGamma)(SVideo* pVideoDriver, f32 a2, f32 a3, f32 a4);
+
+
+struct SVideoFunctions
+{
+    T_Vid_GetVersion pVid_GetVersion;
+    T_Vid_Init_SYS pVid_Init_SYS;
+    T_Vid_CheckMode pVid_CheckMode;
+    T_Vid_FindMode pVid_FindMode;
+    T_Vid_FindFirstMode pVid_FindFirstMode;
+    T_Vid_FindNextMode pVid_FindNextMode;
+    T_Vid_FindDevice pVid_FindDevice;
+    T_Vid_SetDevice pVid_SetDevice;
+    T_Vid_CloseScreen pVid_CloseScreen;
+    T_Vid_SetMode pVid_SetMode;
+    T_Vid_FlipBuffers pVid_FlipBuffers;
+    T_Vid_ReleaseSurface pVid_ReleaseSurface;
+    T_Vid_GrabSurface pVid_GrabSurface;
+    T_Vid_ShutDown_SYS pVid_ShutDown_SYS;
+    T_Vid_EnableWrites pVid_EnableWrites;
+    T_Vid_DisableWrites pVid_DisableWrites;
+    T_Vid_GetSurface pVid_GetSurface;
+    T_Vid_FreeSurface pVid_FreeSurface;
+    T_Vid_ClearScreen pVid_ClearScreen;
+    T_Vid_WindowProc pVid_WindowProc;
+    T_Vid_InitDLL pVid_InitDLL;
+    T_Vid_SetGamma pVid_SetGamma;
+};
+
+extern T_Vid_GetVersion Vid_GetVersion;
+extern T_Vid_Init_SYS Vid_Init_SYS;
+extern T_Vid_CheckMode Vid_CheckMode;
+extern T_Vid_FindMode Vid_FindMode;
+extern T_Vid_FindFirstMode Vid_FindFirstMode;
+extern T_Vid_FindNextMode Vid_FindNextMode;
+extern T_Vid_FindDevice Vid_FindDevice;
+extern T_Vid_SetDevice Vid_SetDevice;
 extern T_Vid_CloseScreen Vid_CloseScreen;
+extern T_Vid_SetMode Vid_SetMode;
+extern T_Vid_FlipBuffers Vid_FlipBuffers;
+extern T_Vid_ReleaseSurface Vid_ReleaseSurface;
+extern T_Vid_GrabSurface Vid_GrabSurface;
+extern T_Vid_ShutDown_SYS Vid_ShutDown_SYS;
+extern T_Vid_EnableWrites Vid_EnableWrites;
+extern T_Vid_DisableWrites Vid_DisableWrites;
+extern T_Vid_GetSurface Vid_GetSurface;
+extern T_Vid_FreeSurface Vid_FreeSurface;
+extern T_Vid_ClearScreen Vid_ClearScreen;
+extern T_Vid_WindowProc Vid_WindowProc;
+extern T_Vid_InitDLL Vid_InitDLL;
+extern T_Vid_SetGamma Vid_SetGamma;
