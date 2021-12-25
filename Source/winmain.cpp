@@ -269,8 +269,8 @@ int ReadScreenSettings_5D8F70()
 
     if (bDoFrontEnd_626B68)
     {
-        full_height = 480;
         window_width_706630 = 640;
+        full_height = 480;
         window_height_706B50 = 480;
         full_width_706B5C = 640;
     }
