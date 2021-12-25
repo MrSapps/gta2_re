@@ -1577,3 +1577,30 @@ BYTE sound_obj::sub_427310()
         return field_5528_idx15_cur - field_5529_idx15 + 14;
     }
 }
+
+// match
+void sound_obj::sub_427340(int a4, int a5, int a6)
+{
+    if (sub_427310() >= 8u)
+    {
+        Set15Val_4271B0(120u);
+        if ((field_5448_m_FrameCounter & 1) == 0)
+        {
+            Set15Val_4271B0(70u);
+        }
+        else
+        {
+            Set15Val_4271B0(69u);
+        }
+        Set15Val_4271B0(73u);
+        Set15Val_4271B0(a4 + 73);
+        Set15Val_4271B0(88u);
+        sub_426E10(a5, a6);
+    }
+}
+
+// stub
+void sound_obj::sub_426E10(int arg0, unsigned int a2)
+{
+
+}

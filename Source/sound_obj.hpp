@@ -360,6 +360,9 @@ public:
 
     BYTE sub_427310();
 
+    void sub_427340(int a4, int a5, int a6);
+
+    void sub_426E10(int arg0, unsigned int a2);
 };
 
 extern sound_obj gSound_obj_66F680;
