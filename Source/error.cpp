@@ -1,4 +1,5 @@
 #include "error.hpp"
+#include "winmain.hpp"
 #include <windows.h>
 #include <stdio.h>
 #include <fstream>
@@ -66,12 +67,6 @@ void sub_4DA740()
 void __stdcall GBH_Graphis_DMA_Video_Free_5D9830()
 {
 
-}
-
-// match
-void __stdcall ErrorMsgBox_5E4EC0(LPCSTR lpText)
-{
-    MessageBoxA(gHwnd_707F04, lpText, "Error!", 0);
 }
 
 // match

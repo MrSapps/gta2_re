@@ -6,8 +6,27 @@ ENABLE_LANGUAGE(ASM_MASM)
 SET(CMAKE_WARN_VS6 CACHE BOOL OFF)
 
 add_library (Source 
+    Source/winmain.cpp
     Source/error.hpp
     Source/error.cpp
+    Source/debug.hpp
+    Source/debug.cpp
+    Source/root_sound.hpp
+    Source/root_sound.cpp
+    Source/angry_lewin_0x85C.hpp
+    Source/angry_lewin_0x85C.cpp
+    Source/laughing_blackwell_0x1EB54.hpp
+    Source/laughing_blackwell_0x1EB54.cpp
+    Source/Game_0x40.hpp
+    Source/Game_0x40.cpp
+    Source/jolly_poitras_0x2BC0.hpp
+    Source/jolly_poitras_0x2BC0.cpp
+    Source/goofy_thompson.hpp
+    Source/goofy_thompson.cpp
+    Source/input.hpp
+    Source/input.cpp
+    Source/lucid_hamilton.hpp
+    Source/lucid_hamilton.cpp
     Source/registry.hpp
     Source/registry.cpp
     Source/file.hpp

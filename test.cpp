@@ -4,59 +4,10 @@
 #include "Source/registry.hpp"
 #include "Source/file.hpp"
 #include "Source/sharp_bose_0x54.hpp"
+#include "source/lucid_hamilton.hpp"
+#include "Source/winmain.hpp"
 
 #pragma comment(lib, "Winmm.lib")
-
-int __stdcall SkipWhiteSpace_4DA390(char *pStr)
-{
-    // todo
-	return 0;
-}
-
-char *__stdcall sub_4DA3F0(char *pStr)
-{
-    // todo
-	return 0;
-}
-
-char bPlay_replay_67D4F4 = 0;
-char bConstant_replay_save_67D5C4 = 0;
-int bStartNetworkGame_7081F0 = 0;
-
-// MATCH
-void __stdcall ParseCommandLine_4DA320(char *pCommandLine)
-{
-  char* pIter = pCommandLine;
-  int len = SkipWhiteSpace_4DA390(pCommandLine);
-  _strupr(pCommandLine);
-  while ( len > 0 )
-  {
-      if ( *pIter == '-' || *pIter == '/' )
-      {
-        const char cmd_char = *(++pIter);
-		switch(cmd_char)
-		{
-		case 'R':
-			bPlay_replay_67D4F4 = 1;
-			break;
-
-		case 'Q':
-			bConstant_replay_save_67D5C4 = 1; 
-			break;
-
-		case 'N':
-			bStartNetworkGame_7081F0 = 1; 
-			break;
-
-		default:
-			break;
-		}
-      }
-      
-      pIter = sub_4DA3F0(pIter);
-	  --len;
-  }
-}
 
 void test_file()
 {
@@ -139,6 +90,18 @@ void test_registry()
     gRegistry_6FF968.Set_Sound_Setting_586AE0("lol", 5);
 }
 
+void test_lucid_hamilton()
+{
+    lucid_hamilton c;
+    c.sub_4C5920(0);
+}
+
+void test_winmain()
+{
+    Start_GTA2Manager_5E4DE0();
+    ErrorMsgBox_5E4EC0("meh");
+}
+
 int APIENTRY WinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
                      LPSTR     lpCmdLine,
@@ -147,8 +110,8 @@ int APIENTRY WinMain(HINSTANCE hInstance,
     test_registry();
     test_file();
     test_gtx_0x106C();
-
-    ParseCommandLine_4DA320("");
+    test_lucid_hamilton();
+    test_winmain();
 
     return 0;
 }

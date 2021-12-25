@@ -1,0 +1,338 @@
+#pragma once
+
+#include <windows.h>
+
+struct infallible_turing;
+struct cool_nash_0x294;
+struct keen_bhaskara_0x30;
+struct angry_lewin_0x85C;
+
+// todo: move
+struct silly_saha_0x2C
+{
+    int field_0;
+    __int16 field_4;
+    char field_6;
+    char field_7;
+    int field_8;
+    int field_C;
+    __int16 field_10;
+    __int16 field_12;
+    int field_14;
+    int field_18;
+    int field_1C;
+    int field_20_counterVal;
+    char field_24;
+    char field_25;
+    char field_26;
+    char field_27;
+    __int16 field_28;
+    char field_2A_bUsed;
+    char field_2B;
+};
+
+// todo: move
+struct sad_mirzakhani
+{
+    silly_saha_0x2C field_0[10];
+    int field_1B8;
+    int field_1BC;
+};
+
+// todo: move
+struct thirsty_lamarr
+{
+    int field_0;
+    int field_4;
+    char field_8;
+    char field_9;
+    char field_A;
+    char field_B;
+    int field_C;
+    char field_10;
+    char field_11;
+    char field_12;
+    char field_13[9];
+    char field_1C;
+    char field_1D_buf[9];
+    char field_26;
+    char field_27;
+    char field_28;
+    char field_29;
+    __int16 field_2A;
+    char field_2C;
+    char field_2D;
+    __int16 field_2E_idx;
+    int field_30;
+    __int16 field_34;
+    __int16 field_36;
+};
+
+// todo: move
+struct eager_benz
+{
+    thirsty_lamarr field_0_unk;
+    thirsty_lamarr field_38_unk;
+    int field_70;
+    char field_74;
+    char field_75;
+    char field_76;
+    char field_77;
+    int field_78;
+    __int16 field_7C;
+    __int16 field_7E;
+    int field_80;
+    __int16 field_84;
+    __int16 field_86;
+    __int16 field_88;
+    __int16 field_8A;
+    BYTE field_8C[256];
+    int field_18C;
+    int field_190;
+    int field_194;
+    char field_198;
+    char field_199;
+    char field_19A;
+    char field_19B;
+    int field_19C;
+    int field_1A0;
+    char field_1A4;
+    char field_1A5;
+    char field_1A6;
+    char field_1A7;
+    sad_mirzakhani field_1A8_unk;
+    angry_lewin_0x85C *field_368_pObj;
+};
+
+// todo: move
+struct DrawUnk_0xBC
+{
+    int field_0;
+    int field_4_unk;
+    int field_8;
+    int field_C;
+    int field_10;
+    int field_14;
+    int field_18;
+    int field_1C;
+    int field_20;
+    int field_24;
+    int field_28;
+    int field_2C;
+    int field_30;
+    int field_34;
+    int field_38;
+    int field_3C;
+    int field_40;
+    char field_44;
+    char field_45;
+    char field_46;
+    char field_47;
+    int field_48;
+    int field_4C;
+    int field_50;
+    int field_54;
+    int field_58;
+    int field_5C;
+    int field_60;
+    int field_64;
+    int field_68;
+    int field_6C;
+    int field_70;
+    int field_74;
+    int field_78;
+    int field_7C;
+    int field_80;
+    int field_84;
+    int field_88;
+    int field_8C;
+    int field_90;
+    int field_94;
+    int field_98_x;
+    int field_9C_y;
+    int field_A0_z;
+    int field_A4;
+    int field_A8;
+    int field_AC;
+    int field_B0;
+    int field_B4;
+    int field_B8;
+};
+
+// todo: move
+struct zealous_borg
+{
+    DWORD field_0[10];
+    BYTE field_28[10];
+    __int16 field_32;
+    int field_34;
+    int field_38;
+};
+
+
+struct angry_lewin_0x85C
+{
+    char field_0;
+    char field_1;
+    char field_2;
+    char field_3;
+    int field_4;
+    __int16 field_8;
+    __int16 field_A;
+    int field_C;
+    int field_10;
+    __int16 field_14;
+    __int16 field_16;
+    __int16 field_18;
+    __int16 field_1A;
+    int field_1C;
+    int field_20;
+    int field_24;
+    char field_28;
+    char field_29;
+    char field_2A;
+    char field_2B;
+    __int16 field_2C;
+    unsigned __int8 field_2E;
+    char field_2F;
+    char field_30;
+    char field_31;
+    char field_32;
+    char field_33;
+    int field_34_pObj;
+    int field_38;
+    int field_3C;
+    int field_40;
+    int field_44_death_type;
+    char field_48;
+    char field_49;
+    char field_4A;
+    char field_4B;
+    infallible_turing *field_4C_pUnk;
+    int field_50;
+    int field_54_unk;
+    int field_58;
+    int field_5C;
+    int field_60;
+    char field_64;
+    char field_65;
+    char field_66;
+    char field_67;
+    int field_68;
+    int field_6C;
+    char field_70;
+    char field_71;
+    char field_72;
+    char field_73;
+    char field_74;
+    char field_75;
+    char field_76;
+    char field_77;
+    char field_78;
+    char field_79;
+    char field_7A;
+    char field_7B;
+    char field_7C;
+    char field_7D;
+    char field_7E;
+    char field_7F;
+    char field_80;
+    char field_81;
+    char field_82;
+    char field_83;
+    char field_84;
+    char field_85;
+    char field_86;
+    char field_87;
+    char field_88;
+    char field_89;
+    char field_8A;
+    char field_8B;
+    char field_8C;
+    char field_8D;
+    char field_8E;
+    char field_8F;
+    DrawUnk_0xBC field_90_game_camera;
+    DrawUnk_0xBC field_14C_view_camera;
+    DrawUnk_0xBC field_208_aux_game_camera;
+    cool_nash_0x294 *field_2C4_unk;
+    cool_nash_0x294 *field_2C8_unkq;
+    int field_2CC;
+    char field_2D0;
+    char field_2D1;
+    char field_2D2;
+    char field_2D3;
+    eager_benz field_2D4_unk;
+    char field_640;
+    char field_641;
+    char field_642;
+    char field_643;
+    zealous_borg field_644_unk;
+    __int16 field_680;
+    __int16 field_682;
+    thirsty_lamarr field_684_unk;
+    thirsty_lamarr field_6BC_unk;
+    WORD field_6F4[17];
+    __int16 field_716;
+    keen_bhaskara_0x30 *field_718[28];
+    __int16 field_788;
+    char field_78A;
+    char field_78B;
+    int field_78C;
+    __int16 field_790;
+    __int16 field_792;
+    char field_794;
+    char field_795;
+    __int16 field_796;
+    int field_798;
+    int field_79C;
+    int field_7A0;
+    int field_7A4;
+    int field_7A8;
+    int field_7AC;
+    int field_7B0;
+    int field_7B4;
+    int field_7B8;
+    int field_7BC;
+    int field_7C0;
+    int field_7C4;
+    int field_7C8;
+    int field_7CC;
+    int field_7D0;
+    int field_7D4;
+    int field_7D8;
+    int field_7DC;
+    int field_7E0;
+    int field_7E4;
+    int field_7E8;
+    int field_7EC;
+    int field_7F0;
+    int field_7F4;
+    int field_7F8;
+    int field_7FC;
+    int field_800;
+    int field_804;
+    int field_808;
+    int field_80C;
+    int field_810;
+    int field_814;
+    int field_818;
+    int field_81C;
+    int field_820;
+    int field_824;
+    int field_828;
+    int field_82C;
+    int field_830;
+    int field_834;
+    int field_838;
+    __int16 field_83C;
+    char field_83E;
+    char field_83F;
+    int field_840;
+    int field_844;
+    int field_848;
+    int field_84C;
+    int field_850;
+    int field_854;
+    int field_858;
+};
