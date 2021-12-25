@@ -4532,13 +4532,13 @@ const wchar_t *__stdcall DrawText_5D8A10(
     wchar_t *pTexta; // [esp+28h] [ebp+4h]
     float v_1_2_x; // [esp+28h] [ebp+4h]
     float v2_3_y; // [esp+28h] [ebp+4h]
-    wchar_t *v2_v; // [esp+28h] [ebp+4h]
+    int v2_v; // [esp+28h] [ebp+4h]
 
     new_Flags = CalcQuadFlags_5D83E0(mode, a9) | 0x20000;
     drawFlags = new_Flags;
     pTextIter = pText;
 
-    Fix16 a99 = xpos_fp; // note: new var
+    Fix16 cur_xpos = xpos_fp; // note: new var
     calcSpaceWidth = gGtx_0x106C_703DD4->space_width_5AA7B0((WORD*)&spaceWidth);
     v11 = fp4;
     space_amount.mValue = fp4.mValue * calcSpaceWidth;
@@ -4577,12 +4577,12 @@ const wchar_t *__stdcall DrawText_5D8A10(
             text_char = *pTextIter;
             if (*pTextIter == '\n')
             {
-                a99 = xpos_fp;
+                cur_xpos = xpos_fp;
                 ypos_fp.mValue += lineHeight.mValue;
             }
             else if ((WORD)text_char == ' ')
             {
-                a99.mValue += space_amount.mValue;
+                cur_xpos.mValue += space_amount.mValue;
             }
             else if ((WORD)text_char == '#')
             {
@@ -4641,16 +4641,18 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 
                 //v25 = v11.mValue;
                 //v26 = v11.mValue >> 31;
-                int pTextaa = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
+
+                int sprite_xoff = (sprite_index_5AA440->field_4_width << 14) * (v11.mValue >> 14);
                 v27 = (sprite_index_5AA440->field_5_height << 14) * (v11.mValue >> 14);
                 gQuadVerts_706B88.field_0_verts[0].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[1].field_8_z = 0.000099999997;
-                v28 = (int)pTextaa + a99.mValue;
+                v28 = (int)sprite_xoff + cur_xpos.mValue;
                 gQuadVerts_706B88.field_0_verts[2].field_8_z = 0.000099999997;
                 gQuadVerts_706B88.field_0_verts[3].field_8_z = 0.000099999997;
-                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)a99.mValue * 0.000061035156;
+
+                gQuadVerts_706B88.field_0_verts[0].field_0_x = (double)cur_xpos.mValue * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[0].field_4_y = (double)ypos_fp.mValue * 0.000061035156;
-                v_1_2_x = (double)((int)pTextaa + a99.mValue) * 0.000061035156;
+                v_1_2_x = (double)((int)sprite_xoff + cur_xpos.mValue) * 0.000061035156;
                 gQuadVerts_706B88.field_0_verts[1].field_0_x = v_1_2_x;
                 gQuadVerts_706B88.field_0_verts[1].field_4_y = gQuadVerts_706B88.field_0_verts[0].field_4_y;
                 gQuadVerts_706B88.field_0_verts[2].field_0_x = v_1_2_x;
@@ -4659,7 +4661,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
                 gQuadVerts_706B88.field_0_verts[3].field_0_x = gQuadVerts_706B88.field_0_verts[0].field_0_x;
                 gQuadVerts_706B88.field_0_verts[3].field_4_y = v2_3_y;
                 __int64 v1_u = (__int64)(((double)sprite_index_5AA440->field_4_width - 0.000099999997) * 16384.0);
-                v2_v = (wchar_t *)(__int64)(((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
+                v2_v = (__int64)(((double)sprite_index_5AA440->field_5_height - 0.000099999997) * 16384.0);
                 gQuadVerts_706B88.field_0_verts[0].field_18_u = 0.0;
                 gQuadVerts_706B88.field_0_verts[0].field_1C_v = 0.0;
                 gQuadVerts_706B88.field_0_verts[1].field_1C_v = 0.0;
@@ -4673,7 +4675,7 @@ const wchar_t *__stdcall DrawText_5D8A10(
 
                 //v15 = (__int16)retaddr;
                 space_amount = kind;
-                v11 = (int)v2_v;
+                v11 = v2_v;
                 fp4 = v28;
                 //v13 = v29;
                 
