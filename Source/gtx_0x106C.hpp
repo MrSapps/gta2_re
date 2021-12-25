@@ -16,11 +16,11 @@ struct palette_base
 
 struct sprite_base
 {
-    __int16 field_0_car;
-    __int16 field_2_ped;
-    __int16 field_4_code_obj;
-    __int16 field_6_map_obj;
-    __int16 field_8_user;
+    WORD field_0_car;
+    WORD field_2_ped;
+    WORD field_4_code_obj;
+    WORD field_6_map_obj;
+    WORD field_8_user;
     unsigned __int16 field_A_font;
 };
 

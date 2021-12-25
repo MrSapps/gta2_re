@@ -657,10 +657,31 @@ void __stdcall gtx_0x106C::ConvertToVirtualOffsets_5AB1C0(WORD *pBuffer, unsigne
     }
 }
 
+// match
 void gtx_0x106C::load_sprite_base_5AB210(unsigned int sprite_base_chunk_size)
 {
-    // TODO
-    UNIQUE_FUNC;
+    if (sprite_base_chunk_size != sizeof(sprite_base))
+    {
+        FatalError_4A38C0(1033, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1289, sprite_base_chunk_size);
+    }
+
+    field_18_sprite_base1 = new sprite_base();
+    if (!field_18_sprite_base1)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1291);
+    }
+
+    field_14_sprite_base2 = new sprite_base();
+    if (!field_14_sprite_base2)
+    {
+        FatalError_4A38C0(32, "C:\\Splitting\\Gta2\\Source\\style.cpp", 1293);
+    }
+
+    File::Global_Read_4A71C0(field_18_sprite_base1, &sprite_base_chunk_size);
+
+    *field_14_sprite_base2 = *field_18_sprite_base1;
+
+    ConvertToVirtualOffsets_5AB1C0(&field_14_sprite_base2->field_0_car, 6);
 }
 
 void gtx_0x106C::load_palete_base_5AB2C0(unsigned int palette_base_chunk_len)
