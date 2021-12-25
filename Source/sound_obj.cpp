@@ -837,25 +837,29 @@ not_type1_or_2_and_after_fade:
     field_543C_444C_max_idx = this->field_543C_444C_max_idx;
     if (field_543C_444C_max_idx)
     {
-        while (idx != field_444C_pEntities[idx_iter])
+        while (idx_iter < field_543C_444C_max_idx)
         {
-            if (++idx_iter >= field_543C_444C_max_idx)
+            if (idx == field_444C_pEntities[idx_iter])
             {
-                return;
+                if (idx_iter < 1019)
+                {
+                    memmove(
+                        &this->field_444C_pEntities[idx_iter],
+                        &this->field_444C_pEntities[idx_iter + 1],
+                        4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
+                }
+
+                new_max = this->field_543C_444C_max_idx - 1;
+                this->field_543C_444C_max_idx = new_max;
+                this->field_444C_pEntities[new_max] = 0;
+                break;
             }
+            idx_iter++;
         }
 
-        if (idx_iter < 1019)
-        {
-            memmove(
-                &this->field_444C_pEntities[idx_iter],
-                &this->field_444C_pEntities[idx_iter + 1],
-                4 * (field_543C_444C_max_idx + 0x3FFFFFFF * (idx_iter + 1)));
-        }
 
-        new_max = this->field_543C_444C_max_idx - 1;
-        this->field_543C_444C_max_idx = new_max;
-        this->field_444C_pEntities[new_max] = 0;
+
+      
     }
 }
 
