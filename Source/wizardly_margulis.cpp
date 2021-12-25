@@ -140,23 +140,27 @@ void wizardly_margulis::Enum3DProviders_58E1F0()
 // match
 char wizardly_margulis::AllocSamples_58D9F0(int a2)
 {
-    char result; // al
-
     Terminate_58DAE0();
     Reset3DSamples_58D960();
 
-    if (!this->field_2714_bUnknown
-        || (AIL_waveOutClose(this->field_0_hDriver), (result = sub_58D720(1, 0, 22050)) != 0))
+    if (this->field_2714_bUnknown)
     {
-        for (unsigned int i = 0; i < field_1EB0_count_samples; i++)
+        AIL_waveOutClose(this->field_0_hDriver);
+
+        if (sub_58D720(1, 0, 22050) == 0)
         {
-            field_58_hSamples[i] = AIL_allocate_sample_handle(field_0_hDriver);
-            AIL_init_sample(field_58_hSamples[i]);
-            AIL_set_sample_type(field_58_hSamples[i], 1, 1);
+            return 0;
         }
-        return 1;
     }
-    return result;
+
+    for (unsigned int i = 0; i < field_1EB0_count_samples; i++)
+    {
+        field_58_hSamples[i] = AIL_allocate_sample_handle(field_0_hDriver);
+        AIL_init_sample(field_58_hSamples[i]);
+        AIL_set_sample_type(field_58_hSamples[i], 1, 1);
+    }
+
+    return 1;
 }
 
 // match
