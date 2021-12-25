@@ -13,14 +13,26 @@ public:
     int field_8;
 };
 
+struct sound_unknown_0xC
+{
+    int field_0;
+    char field_4;
+    char field_5;
+    char field_6;
+    char field_7;
+    __int16 field_8;
+    char field_A;
+    char field_B;
+};
+
 struct vigilant_maxwell
 {
     char field_0;
     char field_1;
     char field_2;
     char field_3;
-    int field_4_pObj;
-    int field_8;
+    infallible_turing* field_4_pObj;
+    sound_unknown_0xC* field_8_pAlloc;
 };
 
 struct sound_7
@@ -289,7 +301,7 @@ public:
 
     unsigned __int8 GetCDVol_41A280();
 
-
+    void sub_57EA10();
 };
 
 extern sound_obj gSound_obj_66F680;

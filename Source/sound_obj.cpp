@@ -577,7 +577,7 @@ void sound_obj::sub_41A6C0(int idx)
     field_147C[idx].field_0 = 0;
     field_147C[idx].field_1 = 0;
     field_147C[idx].field_4_pObj = 0;
-    field_147C[idx].field_8 = 0;
+    field_147C[idx].field_8_pAlloc = 0;
 }
 
 void sound_obj::null_412240()
@@ -658,10 +658,71 @@ const char* sound_obj::GetFileName_41A1E0(const char *pStr)
     return result;
 }
 
-int sound_obj::sub_419FA0(infallible_turing* a2)
+// todo
+int sound_obj::sub_419FA0(infallible_turing* pTuring)
 {
-    // todo
-    return 0;
+    int idx; // edi
+    vigilant_maxwell *pMaxwellIter; // eax
+   // int *__shifted(vigilant_maxwell, 0x147C) pBaseOff; // ebp
+    infallible_turing *v7; // eax
+    sound_unknown_0xC *pNewObj; // eax
+
+    idx = 1;
+    if (!this->field_0 || !pTuring)
+    {
+        return 0;
+    }
+
+    for (pMaxwellIter = &this->field_147C[1]; pMaxwellIter->field_0; ++pMaxwellIter)
+    {
+        if ((unsigned int)++idx >= 1020)
+        {
+            return 0;
+        }
+    }
+
+    if (pTuring->field_0 == 5)
+    {
+        if (!this->field_1478)
+        {
+            this->field_1478 = idx;
+            goto LABEL_10;
+        }
+        return 0;
+    }
+
+LABEL_10:
+    sub_41A6C0(idx);
+    
+    //pBaseOff = (int *__shifted(vigilant_maxwell, 0x147C))(&this->field_0 + 0xC * idx);
+    
+
+    field_147C[idx].field_4_pObj = pTuring;
+    field_147C[idx].field_0 = 1;
+    field_147C[idx].field_1 = 1;
+    this->field_444C_pEntities[this->field_543C_444C_max_idx++] = idx;
+
+    if (pTuring->field_0 == 1)
+    {
+        v7 = field_147C[idx].field_4_pObj->field_C;
+        if (v7)
+        {
+            if (v7[3].field_0 == 2)
+            {
+                pNewObj = new sound_unknown_0xC(); // (sound_unknown_0xC *)operator new(0xCu);
+                field_147C[idx].field_8_pAlloc = pNewObj;
+                pNewObj->field_0 = dword_674CD8;
+                pNewObj->field_8 = 0;
+                pNewObj->field_A = 0;
+            }
+        }
+    }
+    else if (pTuring->field_0 == 2)
+    {
+        sub_57EA10();
+        return idx;
+    }
+    return idx;
 }
 
 void sound_obj::sub_41A090(int a2)
@@ -677,4 +738,9 @@ void sound_obj::Release_41A290()
 unsigned __int8 sound_obj::GetCDVol_41A280()
 {
     return field_25_cdVol;
+}
+
+void sound_obj::sub_57EA10()
+{
+    // todo
 }
