@@ -124,4 +124,8 @@ extern T_gbh_LoadImage gbh_LoadImage;
 extern T_gbh_BlitImage gbh_BlitImage;
 extern T_gbh_BlitBuffer gbh_BlitBuffer;
 
+extern int gGBH_GraphicsLoaded_7085E0;
+
 int __stdcall GBH_GraphicsLoad_5EB680(const char* lpLibFileName, SVideo* pVidSys);
+void __stdcall GBH_Graphics_Unload_5EA500();
+int GBH_Graphics_Free_5EA640();

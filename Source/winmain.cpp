@@ -69,6 +69,32 @@ void __stdcall SetSavedGamma_5D98E0()
     // todo
 }
 
+
+void __stdcall ShowCursor_5D9660()
+{
+    // todo: repeated calls
+    while (ShowCursor(1) < 0);
+}
+
+// match
+int jGBH_Graphics_Free_5D9860()
+{
+    return GBH_Graphics_Free_5EA640();
+}
+
+// match
+void __stdcall GBH_Graphis_DMA_Video_Free_5D9830()
+{
+    jGBH_Graphics_Free_5D9860();
+    if (gVidSys_7071D0)
+    {
+        DMA_Video_Unload_5EB8C0(gVidSys_7071D0);
+        gVidSys_7071D0 = 0;
+    }
+    ShowCursor_5D9660();
+}
+
+
 // todo: move
 // match
 bool Vid_FindDevice_5D9290()

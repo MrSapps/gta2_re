@@ -64,11 +64,6 @@ void sub_4DA740()
 
 }
 
-void __stdcall GBH_Graphis_DMA_Video_Free_5D9830()
-{
-
-}
-
 // match
 void __stdcall Error_SetName_4A0770(const char *pFileName)
 {
