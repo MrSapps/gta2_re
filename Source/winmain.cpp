@@ -78,15 +78,13 @@ bool Vid_FindDevice_5D9290()
 }
 
 // todo move to another file for ordering
+// match
 int GetHwndDCDeviceCaps_5D9800()
 {
-    HDC DC; // esi
-    int DeviceCaps; // edi
-
-    DC = GetDC(gHwnd_707F04);
-    DeviceCaps = GetDeviceCaps(DC, 12);
-    ReleaseDC(gHwnd_707F04, DC);
-    return DeviceCaps;
+    HDC hdc = GetDC(gHwnd_707F04);
+    int deviceCaps = GetDeviceCaps(hdc, 12);
+    ReleaseDC(gHwnd_707F04, hdc);
+    return deviceCaps;
 }
 
 // todo move to another file for ordering
