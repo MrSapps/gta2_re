@@ -230,6 +230,12 @@ void Map_0x370::set_nav_unknown_data_4DF8C0(int zone_idx, __int16 a3, __int16 a4
     }
 }
 
+// match
+gmp_zone_unknown* Map_0x370::get_zone_unknown_4DF9A0(unsigned __int16 zone_idx)
+{
+    return &field_334_pUnknownZoneData[field_330_pZoneArray[zone_idx]];
+}
+
 // nomatch
 gmp_map_zone* Map_0x370::nav_zone_by_pos_4DF5C0(char zone_x, char zone_y)
 {

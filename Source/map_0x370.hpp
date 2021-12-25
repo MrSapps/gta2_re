@@ -319,6 +319,8 @@ public:
         __int16 a12,
         __int16 a13);
 
+    gmp_zone_unknown* get_zone_unknown_4DF9A0(unsigned __int16 zone_idx);
+
     gmp_map_zone* nav_zone_by_pos_4DF5C0(char zone_x, char zone_y);
 
     // todo: other funcs between
