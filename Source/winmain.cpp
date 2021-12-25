@@ -122,7 +122,7 @@ void sub_5D96C0()
 
     gVidSys_7071D0->field_4_flags |= v1;
 
-    bool Device_5D9290;
+    BOOL Device_5D9290;
     if (GetHwndDCDeviceCaps_5D9800() != 16 || (Device_5D9290 = Vid_FindDevice_5D9290(), byte_706C5C = 1, !Device_5D9290))
     {
         byte_706C5C = 0;
