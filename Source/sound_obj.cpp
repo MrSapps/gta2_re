@@ -228,17 +228,15 @@ void sound_obj::Set15Val_4271B0(unsigned int val)
     int field_5529_idx15; // ebp
 
     clamped_val = val;
-    if (val <= 136)
-    {
-        if (val < 69)
-        {
-            clamped_val = 69;
-        }
-    }
-    else
+    if (val > 136)
     {
         clamped_val = 136;
     }
+    else if (val < 69)
+    {
+        clamped_val = 69;
+    }
+
     field_5529_idx15 = this->field_5529_idx15;
     if ((field_5529_idx15 + 1) % 15 != this->field_5528_idx15_cur)
     {
