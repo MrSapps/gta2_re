@@ -48,7 +48,7 @@ public:
 
     char CreateNetworkRoot_587420(PHKEY phkResult);
 
-    int Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName);
+    DWORD Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName);
 
     int Set_Network_Setting_587690(const char *lpValueName, int a2);
 

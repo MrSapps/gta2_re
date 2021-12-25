@@ -422,20 +422,28 @@ char Registry::CreateNetworkRoot_587420(PHKEY phkResult)
 }
 
 // todo
-int Registry::Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName)
+DWORD Registry::Get_Int_Setting_5874E0(HKEY hKey, const char* lpValueName)
 {
-    DWORD t;
-    DWORD cbData; // [esp+0h] [ebp-4h] BYREF
-    DWORD v;
+    DWORD valueData;
 
-    cbData = sizeof(DWORD);
-    int ret = RegQueryValueExA(hKey, lpValueName, 0, &t, reinterpret_cast<BYTE*>(&v), &cbData);
-    
-    return (ret == ERROR_SUCCESS) ? v : 0;
-
-
-
-    
+    DWORD cbData = sizeof(DWORD);
+    DWORD dataType;
+    DWORD ret;
+    DWORD err = RegQueryValueExA(hKey, lpValueName, 0, &dataType, reinterpret_cast<BYTE*>(&valueData), &cbData);
+    if (err == ERROR_SUCCESS)
+    {
+        // the double return is removed without the printf, ran out of ideas to try
+        printf("meh");
+        return ( int)valueData;
+    }
+    else
+    {
+       ret = 0;
+        err = 0;
+        valueData = 99;
+        cbData = 0;
+        return ret;
+    }
 }
 
 // match
