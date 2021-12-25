@@ -96,3 +96,8 @@ char root_sound::GetAudioDriveLetter_40F150()
 {
     return gSampManager_6FFF00.field_4_gtaAudioDriveLetter;
 }
+
+unsigned __int8 root_sound::GetCDVol_40F120()
+{
+    return gSound_obj_66F680.field_25_cdVol;
+}

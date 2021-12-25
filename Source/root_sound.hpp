@@ -51,6 +51,8 @@ struct root_sound
     infallible_turing* sub_40EF40(infallible_turing *a2, int a3);
 
     char GetAudioDriveLetter_40F150();
+
+    unsigned __int8 GetCDVol_40F120();
 };
 
 
