@@ -287,10 +287,6 @@ void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
         strcpy(gTmpBuffer_67C598, "map change overflow - too many new columns");
         break;
 
-
-
-   
-
     case 70:
         strcpy(gTmpBuffer_67C598, "Failed to allocate memory for mission stack");
         break;
@@ -2107,30 +2103,39 @@ void FatalError_4A07C0(int code, const char *pFileName, int lineNo, ...)
     }
     case 6001:
     {
-        const char *va_1 = va_arg(va, const char *);
-        const char *va_2 = va_arg(va, const char *);
+        int va_1 = va_arg(va, int );
+        int va_2 = va_arg(va, int );
 
+        int coords[6];
 
-        Coord c1;
-        c1.x = *(int*)va_arg(va, int *);
-        c1.y = *(int*)va_arg(va, int *);
-        c1.z = *(int*)va_arg(va, int *);
+       // Coord c1;
+       // Coord c2;
+        coords[0] = *(int*)va_arg(va, int *);
+        coords[1] = *(int*)va_arg(va, int *);
+        coords[2] = *(int*)va_arg(va, int *);
 
-        Coord c2;
-        c2.x = *(int*)va_arg(va, int *);
-        c2.y = *(int*)va_arg(va, int *);
-        c2.z = *(int*)va_arg(va, int *);
+        coords[3] = *(int*)va_arg(va, int *);
+        coords[4] = *(int*)va_arg(va, int *);
+        coords[5] = *(int*)va_arg(va, int *);
 
+        /*
+fild    dword ptr [esp+48h]
+fild    dword ptr [esp+4Ch]
+fild    dword ptr [esp+50h]
 
+fild    dword ptr[esp + 5Ch]
+fild    dword ptr [esp+38h]
+
+        */
         sprintf(
             gTmpBuffer_67C598,
             "Unable to find a route from (%.4f, %.4f, %.4f) to (%.4f, %.4f, %.4f) in car id: %d model: %d",
-            c1.x / 16384.0f,
-            c1.y / 16384.0f,
-            c1.z / 16384.0f,
-            c2.x / 16384.0f,
-            c2.y / 16384.0f,
-            c2.z / 16384.0f,
+            coords[0] / 16384.0f,
+            coords[1] / 16384.0f,
+            coords[2] / 16384.0f,
+            coords[3] / 16384.0f,
+            coords[4] / 16384.0f,
+            coords[5] / 16384.0f,
             va_1,
             va_2);
     }
