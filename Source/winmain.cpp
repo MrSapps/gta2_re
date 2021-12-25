@@ -352,8 +352,9 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
 
     case WM_KILLFOCUS: // order ok
         //LOBYTE(hWnd) = 0;
-        hWnd = 0;
-        laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&hWnd);
+    {
+        BYTE tmp = 0;
+        laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
         Input_ReleaseMouse_5D7C70();
         gRoot_sound_66B038.Set3DSound_40F160(0);
         gRoot_sound_66B038.Release_40F130();
@@ -374,6 +375,7 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
                 ShowWindow(gHwnd_707F04, 7);
             }
         }
+    }
         break;
 
     case WM_ACTIVATE: // order ok
@@ -382,15 +384,15 @@ LRESULT __stdcall WindowProc_5E4EE0(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM l
             if ((unsigned __int8)wParam <= 2u)
             {
                 //LOBYTE(wParam) = 1;
-                wParam = 1;
-                laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&wParam);
+                BYTE tmp = 1;
+                laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
                 Input_MouseAcquire_5D7C60();
             }
         }
         else
         {
-            v21 = 0;
-            laughing_blackwell_0x1EB54::sub_5E53C0((BYTE*)&v21);
+            BYTE tmp = 1;
+            laughing_blackwell_0x1EB54::sub_5E53C0(&tmp);
             Input_ReleaseMouse_5D7C70();
         }
         break;
