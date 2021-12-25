@@ -26,12 +26,6 @@ youthful_einstein gYouthful_einstein_6F8450;
 
 laughing_blackwell_0x1EB54* gLaughing_blackwell_0x1EB54_67DC84;
 
-DWORD dword_67D6F8;
-int* dword_67D704;
-BYTE byte_67D6FC;
-DWORD gSoundIdx_67D700;
-int dword_67D818;
-BYTE byte_67D81C;
 unsigned int counter_706C4C;
 int dword_67D930;
 unsigned short gTableSize_61FF20 = 25;
@@ -439,6 +433,9 @@ int __stdcall SetGamma_5D9910(int gamma)
     return 0;
 }
 
+infallible_turing snd1_67D818;
+infallible_turing snd2_67D6F8;
+
 // match
 void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
 {
@@ -449,12 +446,12 @@ void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
 
     if (!bSkip_audio_67D6BE)
     {
-        dword_67D818 = 0;
-        byte_67D81C = 0;
-        dword_67D6F8 = 2;
-        dword_67D704 = &dword_67D818;
-        byte_67D6FC = 0;
-        gSoundIdx_67D700 = gRoot_sound_66B038.sub_40EFB0(&dword_67D6F8);
+        snd1_67D818.field_0 = 0;
+        snd1_67D818.field_4 = 0;
+        snd2_67D6F8.field_0 = 2;
+        snd2_67D6F8.field_C = &snd1_67D818;
+        snd2_67D6F8.field_4 = 0;
+        snd2_67D6F8.field_8 = gRoot_sound_66B038.sub_40EFB0(&snd2_67D6F8);
         gRoot_sound_66B038.LoadStyle_40EFF0("data\\fstyle.sty");
         gRoot_sound_66B038.Set3DSound_40F160(0);
     }
@@ -465,10 +462,10 @@ void __stdcall laughing_blackwell_0x1EB54::create_4ACFA0()
 // match
 void __stdcall laughing_blackwell_0x1EB54::destroy_4AD070()
 {
-    if (!bSkip_audio_67D6BE && gSoundIdx_67D700)
+    if (!bSkip_audio_67D6BE && snd2_67D6F8.field_8)
     {
-        gRoot_sound_66B038.sub_40EFD0(gSoundIdx_67D700);
-        gSoundIdx_67D700 = 0;
+        gRoot_sound_66B038.sub_40EFD0(snd2_67D6F8.field_8);
+        snd2_67D6F8.field_8 = 0;
     }
 
     if (gLaughing_blackwell_0x1EB54_67DC84)
@@ -1084,10 +1081,10 @@ void laughing_blackwell_0x1EB54::sub_4B8650()
 {
     if (!bSkip_audio_67D6BE)
     {
-        if (gSoundIdx_67D700)
+        if (snd2_67D6F8.field_8)
         {
-            gRoot_sound_66B038.sub_40EFD0(gSoundIdx_67D700);
-            gSoundIdx_67D700 = 0;
+            gRoot_sound_66B038.sub_40EFD0(snd2_67D6F8.field_8);
+            snd2_67D6F8.field_8 = 0;
         }
     }
 }
@@ -1159,7 +1156,7 @@ void laughing_blackwell_0x1EB54::sub_4AEC00()
     sub_4AFEB0();
     sub_4B6780();
 
-    dword_67D818 = 0;
+    snd1_67D818.field_0 = 0;
 
     switch (field_110_state)
     {
@@ -1174,12 +1171,12 @@ void laughing_blackwell_0x1EB54::sub_4AEC00()
     case 1:
         if (field_132_f136_idx == 9)
         {
-            byte_67D81C = 1;
+            snd1_67D818.field_4 = 1;
             sub_4B7A10();
         }
         else
         {
-            byte_67D81C = 0;
+            snd1_67D818.field_4 = 0;
             sub_4AE2D0();
         }
         break;
@@ -1378,11 +1375,11 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             {
             case 257u:
                 Start_GTA2Manager_5E4DE0();
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             case 258u:
                 this->field_108 = 1;
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             case 259u:
                 goto LABEL_21;
@@ -1446,7 +1443,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             LABEL_28:
                 this->field_EE08 = RedBar_16;
                 this->field_110_state = 2;
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             case 265u:
                 v9 = gLucid_hamilton_67E8E0.sub_4C5990();
@@ -1462,17 +1459,17 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             LABEL_10:
                 pBorg = v18;
             LABEL_11:
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             case 266u:
                 sub_4B8020();
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             case 268u:
                 goto LABEL_11;
             default:
                 sub_4B3170(v4);
-                dword_67D818 = 5;
+                snd1_67D818.field_0 = 5;
                 break;
             }
         }
@@ -1485,7 +1482,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             this->field_C9B3 = 1;
             this->field_C9B4 = 28;
             this->field_C9B6 = 5;
-            dword_67D818 = 5;
+            snd1_67D818.field_0 = 5;
         }
     }
 
@@ -1513,17 +1510,17 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             this->field_108 = 1;
             break;
         }
-        dword_67D818 = 6;
+        snd1_67D818.field_0 = 6;
     }
 
     if (this->field_C9CE && pBorg->sub_4B61B0())
     {
-        dword_67D818 = 1;
+        snd1_67D818.field_0 = 1;
     }
 
     if (this->field_C9CF && pBorg->sub_4B6200())
     {
-        dword_67D818 = 2;
+        snd1_67D818.field_0 = 2;
     }
 
     if (this->field_C9CC)
@@ -1540,7 +1537,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 gRegistry_6FF968.Set_Player_Setting_5878C0("plyrslot", v11->field_6E_count);
                 if (v12)
                 {
-                    dword_67D818 = 3;
+                    snd1_67D818.field_0 = 3;
                 }
             }
 
@@ -1549,7 +1546,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 this->field_EE0D = v11->field_6E_count;
                 if (v12)
                 {
-                    dword_67D818 = 3;
+                    snd1_67D818.field_0 = 3;
                 }
             }
 
@@ -1564,12 +1561,12 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
             {
                 if (sub_4B6FF0())
                 {
-                    dword_67D818 = 3;
+                    snd1_67D818.field_0 = 3;
                 }
             }
             else if (field_BC6_nifty_idx == 4 && sub_4B70B0())
             {
-                dword_67D818 = 3;
+                snd1_67D818.field_0 = 3;
             }
         }
     }
@@ -1592,7 +1589,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 gRegistry_6FF968.Set_Player_Setting_5878C0("plyrslot", v15->field_6E_count);
                 if (v16)
                 {
-                    dword_67D818 = 4;
+                    snd1_67D818.field_0 = 4;
                 }
             }
             if (this->field_132_f136_idx == 5 && !v18->field_BC6_nifty_idx)
@@ -1600,7 +1597,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
                 this->field_EE0D = v15->field_6E_count;
                 if (v16)
                 {
-                    dword_67D818 = 4;
+                    snd1_67D818.field_0 = 4;
                 }
             }
             goto LABEL_59;
@@ -1623,7 +1620,7 @@ void laughing_blackwell_0x1EB54::sub_4AE2D0()
 
             if (v17)
             {
-                dword_67D818 = 4;
+                snd1_67D818.field_0 = 4;
             }
         }
     }
@@ -1634,7 +1631,7 @@ LABEL_60:
         this->field_110_state = 4;
         this->field_EE0A = 190;
         this->field_EE0C = 1;
-        dword_67D818 = 8;
+        snd1_67D818.field_0 = 8;
     }
 
     v13 = this->field_118 - 1;
@@ -1675,19 +1672,19 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
         }
         else if (v2 != 230)
         {
-            dword_67D818 = 5;
+            snd1_67D818.field_0 = 5;
         }
         else
         {
             this->field_110_state = 1;
-            dword_67D818 = 5;
+            snd1_67D818.field_0 = 5;
         }
     }
 
     if (this->field_C9D1)
     {
         this->field_110_state = 1;
-        dword_67D818 = 6;
+        snd1_67D818.field_0 = 6;
     }
 
     if (this->field_C9CE)
@@ -1704,7 +1701,7 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
             }
             this->field_EE0A = 210;
         }
-        dword_67D818 = 1;
+        snd1_67D818.field_0 = 1;
     }
 
     if (this->field_C9CF)
@@ -1714,7 +1711,7 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
             if (this->field_EE0A == 210)
             {
                 this->field_EE0A = 230;
-                dword_67D818 = 2;
+                snd1_67D818.field_0 = 2;
             }
             else if (this->field_EE0A != 230)
             {
@@ -1724,7 +1721,7 @@ void laughing_blackwell_0x1EB54::sub_4AE9A0()
         else
         {
             this->field_EE0A = 210;
-            dword_67D818 = 2;
+            snd1_67D818.field_0 = 2;
         }
     }
 

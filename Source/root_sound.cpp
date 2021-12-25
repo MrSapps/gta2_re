@@ -1,6 +1,7 @@
 #include "root_sound.hpp"
 #include "sound_obj.hpp"
 #include "cSampleManager.hpp"
+#include "debug.hpp"
 
 root_sound gRoot_sound_66B038;
 
@@ -59,7 +60,7 @@ void root_sound::sub_40EFA0()
     // todo
 }
 
-int root_sound::sub_40EFB0(DWORD *a2)
+int root_sound::sub_40EFB0(infallible_turing* a2)
 {
     // todo
     return 0;
@@ -85,4 +86,22 @@ void root_sound::Release_40F130()
 void root_sound::sub_40F140()
 {
     gSound_obj_66F680.sub_41A2A0();
+}
+
+// match
+infallible_turing* root_sound::sub_40EF40(infallible_turing *a2, int a3)
+{
+    infallible_turing* pTuring = field_0;
+    field_0 = field_0->field_C;
+    pTuring->field_C = a2;
+    pTuring->field_8 = 0;
+    pTuring->field_4 = 0;
+    pTuring->field_0 = a3;
+
+    if (!bSkip_audio_67D6BE)
+    {
+        pTuring->field_8 = gRoot_sound_66B038.sub_40EFB0(pTuring);
+    }
+
+    return pTuring;
 }

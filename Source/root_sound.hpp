@@ -38,7 +38,7 @@ struct root_sound
     
     void sub_40EFA0();
 
-    int sub_40EFB0(DWORD *a2);
+    int sub_40EFB0(infallible_turing* a2);
 
     char LoadStyle_40EFF0(const char *pStyleName);
 
@@ -48,6 +48,7 @@ struct root_sound
 
     void sub_40F140();
 
+    infallible_turing* sub_40EF40(infallible_turing *a2, int a3);
 
 };
 
