@@ -8,7 +8,45 @@
 #include "text_0x14.hpp"
 #include "gbh_graphics.hpp"
 #include <io.h>
+#include <stdio.h>
 #include <wchar.h>
+
+struct struc_61F0C8
+{
+    char field_0_tga_name[128];
+    int field_80_len;
+    int field_84_img;
+};
+
+struc_61F0C8 tgaArray_61F0C8[25] =
+{
+  { "data\\frontend\\1.tga", 347564, 0 },
+  { "data\\frontend\\1_Options.tga", 266924, 0 },
+  { "data\\frontend\\1_Play.tga", 266924, 0 },
+  { "data\\frontend\\1_Quit.tga", 266924, 0 },
+  { "data\\frontend\\2.tga", 347564, 0 },
+  { "data\\frontend\\2_Bonus1.tga", 266924, 0 },
+  { "data\\frontend\\2_Bonus2.tga", 266924, 0 },
+  { "data\\frontend\\2_Bonus3.tga", 266924, 0 },
+  { "data\\frontend\\2_League.tga", 266924, 0 },
+  { "data\\frontend\\2_Level1.tga", 266924, 0 },
+  { "data\\frontend\\2_Level2.tga", 266924, 0 },
+  { "data\\frontend\\2_Level3.tga", 266924, 0 },
+  { "data\\frontend\\2_Name.tga", 266924, 0 },
+  { "data\\frontend\\2_Restart.tga", 266924, 0 },
+  { "data\\frontend\\3.tga", 347564, 0 },
+  { "data\\frontend\\3_Tables.tga", 614444, 0 },
+  { "data\\frontend\\GameComplete.tga", 614444, 0 },
+  { "data\\frontend\\LevelComplete.tga", 614444, 0 },
+  { "data\\frontend\\MPLose.tga", 614444, 0 },
+  { "data\\frontend\\PlayerDead.tga", 614444, 0 },
+  { "data\\frontend\\Mask.tga", 104300, 0 },
+  { "data\\frontend\\Mask2.tga", 53594, 0 },
+  { "data\\frontend\\Credits.tga", 614444, 0 },
+  { "data\\frontend\\Mask3.tga", 130427, 0 },
+  { "data\\frontend\\DemoInfo.tga", 614939, 0 }
+};
+
 
 int __stdcall SetGamma_5D9910(int gamma)
 {
@@ -359,15 +397,14 @@ void laughing_blackwell_0x1EB54::sub_4ADFB0(int a2)
 void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
 {
     // todo
-    /*
     unsigned __int8 local_EE08; // al
     int blitRet; // eax
     unsigned __int8 v4; // [esp+0h] [ebp-58h]
     unsigned __int8 v5; // [esp+1Ch] [ebp-3Ch]
     unsigned __int8 v6; // [esp+34h] [ebp-24h]
     unsigned __int8 v7; // [esp+34h] [ebp-24h]
-    int tga_idx; // [esp+50h] [ebp-8h] BYREF
-    int not_used; // [esp+54h] [ebp-4h] BYREF
+    BYTE tga_idx; // [esp+50h] [ebp-8h] BYREF
+    BYTE not_used; // [esp+54h] [ebp-4h] BYREF
 
     local_EE08 = this->field_EE08;
     if (local_EE08 == 13
@@ -380,7 +417,7 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
         sub_4B6B00(local_EE08, &tga_idx, &not_used);
         if (gbh_BlitImage(tgaArray_61F0C8[(unsigned __int8)tga_idx].field_84_img, 0, 0, 640, 480, 0, 0) == -10)
         {
-            Load_tga_4B6520(this, v7);
+            Load_tga_4B6520(v7);
             gbh_BlitImage(tgaArray_61F0C8[v7].field_84_img, 0, 0, 640, 480, 0, 0);
         }
     }
@@ -401,9 +438,10 @@ void laughing_blackwell_0x1EB54::DrawBackground_4B6E10()
             gbh_BlitImage(tgaArray_61F0C8[v4].field_84_img, 0, 0, 362, 480, 278, 0);
         }
     }
-    */
+    
 }
 
+// match
 void laughing_blackwell_0x1EB54::sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, BYTE *a3)
 {
     switch (a1)
@@ -498,4 +536,34 @@ void laughing_blackwell_0x1EB54::sub_4B6B00(unsigned __int8 a1, BYTE *pTgaIdx, B
     default:
         return;
     }
+}
+
+
+void laughing_blackwell_0x1EB54::Load_tga_4B6520(unsigned __int16 idx)
+{
+    Error_SetName_4A0770(tgaArray_61F0C8[idx].field_0_tga_name);
+
+    FILE* hFile = fopen(tgaArray_61F0C8[idx].field_0_tga_name, "rb");
+    if (!hFile)
+    {
+        FatalError_4A38C0(16, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 6516);
+    }
+
+    void* pAlloc = malloc(tgaArray_61F0C8[idx].field_80_len);
+    if (!pAlloc)
+    {
+        FatalError_4A38C0(174, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 6523);
+    }
+
+    if (fread(pAlloc, 1u, tgaArray_61F0C8[idx].field_80_len, hFile) != tgaArray_61F0C8[idx].field_80_len)
+    {
+        FatalError_4A38C0(187, "C:\\Splitting\\GTA2\\Source\\frontend2.cpp", 6529);
+    }
+
+    tgaArray_61F0C8[idx].field_84_img = gbh_LoadImage((SImage*)pAlloc);
+
+    fclose(hFile);
+    free(pAlloc);
+
+
 }
