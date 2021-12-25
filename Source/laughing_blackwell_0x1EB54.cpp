@@ -483,7 +483,7 @@ void laughing_blackwell_0x1EB54::sub_4B3170(unsigned __int16 arg0)
 
 }
 
-void __stdcall sub_4B8680()
+void laughing_blackwell_0x1EB54::sub_4B8680()
 {
     if (!bSkip_audio_67D6BE)
     {

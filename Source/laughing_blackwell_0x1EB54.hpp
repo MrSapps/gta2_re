@@ -2571,6 +2571,8 @@ struct laughing_blackwell_0x1EB54
     static void __stdcall destroy_4AD070();
 
     void sub_4B3170(unsigned __int16 arg0);
+    
+    void sub_4B8680();
 
     const char* intro_bik_4B5E50();
 
