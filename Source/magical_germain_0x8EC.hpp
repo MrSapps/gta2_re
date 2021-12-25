@@ -21,6 +21,7 @@ struct kanji_0x10
     int field_C_id;
 };
 
+/*
 struct kanji_0x2
 {
     char field_0;
@@ -31,6 +32,7 @@ struct kanji_0x20
 {
     kanji_0x2 field_0[16];
 };
+*/
 
 class magical_germain_0x8EC
 {
@@ -39,7 +41,7 @@ public:
     kanji_0x10 field_780[20];
     int field_8C0_count;
     WORD *field_8C4_pKidX;
-    kanji_0x20 *field_8C8_pKBIT;
+    BYTE *field_8C8_pKBIT;
     int field_8CC_kidx_size_words;
     BYTE *field_8D0_pSprtData;
     sprite_index *field_8D4_sprite_index;
@@ -50,6 +52,8 @@ public:
     unsigned __int8 field_8E8_v1;
     char field_8E9_v2;
     __int16 field_8EA_pad;
+
+    void LoadChunks_4D1FC0(const char *pChunkId, unsigned int chunk_len);
 
     magical_germain_0x8EC();
 
