@@ -97,7 +97,7 @@ struct sound_0x68
     char field_42;
     char field_43;
     int field_44;
-    unsigned int field_48;
+    unsigned int field_48_nCalculatedVolume;
     int field_4C;
     char field_50;
     char field_51;
@@ -150,11 +150,11 @@ struct sound_obj
     char field_2E;
     char field_2F;
     sound_0x68 field_30_sQueueSample;
-    unsigned __int8 field_98_nActiveQueue;
+    unsigned __int8 field_98_nActiveSampleQueue;
     char field_99_pad;
     char field_9A_pad;
     char field_9B_pad;
-    sound_0x68 field_9C[2][16];
+    sound_0x68 field_9C_asSamples[2][16];
     BYTE field_D9C_abSampleQueueIndexTable[2][16];
     BYTE field_DBC_SampleRequestQueuesStatus[2];
     __int16 field_DBE;

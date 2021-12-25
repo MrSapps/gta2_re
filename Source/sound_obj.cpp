@@ -10,10 +10,10 @@ void sound_obj::ClearRequestedQueue_41B700()
 {
     for (unsigned int i = 0; i < field_10_nActiveSamples; i++)
     {
-        field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i] = field_10_nActiveSamples;
+        field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i] = field_10_nActiveSamples;
     }
 
-    field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue] = 0;
+    field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] = 0;
 }
 
 // match
@@ -45,7 +45,7 @@ void sound_obj::ClearActivateSamples_41B7A0()
         field_DC0[i].field_40_pan = 63;
         field_DC0[i].field_41 = 0;
         field_DC0[i].field_44 = -3;
-        field_DC0[i].field_48 = 0;
+        field_DC0[i].field_48_nCalculatedVolume = 0;
         field_DC0[i].field_4C = 0;
         field_DC0[i].field_50 = -1;
         field_DC0[i].field_5C = 0;
@@ -55,9 +55,9 @@ void sound_obj::ClearActivateSamples_41B7A0()
 // match
 void sound_obj::sub_41A2A0()
 {
-    field_98_nActiveQueue = 1;
+    field_98_nActiveSampleQueue = 1;
     ClearRequestedQueue_41B700();
-    field_98_nActiveQueue = 0;
+    field_98_nActiveSampleQueue = 0;
 
     ClearRequestedQueue_41B700();
     ClearActivateSamples_41B7A0();
@@ -139,9 +139,9 @@ void sound_obj::sub_41B540()
 {
     if (field_1D_b3d_sound)
     {
-        for (unsigned int idx = 0; idx < field_DBC_SampleRequestQueuesStatus[field_98_nActiveQueue]; idx++)
+        for (unsigned int idx = 0; idx < field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue]; idx++)
         {
-            sound_0x68 *pIter = &field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][idx]];
+            sound_0x68 *pIter = &field_9C_asSamples[field_98_nActiveSampleQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][idx]];
             if (!pIter->field_18)
             {
                 float f28_conv;
@@ -182,17 +182,17 @@ void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
     unsigned __int8 i = 0;
     while (i < sample)
     {
-        if (field_9C[field_98_nActiveQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i]].field_48 >
-            field_9C[field_98_nActiveQueue][sample].field_48)
+        if (field_9C_asSamples[field_98_nActiveSampleQueue][field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i]].field_48_nCalculatedVolume >
+            field_9C_asSamples[field_98_nActiveSampleQueue][sample].field_48_nCalculatedVolume)
         {
             memmove(
-                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i + 1],
-                &field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i],
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i + 1],
+                &field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i],
                 field_10_nActiveSamples - i - 1);
             break;
         }
         i++;
     }
 
-    field_D9C_abSampleQueueIndexTable[field_98_nActiveQueue][i] = sample;
+    field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][i] = sample;
 }
