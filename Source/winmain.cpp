@@ -32,6 +32,8 @@ bool bDoFrontEnd_626B68 = true;
 
 int window_width_706630;
 int window_height_706B50;
+int full_width_706B5C;
+int full_height_706798;
 
 int gWindowX_706B60;
 int gWindowY_706B64;
@@ -45,6 +47,7 @@ BYTE byte_6F5B71;
 BYTE byte_6F4BF4;
 
 int gStartMode_626A0C = 2;
+int bTrippleBuffer_706C54;
 
 char byte_706C5C;
 
@@ -247,7 +250,70 @@ void __stdcall Init_FrameRateLightAndUnknown_5D8EB0()
 // todo move to another file for ordering
 int ReadScreenSettings_5D8F70()
 {
-    return 0;
+    DWORD full_width_old; // ebx
+    DWORD full_height_old; // ebp
+    int startMode_old; // esi
+    int trippleBuffer_old; // edi
+    int full_height; // eax
+    int startMode; // eax
+    int trippleBuffer; // ecx
+    DWORD window_width_old; // [esp+10h] [ebp-8h]
+    DWORD window_height_old; // [esp+14h] [ebp-4h]
+
+    full_width_old = full_width_706B5C;
+    window_width_old = window_width_706630;
+    full_height_old = full_height_706798;
+    startMode_old = gStartMode_626A0C;
+    trippleBuffer_old = bTrippleBuffer_706C54;
+    window_height_old = window_height_706B50;
+
+    if (bDoFrontEnd_626B68)
+    {
+        full_height = 480;
+        window_width_706630 = 640;
+        window_height_706B50 = 480;
+        full_width_706B5C = 640;
+    }
+    else
+    {
+        window_width_706630 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_width", 640);
+        window_height_706B50 = gRegistry_6FF968.Get_Screen_Setting_5870D0("window_height", 480);
+        full_width_706B5C = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_width", 640);
+        full_height = gRegistry_6FF968.Get_Screen_Setting_5870D0("full_height", 480);
+    }
+
+    full_height_706798 = full_height;
+    startMode = gRegistry_6FF968.Get_Screen_Setting_5870D0("start_mode", 1);
+    gStartMode_626A0C = startMode;
+
+    if (gBufferMode_706B34)
+    {
+        trippleBuffer = gRegistry_6FF968.Get_Screen_Setting_5870D0("tripple_buffer", 0);
+        startMode = gStartMode_626A0C;
+        bTrippleBuffer_706C54 = trippleBuffer;
+    }
+    else
+    {
+        trippleBuffer = 1;
+        bTrippleBuffer_706C54 = 1;
+    }
+
+    if (startMode == startMode_old && trippleBuffer == trippleBuffer_old)
+    {
+        if (startMode == 1)
+        {
+            if (full_width_706B5C == full_width_old && full_height_706798 == full_height_old)
+            {
+                return 0;
+            }
+        }
+        else if (startMode || window_width_706630 == window_width_old && window_height_706B50 == window_height_old)
+        {
+            return 0;
+        }
+    }
+
+    return 1;
 }
 
 const char *off_626A00[2] = { "d3ddll.dll", "dmavideo.dll" };
