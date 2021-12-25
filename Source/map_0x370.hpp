@@ -403,3 +403,5 @@ public:
     char field_36E;
     char field_36F;
 };
+
+extern Map_0x370* gMap_0x370_6F6268;

@@ -4,6 +4,8 @@
 #include "error.hpp"
 #include "chunk.hpp"
 
+Map_0x370* gMap_0x370_6F6268;
+
 gmp_block_info gBlockInfo1_6F5F40;
 gmp_block_info gBlockInfo2_6F6028;
 

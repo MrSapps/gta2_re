@@ -3,6 +3,26 @@
 #include <windows.h>
 #include "types.hpp"
 
+
+#pragma pack(push)
+#pragma pack(1)
+struct str_table_entry
+{
+    __int16 field_0_str_id;
+    __int16 field_2_zone_idx;
+    __int16 field_4_type;
+    __int16 field_6;
+    unsigned __int8 field_8_length;
+};
+#pragma pack(pop)
+
+struct str_table_normalized
+{
+    __int16 field_0_string_count;
+    __int16 field_2; // pad ?
+    str_table_entry* field_4[999];
+};
+
 class frosty_pasteur_0xC1EA8
 {
 public:
@@ -60,8 +80,8 @@ public:
     int field_468;
     unsigned __int16 field_46C_base_pointers[6000];
     BYTE field_334C_script_data[65536];
-    void *field_1334C_strings;
-    int field_13350_pStringTbl;
+    str_table_entry *field_1334C_strings;
+    str_table_normalized* field_13350_pStringTbl;
     BYTE field_13354[620000];
     BYTE field_AA934[95232];
     __int16 field_C1D34[30];
