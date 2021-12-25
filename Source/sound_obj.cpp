@@ -1,5 +1,6 @@
 #include "sound_obj.hpp"
 #include "cSampleManager.hpp"
+#include "Game_0x40.hpp"
 #include <math.h>
 
 sound_obj gSound_obj_66F680;
@@ -843,4 +844,45 @@ unsigned __int8 sound_obj::GetCDVol_41A280()
 void sound_obj::sub_57EA10()
 {
     // todo
+}
+
+void sound_obj::Service_419EF0()
+{
+    static bool byte_674E24;
+    if (gGame_0x40_67E008)
+    {
+        const bool v1 = gGame_0x40_67E008->field_0 == 2;
+        field_1 = v1;
+        if (v1)
+        {
+            if (!byte_674E24)
+            {
+                gSampManager_6FFF00.CloseVocalStream_58E6A0(1);
+                gSampManager_6FFF00.PlayVocal_58E510(1, 7, 1);
+                gSampManager_6FFF00.SetVocalVolume_58E6D0(1, 127u);
+            }
+        }
+        else
+        {
+            GenerateIntegerRandomNumberTable_41BA90();
+        }
+        byte_674E24 = gSound_obj_66F680.field_1;
+    }
+
+    if (field_0)
+    {
+        if (!field_1)
+        {
+            const unsigned int frameCounter = field_5448_m_FrameCounter;
+            field_5448_m_FrameCounter = frameCounter + 1;
+            if (!(frameCounter % 5))
+            {
+                gSound_obj_66F680.field_544C[0].field_0 = 1;
+                ServiceSoundEffects_41A3A0();
+                return;
+            }
+            gSound_obj_66F680.field_544C[0].field_0 = 0;
+        }
+        ServiceSoundEffects_41A3A0();
+    }
 }

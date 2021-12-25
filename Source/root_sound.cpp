@@ -21,8 +21,7 @@ void root_sound::sub_40EF80()
 
 void root_sound::Service_40EFA0()
 {
-    // todo
-    //gSound_obj_66F680.Service_419EF0(); // stub
+    gSound_obj_66F680.Service_419EF0();
 }
 
 int root_sound::AddSoundObject_40EFB0(infallible_turing* a2)

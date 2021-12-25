@@ -302,6 +302,7 @@ public:
     unsigned __int8 GetCDVol_41A280();
 
     void sub_57EA10();
+    void Service_419EF0();
 };
 
 extern sound_obj gSound_obj_66F680;
