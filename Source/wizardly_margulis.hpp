@@ -111,7 +111,7 @@ public:
 
     void FadeOut_58E490();
 
-    char GetAudioFileName_58E500();
+    char MusicFileExists_58E500();
 
     void PlayVocal_58E510(int stream_idx, int voc_idx, char bAppendA);
 

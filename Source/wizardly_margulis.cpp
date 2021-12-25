@@ -570,7 +570,7 @@ void wizardly_margulis::StopChannel_58DDD0(int channel)
     }
 }
 
-// todo
+// match
 bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int rate)
 {
     if (field_26C4_3d_sample[channel] && this->field_A4_bLoaded)
@@ -578,14 +578,14 @@ bool wizardly_margulis::InitialiseChannel3D_58DDF0(int channel, int nSfx, int ra
 
 
         AILSOUNDINFO soundInfo; // [esp+0h] [ebp-24h] BYREF
-        soundInfo.format = 1;
+        soundInfo.format = WAVE_FORMAT_PCM;
+        soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[nSfx].field_0_offset);
         soundInfo.channels = 1;
         soundInfo.data_len = this->field_A8_sdt_entries[nSfx].field_4_sample_length;
         soundInfo.rate = rate;
-        soundInfo.data_ptr = ((BYTE *)field_1EAC_pAudioBuffer2 + field_A8_sdt_entries[nSfx].field_0_offset);
         soundInfo.bits = 8 * this->field_1EB1_unknown;
         unsigned int tmp = AIL_set_3D_sample_info(field_26C4_3d_sample[channel], &soundInfo);
-        return tmp != 0;
+        return tmp != 0 ? true : false;
     }
 
     return 0;
@@ -856,7 +856,7 @@ void wizardly_margulis::FadeOut_58E490()
 }
 
 // match
-char wizardly_margulis::GetAudioFileName_58E500()
+char wizardly_margulis::MusicFileExists_58E500()
 {
     return field_55_bMusicLoaded;
 }
