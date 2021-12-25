@@ -201,34 +201,30 @@ void sound_obj::AddDetailsToRequestedOrderList_41A910(unsigned __int8 sample)
 // match
 void sound_obj::AddSampleToRequestedQueue_41A850()
 {
-    unsigned int newVol = this->field_30_sQueueSample.field_1C * (127 - this->field_30_sQueueSample.field_24);
+    unsigned int newVol = field_30_sQueueSample.field_1C * (127 - field_30_sQueueSample.field_24);
 
     unsigned __int8 new_requested_count;
-    if (field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] < this->field_10_nActiveSamples)
+    if (field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue] < field_10_nActiveSamples)
     {
-        unsigned __int8 old_requested_count = this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
-        new_requested_count = old_requested_count;
-        this->field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue]++;
-       
+        new_requested_count = field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue];
+        field_DBC_SampleRequestQueuesStatus[field_98_nActiveSampleQueue]++;
     }
     else
     {
-        new_requested_count = *((BYTE *)&this->field_9C_asSamples[1][15].field_64
-            + field_98_nActiveSampleQueue * 16
-            + field_10_nActiveSamples
-            + 3);
-        if (this->field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count].field_48_nCalculatedVolume <= newVol)
+        new_requested_count = field_D9C_abSampleQueueIndexTable[field_98_nActiveSampleQueue][field_10_nActiveSamples-1];
+
+        if (field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count].field_48_nCalculatedVolume <= newVol)
         {
             return;
         }
     }
 
-    this->field_30_sQueueSample.field_48_nCalculatedVolume = newVol;
-    this->field_30_sQueueSample.field_2D = 0;
+    field_30_sQueueSample.field_48_nCalculatedVolume = newVol;
+    field_30_sQueueSample.field_2D = 0;
 
     memcpy(
-        &this->field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count],
-        &this->field_30_sQueueSample,
+        &field_9C_asSamples[field_98_nActiveSampleQueue][new_requested_count],
+        &field_30_sQueueSample,
         sizeof(sound_0x68));
 
     AddDetailsToRequestedOrderList_41A910(new_requested_count);
