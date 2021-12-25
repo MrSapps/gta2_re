@@ -1243,7 +1243,6 @@ void sound_obj::sub_412490(int idx)
                 gSampManager_6FFF00.OpenStream_58E320(0);
                 gSampManager_6FFF00.StreamSetVolume_58E2F0((6 * field_25_cdVol) / 10);
             }
-
         }
         else
         {
@@ -1264,7 +1263,7 @@ void sound_obj::sub_412490(int idx)
         sampIdx1 = 0;
         sampIdx2 = 1;
         break;
-    case 2:
+    case 2: // call this this function is guarded by type 2, so all other cases are dead?
         sampIdx1 = 2;
         sampIdx2 = 3;
         break;
