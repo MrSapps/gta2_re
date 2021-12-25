@@ -420,16 +420,15 @@ void wizardly_margulis::Shutdown_58DB30()
     AIL_shutdown();
 }
 
+// match
 int wizardly_margulis::GetPlayBackRateIdx_58DBF0(int idx)
 {
-    int result; // eax
-
-    result = this->field_A8_sdt_entries[idx].field_8_playBackRate;
-    if (!result)
+    const int playBackRate = this->field_A8_sdt_entries[idx].field_8_playBackRate;
+    if (playBackRate == 0)
     {
         return 1;
     }
-    return result;
+    return playBackRate;
 }
 
 int wizardly_margulis::sub_58DC10(int idx)
