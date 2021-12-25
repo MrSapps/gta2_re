@@ -101,6 +101,8 @@ void Registry::Set_Sound_Setting_586B80(const char* lpValueName, int Data)
     }
 
 }
+
+// match
 void Registry::Clear_Or_Delete_Sound_Setting_586BF0(const char* lpValueName, char bClear)
 {
     HKEY hKey;
@@ -561,6 +563,7 @@ void Registry::Set_Player_Setting_5878C0(const char* lpValueName, BYTE Data)
     }
 }
 
+// match
 void Registry::Set_Screen_Setting_587170(const char* lpValueName, BYTE Data)
 {
     HKEY hKey;
