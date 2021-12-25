@@ -63,15 +63,9 @@ struct delta_entry
 class gtx_0x106C
 {
 public:
-    void LoadChunk_5AB4B0(const char *Str1, int chunk_len)
-    {
-        // TODO
-    }
+    void LoadChunk_5AB4B0(const char *Str1, int chunk_len);
 
-    void sub_5AB720()
-    {
-        // TODO
-    }
+    void sub_5AB720();
 
     // TODO: Other methods
 

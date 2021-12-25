@@ -17,37 +17,44 @@ struct chunk_header
     int field_4_size;
 };
 
+void gtx_0x106C::LoadChunk_5AB4B0(const char *Str1, int chunk_len)
+{
+    // TODO
+}
+
+void gtx_0x106C::sub_5AB720()
+{
+    // TODO
+}
+
+// match
 void gtx_0x106C::LoadSty_5AB750(const char *pStyFileName)
 {
-    sty_header header;// Str2[4]; // [esp+4h] [ebp-10h] BYREF
-    //__int16 v4; // [esp+8h] [ebp-Ch]
-    
-    chunk_header chunk;
-    //char Buffer[4]; // [esp+Ch] [ebp-8h] BYREF
-    //int chunk_size; // [esp+10h] [ebp-4h]
-
     File::Global_Open_4A7060(pStyFileName);
-    DWORD len = 6;
-    File::Global_Read_4A71C0(header.field_0_type, &len);
 
-    if (strncmp("GBST", header.field_0_type, 4u))
+    sty_header styHeader;
+    DWORD len = sizeof(sty_header);
+    File::Global_Read_4A71C0(styHeader.field_0_type, &len);
+
+    if (strncmp("GBST", styHeader.field_0_type, sizeof(styHeader.field_0_type)))
     {
         FatalError_4A38C0(93, "C:\\Splitting\\Gta2\\Source\\chunk.h", 37);
     }
 
-    if (header.field_4_version != 700)
+    if (styHeader.field_4_version != 700)
     {
         FatalError_4A38C0(94, "C:\\Splitting\\Gta2\\Source\\chunk.h", 33);
     }
 
-    for (len = 8; File::Global_Read_4A7210(&chunk, &len); len = 8)
+    chunk_header chunkHeader;
+    for (len = sizeof(chunk_header); File::Global_Read_4A7210(&chunkHeader, &len); len = sizeof(chunk_header))
     {
-        if (chunk.field_4_size)
+        if (chunkHeader.field_4_size != 0)
         {
-            LoadChunk_5AB4B0(chunk.field_0_type, chunk.field_4_size);
+            LoadChunk_5AB4B0(chunkHeader.field_0_type, chunkHeader.field_4_size);
         }
-
     }
+
     File::Global_Close_4A70C0();
 
     sub_5AB720();
