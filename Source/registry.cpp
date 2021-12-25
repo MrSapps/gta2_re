@@ -564,12 +564,12 @@ void Registry::Set_Player_Setting_5878C0(const char* lpValueName, BYTE Data)
 }
 
 // match
-void Registry::Set_Screen_Setting_587170(const char* lpValueName, BYTE Data)
+void Registry::Set_Screen_Setting_587170(const char* lpValueName, int Data)
 {
     HKEY hKey;
     Open_Screen_Root_586DB0(&hKey);
 
-    if (RegSetValueExA(hKey, lpValueName, 0, REG_DWORD, &Data, sizeof(DWORD)) != ERROR_SUCCESS)
+    if (RegSetValueExA(hKey, lpValueName, 0, REG_DWORD, reinterpret_cast<BYTE*>(&Data), sizeof(DWORD)) != ERROR_SUCCESS)
     {
         FatalError_4A38C0(46, "C:\\Splitting\\Gta2\\Source\\registry.cpp", 743);
     }

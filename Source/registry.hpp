@@ -60,7 +60,7 @@ public:
 
     void Set_Player_Setting_5878C0(const char* lpValueName, BYTE Data);
 
-    void Set_Screen_Setting_587170(const char* lpValueName, BYTE Data);
+    void Set_Screen_Setting_587170(const char* lpValueName, int Data);
 
     void Set_Screen_Setting_5871E0(const char *lpValueName, BYTE *lpData, unsigned __int16 maxLen);
 };

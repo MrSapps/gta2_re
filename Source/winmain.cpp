@@ -102,7 +102,7 @@ void __stdcall sub_5D93A0()
 {
     char v0; // bl
     int bcheckModeRet; // esi
-    SVideo *v2; // eax
+   // SVideo *v2; // eax
     DWORD field_4_flags; // ecx
 
     v0 = 0;
@@ -119,17 +119,17 @@ void __stdcall sub_5D93A0()
         }
     }
 
-    v2 = gVidSys_7071D0;
+    //v2 = gVidSys_7071D0;
     if (gVidSys_7071D0)
     {
         field_4_flags = gVidSys_7071D0->field_4_flags;
         //BYTE1(field_4_flags) |= 1u;
         field_4_flags |= 1u;
         gVidSys_7071D0->field_4_flags = field_4_flags;
-        v2 = gVidSys_7071D0;
+       // v2 = gVidSys_7071D0;
     }
 
-    if (Vid_SetMode(v2, gHwnd_707F04, bcheckModeRet))
+    if (Vid_SetMode(gVidSys_7071D0, gHwnd_707F04, bcheckModeRet))
     {
         FatalError_4A38C0(1037, "C:\\Splitting\\Gta2\\Source\\video.cpp", 1365, bcheckModeRet);
     }
